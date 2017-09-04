@@ -1,0 +1,117 @@
+<template>
+   <div class="panel panel-default">
+      <div class="panel-heading">
+         <h3 class="panel-title">Crete User</h3>
+      </div>
+      <form method="POST" autocomplete="off" v-on:submit.prevent="onSubmit">
+         <div class="panel-body">
+            <div class="form-group">
+               <label for="">Username:</label>
+               <input v-validate="'required'" type="text" :class="{'form-control': true, 'is-danger': errors.has('user.name') }" name="user.name" v-model="user.name" data-vv-as="Tên người dùng">
+               <span v-show="errors.has('user.name')" class="label label-danger">{{ errors.first('user.name') }}</span>
+            </div>
+            <div class="form-group">
+               <label for="gender">Gender:</label>
+               <div class="container">
+                  <input type="radio" value="Male" v-model="user.gender">
+                  Male
+               </div>
+               <div class="container">
+                  <input type="radio" value="Female" v-model="user.gender">
+                  Female
+               </div>
+               <!-- /.container -->
+            </div>
+            <!-- /.form-group -->
+            <div class="form-group">
+               <label for="">Phone number:</label>
+               <input type="text" :class="{'form-control': 'true'}" name="user.phone" v-validate="'required|numeric'" v-model="user.phone" data-vv-as="Số điện thoại">
+               <span v-show="errors.has('user.phone')" class="label label-danger">{{ errors.first('user.phone') }}</span>
+            </div>
+            <div class="form-group">
+               <label for="">Email:</label>
+               <input type="text" :class="{'form-control': 'true'}" name="user.email" v-validate="'required|email'" v-model="user.email" data-vv-as="Email">
+               <span v-show="errors.has('user.email')" class="label label-danger">{{ errors.first('user.email') }}</span>
+            </div>
+            <div class="form-group">
+               <label for="">Password:</label>
+               <input type="password" :class="{'form-control': 'true'}" name="user.password" v-validate="'required|min:3'" v-model="user.password" data-vv-as="Mật khẩu">
+               <span v-show="errors.has('user.password')" class="label label-danger">{{ errors.first('user.password') }}</span>
+            </div>
+            <div class="form-group">
+               <label for="">Re-password:</label>
+               <input type="password" :class="{'form-control': 'true'}" name="repassword" v-validate="'required|confirmed:user.password'" v-model="repassword" data-vv-as="Xác nhận mật khẩu">
+               <span v-show="errors.has('repassword')" class="label label-danger">{{ errors.first('repassword') }}</span>
+            </div>
+            <div class="form-group">
+               <div v-if="!image && !errors.has('user.avatar')">
+                  <label for="">Visa card (optional):</label>
+                  <input type="file" v-on:change="onChangeFile" v-validate="'image'" name="user.avatar">
+                  <span v-show="errors.has('user.avatar')" class="label label-danger">{{ errors.first('user.avatar') }}</span>
+               </div>
+               <div v-else-if="!errors.has('user.avatar')">
+                  <div class="col-sm-4">
+                     <img v-bind:src="image" class="img-responsive" /> <br />
+                     <button class="btn btn-danger" v-on:click="removeImage">Remove image</button>
+                  </div>
+                  <!-- /.col-sm-4 -->
+               </div>
+            </div>
+         </div>
+         <div class="panel-footer">
+            <button type="reset" class="btn btn-default">Cancel</button>
+            <button type="submit" class="btn btn-primary">Create user</button>
+         </div>
+         <!-- /.panel-footer -->
+      </form>
+   </div>
+</template>
+<script>
+   export default {
+   	name: 'userCreate',
+
+   	data: function () {
+   		return {
+   			user: {
+   				gender: 'Male'
+   			},
+   			repassword: '',
+   			image: ''
+   		}
+   	},
+
+   	mounted: function () {
+
+   	},
+
+
+   	methods: {
+   		onChangeFile: function (e) {
+   			var files = e.target.files || e.dataTransfer.files;
+   			if (!files.length)
+   				return;
+   			this.createImage(files[0]);
+   		},
+
+   		createImage: function (file) {
+   			var image = new Image();
+   			var reader = new FileReader();
+   			var vm = this;
+
+   			reader.onload = (e) => {
+   				vm.image = e.target.result;
+   			};
+   			reader.readAsDataURL(file);
+   		},
+
+   		removeImage: function () {
+   			this.image = '';
+   		},
+
+   		onSubmit: function () {
+   			var vm = this;
+   			console.log(vm.user);
+   		}
+   	}
+   }
+</script>

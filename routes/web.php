@@ -17,5 +17,9 @@ Route::group(['prefix' => 'admin'], function() {
     });
 });
 Route::get('/', function () {
-    return view('welcome');
+    return view('start');
 });
+
+Route::get('{all}', function () {
+	return view('start');
+})->where(['all' => '.*']);

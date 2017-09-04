@@ -17,6 +17,7 @@
     <link href="{{ asset('assets/css/pages.css') }}" rel="stylesheet" type="text/css" />
     <link href="{{ asset('assets/css/menu.css') }}" rel="stylesheet" type="text/css" />
     <link href="{{ asset('assets/css/responsive.css') }}" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="{{ mix('css/app.css') }}">
     <script src="{{ asset('assets/js/modernizr.min.js') }}"></script>
   </head>
   <body>

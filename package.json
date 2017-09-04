@@ -17,5 +17,13 @@
     "laravel-mix": "^1.0",
     "lodash": "^4.17.4",
     "vue": "^2.1.10"
+  },
+  "dependencies": {
+    "is-loading": "^2.0.3",
+    "nprogress": "^0.2.0",
+    "vee-validate": "^2.0.0-rc.14",
+    "vue-loading-ajax-nprogress": "^0.2.0",
+    "vue-nprogress": "^0.1.5",
+    "vue-router": "^2.7.0"
   }
 }

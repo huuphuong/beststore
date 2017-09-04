@@ -1,36 +1,39 @@
-@extends('layouts.master')
+<!DOCTYPE html>
+<html lang="vi VN">
+  <head>
+    <meta charset="utf-8" />
+    <title>VueJS CMS</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta content="A fully featured admin theme which can be used to build CRM, CMS, etc." name="description" />
+    <meta content="Coderthemes" name="author" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+    <!-- App favicon -->
+    <link rel="shortcut icon" href="{{ asset('assets/images/favicon.ico') }}">
+    <!-- App css -->
+    <link href="{{ asset('assets/css/bootstrap.min.css') }}" rel="stylesheet" type="text/css" />
+    <link href="{{ asset('assets/css/core.css') }}" rel="stylesheet" type="text/css" />
+    <link href="{{ asset('assets/css/components.css') }}" rel="stylesheet" type="text/css" />
+    <link href="{{ asset('assets/css/icons.css') }}" rel="stylesheet" type="text/css" />
+    <link href="{{ asset('assets/css/pages.css') }}" rel="stylesheet" type="text/css" />
+    <link href="{{ asset('assets/css/menu.css') }}" rel="stylesheet" type="text/css" />
+    <link href="{{ asset('assets/css/responsive.css') }}" rel="stylesheet" type="text/css" />
+    <script src="{{ asset('assets/js/modernizr.min.js') }}"></script>
+  </head>
 
-@section('content')
-<div class="content-page">
-  <!-- Start content -->
-  <div class="content">
-    <div class="container">
-      <div class="row">
-        <div class="col-xs-12">
-          <div class="page-title-box">
-            <h4 class="page-title">Starter Page</h4>
-            <ol class="breadcrumb p-0 m-0">
-              <li>
-                <a href="#">Adminox</a>
-              </li>
-              <li>
-                <a href="#">Pages</a>
-              </li>
-              <li class="active">
-                Starter Page
-              </li>
-            </ol>
-            <div class="clearfix"></div>
-          </div>
-        </div>
-      </div>
-      <!-- end row -->
-    </div>
-    <!-- container -->
-  </div>
-  <!-- content -->
-  <footer class="footer text-right">
-    2017 © Adminox. - Coderthemes.com
-  </footer>
-</div>
-@endsection
+  <body>
+
+    <div id="app"></div><!--/#app  -->
+
+    <!-- Javascript script -->
+    <script src="{{ asset('assets/js/jquery.min.js') }}"></script>
+    <script src="{{ asset('assets/js/bootstrap.min.js') }}"></script>
+    <script src="{{ asset('assets/js/metisMenu.min.js') }}"></script>
+    <script src="{{ asset('assets/js/waves.js') }}"></script>
+    <script src="{{ asset('assets/js/jquery.slimscroll.js') }}"></script>
+    <!-- App js -->
+    <script src="{{ asset('assets/js/jquery.core.js') }}"></script>
+    <script src="{{ asset('assets/js/jquery.app.js') }}"></script>
+    <script src="{{ mix('js/app.js') }}"></script>
+  </body>
+</html>
