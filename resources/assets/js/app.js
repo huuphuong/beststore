@@ -15,11 +15,16 @@ import App from './components/App'
 import router from './routes'
 import axios from 'axios'
 import isLoading from 'is-loading';
-import VeeValidate from 'vee-validate';
+import vi from 'vee-validate/dist/locale/vi';
+import VeeValidate, { Validator } from 'vee-validate';
 
 
 Vue.use(VueRouter)
-Vue.use(VeeValidate)
+
+// Add locale helper.
+Validator.addLocale(vi);
+
+Vue.use(VeeValidate, {'locale': 'vi'})
 
 
 axios.interceptors.request.use(function (config) {

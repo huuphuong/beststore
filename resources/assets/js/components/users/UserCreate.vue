@@ -44,18 +44,13 @@
                <span v-show="errors.has('repassword')" class="label label-danger">{{ errors.first('repassword') }}</span>
             </div>
             <div class="form-group">
-               <div v-if="!image && !errors.has('user.avatar')">
-                  <label for="">Visa card (optional):</label>
+               <label for="">Visa card (optional):</label>
                   <input type="file" v-on:change="onChangeFile" v-validate="'image'" name="user.avatar">
                   <span v-show="errors.has('user.avatar')" class="label label-danger">{{ errors.first('user.avatar') }}</span>
-               </div>
-               <div v-else-if="!errors.has('user.avatar')">
-                  <div class="col-sm-4">
-                     <img v-bind:src="image" class="img-responsive" /> <br />
-                     <button class="btn btn-danger" v-on:click="removeImage">Remove image</button>
+
+                  <div v-if="image" class="col-sm-4">
+                     <img v-bind:src="image" class="img-responsive">
                   </div>
-                  <!-- /.col-sm-4 -->
-               </div>
             </div>
          </div>
          <div class="panel-footer">
