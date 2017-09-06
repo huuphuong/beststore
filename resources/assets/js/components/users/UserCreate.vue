@@ -30,7 +30,7 @@
             </div>
             <div class="form-group">
                <label for="">Email:</label>
-               <input type="text" :class="{'form-control': 'true'}" name="user.email" v-validate="'required|email'" v-model="user.email" data-vv-as="Email">
+               <input type="text" :class="{'form-control': 'true'}" name="user.email" v-validate="'required|email|check_exists'" v-model="user.email" data-vv-as="Email">
                <span v-show="errors.has('user.email')" class="label label-danger">{{ errors.first('user.email') }}</span>
             </div>
             <div class="form-group">
@@ -61,52 +61,5 @@
       </form>
    </div>
 </template>
-<script>
-   export default {
-   	name: 'userCreate',
 
-   	data: function () {
-   		return {
-   			user: {
-   				gender: 'Male'
-   			},
-   			repassword: '',
-   			image: ''
-   		}
-   	},
-
-   	mounted: function () {
-
-   	},
-
-
-   	methods: {
-   		onChangeFile: function (e) {
-   			var files = e.target.files || e.dataTransfer.files;
-   			if (!files.length)
-   				return;
-   			this.createImage(files[0]);
-   		},
-
-   		createImage: function (file) {
-   			var image = new Image();
-   			var reader = new FileReader();
-   			var vm = this;
-
-   			reader.onload = (e) => {
-   				vm.image = e.target.result;
-   			};
-   			reader.readAsDataURL(file);
-   		},
-
-   		removeImage: function () {
-   			this.image = '';
-   		},
-
-   		onSubmit: function () {
-   			var vm = this;
-   			console.log(vm.user);
-   		}
-   	}
-   }
-</script>
+<script src="./UserCreate.js"></script>
