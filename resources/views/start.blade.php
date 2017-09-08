@@ -12,6 +12,7 @@
     <link rel="shortcut icon" href="{{ asset('assets/images/favicon.ico') }}">
     <!-- App css -->
     <link href="{{ asset('assets/css/bootstrap.min.css') }}" rel="stylesheet" type="text/css" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="{{ asset('assets/css/core.css') }}" rel="stylesheet" type="text/css" />
     <link href="{{ asset('assets/css/components.css') }}" rel="stylesheet" type="text/css" />
     <link href="{{ asset('assets/css/icons.css') }}" rel="stylesheet" type="text/css" />

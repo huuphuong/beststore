@@ -5,7 +5,7 @@ import RoleCreate from '../components/roles/RoleCreate'
 import RoleList from '../components/roles/RoleList'
 import RoleDetail from '../components/roles/RoleDetail'
 
-import UserCreate from '../components/users/UserCreate'
+import UserCreate from '../components/users/UserCreate.vue'
 
 Vue.use(VueRouter);
 

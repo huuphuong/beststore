@@ -10,14 +10,16 @@ require('./bootstrap');
 
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import App from './components/App'
+import App from './components/App.vue' 
 
 import router from './routes'
 import axios from 'axios'
 import isLoading from 'is-loading';
 import vi from 'vee-validate/dist/locale/vi';
 import VeeValidate, { Validator } from 'vee-validate';
+import vueTopprogress from 'vue-top-progress'
 
+Vue.use(vueTopprogress)
 
 Vue.use(VueRouter)
 
@@ -26,27 +28,25 @@ Validator.addLocale(vi);
 
 Vue.use(VeeValidate, {'locale': 'vi'})
 
-
+/**
+ * Next, we will create a fresh Vue application instance and attach it to
+ * the page. Then, you may begin adding components to this application
+ * or customize the JavaScript scaffolding to fit your unique needs.
+ */
 axios.interceptors.request.use(function (config) {
-	isLoading().loading();
+	this.$refs.topProgress.start()
 	return config;
 }, function (error) {
 	return Promise.reject(error);
 });
 
 axios.interceptors.response.use(function (response) {
-  isLoading().remove();
+	this.$refs.topProgress.done()
     return response;
 }, function (error) {
     return Promise.reject(error);
 });
 
-
-/**
- * Next, we will create a fresh Vue application instance and attach it to
- * the page. Then, you may begin adding components to this application
- * or customize the JavaScript scaffolding to fit your unique needs.
- */
 
 
 const app = new Vue({

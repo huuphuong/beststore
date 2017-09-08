@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\User;
+use App\Api;
 
 class UserController extends Controller
 {
@@ -35,7 +36,32 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data       = $request->input('body');
+        $emailCheck = $this->checkEmail($data['user']['email']);
+
+        if ($emailCheck == Api::$_PASS) {
+            $user = new User();
+            $user->name     = $data['user']['name'];
+            $user->email    = $data['user']['email'];
+            $user->gender   = $data['user']['gender'];
+            $user->phone    = $data['user']['phone'];
+            $user->password = bcrypt($data['user']['password']);
+
+            if (!empty ($data['avatar'])) {
+                $user->avatar = $data['avatar'];
+            }
+
+            $user->save();
+
+            $res = [
+                'data' => $user,
+                'type' => Api::$_SUCCESS,
+                'message' => 'Thêm user thành công'
+            ];
+            return response($res, Api::$_OK);
+        }
+
+        return $emailCheck;
     }
 
     /**
@@ -89,9 +115,19 @@ class UserController extends Controller
      * @param  string $email :Email nhập vào
      * @return số lượng bản ghi tồn tại
      */
-    public function checkEmailExist($email)
+    private function checkEmail($email)
     {
-        $data = User::where('email', '=', $email)->count();
-        return response()->json($data, 200);
+        $count = User::where('email', '=', $email)->count();
+        if ($count > 0) {
+            return response()->json(
+                [
+                    'status' => Api::$_OK, 
+                    'message' => 'Email đã tồn tại', 
+                    'type' => Api::$_ERROR
+                ]
+            , Api::$_OK
+            );
+        }
+        return Api::$_PASS;
     }
 } // End class

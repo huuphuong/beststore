@@ -19,11 +19,21 @@
     "vue": "^2.1.10"
   },
   "dependencies": {
+    "awesome-vue-toast": "^1.0.5",
     "is-loading": "^2.0.3",
     "nprogress": "^0.2.0",
     "vee-validate": "^2.0.0-rc.14",
+    "vue-easy-toast": "^1.0.2",
+    "vue-loader": "^13.0.4",
     "vue-loading-ajax-nprogress": "^0.2.0",
+    "vue-notifications": "^0.8.0",
     "vue-nprogress": "^0.1.5",
-    "vue-router": "^2.7.0"
+    "vue-picture-input": "^1.13.2",
+    "vue-router": "^2.7.0",
+    "vue-toast": "^3.1.0",
+    "vue-toasted": "^1.1.17",
+    "vue-toastr-2": "0.0.9",
+    "vue-top-progress": "^0.6.0",
+    "vue2-dropzone": "^2.0.0"
   }
 }

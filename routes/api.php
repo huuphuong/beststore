@@ -17,4 +17,4 @@ use Illuminate\Http\Request;
 //     return $request->user();
 // });
 Route::resource('roles', 'RoleController');
-Route::get('/users/check_exists/{email}', 'UserController@checkEmailExist');
+Route::resource('users', 'UserController');

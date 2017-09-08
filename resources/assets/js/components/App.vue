@@ -1,6 +1,7 @@
 <template>
   <!-- Begin page -->
   <div id="wrapper">
+   
 		<topbar></topbar>
 		<sidebar></sidebar>
 
@@ -27,6 +28,10 @@
 	import FooterPage from './FooterPage'
 
 	export default {
-		components: { Topbar, Sidebar, Breadcrumb, FooterPage }
+		components: { Topbar, Sidebar, Breadcrumb, FooterPage },
+
+    beforeMount: function () {
+      
+    }
 	}
 </script>
