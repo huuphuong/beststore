@@ -66,11 +66,11 @@
 			getRoleDetail: function () {
 				var vm = this;
 				var id = vm.id
-				var url = `/api/roles/${id}/edit/`
+				var url = `/api/v1/roles/${id}/`
 
 				axios.get(url)
 					.then(function (response) {
-						vm.role = response.data
+						vm.role = response.data.data;
 					})
 					.catch(function (errors) {
 						console.log(errors)

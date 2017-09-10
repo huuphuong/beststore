@@ -18,11 +18,11 @@
       </div>
       <div class="panel-footer">
         <button type="reset" class="btn btn-default">Cancel</button>
-        <button type="submit" class="btn btn-primary">Add Role</button>
+        <button type="submit" class="btn btn-primary">Update Role</button>
       </div>
       <!-- /.panel-footer -->
     </form>
   </div>
 </template>
 
-<script src="./RoleCreate.js"></script>
+<script src="./RoleEdit.js"></script>

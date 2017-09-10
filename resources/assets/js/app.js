@@ -9,8 +9,7 @@ require('./bootstrap');
 
 
 import Vue from 'vue'
-import VueRouter from 'vue-router'
-import App from './components/App.vue' 
+import App from './components/App.vue'
 
 import router from './routes'
 import axios from 'axios'
@@ -21,7 +20,6 @@ import vueTopprogress from 'vue-top-progress'
 
 Vue.use(vueTopprogress)
 
-Vue.use(VueRouter)
 
 // Add locale helper.
 Validator.addLocale(vi);
@@ -34,14 +32,14 @@ Vue.use(VeeValidate, {'locale': 'vi'})
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 axios.interceptors.request.use(function (config) {
-	this.$refs.topProgress.start()
+
 	return config;
 }, function (error) {
 	return Promise.reject(error);
 });
 
 axios.interceptors.response.use(function (response) {
-	this.$refs.topProgress.done()
+
     return response;
 }, function (error) {
     return Promise.reject(error);

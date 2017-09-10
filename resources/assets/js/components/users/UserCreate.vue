@@ -1,9 +1,9 @@
-<template lang="html">
+<template>
   <div class="panel panel-default">
+    <div class="panel-heading">
+      <h3 class="panel-title">Crete User</h3>
+    </div>
     <form @submit.prevent="validateBeforeSubmit" method="POST" enctype="multipart/form-data">
-      <div class="panel-heading">
-        <h3 class="panel-title">Crete User</h3>
-      </div>
       <div class="panel-body">
         <div class="form-group">
           <label for="">Username:</label>
@@ -29,6 +29,14 @@
           <span v-show="errors.has('user.phone')" class="label label-danger">{{ errors.first('user.phone') }}</span>
         </div>
         <div class="form-group">
+          <label for="role">Role:</label>
+          <select name="user.role_id" :class="{'form-control': 'true'}" v-validate="'required'" data-vv-as="Nhóm người dùng" v-model="user.role_id">
+            <option value="">-- Choose User Role --</option>
+            <option v-for="role in listRole" v-bind:value="role.id">{{ role.role_name }}</option>
+          </select>
+          <span v-show="errors.has('user.role_id')" class="label label-danger">{{ errors.first('user.role_id') }}</span>
+        </div><!-- /.form-group -->
+        <div class="form-group">
           <label for="">Email:</label>
           <input type="text" :class="{'form-control': 'true'}" name="user.email" v-validate="'required|email'" v-model="user.email" data-vv-as="Email">
           <span v-show="errors.has('user.email')" class="label label-danger">{{ errors.first('user.email') }}</span>
@@ -46,28 +54,27 @@
         <div class="form-group">
           <label for="">Visa card (optional):</label>
           <picture-input
-              ref="pictureInput" 
-              @change="onChangeImage" 
-              width="350" 
-              height="350" 
-              accept="image/jpeg,image/png" 
-              size="10"
-              :crop="true" 
-              :removable="true"
-              :buttonClass="'btn btn-default'"
-              :removeButtonClass="'btn btn-warning'"
-              :customStrings="{
-                upload: '<h1>Bummer!</h1>',
-                drag: 'Please choose your image.'
-              }"
-              v-validate="'image'"
-              data-vv-value-path="innerValue"
-              data-vv-name="customImage"
-              data-vv-as="Ảnh đại diện"
-              >
-            </picture-input>
-            
-            <p v-show="errors.has('customImage')" class="label label-danger text-center">{{ errors.first('customImage') }}</p>
+            ref="pictureInput"
+            @change="onChangeImage"
+            width="350"
+            height="350"
+            accept="image/jpeg,image/png"
+            size="10"
+            :crop="true"
+            :removable="true"
+            :buttonClass="'btn btn-default'"
+            :removeButtonClass="'btn btn-warning'"
+            :customStrings="{
+            upload: '<h1>Bummer!</h1>',
+            drag: 'Please choose your image.'
+            }"
+            v-validate="'image'"
+            data-vv-value-path="innerValue"
+            data-vv-name="customImage"
+            data-vv-as="Ảnh đại diện"
+            >
+          </picture-input>
+          <p v-show="errors.has('customImage')" class="label label-danger text-center">{{ errors.first('customImage') }}</p>
         </div>
       </div>
       <div class="panel-footer">
@@ -78,5 +85,4 @@
     </form>
   </div>
 </template>
-
 <script src="./UserCreate.js"></script>

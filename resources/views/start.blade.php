@@ -17,8 +17,9 @@
     <link href="{{ asset('assets/css/components.css') }}" rel="stylesheet" type="text/css" />
     <link href="{{ asset('assets/css/icons.css') }}" rel="stylesheet" type="text/css" />
     <link href="{{ asset('assets/css/pages.css') }}" rel="stylesheet" type="text/css" />
-    <link href="{{ asset('assets/css/menu.css') }}" rel="stylesheet" type="text/css" />
+    <link href="{{ asset('assets/css/menu_light.css') }}" rel="stylesheet" type="text/css" />
     <link href="{{ asset('assets/css/responsive.css') }}" rel="stylesheet" type="text/css" />
+    <link href="{{ asset('css/style.css') }}" rel="stylesheet" type="text/css" />
     <script src="{{ asset('assets/js/modernizr.min.js') }}"></script>
   </head>
 
@@ -30,7 +31,7 @@
     <script src="{{ asset('assets/js/jquery.min.js') }}"></script>
     <script src="{{ asset('assets/js/bootstrap.min.js') }}"></script>
     <script src="{{ asset('assets/js/metisMenu.min.js') }}"></script>
-    <script src="{{ asset('assets/js/waves.js') }}"></script>
+    <!-- <script src="{{ asset('assets/js/waves.js') }}"></script> -->
     <script src="{{ asset('assets/js/jquery.slimscroll.js') }}"></script>
     <!-- App js -->
     <script src="{{ asset('assets/js/jquery.core.js') }}"></script>

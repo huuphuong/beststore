@@ -14,19 +14,22 @@ export default {
     return {
       user: {
         gender: 'Male',
-        email: ''
+        email: '',
+        role_id: ''
       },
       repassword: '',
-      avatar: ''
+      avatar: '',
+      listRole: []
     }
   },
 
   created () {
-    
+
   },
 
   mounted: function () {
-    
+    var vm = this;
+    vm.getListRole();
   },
 
 
@@ -44,8 +47,6 @@ export default {
       vm.$validator.validateAll().then((result) => {
         if (result) {
           return vm.createUser()
-        } else {
-          alert(errors)
         }
       });
     },
@@ -69,9 +70,22 @@ export default {
     },
 
 
+    getListRole: function () {
+      var vm = this;
+      var url = '/api/v1/roles';
+      axios.get(url)
+            .then(function (response) {
+              vm.listRole = response.data.data;
+            })
+            .catch(function (error) {
+              console.log(error)
+            })
+    },
+
+
     createUser: function () {
       let vm = this;
-      let url = '/api/users';
+      let url = '/api/v1/users';
       axios.post(url, {
         body: {
           user: vm.user,
@@ -79,7 +93,7 @@ export default {
         }
       }).then(function (response) {
           var result = response.data;
-          Common.setToast(result.message, result.type);
+          Common.setToast(result.message, result.status);
           if (result.type == 'success') {
             console.log('Chuyển hướng');
           }

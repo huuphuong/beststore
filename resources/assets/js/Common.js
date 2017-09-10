@@ -3,7 +3,27 @@ import Toasted from 'vue-toasted';
 Vue.use(Toasted)
 
 class Common {
-	setToast (message, type) {
+
+	constructor () {
+		this.statusCode = {
+			_PASS         : 'pass',
+			_ERROR        : 'error',
+			_SUCCESS      : 'success',
+			_OK           : 200,
+			_CREATED      : 201,
+			_NOCONTENT    : 204,
+			_NOTMODIFY    : 304,
+			_BADREQUEST   : 400,
+			_UNAUTHORIZED : 401,
+			_FORBIDDEN    : 403,
+			_NOTFOUND     : 404,
+			_CONFLICT     : 409,
+			_SERVERERROR  : 500
+		}
+
+	}
+
+	setToast (message, type='info') {
 		var self = this;
 
 		Vue.toasted.show(message, {

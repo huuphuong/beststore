@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Role;
+use App\Api;
 
 class RoleController extends Controller
 {
@@ -14,8 +15,12 @@ class RoleController extends Controller
      */
     public function index()
     {
-        $roles = Role::all()->toArray();
-        return response()->json($roles, 200);
+        $roles = Role::orderBy('id', 'DESC')->get();
+        $res = array(
+            'status' => Api::$_OK,
+            'data' => $roles
+        );
+        return response()->json($res, Api::$_OK);
     }
 
     /**
@@ -38,7 +43,12 @@ class RoleController extends Controller
     {
         $post_data = $request->all();
         $role      = Role::create($post_data['body']);
-        return response()->json($role, 200);
+        $res       = array(
+            'status'  => Api::$_CREATED,
+            'message' => 'Tạo nhóm người dùng thành công',
+            'data'    => $role
+        );
+        return response()->json($role, Api::$_CREATED);
     }
 
     /**
@@ -49,7 +59,17 @@ class RoleController extends Controller
      */
     public function show($id)
     {
-        //
+        $role = Role::find($id);
+        if ($role) {
+            $res = array(
+                'status' => Api::$_OK,
+                'data' => $role
+            );
+            return response()->json($res);
+        }
+        else {
+            return response()->json(['status' => '404', 'message' => 'No content'], 204);
+        }
     }
 
     /**
@@ -62,12 +82,19 @@ class RoleController extends Controller
     {
         $role = Role::find($id);
         if ($role) {
-            return response()->json($role);
+            $res = array(
+                'status' => Api::$_OK,
+                'data' => $role
+            );
         }
         else {
-            return response()->json(['status' => '404', 'message' => 'No content'], 204);
+            $res = array(
+                'status' => Api::$_NOTFOUND,
+                'message' => 'Không có dữ liệu'
+            );
         }
 
+        return response()->json($res, Api::$_OK);
     }
 
     /**
@@ -79,7 +106,16 @@ class RoleController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $post_data = $request->all();
+        $role      = Role::where('id', '=', $id)
+                         ->update($post_data['body']);
+
+        $res       = array(
+            'status'  => Api::$_CREATED,
+            'message' => 'Cập nhật nhóm người dùng thành công',
+            'data'    => $role
+        );
+        return response()->json($role, Api::$_CREATED);
     }
 
     /**
@@ -90,6 +126,11 @@ class RoleController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $role = Role::findOrFail($id)->delete();
+        $res = array(
+            'status' => Api::$_NOCONTENT,
+            'message' => 'Xóa role thành công'
+        );
+        return response()->json($res, Api::$_OK);
     }
 }

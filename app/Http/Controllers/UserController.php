@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\User;
 use App\Api;
+use File;
 
 class UserController extends Controller
 {
@@ -45,6 +46,7 @@ class UserController extends Controller
             $user->email    = $data['user']['email'];
             $user->gender   = $data['user']['gender'];
             $user->phone    = $data['user']['phone'];
+            $user->role_id  = $data['user']['role_id'];
             $user->password = bcrypt($data['user']['password']);
 
             if (!empty ($data['avatar'])) {
@@ -55,7 +57,7 @@ class UserController extends Controller
 
             $res = [
                 'data' => $user,
-                'type' => Api::$_SUCCESS,
+                'status' => Api::$_CREATED,
                 'message' => 'Thêm user thành công'
             ];
             return response($res, Api::$_OK);
@@ -121,8 +123,8 @@ class UserController extends Controller
         if ($count > 0) {
             return response()->json(
                 [
-                    'status' => Api::$_OK, 
-                    'message' => 'Email đã tồn tại', 
+                    'status' => Api::$_OK,
+                    'message' => 'Email đã tồn tại',
                     'type' => Api::$_ERROR
                 ]
             , Api::$_OK
