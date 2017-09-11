@@ -74,7 +74,24 @@ class UserController extends Controller
      */
     public function show($id)
     {
-        //
+        $user = User::leftJoin('roles', 'roles.id', '=', 'users.role_id')
+                    ->where('users.id', $id)
+                    ->whereNull('roles.deleted_at')
+                    ->first();
+        if ($user) {
+            $res = array(
+                'status' => Api::$_OK,
+                'data' => $user
+            );
+        }
+        else {
+            $res = array(
+                'status' => Api::$_NOCONTENT,
+                'message' => 'Không có dữ liệu.'
+            );
+        }
+
+        return response()->json($res, Api::$_OK);
     }
 
     /**

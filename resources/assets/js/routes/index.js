@@ -1,12 +1,16 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Admin from '../components/Admin'
-import RoleCreate from '../components/roles/RoleCreate'
-import RoleList from '../components/roles/RoleList'
-import RoleDetail from '../components/roles/RoleDetail'
-import RoleEdit from '../components/roles/RoleEdit'
 
+// Role
+import RoleCreate from '../components/roles/RoleCreate.vue'
+import RoleList from '../components/roles/RoleList.vue'
+import RoleDetail from '../components/roles/RoleDetail.vue'
+import RoleEdit from '../components/roles/RoleEdit.vue'
+
+// User 
 import UserCreate from '../components/users/UserCreate.vue'
+import UserDetail from '../components/users/UserDetail.vue'
 
 Vue.use(VueRouter);
 
@@ -18,6 +22,7 @@ export default new VueRouter({
 		{ path: '/roles/detail/:id', name: 'RoleDetail', component: RoleDetail },
 		{ path: '/roles/edit/:id', name: 'RoleEdit', component: RoleEdit },
 		{ path: '/users/create', name: 'UserCreate', component: UserCreate },
+		{ path: '/users/detail/:id', 'name': 'UserDetail', component: UserDetail }
 	],
 	mode: 'history'
 })
