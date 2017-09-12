@@ -14,10 +14,10 @@ class UserController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         $user     = new User();
-        $listUser = $user->getUser();
+        $listUser = $user->getUser($request->all());
 
         $res = array(
             'status' => Api::$_OK,
