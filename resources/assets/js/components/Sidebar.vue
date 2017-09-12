@@ -19,7 +19,7 @@
               <a href="javascript: void(0);"><i class="fi-share"></i> <span>User/Customers</span> <span class="menu-arrow"></span></a>
               <ul class="nav-second-level nav">
                     <router-link tag="li" :to="{ name: 'UserCreate' }"><a>Create User</a></router-link>
-                    <router-link tag="li" :to="{ name: 'RoleList' }"><a>List User</a></router-link>
+                    <router-link tag="li" :to="{ name: 'UserList' }"><a>List User</a></router-link>
               </ul>
            </li>
 

@@ -11,6 +11,7 @@ import RoleEdit from '../components/roles/RoleEdit.vue'
 // User 
 import UserCreate from '../components/users/UserCreate.vue'
 import UserDetail from '../components/users/UserDetail.vue'
+import UserList from '../components/users/UserList.vue'
 
 Vue.use(VueRouter);
 
@@ -22,7 +23,8 @@ export default new VueRouter({
 		{ path: '/roles/detail/:id', name: 'RoleDetail', component: RoleDetail },
 		{ path: '/roles/edit/:id', name: 'RoleEdit', component: RoleEdit },
 		{ path: '/users/create', name: 'UserCreate', component: UserCreate },
-		{ path: '/users/detail/:id', 'name': 'UserDetail', component: UserDetail }
+		{ path: '/users/detail/:id', name: 'UserDetail', component: UserDetail },
+		{ path: '/users', name: 'UserList', component: UserList }
 	],
 	mode: 'history'
 })

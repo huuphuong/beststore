@@ -16,7 +16,15 @@ class UserController extends Controller
      */
     public function index()
     {
-        //
+        $user     = new User();
+        $listUser = $user->getUser();
+
+        $res = array(
+            'status' => Api::$_OK,
+            'data'   => $listUser
+        );
+
+        return response()->json($res, Api::$_OK);
     }
 
     /**
