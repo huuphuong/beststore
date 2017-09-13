@@ -23,6 +23,10 @@ export default {
 
 	methods: {
 		getListUser (currentPage = 1, filterQuery = {}) {
+			if (Object.getOwnPropertyNames(filterQuery).length === 0) {
+				filterQuery = this.query;
+			}
+			
 			var vm = this;
 			var url = '/api/v1/users?page=' + currentPage + '&' + queryString.stringify(filterQuery);
 			axios.get(url).then(function (response) {

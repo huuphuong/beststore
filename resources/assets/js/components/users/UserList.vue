@@ -51,7 +51,8 @@
 						<th>
 							<div class="btn-group">
 								<button type="button" class="btn btn-primary" @click="getListUser(1, query)">Filter</button>
-								<button type="button" class="btn btn-default" @click="clearPage">Cancel</button>
+								<!-- <button type="button" class="btn btn-default" @click="clearPage">Cancel</button> -->
+								<a href="/users" class="btn btn-default">Cancel</a>
 							</div>
 						</th>
 					</tr>
