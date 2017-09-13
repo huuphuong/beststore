@@ -110,7 +110,20 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-        //
+        $user = User::find($id);
+        if ($user) {
+            $res = array(
+                'status' => Api::$_OK,
+                'data' => $user
+            );
+        }else {
+            $res = array(
+                'status' => Api::$_NOCONTENT,
+                'message' => 'Không có dữ liệu'
+            );
+        }
+
+        return response()->json($res, Api::$_OK);
     }
 
     /**
@@ -122,7 +135,26 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $post_data = $request->input('body');
+        $user = User::findOrFail($id);
+        $user->name      = $post_data['user']['name'];
+        $user->email     = $post_data['user']['email'];
+        $user->gender    = $post_data['user']['gender'];
+        $user->hobbies   = $post_data['user']['hobbies'];
+        $user->countries = $post_data['user']['countries'];
+        $user->note      = $post_data['user']['note'];
+        $user->avatar    = $post_data['avatar'];
+        if (!empty ($post_data['user']['password'])) {
+            $user->password = bcrypt($post_data['user']['password']);
+        }
+        $user->save();
+
+        $res = [
+            'data' => $user,
+            'status' => Api::$_CREATED,
+            'message' => 'Cập nhật user thành công'
+        ];
+        return response($res, Api::$_OK);
     }
 
     /**

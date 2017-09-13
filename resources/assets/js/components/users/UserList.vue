@@ -65,11 +65,12 @@
                 <span class="glyphicon glyphicon-option-horizontal"></span>
                 </button>
                 <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu1">
-                  <li><a href="#">
-                    <span class="glyphicon glyphicon-pencil"></span> Edit User
-                    </a>
-                  </li>
-                  <li><a href="#"><span class="glyphicon glyphicon-trash"></span> View User Detail</a></li>
+                  <router-link v-bind:to="{name: 'UserEdit', params: {'id': user.id}}" tag="li">
+                  	<a><span class="glyphicon glyphicon-pencil"></span> Edit User</a>
+                  </router-link>
+                  <router-link v-bind:to="{name: 'UserDetail', params: {'id': user.id}}" tag="li">
+                  	<a><span class="glyphicon glyphicon-eye-open"></span> View User Detail</a>
+                  </router-link>
                 </ul>
               </div>
             </td>
