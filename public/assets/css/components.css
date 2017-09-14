@@ -814,7 +814,7 @@ File: Components
   color: #ffffff;
 }
 /* Radios */
-.radio {
+/*.radio {
   padding-left: 20px;
 }
 .radio label {
@@ -960,7 +960,7 @@ File: Components
 }
 .radio-pink input[type="radio"]:checked + label::after {
   background-color: #ec6794;
-}
+}*/
 /* =============
    Modals
 ============= */
