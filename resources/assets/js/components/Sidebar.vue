@@ -23,6 +23,14 @@
               </ul>
            </li>
 
+           <li>
+              <a href="javascript: void(0);"><i class="fi-share"></i> <span>Product</span> <span class="menu-arrow"></span></a>
+              <ul class="nav-second-level nav">
+                    <router-link tag="li" :to="{ name: 'ProductCreate' }"><a>Create Product</a></router-link>
+                    <router-link tag="li" :to="{ name: 'UserList' }"><a>List Product</a></router-link>
+              </ul>
+           </li>
+
 	        <li>
 
 	        </li>

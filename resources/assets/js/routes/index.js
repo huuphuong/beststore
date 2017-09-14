@@ -14,6 +14,9 @@ import UserDetail from '../components/users/UserDetail.vue'
 import UserList from '../components/users/UserList.vue'
 import UserEdit from '../components/users/UserEdit.vue'
 
+// Product
+import ProductCreate from '../components/products/ProductCreate.vue'
+
 Vue.use(VueRouter);
 
 export default new VueRouter({
@@ -23,10 +26,15 @@ export default new VueRouter({
 		{ path: '/roles', name: 'RoleList', component: RoleList },
 		{ path: '/roles/detail/:id', name: 'RoleDetail', component: RoleDetail },
 		{ path: '/roles/edit/:id', name: 'RoleEdit', component: RoleEdit },
+
+
 		{ path: '/users/create', name: 'UserCreate', component: UserCreate },
 		{ path: '/users/detail/:id', name: 'UserDetail', component: UserDetail },
 		{ path: '/users', name: 'UserList', component: UserList },
 		{ path: '/users/edit/:id', name: 'UserEdit', component: UserEdit },
+
+
+		{ path: '/products/create', name: 'ProductCreate', component: ProductCreate },
 	],
 	mode: 'history'
 })
