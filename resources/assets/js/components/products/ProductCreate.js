@@ -1,12 +1,18 @@
+import Dropzone from 'vue2-dropzone'
+import Recusive from '../shared/Recusive.vue';
+
 export default {
 	name: 'productCreate',
+
+	components: { Dropzone, Recusive },
 
 	data () {
 		return {
 			option: `<option value="">Chọn</option>`,
 			product: {
 				cat_id: ''
-			}
+			},
+			uploadUrl: '/api/v1/products/upload'
 		}
 	},
 
@@ -26,6 +32,10 @@ export default {
 	},
 
 	methods: {
+		showSuccess (file) {
+			console.log("Upload success");
+		},
+
 		category (data, parent = 0, string = '---|', select=0) {
 			var vm = this;
 			for (var value of data) {

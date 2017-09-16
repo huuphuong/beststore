@@ -6,8 +6,7 @@
 		<div class="panel-body">
 			<div class="form-group">
 				<label for="cat_id">Category:</label>
-				<select v-model="product.cat_id" id="inputV-Model=" class="form-control" v-html="option">
-				</select>
+				<recusive v-bind:options="option" v-model="product.cat_id"></recusive>
 			</div>
 
 			<div class="form-group">
@@ -61,12 +60,12 @@
 				<label for="content">Is new:</label>
 				<div class="radio">
 					<label class="radio-inline">
-						<input type="radio" name="" id="input" value="" checked="checked">
+						<input type="radio" name="is_new" id="input" value="" checked="checked">
 						No
 					</label>
 
 					<label class="radio-inline">
-						<input type="radio" name="" id="input" value="">
+						<input type="radio" name="is_new" id="input" value="">
 						Yes
 					</label>
 				</div>
@@ -75,15 +74,13 @@
 			<div class="from-group">
 				<label for="content">Is hot:</label>
 				<div class="radio">
-					<label class="">
-						<input type="radio" name="" id="input" value="">
+					<label class="radio-inline">
+						<input type="radio" name="is_hot" id="input" value="">
 						No
 					</label>
-				</div>
 
-				<div class="radio">
 					<label class="radio-inline">
-						<input type="radio" name="" id="input" value="" checked="checked">
+						<input type="radio" name="is_hot" id="input" value="" checked="checked">
 						Yes
 					</label>
 				</div>
@@ -93,15 +90,27 @@
 				<label for="content">Is sale:</label>
 				<div class="radio">
 					<label>
-						<input type="radio" name="" id="input" value="" checked="checked">
+						<input type="radio" name="is_sale" id="input" value="" checked="checked">
 						No
 					</label>
 
 					<label class="radio-inline">
-						<input type="radio" name="" id="input" value="" checked="checked">
+						<input type="radio" name="is_sale" id="input" value="">
 						Yes
 					</label>
 				</div>
+			</div>
+
+			<div class="from-group">
+				<label for="">Image avatar:</label>
+				<img src="" alt="">
+			</div>
+
+			<div class="from-group">
+				<label for="">Image Detail:</label>
+				<dropzone id="myVueDropzone" url="" v-on:vdropzone-success="showSuccess">
+			        <input type="hidden" name="token" value="xxx">
+			    </dropzone>
 			</div>
 		</div>
 		<div class="panel-footer">
