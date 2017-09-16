@@ -81,4 +81,10 @@ class ProductController extends Controller
     {
         //
     }
-}
+
+
+    public function upload(Request $request) 
+    {
+        dd($request->all());
+    }
+} // End class

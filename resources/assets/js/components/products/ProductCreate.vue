@@ -107,8 +107,14 @@
 			</div>
 
 			<div class="from-group">
-				<label for="">Image Detail:</label>
-				<dropzone id="myVueDropzone" url="" v-on:vdropzone-success="showSuccess">
+				<label for="">Image Detail (Each file is up to 1MB):</label>
+				<dropzone id="myVueDropzone" 
+						  v-bind:url="uploadUrl"
+						  :maxFileSizeInMB="1"
+						  :showRemoveLink="true"
+						  :duplicateCheck="true"
+						  v-on:vdropzone-success="showSuccess"
+						  ref="myUniqueID">
 			        <input type="hidden" name="token" value="xxx">
 			    </dropzone>
 			</div>

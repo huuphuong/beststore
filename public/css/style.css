@@ -1,3 +1,7 @@
 .point {
 	cursor: pointer;;=
 }
+
+.dropzone .dz-preview .dz-remove {
+	right: 2px !important;
+}

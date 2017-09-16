@@ -8,15 +8,18 @@ export default {
 
 	data () {
 		return {
+			title: 'Thêm sản phẩm',
 			option: `<option value="">Chọn</option>`,
 			product: {
 				cat_id: ''
 			},
-			uploadUrl: '/api/v1/products/upload'
+			uploadUrl: '/api/v1/products/upload',
+
 		}
 	},
 
 	mounted () {
+		
 		var vm = this;
 		var data = [
 			{ id: 1, title: 'Quần', parent_id: 0 }, 
@@ -28,12 +31,23 @@ export default {
 			{ id: 7, title: 'Đai lưng', parent_id: 0 },
 		];
 
+		vm.clear();
+
 		vm.category(data);
 	},
 
 	methods: {
+		clear () {
+			var vm = this;
+			console.log(vm.$refs);
+		},
+
 		showSuccess (file) {
 			console.log("Upload success");
+		},
+
+		checkDuplicate (file) {
+			console.log(file);
 		},
 
 		category (data, parent = 0, string = '---|', select=0) {
