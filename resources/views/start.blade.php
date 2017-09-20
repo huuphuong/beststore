@@ -33,6 +33,7 @@
     <script src="{{ asset('assets/js/metisMenu.min.js') }}"></script>
     <!-- <script src="{{ asset('assets/js/waves.js') }}"></script> -->
     <script src="{{ asset('assets/js/jquery.slimscroll.js') }}"></script>
+    <script src="{{ asset('plugins/jscolor-usage/jscolor.js')}}"></script>
     <!-- App js -->
     <script src="{{ asset('assets/js/jquery.core.js') }}"></script>
     <script src="{{ asset('assets/js/jquery.app.js') }}"></script>

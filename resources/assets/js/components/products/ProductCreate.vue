@@ -38,22 +38,45 @@
 
 			<div class="form-group">
 				<label for="price_sale">Size:</label>
-				<input type="text" class="form-control" v-model="product.product_qty">
+				<div class="sizes">
+					<div class="checkbox" v-for="size in sizes">
+						<label>
+							<input type="checkbox" v-bind:value="size.size_id">
+							{{ size.size_name }} ({{ size.size_desc }})
+						</label>
+					</div>
+				</div>
 			</div>
 
 			<div class="form-group">
-				<label for="price_sale">Color:</label>
-				<input type="text" class="form-control" v-model="product.product_qty">
+				<label for="price_sale">
+					Color:
+					<button type="button" class="btn btn-default" v-on:click="addColorInput">Add color</button>
+				</label>
+
+				<div class="container" v-for="(item,key) in input">
+					<div class="col-sm-10 col-sm-offset-1 form-group">
+						<div class="col-sm-8">
+							<input type="color" name="color" :class="item.class" v-model="colors" />
+						</div><!-- /.col-sm-8 -->
+
+						<div class="col-sm-offset-2" v-if="key > 0">
+							<button type="button" class="btn btn-default" v-on:click="removeColorInput(key)">Remove</button>
+						</div><!-- /.col-sm-offset-2 -->
+					</div><!-- /.col-sm-10 col-sm-offset-1 -->
+
+				</div><!-- /.row -->
+				{{ colors }}
 			</div>
 
 			<div class="form-group">
 				<label for="intro">Intro:</label>
-				<textarea class="form-control" name="" v-model="product.product_intro"></textarea>
+				<vue-editor v-model="product.product_intro"></vue-editor>
 			</div>
 
 			<div class="from-group">
 				<label for="content">Content:</label>
-				<textarea class="form-control" name="" v-model="product.product_content"></textarea>
+				<vue-editor v-model="product.product_content"></vue-editor>
 			</div>
 
 			<div class="from-group">
@@ -108,22 +131,22 @@
 
 			<div class="from-group">
 				<label for="">Image Detail (Each file is up to 1MB):</label>
-				<dropzone id="myVueDropzone" 
-						  v-bind:url="uploadUrl"
-						  :maxFileSizeInMB="1"
-						  :showRemoveLink="true"
-						  :duplicateCheck="true"
-						  v-on:vdropzone-success="showSuccess"
-						  ref="myUniqueID">
-			        <input type="hidden" name="token" value="xxx">
-			    </dropzone>
-			</div>
-		</div>
-		<div class="panel-footer">
-			<button type="reset" class="btn btn-default">Cancel</button>
-			<button type="submit" class="btn btn-primary">Add Product</button>
+				<dropzone id="myVueDropzone"
+				v-bind:url="uploadUrl"
+				:maxFileSizeInMB="1"
+				:showRemoveLink="true"
+				:duplicateCheck="true"
+				v-on:vdropzone-success="showSuccess"
+				ref="myUniqueID">
+				<input type="hidden" name="token" value="xxx">
+			</dropzone>
 		</div>
 	</div>
+	<div class="panel-footer">
+		<button type="reset" class="btn btn-default">Cancel</button>
+		<button type="submit" class="btn btn-primary">Add Product</button>
+	</div>
+</div>
 </template>
 
 <script src="./ProductCreate.js"></script>

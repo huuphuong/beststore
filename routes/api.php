@@ -19,6 +19,7 @@ use Illuminate\Http\Request;
 
 
 Route::group(['prefix' => 'v1'], function() {
+	Route::resource('sizes', 'SizeController');
 	Route::resource('roles', 'RoleController');
     Route::resource('users', 'UserController');
     Route::post('/products/upload', 'ProductController@upload');
