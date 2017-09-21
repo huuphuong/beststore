@@ -1,7 +1,7 @@
 <template>
-	<div class="panel panel-default">
+	<div class="panel panel-default" v-theme="'wide'">
 		<div class="panel-heading">
-			<h3 class="panel-title">Create Product</h3>
+			<h3 class="panel-title" v-rainbow>Create Product</h3>
 		</div>
 		<div class="panel-body">
 			<div class="form-group">
@@ -50,23 +50,13 @@
 
 			<div class="form-group">
 				<label for="price_sale">
-					Color:
-					<button type="button" class="btn btn-default" v-on:click="addColorInput">Add color</button>
+					Color: <button @click="addColorInput">Add Color</button>
 				</label>
 
-				<div class="container" v-for="(item,key) in input">
-					<div class="col-sm-10 col-sm-offset-1 form-group">
-						<div class="col-sm-8">
-							<input type="color" name="color" :class="item.class" v-model="colors" />
-						</div><!-- /.col-sm-8 -->
-
-						<div class="col-sm-offset-2" v-if="key > 0">
-							<button type="button" class="btn btn-default" v-on:click="removeColorInput(key)">Remove</button>
-						</div><!-- /.col-sm-offset-2 -->
-					</div><!-- /.col-sm-10 col-sm-offset-1 -->
-
+				<div class="container" v-for="item in input">
+					<input type="text" class="form-control" v-model="color1" v-color>
 				</div><!-- /.row -->
-				{{ colors }}
+				
 			</div>
 
 			<div class="form-group">

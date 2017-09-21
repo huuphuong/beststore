@@ -60,4 +60,5 @@ Vue.nextTick(function () {
 	require('./assets/js/jquery.slimscroll.js')
 	require('./assets/js/jquery.core.js')
 	require('./assets/js/jquery.app.js')
-})
+});
+

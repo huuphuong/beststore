@@ -1,11 +1,12 @@
 import Dropzone from 'vue2-dropzone'
 import Recusive from '../shared/Recusive.vue';
+import ProductColor from './ProductColor.vue';
 import { VueEditor } from 'vue2-editor'
 
 export default {
 	name: 'productCreate',
 
-	components: { Dropzone, Recusive, VueEditor },
+	components: { Dropzone, Recusive, VueEditor, ProductColor },
 
 	data () {
 		return {
@@ -17,11 +18,18 @@ export default {
 			uploadUrl: '/api/v1/products/upload',
 			sizes: [],
 			input: [{class: 'jscolor form-control', value: null}],
-			colors: {}
+			colors: {},
+			color1: '',
+			color2: '',
+			color3: '',
+			color4: '',
+			color5: '',
+			color6: ''
 		}
 	},
 
 	mounted () {
+		console.log(this.$refs);
 		var vm = this;
 		// var data = [
 		// 	{ id: 1, title: 'Quần', parent_id: 0 },
@@ -40,10 +48,6 @@ export default {
 	},
 
 	methods: {
-		updateValue () {
-
-		},
-
 		clear () {
 			var vm = this;
 			console.log(vm.$refs);
@@ -86,7 +90,9 @@ export default {
 		},
 
 		addColorInput (input) {
-			this.input.push({class: 'jscolor form-control', value: null});
+			var element = { class: 'jscolor form-control', value: null };
+			this.input.push(element);
+
 		},
 
 		removeColorInput (key) {
@@ -97,4 +103,25 @@ export default {
 			this.input[index].value = this.colors;
 		}
 	}, // Method
+
+	directives: {
+		rainbow: {
+			bind (el, binding, vnode) {
+				el.style.color = '#' + Math.random().toString().slice(2, 8);
+			}
+		},
+
+		theme: {
+			bind (el, binding, vnode) {
+				
+			}
+		},
+
+		color: {
+			bind (el, binding, vnode) {
+				el.className = 'form-control jscolor';
+				
+			}
+		}
+	}
 } // End class
