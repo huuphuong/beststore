@@ -2,7 +2,7 @@
 -- Host:                         localhost
 -- Server version:               5.7.19 - MySQL Community Server (GPL)
 -- Server OS:                    Win64
--- HeidiSQL Version:             9.4.0.5174
+-- HeidiSQL Version:             9.4.0.5125
 -- --------------------------------------------------------
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
@@ -13,12 +13,10 @@
 
 
 -- Dumping database structure for beststore
-DROP DATABASE IF EXISTS `beststore`;
 CREATE DATABASE IF NOT EXISTS `beststore` /*!40100 DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci */;
 USE `beststore`;
 
 -- Dumping structure for table beststore.categories
-DROP TABLE IF EXISTS `categories`;
 CREATE TABLE IF NOT EXISTS `categories` (
   `cat_id` int(11) NOT NULL AUTO_INCREMENT,
   `cat_name` varchar(70) COLLATE utf8_unicode_ci DEFAULT NULL,
@@ -35,8 +33,27 @@ CREATE TABLE IF NOT EXISTS `categories` (
 /*!40000 ALTER TABLE `categories` DISABLE KEYS */;
 /*!40000 ALTER TABLE `categories` ENABLE KEYS */;
 
+-- Dumping structure for table beststore.colors
+CREATE TABLE IF NOT EXISTS `colors` (
+  `color_id` int(11) NOT NULL AUTO_INCREMENT,
+  `color_name` varchar(60) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `color_code` varchar(30) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `color_desc` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `created_at` datetime DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` datetime DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `deleted_at` datetime DEFAULT NULL,
+  PRIMARY KEY (`color_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+-- Dumping data for table beststore.colors: ~3 rows (approximately)
+/*!40000 ALTER TABLE `colors` DISABLE KEYS */;
+INSERT INTO `colors` (`color_id`, `color_name`, `color_code`, `color_desc`, `created_at`, `updated_at`, `deleted_at`) VALUES
+	(1, 'Xanh thẫm', '1c67c9', NULL, '2017-09-22 15:04:52', '2017-09-22 15:04:52', NULL),
+	(2, 'Đỏ mận', '932020', NULL, '2017-09-22 15:52:10', '2017-09-22 15:52:10', NULL),
+	(3, 'Vàng champagne', 'f9fcc9', NULL, '2017-09-22 17:53:44', '2017-09-22 17:53:44', NULL);
+/*!40000 ALTER TABLE `colors` ENABLE KEYS */;
+
 -- Dumping structure for table beststore.migrations
-DROP TABLE IF EXISTS `migrations`;
 CREATE TABLE IF NOT EXISTS `migrations` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `migration` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -52,7 +69,6 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 /*!40000 ALTER TABLE `migrations` ENABLE KEYS */;
 
 -- Dumping structure for table beststore.orders
-DROP TABLE IF EXISTS `orders`;
 CREATE TABLE IF NOT EXISTS `orders` (
   `order_id` int(11) NOT NULL AUTO_INCREMENT,
   `order_code` varchar(25) COLLATE utf8_unicode_ci DEFAULT NULL,
@@ -77,7 +93,6 @@ CREATE TABLE IF NOT EXISTS `orders` (
 /*!40000 ALTER TABLE `orders` ENABLE KEYS */;
 
 -- Dumping structure for table beststore.orders_detail
-DROP TABLE IF EXISTS `orders_detail`;
 CREATE TABLE IF NOT EXISTS `orders_detail` (
   `detail_id` int(11) DEFAULT NULL,
   `product_id` int(11) DEFAULT NULL,
@@ -93,7 +108,6 @@ CREATE TABLE IF NOT EXISTS `orders_detail` (
 /*!40000 ALTER TABLE `orders_detail` ENABLE KEYS */;
 
 -- Dumping structure for table beststore.orders_status
-DROP TABLE IF EXISTS `orders_status`;
 CREATE TABLE IF NOT EXISTS `orders_status` (
   `status_id` int(11) NOT NULL AUTO_INCREMENT,
   `status_name` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
@@ -109,7 +123,6 @@ CREATE TABLE IF NOT EXISTS `orders_status` (
 /*!40000 ALTER TABLE `orders_status` ENABLE KEYS */;
 
 -- Dumping structure for table beststore.password_resets
-DROP TABLE IF EXISTS `password_resets`;
 CREATE TABLE IF NOT EXISTS `password_resets` (
   `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `token` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -122,7 +135,6 @@ CREATE TABLE IF NOT EXISTS `password_resets` (
 /*!40000 ALTER TABLE `password_resets` ENABLE KEYS */;
 
 -- Dumping structure for table beststore.products
-DROP TABLE IF EXISTS `products`;
 CREATE TABLE IF NOT EXISTS `products` (
   `product_id` int(11) NOT NULL AUTO_INCREMENT,
   `product_name` varchar(300) COLLATE utf8_unicode_ci DEFAULT NULL,
@@ -152,7 +164,6 @@ CREATE TABLE IF NOT EXISTS `products` (
 /*!40000 ALTER TABLE `products` ENABLE KEYS */;
 
 -- Dumping structure for table beststore.products_link
-DROP TABLE IF EXISTS `products_link`;
 CREATE TABLE IF NOT EXISTS `products_link` (
   `link_id` int(11) NOT NULL AUTO_INCREMENT,
   `product_id` int(11) DEFAULT NULL,
@@ -169,7 +180,6 @@ CREATE TABLE IF NOT EXISTS `products_link` (
 /*!40000 ALTER TABLE `products_link` ENABLE KEYS */;
 
 -- Dumping structure for table beststore.product_image
-DROP TABLE IF EXISTS `product_image`;
 CREATE TABLE IF NOT EXISTS `product_image` (
   `image_id` int(11) NOT NULL AUTO_INCREMENT,
   `product_id` int(11) DEFAULT NULL,
@@ -185,7 +195,6 @@ CREATE TABLE IF NOT EXISTS `product_image` (
 /*!40000 ALTER TABLE `product_image` ENABLE KEYS */;
 
 -- Dumping structure for table beststore.roles
-DROP TABLE IF EXISTS `roles`;
 CREATE TABLE IF NOT EXISTS `roles` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `role_name` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
@@ -206,7 +215,6 @@ INSERT INTO `roles` (`id`, `role_name`, `role_desc`, `created_at`, `updated_at`,
 /*!40000 ALTER TABLE `roles` ENABLE KEYS */;
 
 -- Dumping structure for table beststore.sizes
-DROP TABLE IF EXISTS `sizes`;
 CREATE TABLE IF NOT EXISTS `sizes` (
   `size_id` int(11) NOT NULL AUTO_INCREMENT,
   `size_name` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
@@ -225,7 +233,6 @@ INSERT INTO `sizes` (`size_id`, `size_name`, `size_desc`) VALUES
 /*!40000 ALTER TABLE `sizes` ENABLE KEYS */;
 
 -- Dumping structure for table beststore.users
-DROP TABLE IF EXISTS `users`;
 CREATE TABLE IF NOT EXISTS `users` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -246,13 +253,13 @@ CREATE TABLE IF NOT EXISTS `users` (
   FULLTEXT KEY `my_custom_index_name` (`name`,`email`)
 ) ENGINE=InnoDB AUTO_INCREMENT=11179 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Dumping data for table beststore.users: ~11,118 rows (approximately)
+-- Dumping data for table beststore.users: ~11,176 rows (approximately)
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
 INSERT INTO `users` (`id`, `name`, `email`, `gender`, `hobbies`, `countries`, `note`, `password`, `remember_token`, `created_at`, `updated_at`, `avatar`, `phone`, `role_id`) VALUES
 	(1, 'Gunnar Legros', 'cletus.gottlieb@example.com', 'Male', '', '', '', '$2y$10$1ShfT7dZprYmJ.UGtYg4SOZonrCaJSx32p1NsB2d86FHCuBJ1RHfG', 'GfXFNoZXoQ', '2017-09-05 01:20:35', '2017-09-05 01:20:35', NULL, NULL, NULL),
 	(2, 'Abagail Cronin', 'mattie97@example.org', 'Male', '', '', '', '$2y$10$1ShfT7dZprYmJ.UGtYg4SOZonrCaJSx32p1NsB2d86FHCuBJ1RHfG', 'jpAxyRFy9M', '2017-09-05 01:20:35', '2017-09-05 01:20:35', NULL, NULL, NULL),
 	(3, 'Carli Rowe', 'hickle.jo@example.net', 'Male', '', '', '', '$2y$10$1ShfT7dZprYmJ.UGtYg4SOZonrCaJSx32p1NsB2d86FHCuBJ1RHfG', 'hSD3Lr6qw4', '2017-09-05 01:20:35', '2017-09-05 01:20:35', NULL, NULL, NULL),
-	(4, 'Lizzie Larson', 'candido.schultz@example.org', 'Male', '', '', '', '$2y$10$1ShfT7dZprYmJ.UGtYg4SOZonrCaJSx32p1NsB2d86FHCuBJ1RHfG', 'btgNP6u4DO', '2017-09-05 01:20:35', '2017-09-05 01:20:35', NULL, NULL, NULL),
+	(4, 'Lizzie Larson', 'candido.schultz@example.org', 'Male', NULL, NULL, NULL, '$2y$10$1ShfT7dZprYmJ.UGtYg4SOZonrCaJSx32p1NsB2d86FHCuBJ1RHfG', 'btgNP6u4DO', '2017-09-05 01:20:35', '2017-09-22 01:18:15', NULL, NULL, NULL),
 	(5, 'Maurice King', 'therzog@example.org', 'Male', '', '', '', '$2y$10$1ShfT7dZprYmJ.UGtYg4SOZonrCaJSx32p1NsB2d86FHCuBJ1RHfG', 'Q7t57teIhC', '2017-09-05 01:20:35', '2017-09-05 01:20:35', NULL, NULL, NULL),
 	(6, 'Kaycee McCullough', 'karlee.bogisich@example.net', 'Male', '', '', '', '$2y$10$1ShfT7dZprYmJ.UGtYg4SOZonrCaJSx32p1NsB2d86FHCuBJ1RHfG', 'xOR6tPcS32', '2017-09-05 01:20:35', '2017-09-05 01:20:35', NULL, NULL, NULL),
 	(7, 'Hershel Rogahn', 'pagac.frieda@example.net', 'Male', '', '', '', '$2y$10$1ShfT7dZprYmJ.UGtYg4SOZonrCaJSx32p1NsB2d86FHCuBJ1RHfG', 'VRz4BZti43', '2017-09-05 01:20:35', '2017-09-05 01:20:35', NULL, NULL, NULL),
