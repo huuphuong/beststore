@@ -5,3 +5,15 @@
 .dropzone .dz-preview .dz-remove {
 	right: 2px !important;
 }
+
+.scrollable-menu {
+	height: auto;
+	max-height: 250px;
+	overflow-x: hidden;
+}
+
+.my-square {
+	height: 40px;
+	padding-left: 15px;
+	border: 1px solid;
+}

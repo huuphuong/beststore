@@ -39,9 +39,15 @@
 			<div class="form-group">
 				<label for="price_sale">Size:</label>
 				<div class="sizes">
+					<div class="checkbox">
+						<label>
+							<input type="checkbox" v-model="selectAll">
+							<b>All</b>
+						</label>
+					</div>
 					<div class="checkbox" v-for="size in sizes">
 						<label>
-							<input type="checkbox" v-bind:value="size.size_id">
+							<input type="checkbox" v-bind:value="size.size_id" v-model="selected">
 							{{ size.size_name }} ({{ size.size_desc }})
 						</label>
 					</div>
@@ -50,14 +56,26 @@
 
 			<div class="form-group">
 				<label for="price_sale">
-					Color: <button @click="addColorInput">Add Color</button>
+					Color:
 				</label>
-
-				<div class="container" v-for="item in input">
-					<input type="text" class="form-control" v-model="color1" v-color>
-				</div><!-- /.row -->
 				
+				<div class="dropdown">
+					<button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">
+					Choose Color </button>
+					<ul class="dropdown-menu scrollable-menu">
+						<li v-for="color in colors">
+							<div class="checkbox">
+								<label>
+									<input type="checkbox" /> 
+									<span class="my-square" v-bind:style="{'background-color': '#'+color.color_code}"></span>
+								</label>
+							</div>
+						</li>
+					</ul>
+				</div>
 			</div>
+
+
 
 			<div class="form-group">
 				<label for="intro">Intro:</label>
@@ -65,9 +83,9 @@
 			</div>
 
 			<div class="from-group">
-				<label for="content">Content:</label>
-				<vue-editor v-model="product.product_content"></vue-editor>
 			</div>
+			<label for="content">Content:</label>
+			<vue-editor v-model="product.product_content"></vue-editor>
 
 			<div class="from-group">
 				<label for="content">Is new:</label>
