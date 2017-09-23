@@ -33,14 +33,12 @@ Vue.use(VeeValidate, {'locale': 'vi'})
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 axios.interceptors.request.use(function (config) {
-
 	return config;
 }, function (error) {
 	return Promise.reject(error);
 });
 
 axios.interceptors.response.use(function (response) {
-
     return response;
 }, function (error) {
     return Promise.reject(error);

@@ -26,6 +26,7 @@
     "pace-js": "^1.0.2",
     "progressbar.js": "^1.0.1",
     "query-string": "^5.0.0",
+    "v-money": "^0.8.0",
     "vee-validate": "^2.0.0-rc.14",
     "vue-clipboard2": "0.0.6",
     "vue-color": "^2.4.0",

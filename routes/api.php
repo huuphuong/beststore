@@ -19,6 +19,7 @@ use Illuminate\Http\Request;
 
 
 Route::group(['prefix' => 'v1'], function() {
+	Route::resource('categories', 'CategoryController');
 	Route::resource('colors', 'ColorController');
 	Route::resource('sizes', 'SizeController');
 	Route::resource('roles', 'RoleController');

@@ -2,26 +2,38 @@ import Dropzone from 'vue2-dropzone';
 import Recusive from '../shared/Recusive.vue';
 import { VueEditor } from 'vue2-editor';
 import Multiselect from 'vue-multiselect';
-import VueClipboard from 'vue-clipboard2'
-import ProductColor from './ProductColor'; 
+import {Money} from 'v-money'
+import PictureInput from 'vue-picture-input'
 
 export default {
 	name: 'productCreate',
 
-	components: { Dropzone, Recusive, VueEditor, Multiselect, VueClipboard },
+	components: { Dropzone, Recusive, VueEditor, Multiselect, Money, PictureInput },
 
 	data () {
 		return {
-			title: 'Thêm sản phẩm',
-			option: `<option value="">Chọn</option>`,
+			cat_id: '',
 			product: {
-				cat_id: ''
+				cat_id: '',
+				is_new: 0,
+				is_hot: 0,
+				product_price: 0,
+				product_pricesale: 0,
 			},
 			uploadUrl: '/api/v1/products/upload',
 			sizes: [],
 			colors: [],
 			selected: [],
 			color_id: '',
+
+			// Price & Price sales
+	        money: {
+	          decimal: ',',
+	          thousands: ',',
+	          precision: 3,
+	          masked: true
+	        },
+	        avatar: ''
 		}
 	},
 
@@ -29,19 +41,23 @@ export default {
 		var vm = this;
 		vm.getSizes();
 		vm.getColors();
+		vm.getCategories();
 	},
 
 	methods: {
-	
-		showSuccess (file) {
-			console.log("Upload success");
-		},
 
-		checkDuplicate (file) {
-			console.log(file);
-		},
+		onChangeImage () {
+	      var vm = this;
+	      if (vm.$refs.pictureInput.image) {
+	        vm.avatar = vm.$refs.pictureInput.image
+	      }
+	    },
 
-		
+
+		/**
+		 * Lấy danh sách các size của sản phẩm
+		 * @return {[type]} [description]
+		 */
 		getSizes () {
 			var vm = this;
 			var url = '/api/v1/sizes';
@@ -52,6 +68,10 @@ export default {
 			})
 		},
 
+		/**
+		 * Lấy danh sách các màu sản phẩm
+		 * @return {[type]} [description]
+		 */
 		getColors () {
 			var vm = this;
 			var url = '/api/v1/colors';
@@ -60,6 +80,21 @@ export default {
 			}).catch(function (errors) {
 				console.log(errors);
 			})
+		},
+
+
+		/**
+		 * Lấy danh sách categories
+		 * @return {[type]} [description]
+		 */
+		getCategories () {
+			var vm = this;
+			var url = '/api/v1/categories';
+			axios.get(url).then(function (response) {
+				vm.cat_id = response.data.data;
+			}).catch(function (errors) {
+				console.log(errors)
+			});
 		}
 
 	}, // Method
@@ -95,7 +130,7 @@ export default {
 
 		theme: {
 			bind (el, binding, vnode) {
-				
+
 			}
 		}
 	}

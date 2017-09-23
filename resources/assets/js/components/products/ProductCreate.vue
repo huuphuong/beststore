@@ -6,7 +6,7 @@
 		<div class="panel-body">
 			<div class="form-group">
 				<label for="cat_id">Category:</label>
-				<recusive v-bind:options="option" v-model="product.cat_id"></recusive>
+				<recusive v-bind:options="cat_id" v-model="product.cat_id"></recusive>
 			</div>
 
 			<div class="form-group">
@@ -23,17 +23,17 @@
 
 			<div class="form-group">
 				<label for="price">Price:</label>
-				<input type="text" class="form-control" v-model="product.product_price">
+				<money v-model="product.product_price" v-bind="money" :class="{'form-control': true}"></money>
 			</div>
 
 			<div class="form-group">
 				<label for="price_sale">Price sale:</label>
-				<input type="text" class="form-control" v-model="product.price_sale">
+				<money v-model="product.product_pricesale" v-bind="money" :class="{'form-control': true}"></money>
 			</div>
 
 			<div class="form-group">
 				<label for="price_sale">Quantity:</label>
-				<input type="text" class="form-control" v-model="product.product_qty">
+				<input type="number" min="1" class="form-control" v-model="product.product_qty">
 			</div>
 
 			<div class="form-group">
@@ -58,7 +58,7 @@
 				<label for="price_sale">
 					Color:
 				</label>
-				
+
 				<div class="dropdown">
 					<button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">
 					Choose Color </button>
@@ -66,7 +66,7 @@
 						<li v-for="color in colors">
 							<div class="checkbox">
 								<label>
-									<input type="checkbox" /> 
+									<input type="checkbox" />
 									<span class="my-square" v-bind:style="{'background-color': '#'+color.color_code}"></span>
 								</label>
 							</div>
@@ -74,7 +74,6 @@
 					</ul>
 				</div>
 			</div>
-
 
 
 			<div class="form-group">
@@ -91,27 +90,28 @@
 				<label for="content">Is new:</label>
 				<div class="radio">
 					<label class="radio-inline">
-						<input type="radio" name="is_new" id="input" value="" checked="checked">
+						<input type="radio" name="is_new" value="0" v-model="product.is_new">
 						No
 					</label>
 
 					<label class="radio-inline">
-						<input type="radio" name="is_new" id="input" value="">
+						<input type="radio" name="is_new" value="1" v-model="product.is_new">
 						Yes
 					</label>
 				</div>
+
 			</div>
 
 			<div class="from-group">
 				<label for="content">Is hot:</label>
 				<div class="radio">
 					<label class="radio-inline">
-						<input type="radio" name="is_hot" id="input" value="">
+						<input type="radio" name="is_hot" value="0" v-model="product.is_hot">
 						No
 					</label>
 
 					<label class="radio-inline">
-						<input type="radio" name="is_hot" id="input" value="" checked="checked">
+						<input type="radio" name="is_hot" value="1" v-model="product.is_hot">
 						Yes
 					</label>
 				</div>
@@ -121,7 +121,7 @@
 				<label for="content">Is sale:</label>
 				<div class="radio">
 					<label>
-						<input type="radio" name="is_sale" id="input" value="" checked="checked">
+						<input type="radio" name="is_sale" value="1" v-model="product.is_sale">
 						No
 					</label>
 
@@ -134,19 +134,38 @@
 
 			<div class="from-group">
 				<label for="">Image avatar:</label>
-				<img src="" alt="">
+				<picture-input
+            ref="pictureInput"
+            @change="onChangeImage"
+            width="350"
+            height="350"
+            accept="image/jpeg,image/png"
+            size="10"
+            :crop="true"
+            :removable="true"
+            :buttonClass="'btn btn-default'"
+            :removeButtonClass="'btn btn-warning'"
+            :customStrings="{
+            upload: '<h1>Bummer!</h1>',
+            drag: 'Please choose your image.'
+            }"
+            v-validate="'image'"
+            data-vv-value-path="innerValue"
+            data-vv-name="customImage"
+            data-vv-as="Ảnh đại diện"
+            >
+          </picture-input>
 			</div>
 
 			<div class="from-group">
 				<label for="">Image Detail (Each file is up to 1MB):</label>
 				<dropzone id="myVueDropzone"
-				v-bind:url="uploadUrl"
-				:maxFileSizeInMB="1"
-				:showRemoveLink="true"
-				:duplicateCheck="true"
-				v-on:vdropzone-success="showSuccess"
-				ref="myUniqueID">
-				<input type="hidden" name="token" value="xxx">
+					v-bind:url="uploadUrl"
+					:maxFileSizeInMB="1"
+					:showRemoveLink="true"
+					:duplicateCheck="true"
+					:acceptedFileTypes="'image/*'"
+					>
 			</dropzone>
 		</div>
 	</div>
