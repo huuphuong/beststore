@@ -5,7 +5,7 @@ class AppHelper
 {
 	public $optionStr = "<option value=''>Choose category</option>";
 
-	public function recusive($data, $parent = 0, $string = '---|',$select=0)
+	public function recusive($data, $parent = 0, $string = '',$select=0)
 	{
 		foreach ( $data as $value ) {
 
@@ -20,10 +20,23 @@ class AppHelper
 					$this->optionStr .= "<option value='$id'>$string $name</option>";
 				}
 
-				$this->recusive( $data, $id, $string . '---|', $select );
+				$this->recusive( $data, $id, $string . '----|', $select );
 			}
 		}
 
 		return $this->optionStr;
+	}
+
+
+	public static function setColor($colors)
+	{
+		$colorArray = array();
+
+		foreach ($colors AS $key => $color)
+		{
+			$colorArray[$color['color_code']] = $color['color_name'];
+		}
+
+		return json_encode($colorArray);
 	}
 } // End class

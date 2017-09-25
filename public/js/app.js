@@ -51137,12 +51137,15 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 				is_hot: 0,
 				is_sale: 0,
 				product_price: 0,
-				product_pricesale: 0
+				product_pricesale: 0,
+				product_image: '',
+				size: [],
+				color: [],
+				vendor_id: ''
 			},
 			uploadUrl: '/api/v1/products/upload',
-			sizes: [],
+			sizes: [], // Cho danh sách size vào đây
 			colors: [],
-			selected: [],
 			color_id: '',
 
 			// Price & Price sales
@@ -51217,7 +51220,17 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 		},
 		onSubmit: function onSubmit() {
 			var vm = this;
-			console.log(vm.product);
+			var dropzoneFile = vm.$refs.myDropzone.dropzone.files;
+			vm.product.product_image = vm.avatar; // Thêm phần tử ảnh đại diện
+			var url = '/api/v1/products';
+			axios.post(url, {
+				product: vm.product,
+				product_detail_image: dropzoneFile
+			}).then(function (response) {
+				console.log(response);
+			}).catch(function (error) {
+				console.log(error);
+			});
 		}
 	}, // Method
 
@@ -51225,7 +51238,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 		selectAll: {
 			get: function get() {
 				var vm = this;
-				return vm.sizes ? vm.selected.length == vm.sizes.length : false;
+				return vm.product.size ? vm.product.size.length == vm.sizes.length : false;
 			},
 			set: function set(value) {
 				var vm = this;
@@ -51233,11 +51246,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 				if (value) {
 					vm.sizes.forEach(function (size) {
-						selected.push(size.size_id);
+						selected.push(size.size_name);
 					});
 				}
 
-				vm.selected = selected;
+				vm.product.size = selected;
 			}
 		}
 	}, // Computed
@@ -51360,7 +51373,47 @@ var render = function() {
                 })
               ]),
               _vm._v(" "),
-              _vm._m(0),
+              _c("div", { staticClass: "form-group" }, [
+                _c("label", { attrs: { for: "vendor" } }, [_vm._v("Vendor:")]),
+                _vm._v(" "),
+                _c(
+                  "select",
+                  {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.product.vendor_id,
+                        expression: "product.vendor_id"
+                      }
+                    ],
+                    staticClass: "form-control",
+                    attrs: { name: "", id: "input" },
+                    on: {
+                      change: function($event) {
+                        var $$selectedVal = Array.prototype.filter
+                          .call($event.target.options, function(o) {
+                            return o.selected
+                          })
+                          .map(function(o) {
+                            var val = "_value" in o ? o._value : o.value
+                            return val
+                          })
+                        _vm.product.vendor_id = $event.target.multiple
+                          ? $$selectedVal
+                          : $$selectedVal[0]
+                      }
+                    }
+                  },
+                  [
+                    _c("option", { attrs: { value: "" } }, [
+                      _vm._v("Choose vendor")
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "1" } }, [_vm._v("XNK")])
+                  ]
+                )
+              ]),
               _vm._v(" "),
               _c("div", { staticClass: "form-group" }, [
                 _c("label", { attrs: { for: "product_name" } }, [
@@ -51537,36 +51590,36 @@ var render = function() {
                               {
                                 name: "model",
                                 rawName: "v-model",
-                                value: _vm.selected,
-                                expression: "selected"
+                                value: _vm.product.size,
+                                expression: "product.size"
                               }
                             ],
                             attrs: { type: "checkbox" },
                             domProps: {
-                              value: size.size_id,
-                              checked: Array.isArray(_vm.selected)
-                                ? _vm._i(_vm.selected, size.size_id) > -1
-                                : _vm.selected
+                              value: size.size_name,
+                              checked: Array.isArray(_vm.product.size)
+                                ? _vm._i(_vm.product.size, size.size_name) > -1
+                                : _vm.product.size
                             },
                             on: {
                               __c: function($event) {
-                                var $$a = _vm.selected,
+                                var $$a = _vm.product.size,
                                   $$el = $event.target,
                                   $$c = $$el.checked ? true : false
                                 if (Array.isArray($$a)) {
-                                  var $$v = size.size_id,
+                                  var $$v = size.size_name,
                                     $$i = _vm._i($$a, $$v)
                                   if ($$el.checked) {
                                     $$i < 0 &&
-                                      (_vm.selected = $$a.concat([$$v]))
+                                      (_vm.product.size = $$a.concat([$$v]))
                                   } else {
                                     $$i > -1 &&
-                                      (_vm.selected = $$a
+                                      (_vm.product.size = $$a
                                         .slice(0, $$i)
                                         .concat($$a.slice($$i + 1)))
                                   }
                                 } else {
-                                  _vm.selected = $$c
+                                  _vm.product.size = $$c
                                 }
                               }
                             }
@@ -51608,7 +51661,45 @@ var render = function() {
                       return _c("li", [
                         _c("div", { staticClass: "checkbox" }, [
                           _c("label", [
-                            _c("input", { attrs: { type: "checkbox" } }),
+                            _c("input", {
+                              directives: [
+                                {
+                                  name: "model",
+                                  rawName: "v-model",
+                                  value: _vm.product.color,
+                                  expression: "product.color"
+                                }
+                              ],
+                              attrs: { type: "checkbox", name: "color" },
+                              domProps: {
+                                value: color,
+                                checked: Array.isArray(_vm.product.color)
+                                  ? _vm._i(_vm.product.color, color) > -1
+                                  : _vm.product.color
+                              },
+                              on: {
+                                __c: function($event) {
+                                  var $$a = _vm.product.color,
+                                    $$el = $event.target,
+                                    $$c = $$el.checked ? true : false
+                                  if (Array.isArray($$a)) {
+                                    var $$v = color,
+                                      $$i = _vm._i($$a, $$v)
+                                    if ($$el.checked) {
+                                      $$i < 0 &&
+                                        (_vm.product.color = $$a.concat([$$v]))
+                                    } else {
+                                      $$i > -1 &&
+                                        (_vm.product.color = $$a
+                                          .slice(0, $$i)
+                                          .concat($$a.slice($$i + 1)))
+                                    }
+                                  } else {
+                                    _vm.product.color = $$c
+                                  }
+                                }
+                              }
+                            }),
                             _vm._v(" "),
                             _c("span", {
                               staticClass: "my-square",
@@ -51855,6 +51946,7 @@ var render = function() {
                   ]),
                   _vm._v(" "),
                   _c("dropzone", {
+                    ref: "myDropzone",
                     attrs: {
                       id: "myVueDropzone",
                       url: _vm.uploadUrl,
@@ -51863,6 +51955,13 @@ var render = function() {
                       duplicateCheck: true,
                       acceptedFileTypes: "image/*",
                       maxNumberOfFiles: 10
+                    },
+                    model: {
+                      value: _vm.product.image_detail,
+                      callback: function($$v) {
+                        _vm.product.image_detail = $$v
+                      },
+                      expression: "product.image_detail"
                     }
                   })
                 ],
@@ -51872,30 +51971,13 @@ var render = function() {
             1
           ),
           _vm._v(" "),
-          _vm._m(1)
+          _vm._m(0)
         ]
       )
     ]
   )
 }
 var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "form-group" }, [
-      _c("label", { attrs: { for: "vendor" } }, [_vm._v("Vendor:")]),
-      _vm._v(" "),
-      _c(
-        "select",
-        {
-          staticClass: "form-control",
-          attrs: { name: "", id: "input", required: "required" }
-        },
-        [_c("option", { attrs: { value: "" } }, [_vm._v("Choose vendor")])]
-      )
-    ])
-  },
   function() {
     var _vm = this
     var _h = _vm.$createElement

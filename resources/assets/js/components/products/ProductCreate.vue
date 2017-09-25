@@ -7,13 +7,14 @@
 		<div class="panel-body">
 			<div class="form-group">
 				<label for="cat_id">Category:</label>
-				<select class="form-control" v-html=cat_id v-model="product.cat_id">
+				<select class="form-control" v-html="cat_id" v-model="product.cat_id">
 				</select>
 			</div>
 			<div class="form-group">
 				<label for="vendor">Vendor:</label>
-				<select name="" id="input" class="form-control" required="required">
+				<select name="" id="input" class="form-control" v-model="product.vendor_id"> 
 					<option value="">Choose vendor</option>
+					<option value="1">XNK</option>
 				</select>
 			</div>
 			<div class="form-group">
@@ -43,7 +44,7 @@
 					</div>
 					<div class="checkbox" v-for="size in sizes">
 						<label>
-							<input type="checkbox" v-bind:value="size.size_id" v-model="selected">
+							<input type="checkbox" v-bind:value="size.size_name" v-model="product.size">
 							{{ size.size_name }} ({{ size.size_desc }})
 						</label>
 					</div>
@@ -60,7 +61,7 @@
 						<li v-for="color in colors">
 							<div class="checkbox">
 								<label>
-									<input type="checkbox" />
+									<input type="checkbox" name="color" v-model="product.color" v-bind:value="color" />
 									<span class="my-square" v-bind:style="{'background-color': '#'+color.color_code}"></span>
 								</label>
 							</div>
@@ -148,6 +149,8 @@
 				:duplicateCheck="true"
 				:acceptedFileTypes="'image/*'"
 				:maxNumberOfFiles="10"
+				ref="myDropzone"
+				v-model="product.image_detail"
 				>
 				</dropzone>
 			</div>

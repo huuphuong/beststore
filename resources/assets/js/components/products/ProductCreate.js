@@ -19,11 +19,14 @@ export default {
 				is_sale: 0,
 				product_price: 0,
 				product_pricesale: 0,
+				product_image: '',
+				size: [],
+				color: [],
+				vendor_id: ''
 			},
 			uploadUrl: '/api/v1/products/upload',
-			sizes: [],
+			sizes: [], // Cho danh sách size vào đây
 			colors: [],
-			selected: [],
 			color_id: '',
 
 			// Price & Price sales
@@ -45,11 +48,11 @@ export default {
 	},
 
 	methods: {
-
+		
 		onChangeImage () {
 	      var vm = this;
 	      if (vm.$refs.pictureInput.image) {
-	        vm.avatar = vm.$refs.pictureInput.image
+	        vm.avatar = vm.$refs.pictureInput.image;
 	      }
 	    },
 
@@ -100,7 +103,17 @@ export default {
 
 		onSubmit () {
 			var vm = this;
-			console.log(vm.product);
+			var dropzoneFile = vm.$refs.myDropzone.dropzone.files;
+			vm.product.product_image = vm.avatar; // Thêm phần tử ảnh đại diện
+			var url = '/api/v1/products';
+			axios.post(url, {
+				product: vm.product,
+				product_detail_image: dropzoneFile
+			}).then(function (response) {
+				console.log(response);
+			}).catch(function (error) {
+				console.log(error);
+			});
 		}
 
 	}, // Method
@@ -109,7 +122,7 @@ export default {
 		selectAll: {
 			get () {
 				var vm = this;
-				return vm.sizes ? vm.selected.length == vm.sizes.length : false;
+				return vm.product.size ? vm.product.size.length == vm.sizes.length : false;
 			},
 
 			set (value) {
@@ -118,11 +131,11 @@ export default {
 
                 if (value) {
                     vm.sizes.forEach(function (size) {
-                        selected.push(size.size_id);
+                        selected.push(size.size_name);
                     });
                 }
 
-                vm.selected = selected;
+                vm.product.size = selected;
 			}
 		}
 	}, // Computed
