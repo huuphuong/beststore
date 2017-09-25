@@ -43872,6 +43872,8 @@ if (false) {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__components_users_UserEdit_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_10__components_users_UserEdit_vue__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__components_products_ProductCreate_vue__ = __webpack_require__(97);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__components_products_ProductCreate_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_11__components_products_ProductCreate_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__components_products_ProductDetail_vue__ = __webpack_require__(135);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__components_products_ProductDetail_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_12__components_products_ProductDetail_vue__);
 
 
 
@@ -43891,11 +43893,12 @@ if (false) {
 // Product
 
 
+
 __WEBPACK_IMPORTED_MODULE_0_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_1_vue_router__["a" /* default */]);
 
 /* harmony default export */ __webpack_exports__["a"] = (new __WEBPACK_IMPORTED_MODULE_1_vue_router__["a" /* default */]({
 
-	routes: [{ path: '/roles/create', name: 'RoleCreate', component: __WEBPACK_IMPORTED_MODULE_3__components_roles_RoleCreate_vue___default.a }, { path: '/roles', name: 'RoleList', component: __WEBPACK_IMPORTED_MODULE_4__components_roles_RoleList_vue___default.a }, { path: '/roles/detail/:id', name: 'RoleDetail', component: __WEBPACK_IMPORTED_MODULE_5__components_roles_RoleDetail_vue___default.a }, { path: '/roles/edit/:id', name: 'RoleEdit', component: __WEBPACK_IMPORTED_MODULE_6__components_roles_RoleEdit_vue___default.a }, { path: '/users/create', name: 'UserCreate', component: __WEBPACK_IMPORTED_MODULE_7__components_users_UserCreate_vue___default.a }, { path: '/users/detail/:id', name: 'UserDetail', component: __WEBPACK_IMPORTED_MODULE_8__components_users_UserDetail_vue___default.a }, { path: '/users', name: 'UserList', component: __WEBPACK_IMPORTED_MODULE_9__components_users_UserList_vue___default.a }, { path: '/users/edit/:id', name: 'UserEdit', component: __WEBPACK_IMPORTED_MODULE_10__components_users_UserEdit_vue___default.a }, { path: '/products/create', name: 'ProductCreate', component: __WEBPACK_IMPORTED_MODULE_11__components_products_ProductCreate_vue___default.a }],
+	routes: [{ path: '/roles/create', name: 'RoleCreate', component: __WEBPACK_IMPORTED_MODULE_3__components_roles_RoleCreate_vue___default.a }, { path: '/roles', name: 'RoleList', component: __WEBPACK_IMPORTED_MODULE_4__components_roles_RoleList_vue___default.a }, { path: '/roles/detail/:id', name: 'RoleDetail', component: __WEBPACK_IMPORTED_MODULE_5__components_roles_RoleDetail_vue___default.a }, { path: '/roles/edit/:id', name: 'RoleEdit', component: __WEBPACK_IMPORTED_MODULE_6__components_roles_RoleEdit_vue___default.a }, { path: '/users/create', name: 'UserCreate', component: __WEBPACK_IMPORTED_MODULE_7__components_users_UserCreate_vue___default.a }, { path: '/users/detail/:id', name: 'UserDetail', component: __WEBPACK_IMPORTED_MODULE_8__components_users_UserDetail_vue___default.a }, { path: '/users', name: 'UserList', component: __WEBPACK_IMPORTED_MODULE_9__components_users_UserList_vue___default.a }, { path: '/users/edit/:id', name: 'UserEdit', component: __WEBPACK_IMPORTED_MODULE_10__components_users_UserEdit_vue___default.a }, { path: '/products/create', name: 'ProductCreate', component: __WEBPACK_IMPORTED_MODULE_11__components_products_ProductCreate_vue___default.a }, { path: '/products/detail/:id', name: 'ProductDetail', component: __WEBPACK_IMPORTED_MODULE_12__components_products_ProductDetail_vue___default.a }],
 	mode: 'history'
 }));
 
@@ -51227,7 +51230,15 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 				product: vm.product,
 				product_detail_image: dropzoneFile
 			}).then(function (response) {
-				console.log(response);
+				var product_id = response.data.data.product_id;
+
+				// Thêm product thành công, lưu trữ dữ liệu trả về vào localStorage
+				if (typeof Storage !== 'undefined') {
+					localStorage.setItem('product', JSON.stringify(response.data.data));
+					var item = localStorage.getItem('product');
+				}
+
+				vm.$router.push('/products/detail/' + product_id);
 			}).catch(function (error) {
 				console.log(error);
 			});
@@ -63407,6 +63418,303 @@ function ($) {
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 127 */,
+/* 128 */,
+/* 129 */,
+/* 130 */,
+/* 131 */,
+/* 132 */,
+/* 133 */,
+/* 134 */,
+/* 135 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+var normalizeComponent = __webpack_require__(0)
+/* script */
+var __vue_script__ = __webpack_require__(136)
+/* template */
+var __vue_template__ = __webpack_require__(137)
+/* styles */
+var __vue_styles__ = null
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources\\assets\\js\\components\\products\\ProductDetail.vue"
+if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key.substr(0, 2) !== "__"})) {console.error("named exports are not supported in *.vue files.")}
+if (Component.options.functional) {console.error("[vue-loader] ProductDetail.vue: functional components are not supported with templates, they should use render functions.")}
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-0e5ce65a", Component.options)
+  } else {
+    hotAPI.reload("data-v-0e5ce65a", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 136 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+	name: 'ProductDetail',
+
+	data: function data() {
+		return {
+			product: {}
+		};
+	},
+	mounted: function mounted() {
+		var vm = this;
+		vm.getProduct();
+	},
+
+
+	methods: {
+		getProduct: function getProduct() {
+			var vm = this;
+			var type = typeof Storage === 'undefined' ? 'undefined' : _typeof(Storage);
+			var item = localStorage.getItem('product');
+			item = JSON.parse(item);
+
+			var product_id = item.product_id;
+			var route_id = vm.$route.params.id;
+			// Tồn tại localStorage và bằng với router id params
+			if (type !== 'undefined' && product_id == route_id) {
+				vm.product = item;
+			} else {
+				// Không tồn tại, send request lên server
+				console.log("Must send request");
+			}
+		}
+	} // End class
+
+});
+
+/***/ }),
+/* 137 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "panel panel-default" }, [
+    _vm._m(0),
+    _vm._v(" "),
+    _c("div", { staticClass: "panel-body" }, [
+      _c("div", { staticClass: "col-sm-4" }, [
+        _c("img", {
+          staticClass: "img-responsive",
+          attrs: { src: _vm.product.product_image }
+        })
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "col-sm-8" }, [
+        _c("table", { staticClass: "table table-hover" }, [
+          _c("tr", [
+            _c("th", { staticClass: "text-success" }, [_vm._v("Product ID:")]),
+            _vm._v(" "),
+            _c("th", [_vm._v(_vm._s(_vm.product.product_id))])
+          ]),
+          _vm._v(" "),
+          _c("tr", [
+            _c("th", { staticClass: "text-success" }, [_vm._v("Category:")]),
+            _vm._v(" "),
+            _c("th", [_vm._v(_vm._s(_vm.product.cat_id))])
+          ]),
+          _vm._v(" "),
+          _c("tr", [
+            _c("th", { staticClass: "text-success" }, [
+              _vm._v("Product name:")
+            ]),
+            _vm._v(" "),
+            _c("th", [_vm._v(_vm._s(_vm.product.product_name))])
+          ]),
+          _vm._v(" "),
+          _c("tr", [
+            _c("th", { staticClass: "text-success" }, [_vm._v("Price:")]),
+            _vm._v(" "),
+            _c("th", [_vm._v(_vm._s(_vm.product.product_price))])
+          ]),
+          _vm._v(" "),
+          _c("tr", [
+            _c("th", { staticClass: "text-success" }, [_vm._v("Price Sale:")]),
+            _vm._v(" "),
+            _c("th", [_vm._v(_vm._s(_vm.product.product_pricesale))])
+          ]),
+          _vm._v(" "),
+          _c("tr", [
+            _c("th", { staticClass: "text-success" }, [_vm._v("Intro:")]),
+            _vm._v(" "),
+            _c("th", {
+              domProps: { innerHTML: _vm._s(_vm.product.product_intro) }
+            })
+          ]),
+          _vm._v(" "),
+          _c("tr", [
+            _c("th", { staticClass: "text-success" }, [_vm._v("Content:")]),
+            _vm._v(" "),
+            _c("th", {
+              domProps: { innerHTML: _vm._s(_vm.product.product_content) }
+            })
+          ]),
+          _vm._v(" "),
+          _c("tr", [
+            _c("th", { staticClass: "text-success" }, [_vm._v("View: ")]),
+            _vm._v(" "),
+            _c("th", [_vm._v(_vm._s(_vm.product.product_view))])
+          ]),
+          _vm._v(" "),
+          _c("tr", [
+            _c("th", { staticClass: "text-success" }, [_vm._v("Quantity: ")]),
+            _vm._v(" "),
+            _c("th", [_vm._v(_vm._s(_vm.product.product_qty))])
+          ]),
+          _vm._v(" "),
+          _c("tr", [
+            _c("th", { staticClass: "text-success" }, [_vm._v("Size: ")]),
+            _vm._v(" "),
+            _c("th", [_vm._v(_vm._s(JSON.parse(_vm.product.size).join(", ")))])
+          ]),
+          _vm._v(" "),
+          _c("tr", [
+            _c("th", { staticClass: "text-success" }, [_vm._v("Color: ")]),
+            _vm._v(" "),
+            _c("th", [
+              _c(
+                "ul",
+                { staticClass: "list-unstyled" },
+                _vm._l(JSON.parse(_vm.product.color), function(color, index) {
+                  return _c("li", [
+                    _c("span", {
+                      staticClass: "my-square",
+                      style: { "background-color": "#" + index }
+                    }),
+                    _vm._v(
+                      "\n\t\t\t\t\t\t\t\t  " +
+                        _vm._s(color) +
+                        "\n\t\t\t\t\t\t\t"
+                    )
+                  ])
+                })
+              )
+            ])
+          ]),
+          _vm._v(" "),
+          _c("tr", [
+            _c("th", { staticClass: "text-success" }, [_vm._v("Is new:")]),
+            _vm._v(" "),
+            _c("th", [_vm._v(_vm._s(_vm.product.is_new == 1 ? "Yes" : "No"))])
+          ]),
+          _vm._v(" "),
+          _c("tr", [
+            _c("th", { staticClass: "text-success" }, [_vm._v("Is hot:")]),
+            _vm._v(" "),
+            _c("th", [_vm._v(_vm._s(_vm.product.is_hot == 1 ? "Yes" : "No"))])
+          ]),
+          _vm._v(" "),
+          _c("tr", [
+            _c("th", { staticClass: "text-success" }, [_vm._v("Is sale:")]),
+            _vm._v(" "),
+            _c("th", [_vm._v(_vm._s(_vm.product.is_sale == 1 ? "Yes" : "No"))])
+          ]),
+          _vm._v(" "),
+          _vm._m(1),
+          _vm._v(" "),
+          _vm._m(2),
+          _vm._v(" "),
+          _vm._m(3),
+          _vm._v(" "),
+          _vm._m(4)
+        ])
+      ])
+    ])
+  ])
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "panel-heading" }, [
+      _c("h3", { staticClass: "panel-title" }, [_vm._v("ProductDetail")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("tr", [
+      _c("th", { staticClass: "text-success" }, [_vm._v("Vendor:")]),
+      _vm._v(" "),
+      _c("th")
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("tr", [
+      _c("th", { staticClass: "text-success" }, [_vm._v("Created at: ")]),
+      _vm._v(" "),
+      _c("th")
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("tr", [
+      _c("th", { staticClass: "text-success" }, [_vm._v("Updated at: ")]),
+      _vm._v(" "),
+      _c("th")
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("tr", [
+      _c("th", { staticClass: "text-success" }, [_vm._v("Deleted at: ")]),
+      _vm._v(" "),
+      _c("th")
+    ])
+  }
+]
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+     require("vue-hot-reload-api").rerender("data-v-0e5ce65a", module.exports)
+  }
+}
 
 /***/ })
 /******/ ]);

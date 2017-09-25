@@ -110,7 +110,16 @@ export default {
 				product: vm.product,
 				product_detail_image: dropzoneFile
 			}).then(function (response) {
-				console.log(response);
+				var product_id = response.data.data.product_id;
+
+				// Thêm product thành công, lưu trữ dữ liệu trả về vào localStorage
+				if (typeof (Storage) !== 'undefined') 
+				{
+					localStorage.setItem('product', JSON.stringify(response.data.data));
+					var item = localStorage.getItem('product');
+				}
+
+				vm.$router.push('/products/detail/' + product_id);
 			}).catch(function (error) {
 				console.log(error);
 			});
