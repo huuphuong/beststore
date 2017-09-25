@@ -15,7 +15,7 @@
 					</tr>
 					<tr>
 						<th class="text-success">Category:</th>
-						<th>{{ product.cat_id }}</th>
+						<th>{{ product.cat_name }}</th>
 					</tr>
 					<tr>
 						<th class="text-success">Product name:</th>
@@ -31,12 +31,12 @@
 					</tr>
 					<tr>
 						<th class="text-success">Intro:</th>
-						<th v-html="product.product_intro"></th>
+						<td v-html="product.product_intro"></td>
 						
 					</tr>
 					<tr>
 						<th class="text-success">Content:</th>
-						<th v-html="product.product_content"></th>
+						<td v-html="product.product_content"></td>
 					</tr>
 					<tr>
 						<th class="text-success">View: </th>
@@ -48,13 +48,13 @@
 					</tr>
 					<tr>
 						<th class="text-success">Size: </th>
-						<th>{{ JSON.parse(product.size).join(', ') }}</th>
+						<th>{{ product.size }}</th>
 					</tr>
 					<tr>
 						<th class="text-success">Color: </th>
 						<th>
 							<ul class="list-unstyled">
-								<li v-for="(color, index) in JSON.parse(product.color)">
+								<li v-for="(color, index) in product.color">
 									<span class="my-square" v-bind:style="{'background-color': '#'+index}"></span>
 									&nbsp; {{ color }}
 								</li>
@@ -83,17 +83,17 @@
 
 					<tr>
 						<th class="text-success">Created at: </th>
-						<th></th>
+						<th>{{ product.created_at }}</th>
 					</tr>
 
 					<tr>
 						<th class="text-success">Updated at: </th>
-						<th></th>
+						<th>{{ product.updated_at }}</th>
 					</tr>
 
 					<tr>
 						<th class="text-success">Deleted at: </th>
-						<th></th>
+						<th>{{ product.deleted_at != null ? product.deleted_at : 'Sản phẩm này chưa bị xóa.' }}</th>
 					</tr>
 				</table>
 			</div><!-- /.col-sm-8 -->

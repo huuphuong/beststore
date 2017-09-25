@@ -96,7 +96,19 @@ class ProductController extends Controller
      */
     public function show($id)
     {
-        //
+        try {
+            $product = Product::findOrFail($id);
+            $product_response             = $product->toArray();
+            $product_response['cat_name'] = $product->category->cat_name;
+            $product_response['size']     = implode( ', ' ,json_decode($product->size, true) );
+            $product_response['color']    = json_decode($product->color, true);
+            $res = Api::resourceApi(Api::$_OK, $product_response);
+        }catch (\Exception $e) {
+            $message = 'No result';
+            $res = Api::resourceApi($e->getCode(), $message);
+        }
+
+        return response()->json($res, Api::$_OK);
     }
 
     /**

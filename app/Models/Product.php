@@ -10,4 +10,9 @@ class Product extends Model
 	protected $primaryKey	= 'product_id';
 	protected $guarded		= [];
 	public $timestamps		= true;
+
+	public function category()
+	{
+		return $this->belongsTo(Category::class, 'cat_id');
+	}
 }

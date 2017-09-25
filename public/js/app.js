@@ -51231,13 +51231,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 				product_detail_image: dropzoneFile
 			}).then(function (response) {
 				var product_id = response.data.data.product_id;
-
-				// Thêm product thành công, lưu trữ dữ liệu trả về vào localStorage
-				if (typeof Storage !== 'undefined') {
-					localStorage.setItem('product', JSON.stringify(response.data.data));
-					var item = localStorage.getItem('product');
-				}
-
 				vm.$router.push('/products/detail/' + product_id);
 			}).catch(function (error) {
 				console.log(error);
@@ -63479,8 +63472,6 @@ module.exports = Component.exports
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
-
 /* harmony default export */ __webpack_exports__["default"] = ({
 	name: 'ProductDetail',
 
@@ -63498,19 +63489,13 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 	methods: {
 		getProduct: function getProduct() {
 			var vm = this;
-			var type = typeof Storage === 'undefined' ? 'undefined' : _typeof(Storage);
-			var item = localStorage.getItem('product');
-			item = JSON.parse(item);
-
-			var product_id = item.product_id;
-			var route_id = vm.$route.params.id;
-			// Tồn tại localStorage và bằng với router id params
-			if (type !== 'undefined' && product_id == route_id) {
-				vm.product = item;
-			} else {
-				// Không tồn tại, send request lên server
-				console.log("Must send request");
-			}
+			var product_id = this.$route.params.id;
+			var url = '/api/v1/products/' + product_id;
+			axios.get(url).then(function (response) {
+				vm.product = response.data.data;
+			}).catch(function (error) {
+				console.log(error);
+			});
 		}
 	} // End class
 
@@ -63546,7 +63531,7 @@ var render = function() {
           _c("tr", [
             _c("th", { staticClass: "text-success" }, [_vm._v("Category:")]),
             _vm._v(" "),
-            _c("th", [_vm._v(_vm._s(_vm.product.cat_id))])
+            _c("th", [_vm._v(_vm._s(_vm.product.cat_name))])
           ]),
           _vm._v(" "),
           _c("tr", [
@@ -63572,7 +63557,7 @@ var render = function() {
           _c("tr", [
             _c("th", { staticClass: "text-success" }, [_vm._v("Intro:")]),
             _vm._v(" "),
-            _c("th", {
+            _c("td", {
               domProps: { innerHTML: _vm._s(_vm.product.product_intro) }
             })
           ]),
@@ -63580,7 +63565,7 @@ var render = function() {
           _c("tr", [
             _c("th", { staticClass: "text-success" }, [_vm._v("Content:")]),
             _vm._v(" "),
-            _c("th", {
+            _c("td", {
               domProps: { innerHTML: _vm._s(_vm.product.product_content) }
             })
           ]),
@@ -63600,7 +63585,7 @@ var render = function() {
           _c("tr", [
             _c("th", { staticClass: "text-success" }, [_vm._v("Size: ")]),
             _vm._v(" "),
-            _c("th", [_vm._v(_vm._s(JSON.parse(_vm.product.size).join(", ")))])
+            _c("th", [_vm._v(_vm._s(_vm.product.size))])
           ]),
           _vm._v(" "),
           _c("tr", [
@@ -63610,7 +63595,7 @@ var render = function() {
               _c(
                 "ul",
                 { staticClass: "list-unstyled" },
-                _vm._l(JSON.parse(_vm.product.color), function(color, index) {
+                _vm._l(_vm.product.color, function(color, index) {
                   return _c("li", [
                     _c("span", {
                       staticClass: "my-square",
@@ -63647,11 +63632,31 @@ var render = function() {
           _vm._v(" "),
           _vm._m(1),
           _vm._v(" "),
-          _vm._m(2),
+          _c("tr", [
+            _c("th", { staticClass: "text-success" }, [_vm._v("Created at: ")]),
+            _vm._v(" "),
+            _c("th", [_vm._v(_vm._s(_vm.product.created_at))])
+          ]),
           _vm._v(" "),
-          _vm._m(3),
+          _c("tr", [
+            _c("th", { staticClass: "text-success" }, [_vm._v("Updated at: ")]),
+            _vm._v(" "),
+            _c("th", [_vm._v(_vm._s(_vm.product.updated_at))])
+          ]),
           _vm._v(" "),
-          _vm._m(4)
+          _c("tr", [
+            _c("th", { staticClass: "text-success" }, [_vm._v("Deleted at: ")]),
+            _vm._v(" "),
+            _c("th", [
+              _vm._v(
+                _vm._s(
+                  _vm.product.deleted_at != null
+                    ? _vm.product.deleted_at
+                    : "Sản phẩm này chưa bị xóa."
+                )
+              )
+            ])
+          ])
         ])
       ])
     ])
@@ -63672,36 +63677,6 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("tr", [
       _c("th", { staticClass: "text-success" }, [_vm._v("Vendor:")]),
-      _vm._v(" "),
-      _c("th")
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("tr", [
-      _c("th", { staticClass: "text-success" }, [_vm._v("Created at: ")]),
-      _vm._v(" "),
-      _c("th")
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("tr", [
-      _c("th", { staticClass: "text-success" }, [_vm._v("Updated at: ")]),
-      _vm._v(" "),
-      _c("th")
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("tr", [
-      _c("th", { staticClass: "text-success" }, [_vm._v("Deleted at: ")]),
       _vm._v(" "),
       _c("th")
     ])
