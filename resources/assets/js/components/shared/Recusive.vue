@@ -1,7 +1,6 @@
 <template>
 	<div id="root">
-		<select id="inputV-Model=" class="form-control" v-html="options">
-		</select>
+		
 	</div>
 </template>
 

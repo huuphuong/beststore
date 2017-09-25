@@ -1,14 +1,13 @@
 import Dropzone from 'vue2-dropzone';
-import Recusive from '../shared/Recusive.vue';
 import { VueEditor } from 'vue2-editor';
 import Multiselect from 'vue-multiselect';
 import {Money} from 'v-money'
-import PictureInput from 'vue-picture-input'
+import PictureInput from 'vue-picture-input';
 
 export default {
 	name: 'productCreate',
 
-	components: { Dropzone, Recusive, VueEditor, Multiselect, Money, PictureInput },
+	components: { Dropzone, VueEditor, Multiselect, Money, PictureInput },
 
 	data () {
 		return {
@@ -17,6 +16,7 @@ export default {
 				cat_id: '',
 				is_new: 0,
 				is_hot: 0,
+				is_sale: 0,
 				product_price: 0,
 				product_pricesale: 0,
 			},
@@ -95,6 +95,12 @@ export default {
 			}).catch(function (errors) {
 				console.log(errors)
 			});
+		},
+
+
+		onSubmit () {
+			var vm = this;
+			console.log(vm.product);
 		}
 
 	}, // Method
