@@ -19,5 +19,14 @@ class Api extends Model
 	public static $_NOTFOUND		= 404;
 	public static $_CONFLICT		= 409;
 	public static $_SERVERERROR		= 500;
+
+	public static function resourceApi($status, $data)
+	{
+		$type = gettype($data) == 'string' ? 'message' : 'data';
+		return [
+			'status' => $status,
+			"$type" => $data
+		];
+	}
 	
 }

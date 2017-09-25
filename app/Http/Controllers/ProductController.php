@@ -73,23 +73,16 @@ class ProductController extends Controller
                     $product_image->storage = $detail_request[$i]['dataURL'];
                     $product_image->save();
                 }catch (\Exception $e) {
-                    $res = [
-                        'status' => Api::$_SERVERERROR,
-                        'message' => 'Product has been created. But product\'s image can not crated. Please try again later!'
-                    ];
+                    $message = 'Product has been created. But product\'s image can not crated. Please try again later!';
+                    $res = Api::resourceApi($e->getCode(), $message);
                 }
             }
 
-            $res = [
-                'status' => Api::$_OK,
-                'data' => $product
-            ];
+            $res = Api::resourceApi(Api::$_OK, $product);
 
         }catch (\Exception $e) {
-            $res = [
-                'status' => Api::$_SERVERERROR,
-                'message' => 'Can not create product. Please contact administator to support this problem!'
-            ];
+            $message = 'Can not create product. Please contact administator to support this problem!';
+            $res = Api::resourceApi($e->getCode(), $message);
         }
 
         return response()->json($res, Api::$_OK);
