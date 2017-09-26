@@ -28,7 +28,7 @@ export default {
 			sizes: [], // Cho danh sách size vào đây
 			colors: [],
 			color_id: '',
-
+			vendors: [], // Danh sách NCC
 			// Price & Price sales
 	        money: {
 	          decimal: ',',
@@ -36,7 +36,7 @@ export default {
 	          precision: 3,
 	          masked: true
 	        },
-	        avatar: ''
+	        avatar: '',
 		}
 	},
 
@@ -45,6 +45,7 @@ export default {
 		vm.getSizes();
 		vm.getColors();
 		vm.getCategories();
+		vm.getVendors();
 	},
 
 	methods: {
@@ -101,6 +102,18 @@ export default {
 		},
 
 
+		
+		getVendors () {
+			var vm = this;
+			var url = '/api/v1/vendors';
+			axios.get(url).then(function (response) {
+				vm.vendors = response.data.data;
+			}).catch(function (errors) {
+				console.log(errors);
+			});
+		},
+
+
 		onSubmit () {
 			var vm = this;
 			var dropzoneFile = vm.$refs.myDropzone.dropzone.files;
@@ -142,16 +155,6 @@ export default {
 	}, // Computed
 
 	directives: {
-		rainbow: {
-			bind (el, binding, vnode) {
-				el.style.color = '#' + Math.random().toString().slice(2, 8);
-			}
-		},
-
-		theme: {
-			bind (el, binding, vnode) {
-
-			}
-		}
+		// Add more directive here
 	}
 } // End class

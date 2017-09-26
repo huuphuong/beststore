@@ -1,38 +1,49 @@
 <template>
-<div class="panel panel-default" v-theme="'wide'">
+<div class="panel panel-default">
 	<div class="panel-heading">
-		<h3 class="panel-title" v-rainbow>Create Product</h3>
+		<h3 class="panel-title">Create Product</h3>
 	</div>
 	<form method="POST" enctype="multipart/form-data" @submit.prevent="onSubmit">
 		<div class="panel-body">
 			<div class="form-group">
 				<label for="cat_id">Category:</label>
-				<select class="form-control" v-html="cat_id" v-model="product.cat_id">
+				<select class="form-control" v-html="cat_id" v-model="product.cat_id" name="cat_id" v-validate="'required'" data-vv-as="Loại sản phẩm">
 				</select>
+				<span class="label label-danger" v-show="errors.has('cat_id')">{{ errors.first('cat_id') }}</span>
 			</div>
+
 			<div class="form-group">
 				<label for="vendor">Vendor:</label>
-				<select name="" id="input" class="form-control" v-model="product.vendor_id"> 
+				<select class="form-control" v-model="product.vendor_id" name="vendor_id" v-validate="'required'" data-vv-as="Nhà cung cấp"> 
 					<option value="">Choose vendor</option>
-					<option value="1">XNK</option>
+					<option v-for="vendor in vendors" v-bind:value="vendor.vendor_id">{{ vendor.vendor_name }}</option>
 				</select>
+				<span class="label label-danger" v-show="errors.has('vendor_id')">{{ errors.first('vendor_id') }}</span>
 			</div>
+
 			<div class="form-group">
 				<label for="product_name">Product name:</label>
-				<input type="text" class="form-control" v-model="product.product_name">
+				<input type="text" class="form-control" v-model="product.product_name" name="product_name" v-validate="'required'" data-vv-as="Tên sản phẩm">
+				<span class="label label-danger" v-show="errors.has('product_name')">{{ errors.first('product_name') }}</span>
 			</div>
+
 			<div class="form-group">
 				<label for="price">Price:</label>
-				<money v-model="product.product_price" v-bind="money" :class="{'form-control': true}"></money>
+				<money v-model="product.product_price" v-bind="money" :class="{'form-control': true}" name="price" v-validate="'required'" data-vv-as="Giá tiền"></money>
+				<span class="label label-danger" v-show="errors.has('price')">{{ errors.first('price') }}</span>
 			</div>
+
 			<div class="form-group">
 				<label for="price_sale">Price sale:</label>
 				<money v-model="product.product_pricesale" v-bind="money" :class="{'form-control': true}"></money>
 			</div>
+
 			<div class="form-group">
 				<label for="price_sale">Quantity:</label>
-				<input type="number" min="1" class="form-control" v-model="product.product_qty">
+				<input type="number" min="1" class="form-control" v-model="product.product_qty" name="product_qty" v-validate="'required|min_value:1'" data-vv-as="Số lượng">
+				<span class="label label-danger" v-show="errors.has('product_qty')">{{ errors.first('product_qty') }}</span>
 			</div>
+
 			<div class="form-group">
 				<label for="price_sale">Size:</label>
 				<div class="sizes">
@@ -44,12 +55,13 @@
 					</div>
 					<div class="checkbox" v-for="size in sizes">
 						<label>
-							<input type="checkbox" v-bind:value="size.size_name" v-model="product.size">
+							<input type="checkbox" v-bind:value="size.size_name" v-model="product.size" v-bind:checked="selectAll">
 							{{ size.size_name }} ({{ size.size_desc }})
 						</label>
 					</div>
 				</div>
 			</div>
+
 			<div class="form-group">
 				<label for="price_sale">
 					Color:
@@ -69,14 +81,24 @@
 					</ul>
 				</div>
 			</div>
+
+
 			<div class="form-group">
 				<label for="intro">Intro:</label>
-				<vue-editor v-model="product.product_intro"></vue-editor>
+				<vue-editor v-model="product.product_intro" name="intro" v-validate="'required'" data-vv-as="Giới thiệu"></vue-editor>
+				<span class="label label-danger" v-show="errors.has('intro')">{{ errors.first('intro') }}</span>
 			</div>
+			{{ product.product_intro }}
+
+
 			<div class="from-group">
+				<label for="content">Content:</label>
+				<vue-editor v-model="product.product_content" name="content" v-validate="'required'" data-vv-as="Nội dung sản phẩm"></vue-editor>
+				<span class="label label-danger" v-show="errors.has('content')">{{ errors.first('content') }}</span>
 			</div>
-			<label for="content">Content:</label>
-			<vue-editor v-model="product.product_content"></vue-editor>
+			{{ product.product_content }}
+			
+
 			<div class="from-group">
 				<label for="content">Is new:</label>
 				<div class="radio">
