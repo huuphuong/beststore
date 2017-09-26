@@ -102,6 +102,7 @@ class ProductController extends Controller
             $product_response['cat_name'] = $product->category->cat_name;
             $product_response['size']     = implode( ', ' ,json_decode($product->size, true) );
             $product_response['color']    = json_decode($product->color, true);
+            $product_response['vendor_name'] = $product->vendor->vendor_name;
             $res = Api::resourceApi(Api::$_OK, $product_response);
         }catch (\Exception $e) {
             $message = 'No result';

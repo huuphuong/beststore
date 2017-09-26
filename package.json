@@ -31,6 +31,7 @@
     "vue-clipboard2": "0.0.6",
     "vue-color": "^2.4.0",
     "vue-easy-toast": "^1.0.2",
+    "vue-js-modal": "^1.2.11",
     "vue-loader": "^13.0.4",
     "vue-loading-ajax-nprogress": "^0.2.0",
     "vue-multiselect": "^2.0.2",

@@ -85,10 +85,10 @@
 
 			<div class="form-group">
 				<label for="intro">Intro:</label>
-				<vue-editor v-model="product.product_intro" name="intro" v-validate="'required'" data-vv-as="Giới thiệu"></vue-editor>
+				<textarea v-model="product.product_intro" class="form-control" name="intro" v-validate="'required'" data-vv-as="Giới thiệu"></textarea>
 				<span class="label label-danger" v-show="errors.has('intro')">{{ errors.first('intro') }}</span>
 			</div>
-			{{ product.product_intro }}
+			
 
 
 			<div class="from-group">
@@ -96,7 +96,7 @@
 				<vue-editor v-model="product.product_content" name="content" v-validate="'required'" data-vv-as="Nội dung sản phẩm"></vue-editor>
 				<span class="label label-danger" v-show="errors.has('content')">{{ errors.first('content') }}</span>
 			</div>
-			{{ product.product_content }}
+			
 			
 
 			<div class="from-group">

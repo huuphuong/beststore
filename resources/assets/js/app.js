@@ -18,8 +18,10 @@ import vi from 'vee-validate/dist/locale/vi';
 import VeeValidate, { Validator } from 'vee-validate';
 import vueTopprogress from 'vue-top-progress'
 import VueClipboard from 'vue-clipboard2'
+import VModal from 'vue-js-modal'
 Vue.use(VueClipboard)
 Vue.use(vueTopprogress)
+Vue.use(VModal, {dialog: true})
 
 
 // Add locale helper.

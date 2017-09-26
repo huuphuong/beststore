@@ -29,33 +29,37 @@
 				<div class="col-sm-9">
 					<table class="table table-hover">
 						<tr>
-							<th class="text-success">Product ID:</th>
+							<th class="text-success">Product ID: </th>
 							<th>{{ product.product_id }}</th>
 						</tr>
 						<tr>
-							<th class="text-success">Category:</th>
+							<th class="text-success">Category: </th>
 							<th>{{ product.cat_name }}</th>
 						</tr>
 						<tr>
-							<th class="text-success">Product name:</th>
+							<th class="text-success">Product name: </th>
 							<th>{{ product.product_name }}</th>
 						</tr>
 						<tr>
-							<th class="text-success">Price:</th>
+							<th class="text-success">Price: </th>
 							<th>{{ product.product_price }}</th>
 						</tr>
 						<tr>
-							<th class="text-success">Price Sale:</th>
+							<th class="text-success">Price Sale: </th>
 							<th>{{ product.product_pricesale }}</th>
 						</tr>
-						<tr>
-							<th class="text-success">Intro:</th>
+						<!-- <tr>
+							<th class="text-success">Intro: </th>
 							<td v-html="product.product_intro"></td>
 						</tr>
 						<tr>
-							<th class="text-success">Content:</th>
-							<td v-html="product.product_content"></td>
-						</tr>
+							<th class="text-success">Content: </th>
+							<td>
+								<modal name="content-modal" :resizable="true" :scrollable="true" :height="'auto'" :width="1024">
+									<div class="container" v-html="product.product_content"></div>
+								</modal>
+							</td>
+						</tr> -->
 						<tr>
 							<th class="text-success">View: </th>
 							<th>{{ product.product_view }}</th>
@@ -93,7 +97,7 @@
 						</tr>
 						<tr>
 							<th class="text-success">Vendor:</th>
-							<th></th>
+							<th>{{ product.vendor_name }}</th>
 						</tr>
 						<tr>
 							<th class="text-success">Created at: </th>

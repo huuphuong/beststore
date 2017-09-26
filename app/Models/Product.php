@@ -15,4 +15,10 @@ class Product extends Model
 	{
 		return $this->belongsTo(Category::class, 'cat_id');
 	}
-}
+
+
+	public function vendor()
+	{
+		return $this->belongsTo(Vendor::class, 'vendor_id');
+	}
+} // End class
