@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\ProductImage;
+use App\Api;
 
 class ProductImageController extends Controller
 {
@@ -82,9 +83,20 @@ class ProductImageController extends Controller
     {
         $product_image = ProductImage::find($id);
         if ($product_image) {
-            return $product_image->delete();
+            try {
+                $row = $product_image->delete();
+                $message = 'Delete product\'s image has been success';
+                $res = Api::resourceApi(Api::$_NOCONTENT, $message);
+            }catch(\Exception $e) {
+                $message = 'Sorry, we can\'t delete this product image';
+                $res = Api::resourceApi(Api::$_SERVERERROR, $message);
+            }
+
+        } else {
+             $message = 'Can not find this product';
+            $res = Api::resourceApi(Api::$_NOTFOUND, $message);
         }
 
-        return true;
+        return response()->json($res, Api::$_OK);
     }
 }

@@ -14,7 +14,7 @@
 
 			<div class="form-group">
 				<label for="vendor">Vendor:</label>
-				<select class="form-control" v-model="product.vendor_id" name="vendor_id" v-validate="'required'" data-vv-as="Nhà cung cấp"> 
+				<select class="form-control" v-model="product.vendor_id" name="vendor_id" v-validate="'required'" data-vv-as="Nhà cung cấp">
 					<option value="">Choose vendor</option>
 					<option v-for="vendor in vendors" v-bind:value="vendor.vendor_id">{{ vendor.vendor_name }}</option>
 				</select>
@@ -88,7 +88,7 @@
 				<textarea v-model="product.product_intro" class="form-control" name="intro" v-validate="'required'" data-vv-as="Giới thiệu"></textarea>
 				<span class="label label-danger" v-show="errors.has('intro')">{{ errors.first('intro') }}</span>
 			</div>
-			
+
 
 
 			<div class="from-group">
@@ -96,8 +96,8 @@
 				<vue-editor v-model="product.product_content" name="content" v-validate="'required'" data-vv-as="Nội dung sản phẩm"></vue-editor>
 				<span class="label label-danger" v-show="errors.has('content')">{{ errors.first('content') }}</span>
 			</div>
-			
-			
+
+
 
 			<div class="from-group">
 				<label for="content">Is new:</label>
@@ -168,10 +168,10 @@
 					<label for="current_detail_img">Current_image:</label>
 
 					<ul class="list-inline">
-						<div class="col-sm-3" v-for="image in listCurrentImage">
+						<div class="col-sm-3" v-for="(image, index) in listCurrentImage">
 							<li>
 								<div class="item">
-									<span class="notify-badge" v-bind:imageId="image.image_id" @click="removeImgDetail($event)">X</span>
+									<span class="notify-badge" v-bind:imageId="image.image_id" @click="removeImgDetail($event, index)">X</span>
 									<img v-bind:src="image.storage" class="img-responsive img-thumbnail" />
 								</div>
 							</li>

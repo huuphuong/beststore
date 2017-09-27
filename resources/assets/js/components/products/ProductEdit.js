@@ -1,3 +1,4 @@
+import Common from '../../Common';
 import Dropzone from 'vue2-dropzone';
 import { VueEditor } from 'vue2-editor';
 import Multiselect from 'vue-multiselect';
@@ -40,7 +41,7 @@ export default {
 	},
 
 	methods: {
-		
+
 		onChangeImage () {
 	      var vm = this;
 	      if (vm.$refs.pictureInput.image) {
@@ -93,7 +94,7 @@ export default {
 		},
 
 
-		
+
 		getVendors () {
 			var vm = this;
 			var url = '/api/v1/vendors';
@@ -138,11 +139,18 @@ export default {
 		},
 
 
-		removeImgDetail (event) {
+		removeImgDetail (event, index) {
+			var vm = this;
 			var element = event.currentTarget;
 			var image_id = element.getAttribute('imageid');
 			var url = '/api/v1/product-image/' + image_id;
 			axios.delete(url).then(function (response) {
+				var result = response.data;
+				if (result.status == Common.statusCode._NOCONTENT)
+				{
+					vm.listCurrentImage.splice(index, 1);
+					Common.setToast(result.message, result.status);
+				}
 
 			}).catch(function (errors) {
 				console.log(errors);
