@@ -120,7 +120,22 @@ class ProductController extends Controller
      */
     public function edit($id)
     {
-        //
+        try {
+            $product = Product::find($id);
+            if ($product) {
+
+                $res['product'] = Api::resourceApi(Api::$_OK, $product);
+                $res['images'] = ProductImage::where('product_id', $id)
+                                             ->select('image_id', 'storage')
+                                             ->get()
+                                             ->toArray();
+            }
+        } catch (\Exception $e) {
+            $message = "Can not get product";
+            $res = Api::resourceApi(Api::$_SERVERERROR, $message);
+        }
+
+        return response()->json($res, Api::$_OK);
     }
 
     /**
@@ -132,7 +147,7 @@ class ProductController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        dd('This is update');
     }
 
     /**
@@ -143,11 +158,28 @@ class ProductController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $product = Product::find($id);
+        if ($product) {
+            try {
+                $row = $product->delete();
+                if ($row) {
+                    $message = 'Product has been deleted';
+                    $res = Api::resourceApi(Api::$_OK, $message);
+                }
+            } catch (\Exception $e) {
+                $message = 'Can\'t delete this product';
+                $res = Api::resourceApi($e->getCode(), $message);
+            }
+        }else {
+            $message = 'Can not find this product';
+            $res = Api::resourceApi($_NOTFOUND, $message);
+        }
+
+        return response()->json($res, Api::$_OK);
     }
 
 
-    public function upload(Request $request) 
+    public function upload(Request $request)
     {
         dd($request->all());
     }

@@ -27,5 +27,6 @@ Route::group(['prefix' => 'v1'], function() {
     Route::resource('vendors', 'VendorController');
     Route::resource('products', 'ProductController');
     Route::post('/products/upload', 'ProductController@upload');
+    Route::resource('product-image', 'ProductImageController');
 });
 

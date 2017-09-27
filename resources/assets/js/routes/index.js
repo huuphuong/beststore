@@ -17,6 +17,7 @@ import UserEdit from '../components/users/UserEdit.vue'
 // Product
 import ProductCreate from '../components/products/ProductCreate.vue'
 import ProductDetail from '../components/products/ProductDetail.vue'
+import ProductEdit from '../components/products/ProductEdit.vue'
 
 Vue.use(VueRouter);
 
@@ -37,6 +38,7 @@ export default new VueRouter({
 
 		{ path: '/products/create', name: 'ProductCreate', component: ProductCreate },
 		{ path: '/products/detail/:id', name: 'ProductDetail', component: ProductDetail },
+		{ path: '/products/edit/:id', name: 'ProductEdit', component: ProductEdit }
 	],
 	mode: 'history'
 })

@@ -37,6 +37,12 @@ export default {
 
 		hide () {
 			this.$modal.hide('hello-world');
+		},
+
+		getData() {
+			axios.get(url).then(function (response) {
+
+			})
 		}
 	}
 } // End class
