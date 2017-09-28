@@ -44289,6 +44289,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
 	name: 'sidebar'
@@ -44313,6 +44314,17 @@ var render = function() {
             { staticClass: "metisMenu nav", attrs: { id: "side-menu" } },
             [
               _c("li", { staticClass: "menu-title" }, [_vm._v("CRM")]),
+              _vm._v(" "),
+              _c(
+                "router-link",
+                { attrs: { tag: "li", to: { name: "RoleCreate" } } },
+                [
+                  _c("a", [
+                    _c("i", { staticClass: "fi-air-play" }),
+                    _vm._v(" Dashboard")
+                  ])
+                ]
+              ),
               _vm._v(" "),
               _c("li", [
                 _vm._m(0),
@@ -44398,7 +44410,7 @@ var render = function() {
                     _vm._v(" "),
                     _c(
                       "router-link",
-                      { attrs: { tag: "li", to: { name: "UserList" } } },
+                      { attrs: { tag: "li", to: { name: "ProductList" } } },
                       [_c("a", [_vm._v("List Product")])]
                     )
                   ],
@@ -44407,7 +44419,8 @@ var render = function() {
               ]),
               _vm._v(" "),
               _c("li")
-            ]
+            ],
+            1
           )
         ]),
         _vm._v(" "),
@@ -44764,6 +44777,8 @@ if (false) {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__components_products_ProductDetail_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_12__components_products_ProductDetail_vue__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__components_products_ProductEdit_vue__ = __webpack_require__(107);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__components_products_ProductEdit_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_13__components_products_ProductEdit_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__components_products_ProductList_vue__ = __webpack_require__(139);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__components_products_ProductList_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_14__components_products_ProductList_vue__);
 
 
 
@@ -44785,11 +44800,12 @@ if (false) {
 
 
 
+
 __WEBPACK_IMPORTED_MODULE_0_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_1_vue_router__["a" /* default */]);
 
 /* harmony default export */ __webpack_exports__["a"] = (new __WEBPACK_IMPORTED_MODULE_1_vue_router__["a" /* default */]({
 
-	routes: [{ path: '/roles/create', name: 'RoleCreate', component: __WEBPACK_IMPORTED_MODULE_3__components_roles_RoleCreate_vue___default.a }, { path: '/roles', name: 'RoleList', component: __WEBPACK_IMPORTED_MODULE_4__components_roles_RoleList_vue___default.a }, { path: '/roles/detail/:id', name: 'RoleDetail', component: __WEBPACK_IMPORTED_MODULE_5__components_roles_RoleDetail_vue___default.a }, { path: '/roles/edit/:id', name: 'RoleEdit', component: __WEBPACK_IMPORTED_MODULE_6__components_roles_RoleEdit_vue___default.a }, { path: '/users/create', name: 'UserCreate', component: __WEBPACK_IMPORTED_MODULE_7__components_users_UserCreate_vue___default.a }, { path: '/users/detail/:id', name: 'UserDetail', component: __WEBPACK_IMPORTED_MODULE_8__components_users_UserDetail_vue___default.a }, { path: '/users', name: 'UserList', component: __WEBPACK_IMPORTED_MODULE_9__components_users_UserList_vue___default.a }, { path: '/users/edit/:id', name: 'UserEdit', component: __WEBPACK_IMPORTED_MODULE_10__components_users_UserEdit_vue___default.a }, { path: '/products/create', name: 'ProductCreate', component: __WEBPACK_IMPORTED_MODULE_11__components_products_ProductCreate_vue___default.a }, { path: '/products/detail/:id', name: 'ProductDetail', component: __WEBPACK_IMPORTED_MODULE_12__components_products_ProductDetail_vue___default.a }, { path: '/products/edit/:id', name: 'ProductEdit', component: __WEBPACK_IMPORTED_MODULE_13__components_products_ProductEdit_vue___default.a, meta: { title: 'Edit product' } }],
+	routes: [{ path: '/roles/create', name: 'RoleCreate', component: __WEBPACK_IMPORTED_MODULE_3__components_roles_RoleCreate_vue___default.a }, { path: '/roles', name: 'RoleList', component: __WEBPACK_IMPORTED_MODULE_4__components_roles_RoleList_vue___default.a }, { path: '/roles/detail/:id', name: 'RoleDetail', component: __WEBPACK_IMPORTED_MODULE_5__components_roles_RoleDetail_vue___default.a }, { path: '/roles/edit/:id', name: 'RoleEdit', component: __WEBPACK_IMPORTED_MODULE_6__components_roles_RoleEdit_vue___default.a }, { path: '/users/create', name: 'UserCreate', component: __WEBPACK_IMPORTED_MODULE_7__components_users_UserCreate_vue___default.a }, { path: '/users/detail/:id', name: 'UserDetail', component: __WEBPACK_IMPORTED_MODULE_8__components_users_UserDetail_vue___default.a }, { path: '/users', name: 'UserList', component: __WEBPACK_IMPORTED_MODULE_9__components_users_UserList_vue___default.a }, { path: '/users/edit/:id', name: 'UserEdit', component: __WEBPACK_IMPORTED_MODULE_10__components_users_UserEdit_vue___default.a }, { path: '/products/create', name: 'ProductCreate', component: __WEBPACK_IMPORTED_MODULE_11__components_products_ProductCreate_vue___default.a }, { path: '/products/detail/:id', name: 'ProductDetail', component: __WEBPACK_IMPORTED_MODULE_12__components_products_ProductDetail_vue___default.a }, { path: '/products/edit/:id', name: 'ProductEdit', component: __WEBPACK_IMPORTED_MODULE_13__components_products_ProductEdit_vue___default.a }, { path: '/products', name: 'ProductList', component: __WEBPACK_IMPORTED_MODULE_14__components_products_ProductList_vue___default.a }],
 	mode: 'history'
 }));
 
@@ -65976,6 +65992,299 @@ function ($) {
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 131 */,
+/* 132 */,
+/* 133 */,
+/* 134 */,
+/* 135 */,
+/* 136 */,
+/* 137 */,
+/* 138 */,
+/* 139 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+var normalizeComponent = __webpack_require__(0)
+/* script */
+var __vue_script__ = __webpack_require__(140)
+/* template */
+var __vue_template__ = __webpack_require__(141)
+/* styles */
+var __vue_styles__ = null
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources\\assets\\js\\components\\products\\ProductList.vue"
+if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key.substr(0, 2) !== "__"})) {console.error("named exports are not supported in *.vue files.")}
+if (Component.options.functional) {console.error("[vue-loader] ProductList.vue: functional components are not supported with templates, they should use render functions.")}
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-2842d867", Component.options)
+  } else {
+    hotAPI.reload("data-v-2842d867", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 140 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Common_js__ = __webpack_require__(2);
+
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+	name: 'ProductList',
+
+	data: function data() {
+		return {
+			products: []
+		};
+	},
+	created: function created() {
+		document.title = 'Product List';
+	},
+	mounted: function mounted() {
+		var vm = this;
+		vm.getProducts();
+	},
+
+
+	methods: {
+		getProducts: function getProducts() {
+			var vm = this;
+			var url = '/api/v1/products';
+			axios.get(url).then(function (response) {
+				vm.products = response.data;
+				console.log(vm.products);
+			}).catch(function (errors) {
+				console.log(errors);
+			});
+		},
+		deleteProduct: function deleteProduct(product_id, index) {
+			var vm = this;
+			var url = '/api/v1/products/' + product_id;
+			var confirmDelete = confirm('Do you want delete this product?');
+
+			if (confirmDelete) {
+				axios.delete(url).then(function (response) {
+					var result = response.data;
+					if (result.status == __WEBPACK_IMPORTED_MODULE_0__Common_js__["a" /* default */].statusCode._OK) {
+						vm.products.splice(index, 1);
+					}
+					__WEBPACK_IMPORTED_MODULE_0__Common_js__["a" /* default */].setToast(result.message, result.status);
+				}).catch(function (errors) {
+					console.log(errors);
+				});
+			}
+		}
+	} // End class
+
+});
+
+/***/ }),
+/* 141 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { attrs: { id: "root" } }, [
+    _c("div", { staticClass: "row" }, [
+      _c(
+        "div",
+        { staticClass: "btn-group pull-right m-r-10 m-b-10" },
+        [
+          _c("router-link", { attrs: { to: { name: "ProductCreate" } } }, [
+            _c("a", { staticClass: "btn btn-default" }, [
+              _c("span", { staticClass: "glyphicon glyphicon-plus" }),
+              _vm._v(" Add Product\n\t\t\t\t")
+            ])
+          ])
+        ],
+        1
+      )
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "panel panel-default" }, [
+      _vm._m(0),
+      _vm._v(" "),
+      _c("div", { staticClass: "panel-body" }, [
+        _c("div", { staticClass: "table-responsive" }, [
+          _c("table", { staticClass: "table table-hover" }, [
+            _vm._m(1),
+            _vm._v(" "),
+            _c(
+              "tbody",
+              _vm._l(_vm.products, function(product, index) {
+                return _c("tr", [
+                  _c("td", [_vm._v("#" + _vm._s(product.product_id))]),
+                  _vm._v(" "),
+                  _c("td", [_vm._v(_vm._s(product.cat_name))]),
+                  _vm._v(" "),
+                  _c("td", [
+                    _c("img", {
+                      staticClass: "img-resposive img-circle",
+                      attrs: {
+                        src: product.product_image,
+                        alt: product.product_name,
+                        width: "45px",
+                        height: "45px"
+                      }
+                    })
+                  ]),
+                  _vm._v(" "),
+                  _c("td", [_vm._v(_vm._s(product.product_name))]),
+                  _vm._v(" "),
+                  _c("td", [_vm._v(_vm._s(product.product_price))]),
+                  _vm._v(" "),
+                  _c("td", [_vm._v(_vm._s(product.is_sale ? "Yes" : "No"))]),
+                  _vm._v(" "),
+                  _c("td", [_vm._v(_vm._s(product.is_new ? "Yes" : "No"))]),
+                  _vm._v(" "),
+                  _c("td", [_vm._v(_vm._s(product.is_hot ? "Yes" : "No"))]),
+                  _vm._v(" "),
+                  _c("td", [_vm._v(_vm._s(product.vendor_name))]),
+                  _vm._v(" "),
+                  _c(
+                    "td",
+                    [
+                      _c(
+                        "router-link",
+                        {
+                          attrs: {
+                            to: {
+                              name: "ProductEdit",
+                              params: { id: product.product_id }
+                            }
+                          }
+                        },
+                        [
+                          _c("span", {
+                            staticClass: "glyphicon glyphicon-pencil"
+                          }),
+                          _vm._v(" "),
+                          _c("a", [_vm._v("Edit")])
+                        ]
+                      ),
+                      _vm._v(" | \n\t\t\t\t\t\t\t\t"),
+                      _c(
+                        "button",
+                        {
+                          staticClass: "btn btn-link",
+                          on: {
+                            click: function($event) {
+                              _vm.deleteProduct(product.product_id, index)
+                            }
+                          }
+                        },
+                        [
+                          _c("span", {
+                            staticClass: "glyphicon glyphicon-trash"
+                          }),
+                          _vm._v(" Delete")
+                        ]
+                      ),
+                      _vm._v(" |\n\t\t\t\t\t\t\t\t"),
+                      _c(
+                        "router-link",
+                        {
+                          attrs: {
+                            to: {
+                              name: "ProductDetail",
+                              params: { id: product.product_id }
+                            }
+                          }
+                        },
+                        [
+                          _c("span", {
+                            staticClass: "glyphicon glyphicon-eye-open"
+                          }),
+                          _vm._v(" Detail")
+                        ]
+                      )
+                    ],
+                    1
+                  )
+                ])
+              })
+            )
+          ])
+        ])
+      ])
+    ])
+  ])
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "panel-heading" }, [
+      _c("h3", { staticClass: "panel-title" }, [_vm._v("Product List")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("thead", [
+      _c("tr", [
+        _c("th", [_vm._v("ID")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Category")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Image")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Product name")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Price")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Is sale")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Is new")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Is hot")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Vendor")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Action")])
+      ])
+    ])
+  }
+]
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+     require("vue-hot-reload-api").rerender("data-v-2842d867", module.exports)
+  }
+}
 
 /***/ })
 /******/ ]);

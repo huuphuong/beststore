@@ -7,6 +7,7 @@
 					<!-- Left Menu Start -->
 					<ul class="metisMenu nav" id="side-menu">
 						<li class="menu-title">CRM</li><!-- /.header -->
+						<router-link tag="li" :to="{ name: 'RoleCreate' }"><a><i class="fi-air-play"></i> Dashboard</a></router-link>
 						<li>
 							<a href="javascript: void(0);"><i class="fi-share"></i> <span>Roles</span> <span class="menu-arrow"></span></a>
 							<ul class="nav-second-level nav">
@@ -35,7 +36,7 @@
 							<a href="javascript: void(0);"><i class="fi-share"></i> <span>Product</span> <span class="menu-arrow"></span></a>
 							<ul class="nav-second-level nav">
 										<router-link tag="li" :to="{ name: 'ProductCreate' }"><a>Create Product</a></router-link>
-										<router-link tag="li" :to="{ name: 'UserList' }"><a>List Product</a></router-link>
+										<router-link tag="li" :to="{ name: 'ProductList' }"><a>List Product</a></router-link>
 							</ul>
 					 </li>
 

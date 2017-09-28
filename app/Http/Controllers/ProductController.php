@@ -19,7 +19,9 @@ class ProductController extends Controller
      */
     public function index()
     {
-        //
+        $product = new Product();
+        $data = $product->getAll();
+        return response()->json($data, 200);
     }
 
     /**
