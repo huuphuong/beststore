@@ -3,7 +3,7 @@
 	<div class="panel-heading">
 		<h3 class="panel-title">Create Product</h3>
 	</div>
-	<form method="POST" enctype="multipart/form-data" @submit.prevent="onSubmit">
+	<form method="POST" enctype="multipart/form-data" @submit.prevent="validateBeforeSubmit">
 		<div class="panel-body">
 			<div class="form-group">
 				<label for="cat_id">Category:</label>

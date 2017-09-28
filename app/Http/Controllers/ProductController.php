@@ -228,6 +228,6 @@ class ProductController extends Controller
 
     public function upload(Request $request)
     {
-        dd($request->all());
+        return response()->json(true, Api::$_OK);
     }
 } // End class

@@ -65,3 +65,4 @@ Vue.nextTick(function () {
 	require('./assets/js/jquery.app.js')
 });
 
+

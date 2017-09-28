@@ -40,6 +40,11 @@ export default {
 		}
 	},
 
+	created () {
+		document.title = 'Create product';
+	},
+
+
 	mounted () {
 		var vm = this;
 		vm.getSizes();
@@ -49,7 +54,15 @@ export default {
 	},
 
 	methods: {
-		
+		validateBeforeSubmit() {
+	      var vm = this;
+	      vm.$validator.validateAll().then((result) => {
+	        if (result) {
+	          return vm.onSubmit()
+	        }
+	      });
+	    },
+    
 		onChangeImage () {
 	      var vm = this;
 	      if (vm.$refs.pictureInput.image) {

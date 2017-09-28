@@ -44789,7 +44789,7 @@ __WEBPACK_IMPORTED_MODULE_0_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_1_vue_
 
 /* harmony default export */ __webpack_exports__["a"] = (new __WEBPACK_IMPORTED_MODULE_1_vue_router__["a" /* default */]({
 
-	routes: [{ path: '/roles/create', name: 'RoleCreate', component: __WEBPACK_IMPORTED_MODULE_3__components_roles_RoleCreate_vue___default.a }, { path: '/roles', name: 'RoleList', component: __WEBPACK_IMPORTED_MODULE_4__components_roles_RoleList_vue___default.a }, { path: '/roles/detail/:id', name: 'RoleDetail', component: __WEBPACK_IMPORTED_MODULE_5__components_roles_RoleDetail_vue___default.a }, { path: '/roles/edit/:id', name: 'RoleEdit', component: __WEBPACK_IMPORTED_MODULE_6__components_roles_RoleEdit_vue___default.a }, { path: '/users/create', name: 'UserCreate', component: __WEBPACK_IMPORTED_MODULE_7__components_users_UserCreate_vue___default.a }, { path: '/users/detail/:id', name: 'UserDetail', component: __WEBPACK_IMPORTED_MODULE_8__components_users_UserDetail_vue___default.a }, { path: '/users', name: 'UserList', component: __WEBPACK_IMPORTED_MODULE_9__components_users_UserList_vue___default.a }, { path: '/users/edit/:id', name: 'UserEdit', component: __WEBPACK_IMPORTED_MODULE_10__components_users_UserEdit_vue___default.a }, { path: '/products/create', name: 'ProductCreate', component: __WEBPACK_IMPORTED_MODULE_11__components_products_ProductCreate_vue___default.a }, { path: '/products/detail/:id', name: 'ProductDetail', component: __WEBPACK_IMPORTED_MODULE_12__components_products_ProductDetail_vue___default.a }, { path: '/products/edit/:id', name: 'ProductEdit', component: __WEBPACK_IMPORTED_MODULE_13__components_products_ProductEdit_vue___default.a }],
+	routes: [{ path: '/roles/create', name: 'RoleCreate', component: __WEBPACK_IMPORTED_MODULE_3__components_roles_RoleCreate_vue___default.a }, { path: '/roles', name: 'RoleList', component: __WEBPACK_IMPORTED_MODULE_4__components_roles_RoleList_vue___default.a }, { path: '/roles/detail/:id', name: 'RoleDetail', component: __WEBPACK_IMPORTED_MODULE_5__components_roles_RoleDetail_vue___default.a }, { path: '/roles/edit/:id', name: 'RoleEdit', component: __WEBPACK_IMPORTED_MODULE_6__components_roles_RoleEdit_vue___default.a }, { path: '/users/create', name: 'UserCreate', component: __WEBPACK_IMPORTED_MODULE_7__components_users_UserCreate_vue___default.a }, { path: '/users/detail/:id', name: 'UserDetail', component: __WEBPACK_IMPORTED_MODULE_8__components_users_UserDetail_vue___default.a }, { path: '/users', name: 'UserList', component: __WEBPACK_IMPORTED_MODULE_9__components_users_UserList_vue___default.a }, { path: '/users/edit/:id', name: 'UserEdit', component: __WEBPACK_IMPORTED_MODULE_10__components_users_UserEdit_vue___default.a }, { path: '/products/create', name: 'ProductCreate', component: __WEBPACK_IMPORTED_MODULE_11__components_products_ProductCreate_vue___default.a }, { path: '/products/detail/:id', name: 'ProductDetail', component: __WEBPACK_IMPORTED_MODULE_12__components_products_ProductDetail_vue___default.a }, { path: '/products/edit/:id', name: 'ProductEdit', component: __WEBPACK_IMPORTED_MODULE_13__components_products_ProductEdit_vue___default.a, meta: { title: 'Edit product' } }],
 	mode: 'history'
 }));
 
@@ -52052,6 +52052,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 			avatar: ''
 		};
 	},
+	created: function created() {
+		document.title = 'Create product';
+	},
 	mounted: function mounted() {
 		var vm = this;
 		vm.getSizes();
@@ -52062,6 +52065,14 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 
 	methods: {
+		validateBeforeSubmit: function validateBeforeSubmit() {
+			var vm = this;
+			vm.$validator.validateAll().then(function (result) {
+				if (result) {
+					return vm.onSubmit();
+				}
+			});
+		},
 		onChangeImage: function onChangeImage() {
 			var vm = this;
 			if (vm.$refs.pictureInput.image) {
@@ -52184,7 +52195,7 @@ var render = function() {
         on: {
           submit: function($event) {
             $event.preventDefault()
-            _vm.onSubmit($event)
+            _vm.validateBeforeSubmit($event)
           }
         }
       },
@@ -53105,6 +53116,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 			product: {}
 		};
 	},
+	created: function created() {
+		document.title = 'Product Detail';
+	},
 	mounted: function mounted() {
 		var vm = this;
 		vm.getProduct();
@@ -53438,6 +53452,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 			listCurrentImage: []
 		};
 	},
+	created: function created() {
+		document.title = 'Edit product';
+	},
 	mounted: function mounted() {
 		var vm = this;
 		vm.getSizes();
@@ -53449,6 +53466,14 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 
 	methods: {
+		validateBeforeSubmit: function validateBeforeSubmit() {
+			var vm = this;
+			vm.$validator.validateAll().then(function (result) {
+				if (result) {
+					return vm.onSubmit();
+				}
+			});
+		},
 		onChangeImage: function onChangeImage() {
 			var vm = this;
 			if (vm.$refs.pictureInput.image) {
@@ -53602,7 +53627,7 @@ var render = function() {
         on: {
           submit: function($event) {
             $event.preventDefault()
-            _vm.onSubmit($event)
+            _vm.validateBeforeSubmit($event)
           }
         }
       },

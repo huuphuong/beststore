@@ -38,7 +38,7 @@ export default new VueRouter({
 
 		{ path: '/products/create', name: 'ProductCreate', component: ProductCreate },
 		{ path: '/products/detail/:id', name: 'ProductDetail', component: ProductDetail },
-		{ path: '/products/edit/:id', name: 'ProductEdit', component: ProductEdit }
+		{ path: '/products/edit/:id', name: 'ProductEdit', component: ProductEdit, meta: {title: 'Edit product'} }
 	],
 	mode: 'history'
 })

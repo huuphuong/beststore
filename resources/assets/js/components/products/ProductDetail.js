@@ -11,6 +11,11 @@ export default {
 		}
 	},
 
+	created () {
+		document.title = 'Product Detail';
+	},
+
+
 	mounted () {
 		var vm = this;
 		vm.getProduct();
