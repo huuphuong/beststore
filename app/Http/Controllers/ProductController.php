@@ -105,6 +105,8 @@ class ProductController extends Controller
             $product_response['vendor_name'] = $product->vendor->vendor_name;
             $res = Api::resourceApi(Api::$_OK, $product_response);
         }catch (\Exception $e) {
+
+            dd($e->getMessage());
             $message = 'No result';
             $res = Api::resourceApi($e->getCode(), $message);
         }
@@ -147,7 +149,50 @@ class ProductController extends Controller
      */
     public function update(Request $request, $id)
     {
-        dd('This is update');
+        try {
+            $post_data = $request->all();
+            $product_request = $post_data['product'];
+            $product = Product::findOrFail($id);
+            $product->product_name      = $product_request['product_name'];
+            $product->product_slug      = str_slug($product_request['product_name']);
+            $product->product_price     = $product_request['product_price'];
+            $product->product_pricesale = $product_request['product_pricesale'];
+            $product->product_intro     = $product_request['product_intro'];
+            $product->product_content   = $product_request['product_content'];
+            $product->product_image     = $product_request['product_image'];
+            $product->product_qty       = $product_request['product_qty'];
+            $product->size              = json_encode($product_request['size']);
+            $product->color             = $product_request['color'];
+            $product->cat_id            = $product_request['cat_id'];
+            $product->is_new            = $product_request['is_new'];
+            $product->is_hot            = $product_request['is_hot'];
+            $product->is_sale           = $product_request['is_sale'];
+            $product->vendor_id         = $product_request['vendor_id'];
+            $product->save();
+
+            // Product detail image
+            $detail_request = $post_data['product_detail_image'];
+            for ($i=0, $count = count($detail_request); $i < $count; $i++)
+            {
+                try {
+                    $product_image = new ProductImage();
+                    $product_image->product_id = $product->product_id;
+                    $product_image->storage = $detail_request[$i]['dataURL'];
+                    $product_image->save();
+                }catch (\Exception $e) {
+                    $message = 'Product has been updated. But product\'s image can not crated. Please try again later!';
+                    $res = Api::resourceApi($e->getCode(), $message);
+                }
+            }
+
+            $res = Api::resourceApi(Api::$_OK, $product);
+
+        }catch (\Exception $e) {
+            $message = 'Can not update product. Please contact administator to support this problem!';
+            $res = Api::resourceApi($e->getCode(), $message);
+        }
+
+        return response()->json($res, Api::$_OK);
     }
 
     /**

@@ -149,9 +149,8 @@ export default {
 				if (result.status == Common.statusCode._NOCONTENT)
 				{
 					vm.listCurrentImage.splice(index, 1);
-					Common.setToast(result.message, result.status);
 				}
-
+				Common.setToast(result.message, result.status);
 			}).catch(function (errors) {
 				console.log(errors);
 			});
