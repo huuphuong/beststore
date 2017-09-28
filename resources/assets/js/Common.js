@@ -1,5 +1,6 @@
-import Vue from 'vue'
+import Vue from 'vue';
 import Toasted from 'vue-toasted';
+import axios from 'axios';
 Vue.use(Toasted)
 
 class Common {
@@ -20,7 +21,7 @@ class Common {
 			_CONFLICT     : 409,
 			_SERVERERROR  : 500
 		}
-
+		
 	}
 
 	setToast (message, type='info') {
@@ -62,6 +63,16 @@ class Common {
 		}
 
 		return icon;
+	}
+
+
+	getComponent (table='', key='', value='') {
+		var url = `/api/v1/components?table=${table}&key=${key}&value=${value}`;
+		axios.get(url).then(function (response) {
+			return response.data;
+		}).catch(function (errors) {
+			console.log(errors);
+		});
 	}
 
 }

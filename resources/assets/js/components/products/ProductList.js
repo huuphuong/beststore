@@ -1,31 +1,42 @@
 import Common from '../../Common.js';
+import Recusive from '../shared/Recusive.vue';
+import SelectOption from '../shared/SelectOption.vue';
 
 export default {
 	name: 'ProductList',
 
+	components: { Recusive, SelectOption },
+
 	data () {
 		return {
 			products: [],
+			category: '',
+			vendors: [],
 		}
 	},
 
 	created () {
-		document.title = 'Product List'
+		document.title = 'Product List';
 	},
 
-	mounted () {
+	mounted: function () {
 		var vm = this;
 		vm.getProducts();
 	},
 
 
 	methods: {
+
+		constructor () {
+			alert(1);
+		},
+
+
 		getProducts() {
 			var vm = this;
 			var url = '/api/v1/products';
 			axios.get(url).then(function (response) {
 				vm.products = response.data;
-				console.log(vm.products);
 			}).catch(function (errors) {
 				console.log(errors);
 			});
@@ -49,6 +60,13 @@ export default {
 					console.log(errors);
 				});
 			}
-		}
+		},
+
+
+		fetchData () {
+			var vm = this;
+			console.log(vm.category.target.value);
+		},
+
 	}
 } // End class

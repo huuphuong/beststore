@@ -29,4 +29,13 @@ class Api extends Model
 		];
 	}
 	
+
+	public static function getListOption($tablename = 'vendors', $primary_key = 'vendor_id', $value = 'vendor_name')
+	{
+		$result = \DB::table($tablename)
+					 ->select("$primary_key AS textid", "$value AS textname")
+					 ->get()
+					 ->toArray();
+		return $result;
+	}
 }

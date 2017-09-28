@@ -48,3 +48,11 @@
   border-top-color: #fff;
   border-left-color: #fff;
 }
+
+.m-t-25 {
+    margin-top: 25px !important;
+}
+
+.m-t-45 {
+    margin-top: 45px;
+}

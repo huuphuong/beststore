@@ -15,6 +15,68 @@
 				<h3 class="panel-title">Product List</h3>
 			</div>
 			<div class="panel-body">
+				<div class="row m-b-20">
+					<div class="form-group">
+						<form action="" method="POST" autocomplete="off">
+							<div class="col-sm-3">
+								<div class="form-group">
+									<label for="name">Product name:</label>
+									<input type="text" class="form-control">
+								</div>
+
+								<div class="form-group">
+									<label for="name">Is hot:</label>
+									<select name="" id="input" class="form-control" required="required">
+										<option value="">All</option>
+									</select>
+								</div>
+							</div>
+
+							<div class="col-sm-3">
+								<div class="form-group">
+									<label for="name">Category:</label>
+									<recusive v-model="category"></recusive>
+								</div>
+								
+
+								<div class="form-group">
+									<label for="name">Is new:</label>
+									<select name="" id="input" class="form-control" required="required">
+										<option value="">All</option>
+									</select>
+								</div>
+							</div>
+
+							<div class="col-sm-3">
+								<div class="form-group">
+									<label for="name">Vendor:</label>
+									<select-option :first="'All vendor'" :listData="vendors"></select-option>
+									{{ vendors }}
+								</div>
+
+								<div class="form-group">
+									<label for="name">Is sale:</label>
+									<select name="" id="input" class="form-control" required="required">
+										<option value="">All</option>
+									</select>
+								</div>
+							</div>
+
+							<div class="col-sm-3">
+								<div class="form-group">
+									<h2 class="m-t-15 text-center">Quantity: 999</h2>
+								</div>
+
+								<div class="form-group ">
+									<button type="button" class="btn btn-default btn-block">Cancel</button>
+									<button type="button" class="btn btn-primary btn-block" @click="fetchData">Filter</button>
+								</div>
+							</div>
+							
+						</form>
+					</div>	
+				</div>
+
 				<div class="table-responsive">
 					<table class="table table-hover">
 						<thead>
