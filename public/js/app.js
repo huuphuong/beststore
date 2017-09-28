@@ -22455,12 +22455,14 @@ __WEBPACK_IMPORTED_MODULE_0_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_6_vee_
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 __WEBPACK_IMPORTED_MODULE_3_axios___default.a.interceptors.request.use(function (config) {
+  NProgress.start();
   return config;
 }, function (error) {
   return Promise.reject(error);
 });
 
 __WEBPACK_IMPORTED_MODULE_3_axios___default.a.interceptors.response.use(function (response) {
+  NProgress.done();
   return response;
 }, function (error) {
   return Promise.reject(error);
@@ -52617,22 +52619,19 @@ var render = function() {
           _vm._v(" "),
           _c("div", { staticClass: "form-group" }, [
             _c("label", { attrs: { for: "price_sale" } }, [
-              _vm._v("\r\n\t\t\t\t\tColor:\r\n\t\t\t\t")
+              _vm._v("\r\n\t\t\t\t\tColor "),
+              _vm.product.color
+                ? _c("span", [
+                    _vm._v("(" + _vm._s(_vm.product.color.length) + ")")
+                  ])
+                : _vm._e(),
+              _vm._v(":\r\n\t\t\t\t")
             ]),
             _vm._v(" "),
-            _c("div", { staticClass: "dropdown" }, [
-              _c(
-                "button",
-                {
-                  staticClass: "btn btn-default dropdown-toggle",
-                  attrs: { type: "button", "data-toggle": "dropdown" }
-                },
-                [_vm._v("\r\n\t\t\t\t\tChoose Color ")]
-              ),
-              _vm._v(" "),
+            _c("div", { staticClass: "pre-scroll" }, [
               _c(
                 "ul",
-                { staticClass: "dropdown-menu scrollable-menu" },
+                { staticClass: "list-unstyled" },
                 _vm._l(_vm.colors, function(color) {
                   return _c("li", [
                     _c("div", { staticClass: "checkbox" }, [
@@ -52648,9 +52647,9 @@ var render = function() {
                           ],
                           attrs: { type: "checkbox", name: "color" },
                           domProps: {
-                            value: color,
+                            value: color.color_code,
                             checked: Array.isArray(_vm.product.color)
-                              ? _vm._i(_vm.product.color, color) > -1
+                              ? _vm._i(_vm.product.color, color.color_code) > -1
                               : _vm.product.color
                           },
                           on: {
@@ -52659,7 +52658,7 @@ var render = function() {
                                 $$el = $event.target,
                                 $$c = $$el.checked ? true : false
                               if (Array.isArray($$a)) {
-                                var $$v = color,
+                                var $$v = color.color_code,
                                   $$i = _vm._i($$a, $$v)
                                 if ($$el.checked) {
                                   $$i < 0 &&
@@ -53249,18 +53248,13 @@ var render = function() {
               _c("th", [
                 _c(
                   "ul",
-                  { staticClass: "list-unstyled" },
+                  { staticClass: "list-unstyled list-inline" },
                   _vm._l(_vm.product.color, function(color, index) {
                     return _c("li", [
                       _c("span", {
                         staticClass: "my-square",
-                        style: { "background-color": "#" + index }
-                      }),
-                      _vm._v(
-                        "\n\t\t\t\t\t\t\t\t\t  " +
-                          _vm._s(color) +
-                          "\n\t\t\t\t\t\t\t\t"
-                      )
+                        style: { "background-color": "#" + color }
+                      })
                     ])
                   })
                 )
@@ -53538,8 +53532,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 			axios.get(url).then(function (response) {
 				var result = response.data;
 				vm.product = result.product.data;
+				console.log(vm.product);
+
 				vm.listCurrentImage = result.images;
-				console.log(vm.listCurrentImage);
+				vm.avatar = vm.product.product_image;
 			}).catch(function (errors) {
 				console.log(errors);
 			});
@@ -53938,47 +53934,91 @@ var render = function() {
               { staticClass: "sizes" },
               [
                 _c("div", { staticClass: "checkbox" }, [
-                  _c("label", [
-                    _c("input", {
-                      directives: [
-                        {
-                          name: "model",
-                          rawName: "v-model",
-                          value: _vm.selectAll,
-                          expression: "selectAll"
-                        }
-                      ],
-                      attrs: { type: "checkbox" },
-                      domProps: {
-                        checked: Array.isArray(_vm.selectAll)
-                          ? _vm._i(_vm.selectAll, null) > -1
-                          : _vm.selectAll
-                      },
-                      on: {
-                        __c: function($event) {
-                          var $$a = _vm.selectAll,
-                            $$el = $event.target,
-                            $$c = $$el.checked ? true : false
-                          if (Array.isArray($$a)) {
-                            var $$v = null,
-                              $$i = _vm._i($$a, $$v)
-                            if ($$el.checked) {
-                              $$i < 0 && (_vm.selectAll = $$a.concat([$$v]))
-                            } else {
-                              $$i > -1 &&
-                                (_vm.selectAll = $$a
-                                  .slice(0, $$i)
-                                  .concat($$a.slice($$i + 1)))
+                  _vm.product.size &&
+                  _vm.product.size.length == _vm.sizes.length
+                    ? _c("label", [
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.selectAll,
+                              expression: "selectAll"
                             }
-                          } else {
-                            _vm.selectAll = $$c
+                          ],
+                          attrs: { type: "checkbox" },
+                          domProps: {
+                            checked: true,
+                            checked: Array.isArray(_vm.selectAll)
+                              ? _vm._i(_vm.selectAll, null) > -1
+                              : _vm.selectAll
+                          },
+                          on: {
+                            __c: function($event) {
+                              var $$a = _vm.selectAll,
+                                $$el = $event.target,
+                                $$c = $$el.checked ? true : false
+                              if (Array.isArray($$a)) {
+                                var $$v = null,
+                                  $$i = _vm._i($$a, $$v)
+                                if ($$el.checked) {
+                                  $$i < 0 && (_vm.selectAll = $$a.concat([$$v]))
+                                } else {
+                                  $$i > -1 &&
+                                    (_vm.selectAll = $$a
+                                      .slice(0, $$i)
+                                      .concat($$a.slice($$i + 1)))
+                                }
+                              } else {
+                                _vm.selectAll = $$c
+                              }
+                            }
                           }
-                        }
-                      }
-                    }),
-                    _vm._v(" "),
-                    _c("b", [_vm._v("All")])
-                  ])
+                        }),
+                        _vm._v(" "),
+                        _c("b", [_vm._v("All")])
+                      ])
+                    : _c("label", [
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.selectAll,
+                              expression: "selectAll"
+                            }
+                          ],
+                          attrs: { type: "checkbox" },
+                          domProps: {
+                            checked: Array.isArray(_vm.selectAll)
+                              ? _vm._i(_vm.selectAll, null) > -1
+                              : _vm.selectAll
+                          },
+                          on: {
+                            __c: function($event) {
+                              var $$a = _vm.selectAll,
+                                $$el = $event.target,
+                                $$c = $$el.checked ? true : false
+                              if (Array.isArray($$a)) {
+                                var $$v = null,
+                                  $$i = _vm._i($$a, $$v)
+                                if ($$el.checked) {
+                                  $$i < 0 && (_vm.selectAll = $$a.concat([$$v]))
+                                } else {
+                                  $$i > -1 &&
+                                    (_vm.selectAll = $$a
+                                      .slice(0, $$i)
+                                      .concat($$a.slice($$i + 1)))
+                                }
+                              } else {
+                                _vm.selectAll = $$c
+                              }
+                            }
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("b", [_vm._v("All")])
+                      ])
                 ]),
                 _vm._v(" "),
                 _vm._l(_vm.sizes, function(size) {
@@ -53996,7 +54036,6 @@ var render = function() {
                         attrs: { type: "checkbox" },
                         domProps: {
                           value: size.size_name,
-                          checked: _vm.selectAll,
                           checked: Array.isArray(_vm.product.size)
                             ? _vm._i(_vm.product.size, size.size_name) > -1
                             : _vm.product.size
@@ -54041,22 +54080,19 @@ var render = function() {
           _vm._v(" "),
           _c("div", { staticClass: "form-group" }, [
             _c("label", { attrs: { for: "price_sale" } }, [
-              _vm._v("\r\n\t\t\t\t\tColor:\r\n\t\t\t\t")
+              _vm._v("\r\n\t\t\t\t\tColor "),
+              _vm.product.color
+                ? _c("span", [
+                    _vm._v("(" + _vm._s(_vm.product.color.length) + ")")
+                  ])
+                : _vm._e(),
+              _vm._v(":\r\n\t\t\t\t")
             ]),
             _vm._v(" "),
-            _c("div", { staticClass: "dropdown" }, [
-              _c(
-                "button",
-                {
-                  staticClass: "btn btn-default dropdown-toggle",
-                  attrs: { type: "button", "data-toggle": "dropdown" }
-                },
-                [_vm._v("\r\n\t\t\t\t\tChoose Color ")]
-              ),
-              _vm._v(" "),
+            _c("div", { staticClass: "pre-scroll" }, [
               _c(
                 "ul",
-                { staticClass: "dropdown-menu scrollable-menu" },
+                { staticClass: "list-unstyled" },
                 _vm._l(_vm.colors, function(color) {
                   return _c("li", [
                     _c("div", { staticClass: "checkbox" }, [
@@ -54072,9 +54108,9 @@ var render = function() {
                           ],
                           attrs: { type: "checkbox", name: "color" },
                           domProps: {
-                            value: color,
+                            value: color.color_code,
                             checked: Array.isArray(_vm.product.color)
-                              ? _vm._i(_vm.product.color, color) > -1
+                              ? _vm._i(_vm.product.color, color.color_code) > -1
                               : _vm.product.color
                           },
                           on: {
@@ -54083,7 +54119,7 @@ var render = function() {
                                 $$el = $event.target,
                                 $$c = $$el.checked ? true : false
                               if (Array.isArray($$a)) {
-                                var $$v = color,
+                                var $$v = color.color_code,
                                   $$i = _vm._i($$a, $$v)
                                 if ($$el.checked) {
                                   $$i < 0 &&
@@ -54347,6 +54383,17 @@ var render = function() {
                 _vm._v("\r\n\t\t\t\t\t\tYes\r\n\t\t\t\t\t")
               ])
             ])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "form-group" }, [
+            _c("label", { attrs: { for: "" } }, [
+              _vm._v("Current product image")
+            ]),
+            _vm._v(" "),
+            _c("img", {
+              staticClass: "img-responsive",
+              attrs: { src: _vm.avatar, alt: "product.product_name" }
+            })
           ]),
           _vm._v(" "),
           _c(

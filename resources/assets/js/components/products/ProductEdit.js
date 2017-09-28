@@ -131,8 +131,10 @@ export default {
 			axios.get(url).then(function (response) {
 				var result = response.data;
 				vm.product = result.product.data;
+				console.log(vm.product);
+
 				vm.listCurrentImage = result.images;
-				console.log(vm.listCurrentImage);
+				vm.avatar = vm.product.product_image;
 			}).catch(function (errors) {
 				console.log(errors);
 			});

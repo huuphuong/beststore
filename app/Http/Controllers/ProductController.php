@@ -54,8 +54,8 @@ class ProductController extends Controller
             $product->product_image     = $product_request['product_image'];
             $product->product_view      = self::$_productViewStart;
             $product->product_qty       = $product_request['product_qty'];
-            $product->size              = json_encode($product_request['size']);
-            $product->color             = AppHelper::setColor($product_request['color']);
+            $product->size              = !empty ($product_request['size']) ? implode(', ', $product_request['size']) : null ;
+            $product->color             = !empty ($product_request['color']) ? implode(',', $product_request['color']) : null;
             $product->cat_id            = $product_request['cat_id'];
             $product->is_new            = $product_request['is_new'];
             $product->is_hot            = $product_request['is_hot'];
@@ -100,8 +100,7 @@ class ProductController extends Controller
             $product = Product::findOrFail($id);
             $product_response             = $product->toArray();
             $product_response['cat_name'] = $product->category->cat_name;
-            $product_response['size']     = implode( ', ' ,json_decode($product->size, true) );
-            $product_response['color']    = json_decode($product->color, true);
+            $product_response['color']    = explode(',', $product->color);
             $product_response['vendor_name'] = $product->vendor->vendor_name;
             $res = Api::resourceApi(Api::$_OK, $product_response);
         }catch (\Exception $e) {
@@ -127,6 +126,9 @@ class ProductController extends Controller
             if ($product) {
 
                 $res['product'] = Api::resourceApi(Api::$_OK, $product);
+                $res['product']['data']['size'] = explode(', ', $product->size);
+                $res['product']['data']['color'] = explode(',', $product->color);
+               
                 $res['images'] = ProductImage::where('product_id', $id)
                                              ->select('image_id', 'storage')
                                              ->get()
@@ -161,8 +163,8 @@ class ProductController extends Controller
             $product->product_content   = $product_request['product_content'];
             $product->product_image     = $product_request['product_image'];
             $product->product_qty       = $product_request['product_qty'];
-            $product->size              = json_encode($product_request['size']);
-            $product->color             = $product_request['color'];
+            $product->size              = !empty ($product_request['size']) ? implode(', ', $product_request['size']) : null ;
+            $product->color             = !empty ($product_request['color']) ? implode(',', $product_request['color']) : null;
             $product->cat_id            = $product_request['cat_id'];
             $product->is_new            = $product_request['is_new'];
             $product->is_hot            = $product_request['is_hot'];

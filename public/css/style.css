@@ -39,3 +39,12 @@
 .img-item-remove {
 	margin-right: 15px;
 }
+
+#nprogress .bar {
+  background: #fff;
+}
+
+#nprogress .spinner-icon {
+  border-top-color: #fff;
+  border-left-color: #fff;
+}

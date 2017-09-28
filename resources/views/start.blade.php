@@ -12,6 +12,7 @@
     <link rel="shortcut icon" href="{{ asset('assets/images/favicon.ico') }}">
     <!-- App css -->
     <link href="{{ asset('assets/css/bootstrap.min.css') }}" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="https://unpkg.com/nprogress@0.2.0/nprogress.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="{{ asset('assets/css/core.css') }}" rel="stylesheet" type="text/css" />
     <link href="{{ asset('assets/css/components.css') }}" rel="stylesheet" type="text/css" />
@@ -34,6 +35,7 @@
     <!-- <script src="{{ asset('assets/js/waves.js') }}"></script> -->
     <script src="{{ asset('assets/js/jquery.slimscroll.js') }}"></script>
     <script src="{{ asset('plugins/jscolor-usage/jscolor.js')}}"></script>
+    <script src="https://unpkg.com/nprogress@0.2.0/nprogress.js"></script>
     <!-- App js -->
     <script src="{{ asset('assets/js/jquery.core.js') }}"></script>
     <script src="{{ asset('assets/js/jquery.app.js') }}"></script>

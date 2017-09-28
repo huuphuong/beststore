@@ -18,6 +18,7 @@
 				</router-link>
 			</div>
 		</div>
+
 		<div class="panel panel-default">
 			<div class="panel-heading">
 				<h3 class="panel-title">ProductDetail</h3>
@@ -75,10 +76,9 @@
 						<tr>
 							<th class="text-success">Color: </th>
 							<th>
-								<ul class="list-unstyled">
+								<ul class="list-unstyled list-inline">
 									<li v-for="(color, index) in product.color">
-										<span class="my-square" v-bind:style="{'background-color': '#'+index}"></span>
-										&nbsp; {{ color }}
+										<span class="my-square" v-bind:style="{'background-color': '#'+color}"></span>
 									</li>
 								</ul>
 							</th>

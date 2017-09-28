@@ -64,16 +64,14 @@
 
 			<div class="form-group">
 				<label for="price_sale">
-					Color:
+					Color <span v-if="product.color">({{ product.color.length }})</span>:
 				</label>
-				<div class="dropdown">
-					<button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">
-					Choose Color </button>
-					<ul class="dropdown-menu scrollable-menu">
+				<div class="pre-scroll">
+					<ul class="list-unstyled">
 						<li v-for="color in colors">
 							<div class="checkbox">
 								<label>
-									<input type="checkbox" name="color" v-model="product.color" v-bind:value="color" />
+									<input type="checkbox" name="color" v-model="product.color" v-bind:value="color.color_code" />
 									<span class="my-square" v-bind:style="{'background-color': '#'+color.color_code}"></span>
 								</label>
 							</div>
