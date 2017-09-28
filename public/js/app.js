@@ -43498,7 +43498,7 @@ var staticRenderFns = [
     return _c("div", { staticClass: "topbar" }, [
       _c("div", { staticClass: "topbar-left" }, [
         _c("a", { staticClass: "logo", attrs: { href: "index.html" } }, [
-          _c("span", [_vm._v("ASK"), _c("span", [_vm._v("HRM")])]),
+          _c("span", [_vm._v("Best"), _c("span", [_vm._v("Store")])]),
           _c("i", { staticClass: "mdi mdi-layers" })
         ]),
         _vm._v(" "),
