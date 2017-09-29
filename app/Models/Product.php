@@ -27,7 +27,7 @@ class Product extends Model
 	}
 
 
-	public function getAll()
+	public function getAll($query = array())
 	{
 		$result = \DB::table('products')
 					 ->join('categories', 'categories.cat_id', '=', 'products.cat_id')
@@ -45,8 +45,24 @@ class Product extends Model
 					 	'categories.cat_name',
 					 	'vendors.vendor_name'
 					 )
-					 ->whereNull('products.deleted_at')
-					 ->get();
-		return $result;
+					 ->whereNull('products.deleted_at');
+
+		if (!empty ($query)) {
+			foreach ($query AS $key => $value)
+			{
+				if ($key != 'page' && $value != '')
+				{
+					$result = $result->where("products.$key", 'LIKE', '%'.$value.'%');
+				}
+			}
+		}
+		
+		
+		$data = array(
+			'products' => $result->paginate(20),
+			'count' => $result->count()
+		);
+
+		return $data;
 	}
 } // End class

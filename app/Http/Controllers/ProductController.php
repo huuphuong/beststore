@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers; 
 
 use Illuminate\Http\Request;
 use App\Models\Product;
@@ -17,11 +17,19 @@ class ProductController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $product = new Product();
-        $data = $product->getAll();
-        return response()->json($data, 200);
+        try {
+            $product = new Product();
+            $query = $request->all();
+            $data = $product->getAll($query);
+            $res = Api::resourceApi(Api::$_OK, $data);
+        }catch (\Exception $e) {
+            $message = 'Can\'t get product list.';
+            $res = Api::resourceApi(Api::$_SERVERERROR, $message);
+        }
+
+        return response()->json($res, Api::$_OK);
     }
 
     /**

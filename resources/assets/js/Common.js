@@ -22,6 +22,7 @@ class Common {
 			_SERVERERROR  : 500
 		}
 		
+		this.components = 1;
 	}
 
 	setToast (message, type='info') {
@@ -67,12 +68,10 @@ class Common {
 
 
 	getComponent (table='', key='', value='') {
+		var self = this;
+
 		var url = `/api/v1/components?table=${table}&key=${key}&value=${value}`;
-		axios.get(url).then(function (response) {
-			return response.data;
-		}).catch(function (errors) {
-			console.log(errors);
-		});
+		return axios.get(url);
 	}
 
 }

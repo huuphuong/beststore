@@ -1,6 +1,6 @@
 <template>
 	<div id="root">
-		<select class="form-control">
+		<select class="form-control" v-model="option" @change="changeValue">
 			<option value="">{{ first }}</option>
 			<option v-for="(value, key) in listData" v-bind:value="value.textid">
 				{{ value.textname }}
@@ -16,15 +16,20 @@
 
 		data () {
 			return {
-				cat_id: '',
-				cate: '',
+				option: '',
 			}
 		},
 
 
 		mounted () {
 			var vm = this;
-			
+		},
+
+
+		methods: {
+			changeValue () {
+				this.$emit('input', { target: { value: this.option } });
+			},
 		}
 	}
 </script>

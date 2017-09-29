@@ -21,50 +21,49 @@
 							<div class="col-sm-3">
 								<div class="form-group">
 									<label for="name">Product name:</label>
-									<input type="text" class="form-control">
+									<input type="text" class="form-control" v-model="query.product_name">
+									{{ query.product_name }}
 								</div>
 
 								<div class="form-group">
 									<label for="name">Is hot:</label>
-									<select name="" id="input" class="form-control" required="required">
-										<option value="">All</option>
-									</select>
+									<v-conditional v-model="query.is_hot"></v-conditional>
+									{{ query.is_hot }}
 								</div>
 							</div>
 
 							<div class="col-sm-3">
 								<div class="form-group">
 									<label for="name">Category:</label>
-									<recusive v-model="category"></recusive>
+									<recusive v-model="query.cat_id"></recusive>
+									{{ query.cat_id }}
 								</div>
 								
 
 								<div class="form-group">
 									<label for="name">Is new:</label>
-									<select name="" id="input" class="form-control" required="required">
-										<option value="">All</option>
-									</select>
+									<v-conditional v-model="query.is_new"></v-conditional>
+									{{ query.is_new }}
 								</div>
 							</div>
 
 							<div class="col-sm-3">
 								<div class="form-group">
 									<label for="name">Vendor:</label>
-									<select-option :first="'All vendor'" :listData="vendors"></select-option>
-									{{ vendors }}
+									<select-option :first="'All vendor'" :listData="vendors" v-model="query.vendor_id"></select-option>
+									{{ query.vendor_id }}
 								</div>
 
 								<div class="form-group">
 									<label for="name">Is sale:</label>
-									<select name="" id="input" class="form-control" required="required">
-										<option value="">All</option>
-									</select>
+									<v-conditional v-model="query.is_sale"></v-conditional>
+									{{ query.is_sale }}
 								</div>
 							</div>
 
 							<div class="col-sm-3">
 								<div class="form-group">
-									<h2 class="m-t-15 text-center">Quantity: 999</h2>
+									<h2 class="m-t-15 text-center">Quantity: {{ total }}</h2>
 								</div>
 
 								<div class="form-group ">
@@ -102,9 +101,18 @@
 								</td>
 								<td>{{ product.product_name }}</td>
 								<td>{{ product.product_price}}</td>
-								<td>{{ product.is_sale ? 'Yes' : 'No' }}</td>
-								<td>{{ product.is_new ? 'Yes' : 'No' }}</td>
-								<td>{{ product.is_hot ? 'Yes' : 'No' }}</td>
+								<td>
+									<span class="label label-success" v-if="product.is_sale == 1">Yes</span>
+									<span class="label label-warning" v-else>No</span>
+								</td>
+								<td>
+									<span class="label label-success" v-if="product.is_new == 1">Yes</span>
+									<span class="label label-warning" v-else>No</span>
+								</td>
+								<td>
+									<span class="label label-success" v-if="product.is_hot == 1">Yes</span>
+									<span class="label label-warning" v-else>No</span>
+								</td>
 								<td>{{ product.vendor_name }}</td>
 								<td>
 									<router-link :to="{ name: 'ProductEdit', params:{id: product.product_id} }"><span class="glyphicon glyphicon-pencil"></span> <a>Edit</a></router-link> | 
@@ -115,6 +123,19 @@
 						</tbody>
 					</table>
 				</div>
+			</div>
+
+			<div class="panel-footer">
+				<paginate
+	              :page-count="last_page"
+	              :click-handler="fetchData"
+	              :page-range="3"
+	              :margin-pages="2"
+	              :prev-text="'Trước'"
+	              :next-text="'Sau'"
+	              :container-class="'pagination'"
+	              :page-class="'page-item'">
+	            </paginate>
 			</div>
 		</div>
 	</div>
