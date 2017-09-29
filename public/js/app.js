@@ -54671,8 +54671,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_vuejs_paginate___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_vuejs_paginate__);
 var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
 
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
 var queryString = __webpack_require__(93);
 
 
@@ -54686,9 +54684,7 @@ var queryString = __webpack_require__(93);
 	components: { Recusive: __WEBPACK_IMPORTED_MODULE_1__shared_Recusive_vue___default.a, SelectOption: __WEBPACK_IMPORTED_MODULE_2__shared_SelectOption_vue___default.a, VConditional: __WEBPACK_IMPORTED_MODULE_3__shared_VConditional_vue___default.a, Paginate: __WEBPACK_IMPORTED_MODULE_4_vuejs_paginate___default.a },
 
 	data: function data() {
-		var _ref;
-
-		return _ref = {
+		return {
 			products: [],
 			vendors: [],
 
@@ -54703,8 +54699,10 @@ var queryString = __webpack_require__(93);
 
 			last_page: 0,
 			first_page: 1,
-			current_page: 1
-		}, _defineProperty(_ref, 'query', {}), _defineProperty(_ref, 'total', 0), _ref;
+			current_page: 1,
+
+			total: 0
+		};
 	},
 	created: function created() {
 		document.title = 'Product List';
@@ -54728,17 +54726,22 @@ var queryString = __webpack_require__(93);
 
 	methods: {
 		getProducts: function getProducts() {
-			var query = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : '';
-			var currentPage = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 1;
+			var currentPage = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 1;
+
+			if ((typeof currentPage === 'undefined' ? 'undefined' : _typeof(currentPage)) == 'object') {
+				currentPage = 1;
+			}
 
 			var vm = this;
-			var url = '/api/v1/products' + '?' + query;
+			var query = vm.fetchData();
+			var url = '/api/v1/products?page=' + currentPage + '&' + query;
 			axios.get(url).then(function (response) {
 				var result = response.data.data;
 				vm.products = result.products.data;
 
 				vm.last_page = result.products.last_page;
 				vm.total = result.products.total;
+				vm.current_page = currentPage;
 			}).catch(function (errors) {
 				console.log(errors);
 			});
@@ -54771,7 +54774,7 @@ var queryString = __webpack_require__(93);
 				is_sale: _typeof(vm.query.is_sale) == 'object' ? vm.query.is_sale.target.value : null
 			};
 
-			return vm.getProducts(queryString.stringify(q));
+			return queryString.stringify(q);
 		}
 	} // End class
 
@@ -55294,7 +55297,7 @@ var render = function() {
                       {
                         staticClass: "btn btn-primary btn-block",
                         attrs: { type: "button" },
-                        on: { click: _vm.fetchData }
+                        on: { click: _vm.getProducts }
                       },
                       [_vm._v("Filter")]
                     )
@@ -55331,7 +55334,7 @@ var render = function() {
                   _vm._v(" "),
                   _c("td", [_vm._v(_vm._s(product.product_name))]),
                   _vm._v(" "),
-                  _c("td", [_vm._v(_vm._s(product.product_price))]),
+                  _c("td"),
                   _vm._v(" "),
                   _c("td", [
                     product.is_sale == 1
@@ -55436,18 +55439,24 @@ var render = function() {
         "div",
         { staticClass: "panel-footer" },
         [
-          _c("paginate", {
-            attrs: {
-              "page-count": _vm.last_page,
-              "click-handler": _vm.fetchData,
-              "page-range": 3,
-              "margin-pages": 2,
-              "prev-text": "Trước",
-              "next-text": "Sau",
-              "container-class": "pagination",
-              "page-class": "page-item"
-            }
-          })
+          _c(
+            "center",
+            [
+              _c("paginate", {
+                attrs: {
+                  "page-count": _vm.last_page,
+                  "click-handler": _vm.getProducts,
+                  "page-range": 3,
+                  "margin-pages": 2,
+                  "prev-text": "Trước",
+                  "next-text": "Sau",
+                  "container-class": "pagination",
+                  "page-class": "page-item"
+                }
+              })
+            ],
+            1
+          )
         ],
         1
       )

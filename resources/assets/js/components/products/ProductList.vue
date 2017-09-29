@@ -68,7 +68,7 @@
 
 								<div class="form-group ">
 									<button type="button" class="btn btn-default btn-block">Cancel</button>
-									<button type="button" class="btn btn-primary btn-block" @click="fetchData">Filter</button>
+									<button type="button" class="btn btn-primary btn-block" @click="getProducts">Filter</button>
 								</div>
 							</div>
 							
@@ -100,7 +100,9 @@
 									<img v-bind:src="product.product_image" v-bind:alt="product.product_name" class="img-resposive img-circle" width="45px" height="45px">
 								</td>
 								<td>{{ product.product_name }}</td>
-								<td>{{ product.product_price}}</td>
+								<td>
+									
+								</td>
 								<td>
 									<span class="label label-success" v-if="product.is_sale == 1">Yes</span>
 									<span class="label label-warning" v-else>No</span>
@@ -126,16 +128,18 @@
 			</div>
 
 			<div class="panel-footer">
-				<paginate
-	              :page-count="last_page"
-	              :click-handler="fetchData"
-	              :page-range="3"
-	              :margin-pages="2"
-	              :prev-text="'Trước'"
-	              :next-text="'Sau'"
-	              :container-class="'pagination'"
-	              :page-class="'page-item'">
-	            </paginate>
+				<center>
+					 <paginate
+		              :page-count="last_page"
+		              :click-handler="getProducts"
+		              :page-range="3"
+		              :margin-pages="2"
+		              :prev-text="'Trước'"
+		              :next-text="'Sau'"
+		              :container-class="'pagination'"
+		              :page-class="'page-item'">
+		            </paginate>
+	            </center>
 			</div>
 		</div>
 	</div>

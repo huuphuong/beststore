@@ -27,7 +27,7 @@ export default {
 			last_page: 0,
 			first_page: 1,
 			current_page: 1,
-			query: { },
+			
 			total: 0,
 		}
 	},
@@ -54,17 +54,21 @@ export default {
 
 	methods: {
 
-		getProducts(query='', currentPage=1) {
+		getProducts(currentPage=1) {
+			if (typeof currentPage == 'object') {
+				currentPage = 1;
+			}
+			
 			var vm = this;
-			var url = '/api/v1/products' + '?' + query;
+			var query = vm.fetchData();
+			var url = `/api/v1/products?page=${currentPage}&${query}`;
 			axios.get(url).then(function (response) {
 				var result = response.data.data;
 				vm.products = result.products.data;
 
-
 				vm.last_page    = result.products.last_page;
 				vm.total        = result.products.total;
-				
+				vm.current_page = currentPage;
 			}).catch(function (errors) {
 				console.log(errors);
 			});
@@ -102,7 +106,7 @@ export default {
 				is_sale: typeof vm.query.is_sale == 'object' ? vm.query.is_sale.target.value : null
 			}
 
-			return vm.getProducts(queryString.stringify(q));
+			return queryString.stringify(q);
 		}, 
 
 	}
