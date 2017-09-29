@@ -56,3 +56,7 @@
 .m-t-45 {
     margin-top: 45px;
 }
+
+tr>td {
+    vertical-align: middle !important;
+}

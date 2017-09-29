@@ -38,7 +38,7 @@
 									<recusive v-model="query.cat_id"></recusive>
 									{{ query.cat_id }}
 								</div>
-								
+
 
 								<div class="form-group">
 									<label for="name">Is new:</label>
@@ -71,9 +71,9 @@
 									<button type="button" class="btn btn-primary btn-block" @click="getProducts">Filter</button>
 								</div>
 							</div>
-							
+
 						</form>
-					</div>	
+					</div>
 				</div>
 
 				<div class="table-responsive">
@@ -101,7 +101,14 @@
 								</td>
 								<td>{{ product.product_name }}</td>
 								<td>
-									
+									<div v-if="parseMoney(product.product_pricesale) > 0">
+										<s>{{ product.product_price }}</s>
+										<p class="text-danger">{{ product.product_pricesale }}</p>
+									</div>
+
+									<div v-else>
+										{{ product.product_price }}
+									</div>
 								</td>
 								<td>
 									<span class="label label-success" v-if="product.is_sale == 1">Yes</span>
@@ -117,8 +124,8 @@
 								</td>
 								<td>{{ product.vendor_name }}</td>
 								<td>
-									<router-link :to="{ name: 'ProductEdit', params:{id: product.product_id} }"><span class="glyphicon glyphicon-pencil"></span> <a>Edit</a></router-link> | 
-									<button class="btn btn-link" @click="deleteProduct(product.product_id, index)"><span class="glyphicon glyphicon-trash"></span> Delete</button> |
+									<router-link :to="{ name: 'ProductEdit', params:{id: product.product_id} }"><span class="glyphicon glyphicon-pencil"></span> <a>Edit</a></router-link> |
+									<button class="btn btn-link m-0 p-0" @click="deleteProduct(product.product_id, index)"><span class="glyphicon glyphicon-trash"></span> Delete</button> |
 									<router-link :to="{name: 'ProductDetail', params: {id: product.product_id} }"><span class="glyphicon glyphicon-eye-open"></span> Detail</router-link>
 								</td>
 							</tr>

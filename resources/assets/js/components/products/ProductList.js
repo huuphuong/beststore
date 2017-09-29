@@ -27,7 +27,7 @@ export default {
 			last_page: 0,
 			first_page: 1,
 			current_page: 1,
-			
+
 			total: 0,
 		}
 	},
@@ -58,7 +58,7 @@ export default {
 			if (typeof currentPage == 'object') {
 				currentPage = 1;
 			}
-			
+
 			var vm = this;
 			var query = vm.fetchData();
 			var url = `/api/v1/products?page=${currentPage}&${query}`;
@@ -107,7 +107,16 @@ export default {
 			}
 
 			return queryString.stringify(q);
-		}, 
+		},
+
+		parseMoney (price) {
+			price = price.replace(/,/g , '');
+			return parseInt(price);
+		}
+
+	},
+
+	computed: {
 
 	}
 } // End class
