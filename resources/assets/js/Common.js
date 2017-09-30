@@ -66,6 +66,13 @@ class Common {
 		return icon;
 	}
 
+	
+	/**
+	 * Method lấy khóa chính và name để nhét vào select-option component
+	 * @table: tên bảng
+	 * @key: cột khóa chính
+	 * @value: cột name
+	 */
 
 	getComponent (table='', key='', value='') {
 		var self = this;
@@ -74,6 +81,23 @@ class Common {
 		return axios.get(url);
 	}
 
-}
+
+	hasParamValue(queryString) {
+		var params = queryString.split('&');
+		for (var param of params)
+		{
+			if (param.indexOf("=") > -1) {
+				let position = param.lastIndexOf('=');
+				let result = param.substring(position + 1);
+				if (result.length) {
+					return true;
+				}
+			}
+		}
+
+		return false;
+	}
+
+} // End class
 
 export default new Common();

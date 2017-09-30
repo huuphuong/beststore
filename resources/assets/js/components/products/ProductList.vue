@@ -22,13 +22,13 @@
 								<div class="form-group">
 									<label for="name">Product name:</label>
 									<input type="text" class="form-control" v-model="query.product_name">
-									{{ query.product_name }}
+									<!-- {{ query.product_name }} -->
 								</div>
 
 								<div class="form-group">
 									<label for="name">Is hot:</label>
 									<v-conditional v-model="query.is_hot"></v-conditional>
-									{{ query.is_hot }}
+									<!-- {{ query.is_hot }} -->
 								</div>
 							</div>
 
@@ -36,14 +36,14 @@
 								<div class="form-group">
 									<label for="name">Category:</label>
 									<recusive v-model="query.cat_id"></recusive>
-									{{ query.cat_id }}
+									<!-- {{ query.cat_id }} -->
 								</div>
 
 
 								<div class="form-group">
 									<label for="name">Is new:</label>
 									<v-conditional v-model="query.is_new"></v-conditional>
-									{{ query.is_new }}
+									<!-- {{ query.is_new }} -->
 								</div>
 							</div>
 
@@ -51,13 +51,13 @@
 								<div class="form-group">
 									<label for="name">Vendor:</label>
 									<select-option :first="'All vendor'" :listData="vendors" v-model="query.vendor_id"></select-option>
-									{{ query.vendor_id }}
+									<!-- {{ query.vendor_id }} -->
 								</div>
 
 								<div class="form-group">
 									<label for="name">Is sale:</label>
 									<v-conditional v-model="query.is_sale"></v-conditional>
-									{{ query.is_sale }}
+									<!-- {{ query.is_sale }} -->
 								</div>
 							</div>
 
@@ -67,7 +67,7 @@
 								</div>
 
 								<div class="form-group ">
-									<button type="button" class="btn btn-default btn-block">Cancel</button>
+									<button type="button" class="btn btn-default btn-block" @click="clearPage">Cancel</button>
 									<button type="button" class="btn btn-primary btn-block" @click="getProducts">Filter</button>
 								</div>
 							</div>
@@ -88,6 +88,7 @@
 								<th>Is sale</th>
 								<th>Is new</th>
 								<th>Is hot</th>
+								<th>Display</th>
 								<th>Vendor</th>
 								<th>Action</th>
 							</tr>
@@ -121,6 +122,10 @@
 								<td>
 									<span class="label label-success" v-if="product.is_hot == 1">Yes</span>
 									<span class="label label-warning" v-else>No</span>
+								</td>
+								<td>
+									<span class="label label-success" v-if="product.display == 1">Display</span>
+									<span class="label label-warning" v-else>None</span>
 								</td>
 								<td>{{ product.vendor_name }}</td>
 								<td>

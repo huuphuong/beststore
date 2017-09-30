@@ -55,12 +55,14 @@ export default {
 	methods: {
 
 		getProducts(currentPage=1) {
+
+			var vm = this;
+			var query = vm.fetchData();
+
 			if (typeof currentPage == 'object') {
 				currentPage = 1;
 			}
 
-			var vm = this;
-			var query = vm.fetchData();
 			var url = `/api/v1/products?page=${currentPage}&${query}`;
 			axios.get(url).then(function (response) {
 				var result = response.data.data;
@@ -92,6 +94,13 @@ export default {
 					console.log(errors);
 				});
 			}
+		},
+
+
+		clearPage () {
+			var vm = this;
+			vm.query = { };
+			vm.getProducts(vm.first_page);
 		},
 
 

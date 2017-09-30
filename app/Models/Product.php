@@ -42,6 +42,7 @@ class Product extends Model
 					 	'products.is_new',
 					 	'products.is_sale',
 					 	'products.is_hot',
+					 	'products.display',
 					 	'categories.cat_name',
 					 	'vendors.vendor_name'
 					 )
@@ -59,7 +60,7 @@ class Product extends Model
 		
 		
 		$data = array(
-			'products' => $result->paginate(20),
+			'products' => $result->paginate(50),
 			'count' => $result->count()
 		);
 
