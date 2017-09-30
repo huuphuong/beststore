@@ -22,12 +22,13 @@
 		mounted () {
 			var vm = this;
 			vm.getCategories();
+			
 		},
 
 
 		methods: {
 			changeValue () {
-				this.$emit('input', { target: { value: this.cate } });
+				this.$emit('input', this.cate)
 			},
 
 

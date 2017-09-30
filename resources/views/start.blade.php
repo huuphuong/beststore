@@ -22,6 +22,10 @@
     <link href="{{ asset('assets/css/responsive.css') }}" rel="stylesheet" type="text/css" />
     <link href="{{ asset('css/style.css') }}" rel="stylesheet" type="text/css" />
     <script src="{{ asset('assets/js/modernizr.min.js') }}"></script>
+    <base href="/api/v1/">
+    <script type="text/javascript">
+        var baseUrl = document.getElementsByTagName('base')[0].getAttribute('href');
+    </script>
   </head>
 
   <body>

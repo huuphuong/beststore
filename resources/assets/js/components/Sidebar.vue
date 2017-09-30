@@ -24,13 +24,7 @@
 							</ul>
 					 </li>
 
-					 <li>
-					 	<a href="javascript: void(0);"><i class="fi-share"></i> <span>Category</span> <span class="menu-arrow"></span></a>
-							<ul class="nav-second-level nav">
-										<router-link tag="li" :to="{ name: 'ProductCreate' }"><a>Add Category</a></router-link>
-										<router-link tag="li" :to="{ name: 'UserList' }"><a>List Category</a></router-link>
-							</ul>
-					 </li>
+					<router-link tag="li" :to="{ name: 'Category' }"><a>Category</a></router-link>
 
 					 <li>
 							<a href="javascript: void(0);"><i class="fi-share"></i> <span>Product</span> <span class="menu-arrow"></span></a>

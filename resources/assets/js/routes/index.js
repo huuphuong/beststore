@@ -20,6 +20,9 @@ import ProductDetail from '../components/products/ProductDetail.vue'
 import ProductEdit from '../components/products/ProductEdit.vue'
 import ProductList from '../components/products/ProductList.vue'
 
+// Category
+import Category from '../components/categories/Category.vue'
+
 Vue.use(VueRouter);
 
 export default new VueRouter({
@@ -40,7 +43,9 @@ export default new VueRouter({
 		{ path: '/products/create', name: 'ProductCreate', component: ProductCreate },
 		{ path: '/products/detail/:id', name: 'ProductDetail', component: ProductDetail },
 		{ path: '/products/edit/:id', name: 'ProductEdit', component: ProductEdit },
-		{ path: '/products', name: 'ProductList', component: ProductList }
+		{ path: '/products', name: 'ProductList', component: ProductList },
+
+		{ path: '/categories', name: 'Category', component: Category }
 	],
 	mode: 'history'
 })
