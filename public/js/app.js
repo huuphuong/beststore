@@ -53245,21 +53245,21 @@ var render = function() {
           _c("router-link", { attrs: { to: { name: "ProductCreate" } } }, [
             _c("a", { staticClass: "btn btn-default" }, [
               _c("span", { staticClass: "glyphicon glyphicon-plus" }),
-              _vm._v(" Thêm \n\n\t\t\t\t")
+              _vm._v(" Add Product \n\n\t\t\t\t")
             ])
           ]),
           _vm._v(" "),
           _c("router-link", { attrs: { to: { name: "ProductList" } } }, [
             _c("a", { staticClass: "btn btn-default" }, [
               _c("span", { staticClass: "glyphicon glyphicon-th-list" }),
-              _vm._v(" Danh sách")
+              _vm._v(" List Product")
             ])
           ]),
           _vm._v(" "),
           _c("router-link", { attrs: { to: { name: "ProductEdit" } } }, [
             _c("a", { staticClass: "btn btn-default" }, [
               _c("span", { staticClass: "glyphicon glyphicon-pencil" }),
-              _vm._v(" Sửa")
+              _vm._v(" Edit Product")
             ])
           ])
         ],
@@ -53267,153 +53267,221 @@ var render = function() {
       )
     ]),
     _vm._v(" "),
-    _c("div", { staticClass: "panel panel-default" }, [
-      _vm._m(0),
-      _vm._v(" "),
-      _c("div", { staticClass: "panel-body" }, [
-        _c("div", { staticClass: "col-sm-3" }, [
-          _c("img", {
-            staticClass: "img-responsive",
-            attrs: { src: _vm.product.product_image }
-          })
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "col-sm-9" }, [
-          _c("table", { staticClass: "table table-hover" }, [
-            _c("tr", [
-              _c("th", { staticClass: "text-success" }, [
-                _vm._v("Product ID: ")
-              ]),
-              _vm._v(" "),
-              _c("th", [_vm._v(_vm._s(_vm.product.product_id))])
+    _vm.product
+      ? _c("div", { staticClass: "panel panel-default" }, [
+          _c("div", { staticClass: "panel-heading" }, [
+            _c("h3", { staticClass: "panel-title" }, [
+              _vm._v(_vm._s(_vm.product.product_name))
+            ])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "panel-body" }, [
+            _c("div", { staticClass: "col-sm-3" }, [
+              _c("img", {
+                staticClass: "img-responsive img-circle",
+                attrs: { src: _vm.product.product_image }
+              })
             ]),
             _vm._v(" "),
-            _c("tr", [
-              _c("th", { staticClass: "text-success" }, [_vm._v("Category: ")]),
-              _vm._v(" "),
-              _c("th", [_vm._v(_vm._s(_vm.product.cat_name))])
-            ]),
-            _vm._v(" "),
-            _c("tr", [
-              _c("th", { staticClass: "text-success" }, [
-                _vm._v("Product name: ")
-              ]),
-              _vm._v(" "),
-              _c("th", [_vm._v(_vm._s(_vm.product.product_name))])
-            ]),
-            _vm._v(" "),
-            _c("tr", [
-              _c("th", { staticClass: "text-success" }, [_vm._v("Price: ")]),
-              _vm._v(" "),
-              _c("th", [_vm._v(_vm._s(_vm.product.product_price))])
-            ]),
-            _vm._v(" "),
-            _c("tr", [
-              _c("th", { staticClass: "text-success" }, [
-                _vm._v("Price Sale: ")
-              ]),
-              _vm._v(" "),
-              _c("th", [_vm._v(_vm._s(_vm.product.product_pricesale))])
-            ]),
-            _vm._v(" "),
-            _c("tr", [
-              _c("th", { staticClass: "text-success" }, [_vm._v("View: ")]),
-              _vm._v(" "),
-              _c("th", [_vm._v(_vm._s(_vm.product.product_view))])
-            ]),
-            _vm._v(" "),
-            _c("tr", [
-              _c("th", { staticClass: "text-success" }, [_vm._v("Quantity: ")]),
-              _vm._v(" "),
-              _c("th", [_vm._v(_vm._s(_vm.product.product_qty))])
-            ]),
-            _vm._v(" "),
-            _c("tr", [
-              _c("th", { staticClass: "text-success" }, [_vm._v("Size: ")]),
-              _vm._v(" "),
-              _c("th", [_vm._v(_vm._s(_vm.product.size))])
-            ]),
-            _vm._v(" "),
-            _c("tr", [
-              _c("th", { staticClass: "text-success" }, [_vm._v("Color: ")]),
-              _vm._v(" "),
-              _c("th", [
-                _c(
-                  "ul",
-                  { staticClass: "list-unstyled list-inline" },
-                  _vm._l(_vm.product.color, function(color, index) {
-                    return _c("li", [
-                      _c("span", {
-                        staticClass: "my-square",
-                        style: { "background-color": "#" + color }
+            _c("div", { staticClass: "col-sm-9" }, [
+              _c("table", { staticClass: "table table-hover" }, [
+                _c("tr", [
+                  _c("th", { staticClass: "text-success" }, [
+                    _vm._v("Product ID: ")
+                  ]),
+                  _vm._v(" "),
+                  _c("th", [_vm._v(_vm._s(_vm.product.product_id))])
+                ]),
+                _vm._v(" "),
+                _c("tr", [
+                  _c("th", { staticClass: "text-success" }, [
+                    _vm._v("Category: ")
+                  ]),
+                  _vm._v(" "),
+                  _c("th", [_vm._v(_vm._s(_vm.product.cat_name))])
+                ]),
+                _vm._v(" "),
+                _c("tr", [
+                  _c("th", { staticClass: "text-success" }, [
+                    _vm._v("Product name: ")
+                  ]),
+                  _vm._v(" "),
+                  _c("th", [_vm._v(_vm._s(_vm.product.product_name))])
+                ]),
+                _vm._v(" "),
+                _c("tr", [
+                  _c("th", { staticClass: "text-success" }, [
+                    _vm._v("Price: ")
+                  ]),
+                  _vm._v(" "),
+                  _c("th", [_vm._v(_vm._s(_vm.product.product_price))])
+                ]),
+                _vm._v(" "),
+                _c("tr", [
+                  _c("th", { staticClass: "text-success" }, [
+                    _vm._v("Price Sale: ")
+                  ]),
+                  _vm._v(" "),
+                  _c("th", [_vm._v(_vm._s(_vm.product.product_pricesale))])
+                ]),
+                _vm._v(" "),
+                _c("tr", [
+                  _c("th", { staticClass: "text-success" }, [_vm._v("View: ")]),
+                  _vm._v(" "),
+                  _c("th", [_vm._v(_vm._s(_vm.product.product_view))])
+                ]),
+                _vm._v(" "),
+                _c("tr", [
+                  _c("th", { staticClass: "text-success" }, [
+                    _vm._v("Quantity: ")
+                  ]),
+                  _vm._v(" "),
+                  _c("th", [_vm._v(_vm._s(_vm.product.product_qty))])
+                ]),
+                _vm._v(" "),
+                _c("tr", [
+                  _c("th", { staticClass: "text-success" }, [_vm._v("Size: ")]),
+                  _vm._v(" "),
+                  _c("th", [_vm._v(_vm._s(_vm.product.size))])
+                ]),
+                _vm._v(" "),
+                _c("tr", [
+                  _c("th", { staticClass: "text-success" }, [
+                    _vm._v("Color: ")
+                  ]),
+                  _vm._v(" "),
+                  _c("th", [
+                    _c(
+                      "ul",
+                      { staticClass: "list-unstyled list-inline" },
+                      _vm._l(_vm.product.color, function(color, index) {
+                        return _c("li", [
+                          _c("span", {
+                            staticClass: "my-square",
+                            style: { "background-color": "#" + color }
+                          })
+                        ])
+                      })
+                    )
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("tr", [
+                  _c("th", { staticClass: "text-success" }, [
+                    _vm._v("Is new:")
+                  ]),
+                  _vm._v(" "),
+                  _c("th", [
+                    _vm._v(_vm._s(_vm.product.is_new == 1 ? "Yes" : "No"))
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("tr", [
+                  _c("th", { staticClass: "text-success" }, [
+                    _vm._v("Is hot:")
+                  ]),
+                  _vm._v(" "),
+                  _c("th", [
+                    _vm._v(_vm._s(_vm.product.is_hot == 1 ? "Yes" : "No"))
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("tr", [
+                  _c("th", { staticClass: "text-success" }, [
+                    _vm._v("Is sale:")
+                  ]),
+                  _vm._v(" "),
+                  _c("th", [
+                    _vm._v(_vm._s(_vm.product.is_sale == 1 ? "Yes" : "No"))
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("tr", [
+                  _c("th", { staticClass: "text-success" }, [
+                    _vm._v("Display:")
+                  ]),
+                  _vm._v(" "),
+                  _c("th", [
+                    _vm.product.display == 1
+                      ? _c("span", { staticClass: "label label-success" }, [
+                          _vm._v("Display")
+                        ])
+                      : _c("span", { staticClass: "label label-warning" }, [
+                          _vm._v("None")
+                        ])
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("tr", [
+                  _c("th", { staticClass: "text-success" }, [
+                    _vm._v("Vendor:")
+                  ]),
+                  _vm._v(" "),
+                  _c("th", [_vm._v(_vm._s(_vm.product.vendor_name))])
+                ]),
+                _vm._v(" "),
+                _c("tr", [
+                  _c("th", { staticClass: "text-success" }, [
+                    _vm._v("Created at: ")
+                  ]),
+                  _vm._v(" "),
+                  _c("th", [_vm._v(_vm._s(_vm.product.created_at))])
+                ]),
+                _vm._v(" "),
+                _c("tr", [
+                  _c("th", { staticClass: "text-success" }, [
+                    _vm._v("Updated at: ")
+                  ]),
+                  _vm._v(" "),
+                  _c("th", [_vm._v(_vm._s(_vm.product.updated_at))])
+                ]),
+                _vm._v(" "),
+                _c("tr", [
+                  _c("th", { staticClass: "text-success" }, [
+                    _vm._v("Deleted at: ")
+                  ]),
+                  _vm._v(" "),
+                  _c("th", [
+                    _vm._v(
+                      _vm._s(
+                        _vm.product.deleted_at != null
+                          ? _vm.product.deleted_at
+                          : "Sản phẩm này chưa bị xóa."
+                      )
+                    )
+                  ])
+                ])
+              ])
+            ])
+          ]),
+          _vm._v(" "),
+          _vm.product.image_list
+            ? _c(
+                "div",
+                { staticClass: "panel-body" },
+                [
+                  _c("legend", [_vm._v("Image detail (for zoom product)")]),
+                  _vm._v(" "),
+                  _vm._l(_vm.product.image_list, function(image) {
+                    return _c("div", { staticClass: "col-sm-2" }, [
+                      _c("img", {
+                        staticClass: "img-responsive img-circle",
+                        attrs: { src: image.storage }
                       })
                     ])
                   })
-                )
-              ])
-            ]),
-            _vm._v(" "),
-            _c("tr", [
-              _c("th", { staticClass: "text-success" }, [_vm._v("Is new:")]),
-              _vm._v(" "),
-              _c("th", [_vm._v(_vm._s(_vm.product.is_new == 1 ? "Yes" : "No"))])
-            ]),
-            _vm._v(" "),
-            _c("tr", [
-              _c("th", { staticClass: "text-success" }, [_vm._v("Is hot:")]),
-              _vm._v(" "),
-              _c("th", [_vm._v(_vm._s(_vm.product.is_hot == 1 ? "Yes" : "No"))])
-            ]),
-            _vm._v(" "),
-            _c("tr", [
-              _c("th", { staticClass: "text-success" }, [_vm._v("Is sale:")]),
-              _vm._v(" "),
-              _c("th", [
-                _vm._v(_vm._s(_vm.product.is_sale == 1 ? "Yes" : "No"))
-              ])
-            ]),
-            _vm._v(" "),
-            _c("tr", [
-              _c("th", { staticClass: "text-success" }, [_vm._v("Vendor:")]),
-              _vm._v(" "),
-              _c("th", [_vm._v(_vm._s(_vm.product.vendor_name))])
-            ]),
-            _vm._v(" "),
-            _c("tr", [
-              _c("th", { staticClass: "text-success" }, [
-                _vm._v("Created at: ")
-              ]),
-              _vm._v(" "),
-              _c("th", [_vm._v(_vm._s(_vm.product.created_at))])
-            ]),
-            _vm._v(" "),
-            _c("tr", [
-              _c("th", { staticClass: "text-success" }, [
-                _vm._v("Updated at: ")
-              ]),
-              _vm._v(" "),
-              _c("th", [_vm._v(_vm._s(_vm.product.updated_at))])
-            ]),
-            _vm._v(" "),
-            _c("tr", [
-              _c("th", { staticClass: "text-success" }, [
-                _vm._v("Deleted at: ")
-              ]),
-              _vm._v(" "),
-              _c("th", [
-                _vm._v(
-                  _vm._s(
-                    _vm.product.deleted_at != null
-                      ? _vm.product.deleted_at
-                      : "Sản phẩm này chưa bị xóa."
-                  )
-                )
-              ])
-            ])
+                ],
+                2
+              )
+            : _vm._e()
+        ])
+      : _c("div", { staticClass: "panel panel-default" }, [
+          _vm._m(0),
+          _vm._v(" "),
+          _c("div", { staticClass: "panel-body" }, [
+            _vm._v("\n\t\t\tNo data\n\t\t")
           ])
         ])
-      ])
-    ])
   ])
 }
 var staticRenderFns = [
@@ -53422,7 +53490,7 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "panel-heading" }, [
-      _c("h3", { staticClass: "panel-title" }, [_vm._v("ProductDetail")])
+      _c("h3", { staticClass: "panel-title" }, [_vm._v("Product Detail")])
     ])
   }
 ]

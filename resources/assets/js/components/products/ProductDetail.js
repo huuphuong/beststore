@@ -28,7 +28,7 @@ export default {
 			var url = '/api/v1/products/' + product_id;
 			axios.get(url).then(function (response) {
 				vm.product = response.data.data;
-				vm.$modal.show('content-modal')
+				vm.$modal.show('content-modal');
 			}).catch(function (error) {
 				console.log(error);
 			});

@@ -2,30 +2,31 @@
 	<div class="container">
 		<div class="row">
 			<div class="btn-group pull-right m-r-10 m-b-10">
+
 				<router-link :to="{name: 'ProductCreate'}">
 					<a class="btn btn-default">
-					 <span class="glyphicon glyphicon-plus"></span> Thêm 
+					 <span class="glyphicon glyphicon-plus"></span> Add Product 
 
 					</a>
 				</router-link>
 				<router-link :to="{name: 'ProductList'}">
 					<a class="btn btn-default">
-						<span class="glyphicon glyphicon-th-list"></span> Danh sách</a>
+						<span class="glyphicon glyphicon-th-list"></span> List Product</a>
 				</router-link>
 				<router-link :to="{name: 'ProductEdit'}">
 					<a class="btn btn-default">
-						<span class="glyphicon glyphicon-pencil"></span> Sửa</a>
+						<span class="glyphicon glyphicon-pencil"></span> Edit Product</a>
 				</router-link>
 			</div>
 		</div>
 
-		<div class="panel panel-default">
+		<div class="panel panel-default" v-if="product">
 			<div class="panel-heading">
-				<h3 class="panel-title">ProductDetail</h3>
+				<h3 class="panel-title">{{ product.product_name }}</h3>
 			</div>
 			<div class="panel-body">
 				<div class="col-sm-3">
-					<img v-bind:src="product.product_image" class="img-responsive">
+					<img v-bind:src="product.product_image" class="img-responsive img-circle">
 				</div><!-- /.col-sm-4 -->
 				<div class="col-sm-9">
 					<table class="table table-hover">
@@ -96,6 +97,13 @@
 							<th>{{ product.is_sale == 1 ? 'Yes' : 'No' }}</th>
 						</tr>
 						<tr>
+							<th class="text-success">Display:</th>
+							<th>
+								<span class="label label-success" v-if="product.display == 1">Display</span>
+								<span class="label label-warning" v-else>None</span>
+							</th>
+						</tr>
+						<tr>
 							<th class="text-success">Vendor:</th>
 							<th>{{ product.vendor_name }}</th>
 						</tr>
@@ -113,6 +121,23 @@
 						</tr>
 					</table>
 				</div><!-- /.col-sm-8 -->
+			</div>
+			
+
+			<div class="panel-body" v-if="product.image_list">
+				<legend>Image detail (for zoom product)</legend>
+				<div class="col-sm-2" v-for="image in product.image_list">
+					<img v-bind:src="image.storage" class="img-responsive img-circle">
+				</div>
+			</div>
+		</div>
+
+		<div class="panel panel-default" v-else>
+			<div class="panel-heading">
+				<h3 class="panel-title">Product Detail</h3>
+			</div>
+			<div class="panel-body">
+				No data
 			</div>
 		</div>
 	</div>

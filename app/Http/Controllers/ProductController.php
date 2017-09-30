@@ -112,6 +112,12 @@ class ProductController extends Controller
             $product_response['cat_name'] = $product->category->cat_name;
             $product_response['color']    = explode(',', $product->color);
             $product_response['vendor_name'] = $product->vendor->vendor_name;
+
+            $product_images = ProductImage::select('storage')
+                                          ->where('product_id', $id)
+                                          ->get()
+                                          ->toArray();
+            $product_response['image_list'] = $product_images;                             
             $res = Api::resourceApi(Api::$_OK, $product_response);
         }catch (\Exception $e) {
 
