@@ -59,7 +59,7 @@ export default {
 			var vm = this;
 			var query = vm.fetchData();
 
-			if (typeof currentPage == 'object') {
+			if (typeof currentPage == 'object' || Common.hasParamValue(query) == true) {
 				currentPage = 1;
 			}
 
@@ -115,6 +115,7 @@ export default {
 				is_sale: typeof vm.query.is_sale == 'object' ? vm.query.is_sale.target.value : null
 			}
 
+			console.log(q);
 			return queryString.stringify(q);
 		},
 

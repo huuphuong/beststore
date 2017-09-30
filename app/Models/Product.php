@@ -51,7 +51,7 @@ class Product extends Model
 		if (!empty ($query)) {
 			foreach ($query AS $key => $value)
 			{
-				if ($key != 'page' && $value != '')
+				if ($key != 'page' && ($value != '' || $value != null))
 				{
 					$result = $result->where("products.$key", 'LIKE', '%'.$value.'%');
 				}

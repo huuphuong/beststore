@@ -24,12 +24,13 @@
 									<input type="text" class="form-control" v-model="query.product_name">
 									<!-- {{ query.product_name }} -->
 								</div>
-
+								
 								<div class="form-group">
-									<label for="name">Is hot:</label>
-									<v-conditional v-model="query.is_hot"></v-conditional>
-									<!-- {{ query.is_hot }} -->
+									<label for="name">Is sale:</label>
+									<v-conditional v-model="query.is_sale"></v-conditional>
+									<!-- {{ query.is_sale }} -->
 								</div>
+							
 							</div>
 
 							<div class="col-sm-3">
@@ -55,9 +56,9 @@
 								</div>
 
 								<div class="form-group">
-									<label for="name">Is sale:</label>
-									<v-conditional v-model="query.is_sale"></v-conditional>
-									<!-- {{ query.is_sale }} -->
+									<label for="name">Is hot:</label>
+									<v-conditional v-model="query.is_hot"></v-conditional>
+									<!-- {{ query.is_hot }} -->
 								</div>
 							</div>
 
@@ -142,16 +143,16 @@
 			<div class="panel-footer">
 				<center>
 					 <paginate
-		              :page-count="last_page"
-		              :click-handler="getProducts"
-		              :page-range="3"
-		              :margin-pages="2"
-		              :prev-text="'Trước'"
-		              :next-text="'Sau'"
-		              :container-class="'pagination'"
-		              :page-class="'page-item'">
-		            </paginate>
-	            </center>
+					  :page-count="last_page"
+					  :click-handler="getProducts"
+					  :page-range="3"
+					  :margin-pages="2"
+					  :prev-text="'Trước'"
+					  :next-text="'Sau'"
+					  :container-class="'pagination'"
+					  :page-class="'page-item'">
+					</paginate>
+				</center>
 			</div>
 		</div>
 	</div>

@@ -54777,7 +54777,7 @@ var queryString = __webpack_require__(17);
 			var vm = this;
 			var query = vm.fetchData();
 
-			if ((typeof currentPage === 'undefined' ? 'undefined' : _typeof(currentPage)) == 'object') {
+			if ((typeof currentPage === 'undefined' ? 'undefined' : _typeof(currentPage)) == 'object' || __WEBPACK_IMPORTED_MODULE_0__Common_js__["a" /* default */].hasParamValue(query) == true) {
 				currentPage = 1;
 			}
 
@@ -54826,6 +54826,7 @@ var queryString = __webpack_require__(17);
 				is_sale: _typeof(vm.query.is_sale) == 'object' ? vm.query.is_sale.target.value : null
 			};
 
+			console.log(q);
 			return queryString.stringify(q);
 		},
 		parseMoney: function parseMoney(price) {
@@ -55337,16 +55338,16 @@ var render = function() {
                     { staticClass: "form-group" },
                     [
                       _c("label", { attrs: { for: "name" } }, [
-                        _vm._v("Is hot:")
+                        _vm._v("Is sale:")
                       ]),
                       _vm._v(" "),
                       _c("v-conditional", {
                         model: {
-                          value: _vm.query.is_hot,
+                          value: _vm.query.is_sale,
                           callback: function($$v) {
-                            _vm.query.is_hot = $$v
+                            _vm.query.is_sale = $$v
                           },
-                          expression: "query.is_hot"
+                          expression: "query.is_sale"
                         }
                       })
                     ],
@@ -55426,16 +55427,16 @@ var render = function() {
                     { staticClass: "form-group" },
                     [
                       _c("label", { attrs: { for: "name" } }, [
-                        _vm._v("Is sale:")
+                        _vm._v("Is hot:")
                       ]),
                       _vm._v(" "),
                       _c("v-conditional", {
                         model: {
-                          value: _vm.query.is_sale,
+                          value: _vm.query.is_hot,
                           callback: function($$v) {
-                            _vm.query.is_sale = $$v
+                            _vm.query.is_hot = $$v
                           },
-                          expression: "query.is_sale"
+                          expression: "query.is_hot"
                         }
                       })
                     ],
