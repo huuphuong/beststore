@@ -44565,6 +44565,14 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
 	name: 'sidebar'
@@ -44647,14 +44655,31 @@ var render = function() {
                 )
               ]),
               _vm._v(" "),
-              _c(
-                "router-link",
-                { attrs: { tag: "li", to: { name: "Category" } } },
-                [_c("a", [_vm._v("Category")])]
-              ),
-              _vm._v(" "),
               _c("li", [
                 _vm._m(2),
+                _vm._v(" "),
+                _c(
+                  "ul",
+                  { staticClass: "nav-second-level nav" },
+                  [
+                    _c(
+                      "router-link",
+                      { attrs: { tag: "li", to: { name: "Category" } } },
+                      [_c("a", [_vm._v("Category Create")])]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "router-link",
+                      { attrs: { tag: "li", to: { name: "Category" } } },
+                      [_c("a", [_vm._v("Category List")])]
+                    )
+                  ],
+                  1
+                )
+              ]),
+              _vm._v(" "),
+              _c("li", [
+                _vm._m(3),
                 _vm._v(" "),
                 _c(
                   "ul",
@@ -44708,6 +44733,18 @@ var staticRenderFns = [
       _c("i", { staticClass: "fi-share" }),
       _vm._v(" "),
       _c("span", [_vm._v("User/Customers")]),
+      _vm._v(" "),
+      _c("span", { staticClass: "menu-arrow" })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("a", { attrs: { href: "javascript: void(0);" } }, [
+      _c("i", { staticClass: "fi-share" }),
+      _vm._v(" "),
+      _c("span", [_vm._v("Category")]),
       _vm._v(" "),
       _c("span", { staticClass: "menu-arrow" })
     ])

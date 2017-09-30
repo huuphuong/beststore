@@ -20,6 +20,7 @@ Route::get('/', function () {
     return view('start');
 });
 
+Route::get('/login', 'LoginController@index');
 Route::get('{all}', function () {
 	return view('start');
 })->where(['all' => '.*']);
