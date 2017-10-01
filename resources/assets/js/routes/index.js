@@ -8,7 +8,7 @@ import RoleList from '../components/roles/RoleList.vue'
 import RoleDetail from '../components/roles/RoleDetail.vue'
 import RoleEdit from '../components/roles/RoleEdit.vue'
 
-// User 
+// User
 import UserCreate from '../components/users/UserCreate.vue'
 import UserDetail from '../components/users/UserDetail.vue'
 import UserList from '../components/users/UserList.vue'
@@ -22,6 +22,7 @@ import ProductList from '../components/products/ProductList.vue'
 
 // Category
 import Category from '../components/categories/Category.vue'
+import CategoryDetail from '../components/categories/CategoryDetail.vue'
 
 Vue.use(VueRouter);
 
@@ -45,7 +46,8 @@ export default new VueRouter({
 		{ path: '/products/edit/:id', name: 'ProductEdit', component: ProductEdit },
 		{ path: '/products', name: 'ProductList', component: ProductList },
 
-		{ path: '/categories', name: 'Category', component: Category }
+		{ path: '/categories', name: 'Category', component: Category },
+		{ path: '/categories/detail/:id', name: 'CategoryDetail', component: CategoryDetail }
 	],
 	mode: 'history'
 })

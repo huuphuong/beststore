@@ -60,3 +60,7 @@
 tr>td {
     vertical-align: middle !important;
 }
+
+.border-top-none {
+    border-top: none !important;
+}

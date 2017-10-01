@@ -32,9 +32,13 @@ class CategoryController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    private function getParentCategory($parent_id)
     {
-        //
+        $parent = Category::where('cat_id', $parent_id)
+                          ->select('cat_id', 'cat_name', 'parent_cat_id')
+                          ->get()
+                          ->first();
+        return $parent;
     }
 
     /**
@@ -79,7 +83,34 @@ class CategoryController extends Controller
      */
     public function show($id)
     {
-        //
+        try {
+            $category = Category::findOrFail($id);
+            if (!empty ($category->parent_cat_id) )
+            {
+                $parent_id = $category->parent_cat_id;
+                $flag = 'valid';
+
+                while ($flag == 'valid') {
+                    $parent = $this->getParentCategory($parent_id);
+                    if (!empty ($parent)) {
+                        $parentArray[] = $parent->cat_name;
+                        $parent_id = $parent->parent_cat_id; // sét lại giá trị parent_id của thằng parent đang đc select
+                    }
+                    else {
+                        $flag = 'invalid';
+                    }
+                }
+
+                // Sắp xếp lại level category từ cao nhất xuống thấp nhất.
+                $category->parent_cat_id = implode(' > ', array_reverse($parentArray));
+            }
+            $res = Api::resourceApi(Api::$_OK, $category);
+        } catch (\Exception $e) {
+            $message = 'No data';
+            $res = Api::resourceApi(Api::$_SERVERERROR, $message);
+        }
+
+        return response()->json($res, Api::$_OK);
     }
 
     /**
@@ -117,7 +148,7 @@ class CategoryController extends Controller
     }
 
 
-    public function countPosition(Request $request) 
+    public function countPosition(Request $request)
     {
         $count = Category::whereRaw('1=1');
         if ($request->has('category'))
@@ -132,7 +163,7 @@ class CategoryController extends Controller
         }
 
         $count = $count->count();
-        
+
         $res = Api::resourceApi(Api::$_OK, $count+1);
         return response()->json($res, Api::$_OK);
     }
