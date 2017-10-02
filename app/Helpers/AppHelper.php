@@ -1,10 +1,11 @@
 <?php
 namespace App\Helpers;
+use App\Models\Category;
 
 class AppHelper
 {
 	public $optionStr = "<option value=''>Choose category</option>";
-	public $allCat = '';
+	public $tbodyString = '';
 
 	public function recusive($data, $parent = 0, $string = '',$select=0)
 	{
@@ -29,26 +30,46 @@ class AppHelper
 	}
 
 
-	public function allParentCategory($data, $parent = 0, $string = '',$select=0)
+	public function recusiveTable($data, $parent = 0, $string = '',$select=0)
 	{
 		foreach ( $data as $value ) {
 
 			if ($value['parent_cat_id'] == $parent) {
 				$id = $value["cat_id"];
-
 				$name = $value["cat_name"];
+				$display = $value['display'] == 1 ? '<span class="label label-success">Display</label>' : '<span class="label label-warning">None</label>';
 
-				if($select != 0 && $select==$id){
-					$this->optionStr .= "<option value='$id' selected='selected'>$string $name</option>";
-				}else {
-					$this->optionStr .= "<option value='$id'>$string $name</option>";
-				}
+				
+				$this->tbodyString .= "
+					<tr>
+						<td>$id</td>
+						<td>$name</td>
+						<td>
+					";
+						$cat = Category::where('cat_id', $value['parent_cat_id'])->select('cat_name')->first();
+						if ($cat) {
+							$this->tbodyString .= $string . '  ' . $cat->cat_name;
+						}
 
-				$this->recusive( $data, $id, $string . '----|', $select );
+					$this->tbodyString .= "</td>
+						<td>{$value['cat_desc']}</td>
+						<td>{$value['position']}</td>
+						<td>$display</td>
+						<td>{$value['updated_at']}</td>
+						<td>
+							<a> Edit</a> | 
+							<button class='btn btn-link p-0 m-0'> Delete</button> |
+							<a href=''>Detail</a>
+						</td>
+					</tr>
+				";
+				
+
+				$this->recusiveTable( $data, $id, $string . '----|', $select );
 			}
 		}
 
-		return $this->optionStr;
+		return $this->tbodyString;
 	}
 
 

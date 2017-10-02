@@ -21,6 +21,7 @@ use Illuminate\Http\Request;
 Route::group(['prefix' => 'v1'], function() {
 	Route::resource('components', 'ComponentController');
 	Route::get('/categories/positions', 'CategoryController@countPosition');
+	Route::get('/categories/list', 'CategoryController@getList');
 	Route::resource('categories', 'CategoryController');
 	Route::resource('colors', 'ColorController');
 	Route::resource('sizes', 'SizeController');

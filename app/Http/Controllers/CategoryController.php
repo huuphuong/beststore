@@ -167,4 +167,17 @@ class CategoryController extends Controller
         $res = Api::resourceApi(Api::$_OK, $count+1);
         return response()->json($res, Api::$_OK);
     }
-}
+
+
+    public function getList()
+    {
+        $helper = new AppHelper();
+        $categories = Category::orderBy('position', 'ASC')->get()->toArray();
+        $res = array(
+            'status' => Api::$_OK,
+            'data' => $helper->recusiveTable($categories)
+        );
+
+        return response()->json($res, Api::$_OK);
+    }
+} // End class
