@@ -55037,9 +55037,13 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 		},
 		getCategories: function getCategories() {
 			var vm = this;
-			var url = '/api/v1/categories';
+			var param = typeof vm.$route.params.id != 'undefined' ? vm.$route.params.id : '';
+			var url = '/api/v1/categories?cat=' + param;
 			axios.get(url).then(function (response) {
 				vm.cat_id = response.data.data;
+				if (param.length && response.data.parent_cat_id > 0) {
+					vm.cate = response.data.parent_cat_id;
+				}
 			}).catch(function (errors) {
 				console.log(errors);
 			});
@@ -55985,18 +55989,7 @@ var render = function() {
                     ]),
                     _vm._v(" "),
                     _c("recusive", {
-                      directives: [
-                        {
-                          name: "validate",
-                          rawName: "v-validate",
-                          value: "required",
-                          expression: "'required'"
-                        }
-                      ],
-                      attrs: {
-                        name: "parent_cat_id",
-                        "data-vv-as": "Loại sản phẩm"
-                      },
+                      attrs: { name: "parent_cat_id" },
                       on: { input: _vm.getPosition },
                       model: {
                         value: _vm.cat.parent_cat_id,
@@ -56005,23 +55998,7 @@ var render = function() {
                         },
                         expression: "cat.parent_cat_id"
                       }
-                    }),
-                    _vm._v(" "),
-                    _c(
-                      "span",
-                      {
-                        directives: [
-                          {
-                            name: "show",
-                            rawName: "v-show",
-                            value: _vm.errors.has("parent_cat_id"),
-                            expression: "errors.has('parent_cat_id')"
-                          }
-                        ],
-                        staticClass: "label label-danger"
-                      },
-                      [_vm._v(_vm._s(_vm.errors.first("parent_cat_id")))]
-                    )
+                    })
                   ],
                   1
                 ),
@@ -56209,18 +56186,18 @@ var render = function() {
                       {
                         name: "model",
                         rawName: "v-model",
-                        value: _vm.cat.desc,
-                        expression: "cat.desc"
+                        value: _vm.cat.cat_desc,
+                        expression: "cat.cat_desc"
                       }
                     ],
                     staticClass: "form-control",
-                    domProps: { value: _vm.cat.desc },
+                    domProps: { value: _vm.cat.cat_desc },
                     on: {
                       input: function($event) {
                         if ($event.target.composing) {
                           return
                         }
-                        _vm.cat.desc = $event.target.value
+                        _vm.cat.cat_desc = $event.target.value
                       }
                     }
                   })
@@ -56450,7 +56427,7 @@ var staticRenderFns = [
       _c(
         "button",
         { staticClass: "btn btn-primary", attrs: { type: "submit" } },
-        [_vm._v("Submit")]
+        [_vm._v("Update Category")]
       )
     ])
   },
@@ -68409,7 +68386,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 		return {
 
 			position: [],
-			cat: {}
+			cat: {
+				parent_cat_id: ''
+			}
 		};
 	},
 	mounted: function mounted() {
@@ -68453,14 +68432,15 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 		},
 		onSubmit: function onSubmit() {
 			var vm = this;
-			var url = baseUrl + 'categories';
-			axios.post(url, {
+			var id = vm.$route.params.id;
+			var url = baseUrl + 'categories/' + id;
+			axios.put(url, {
 				category: vm.cat
 			}).then(function (response) {
 				var result = response.data;
 				if (result.status == __WEBPACK_IMPORTED_MODULE_2__Common__["a" /* default */].statusCode._CREATED) {
-					__WEBPACK_IMPORTED_MODULE_2__Common__["a" /* default */].setToast('Category has been created', 'success');
-					vm.$router.push('/categories/detail/' + result.data.cat_id);
+					__WEBPACK_IMPORTED_MODULE_2__Common__["a" /* default */].setToast('Category has been updated', 'success');
+					vm.$router.push('/categories/detail/' + id);
 				} else {
 					__WEBPACK_IMPORTED_MODULE_2__Common__["a" /* default */].setToast(result.message, 'error');
 				}
@@ -68482,7 +68462,43 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { attrs: { id: "root" } }, [
-    _vm._m(0),
+    _c("div", { staticClass: "row" }, [
+      _c(
+        "div",
+        { staticClass: "m-b-10 pull-right m-r-10" },
+        [
+          _c(
+            "router-link",
+            {
+              staticClass: "btn btn-default",
+              attrs: { to: { name: "CategoryList" } }
+            },
+            [
+              _c("span", { staticClass: "glyphicon glyphicon-th-list" }),
+              _vm._v(" List Category\n\t\t\t")
+            ]
+          ),
+          _vm._v(" "),
+          _c(
+            "router-link",
+            {
+              staticClass: "btn btn-default",
+              attrs: {
+                to: {
+                  name: "CategoryDetail",
+                  param: { id: this.$route.params.id }
+                }
+              }
+            },
+            [
+              _c("span", { staticClass: "glyphicon glyphicon-eye-open" }),
+              _vm._v(" Category Detail\n\t\t\t")
+            ]
+          )
+        ],
+        1
+      )
+    ]),
     _vm._v(" "),
     _c(
       "form",
@@ -68499,7 +68515,7 @@ var render = function() {
         _c("div", { staticClass: "row" }, [
           _c("div", { staticClass: "col-sm-7" }, [
             _c("div", { staticClass: "panel panel-default" }, [
-              _vm._m(1),
+              _vm._m(0),
               _vm._v(" "),
               _c("div", { staticClass: "panel-body" }, [
                 _c(
@@ -68511,18 +68527,7 @@ var render = function() {
                     ]),
                     _vm._v(" "),
                     _c("recusive", {
-                      directives: [
-                        {
-                          name: "validate",
-                          rawName: "v-validate",
-                          value: "required",
-                          expression: "'required'"
-                        }
-                      ],
-                      attrs: {
-                        name: "parent_cat_id",
-                        "data-vv-as": "Loại sản phẩm"
-                      },
+                      attrs: { name: "parent_cat_id" },
                       on: { input: _vm.getPosition },
                       model: {
                         value: _vm.cat.parent_cat_id,
@@ -68531,23 +68536,7 @@ var render = function() {
                         },
                         expression: "cat.parent_cat_id"
                       }
-                    }),
-                    _vm._v(" "),
-                    _c(
-                      "span",
-                      {
-                        directives: [
-                          {
-                            name: "show",
-                            rawName: "v-show",
-                            value: _vm.errors.has("parent_cat_id"),
-                            expression: "errors.has('parent_cat_id')"
-                          }
-                        ],
-                        staticClass: "label label-danger"
-                      },
-                      [_vm._v(_vm._s(_vm.errors.first("parent_cat_id")))]
-                    )
+                    })
                   ],
                   1
                 ),
@@ -68735,31 +68724,31 @@ var render = function() {
                       {
                         name: "model",
                         rawName: "v-model",
-                        value: _vm.cat.desc,
-                        expression: "cat.desc"
+                        value: _vm.cat.cat_desc,
+                        expression: "cat.cat_desc"
                       }
                     ],
                     staticClass: "form-control",
-                    domProps: { value: _vm.cat.desc },
+                    domProps: { value: _vm.cat.cat_desc },
                     on: {
                       input: function($event) {
                         if ($event.target.composing) {
                           return
                         }
-                        _vm.cat.desc = $event.target.value
+                        _vm.cat.cat_desc = $event.target.value
                       }
                     }
                   })
                 ])
               ]),
               _vm._v(" "),
-              _vm._m(2)
+              _vm._m(1)
             ])
           ]),
           _vm._v(" "),
           _c("div", { staticClass: "col-sm-5" }, [
             _c("div", { staticClass: "panel panel-default" }, [
-              _vm._m(3),
+              _vm._m(2),
               _vm._v(" "),
               _c("div", { staticClass: "panel-body" }, [
                 _c("div", { staticClass: "row" }, [
@@ -68944,20 +68933,6 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "row" }, [
-      _c("div", { staticClass: "btn-group m-b-10 pull-right m-r-10" }, [
-        _c(
-          "button",
-          { staticClass: "btn btn-default", attrs: { type: "button" } },
-          [_vm._v("List Category")]
-        )
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
     return _c("div", { staticClass: "panel-heading" }, [
       _c("h3", { staticClass: "panel-title" }, [_vm._v("Category Information")])
     ])
@@ -68976,7 +68951,7 @@ var staticRenderFns = [
       _c(
         "button",
         { staticClass: "btn btn-primary", attrs: { type: "submit" } },
-        [_vm._v("Submit")]
+        [_vm._v("Update Category")]
       )
     ])
   },

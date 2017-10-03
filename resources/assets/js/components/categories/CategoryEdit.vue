@@ -1,8 +1,13 @@
 <template>
 	<div id="root">
 		<div class="row">
-			<div class="btn-group m-b-10 pull-right m-r-10">
-				<button type="button" class="btn btn-default">List Category</button>
+			<div class="m-b-10 pull-right m-r-10">
+				<router-link class="btn btn-default" :to="{name: 'CategoryList'}">
+					<span class="glyphicon glyphicon-th-list"></span> List Category
+				</router-link>
+				<router-link class="btn btn-default" :to="{name: 'CategoryDetail', param: {id: this.$route.params.id} }">
+					<span class="glyphicon glyphicon-eye-open"></span> Category Detail
+				</router-link>
 			</div>
 		</div>
 		
@@ -18,8 +23,7 @@
 
 							<div class="form-group">
 								<label for="">Parent Category</label>
-								<recusive v-model="cat.parent_cat_id" @input="getPosition" name="parent_cat_id" v-validate="'required'" data-vv-as="Loại sản phẩm"></recusive>
-								<span class="label label-danger" v-show="errors.has('parent_cat_id')">{{ errors.first('parent_cat_id') }}</span>
+								<recusive v-model="cat.parent_cat_id" @input="getPosition" name="parent_cat_id"></recusive>
 							</div>
 
 		
@@ -57,14 +61,14 @@
 
 							<div class="form-group">
 								<label for="">Description (optional):</label>
-								<textarea class="form-control" v-model="cat.desc"></textarea>
+								<textarea class="form-control" v-model="cat.cat_desc"></textarea>
 							</div>
 
 						</div><!-- /.panel-body -->
 
 						<div class="panel-footer">
 							<button type="button" class="btn btn-default">Cancel</button>
-							<button type="submit" class="btn btn-primary">Submit</button>
+							<button type="submit" class="btn btn-primary">Update Category</button>
 						</div>
 					</div>
 				</div><!-- /.col-sm-7 -->

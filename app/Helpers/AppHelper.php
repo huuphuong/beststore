@@ -17,7 +17,7 @@ class AppHelper
 				$name = $value["cat_name"];
 
 				if($select != 0 && $select==$id){
-					$this->optionStr .= "<option value='$id' selected='selected'>$string $name</option>";
+					$this->optionStr .= "<option value='$id' selected>$string $name</option>";
 				}else {
 					$this->optionStr .= "<option value='$id'>$string $name</option>";
 				}

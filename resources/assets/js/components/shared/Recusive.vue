@@ -34,9 +34,14 @@
 
 			getCategories () {
 				var vm = this;
-				var url = '/api/v1/categories';
+				let param = typeof vm.$route.params.id != 'undefined' ? vm.$route.params.id : '';
+				var url = '/api/v1/categories?cat=' + param;
 				axios.get(url).then(function (response) {
 					vm.cat_id = response.data.data;
+					if (param.length && response.data.parent_cat_id > 0)
+					{
+						vm.cate = response.data.parent_cat_id;
+					}
 				}).catch(function (errors) {
 					console.log(errors)
 				});

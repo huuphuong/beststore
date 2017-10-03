@@ -14,14 +14,28 @@ class CategoryController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         $helper = new AppHelper();
-        $categories = Category::select('cat_id', 'cat_name', 'parent_cat_id')->get()->toArray();
+        $parent_cat_id = '';
+
+        $categories = Category::select('cat_id', 'cat_name', 'parent_cat_id');
+
+        if ($request->has('cat')) {
+            $categories = $categories->where('cat_id', '!=', $request->cat);
+
+            // Xử lý để selected row cha của category hiện tại
+            $currentCategory = $this->edit($request->cat);
+            $data = $currentCategory->getData();
+            $parent_cat_id = $data->data->parent_cat_id;
+        }
+            $categories = $categories->get()
+                                     ->toArray();
 
         $res = array(
             'status' => Api::$_OK,
-            'data' => $helper->recusive($categories)
+            'data' => $helper->recusive($categories),
+            'parent_cat_id' => $parent_cat_id
         );
 
         return response()->json($res, Api::$_OK);
@@ -54,7 +68,7 @@ class CategoryController extends Controller
             $category = new Category();
             $category->cat_name      = $post_data['cat_name'];
             $category->cat_slug      = str_slug($post_data['cat_name']);
-            $category->cat_desc      = $post_data['desc'];
+            $category->cat_desc      = $post_data['cat_desc'];
             $category->display       = $post_data['display'];
             $category->position      = $post_data['position'];
             $category->parent_cat_id = $post_data['parent_cat_id'];
@@ -135,7 +149,30 @@ class CategoryController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        try {
+            $post_data = $request->all()['category'];
+            $category = Category::findOrFail($id);
+            $category->cat_name      = $post_data['cat_name'];
+            $category->cat_slug      = str_slug($post_data['cat_name']);
+            $category->cat_desc      = $post_data['cat_desc'];
+            $category->display       = $post_data['display'];
+            $category->position      = $post_data['position'];
+            $category->parent_cat_id = $post_data['parent_cat_id'];
+            $category->seo_title     = $post_data['seo_title'];
+            $category->seo_keyword   = $post_data['seo_keyword'];
+            $category->seo_desc      = $post_data['seo_desc'];
+            $category->seo_robot     = $post_data['seo_robot'];
+            $category->seo_revisit   = $post_data['seo_revisit'];
+            $category->seo_copyright = $post_data['seo_copyright'];
+            $category->save();
+
+            $res = Api::resourceApi(Api::$_CREATED, $category);
+        } catch (Exception $e) {
+            $message = 'Can not updatecategory';
+            $res = Api::resourceApi(Api::$_SERVERERROR, $message);
+        }
+
+        return response()->json($res, Api::$_OK);
     }
 
     /**

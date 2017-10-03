@@ -12,7 +12,7 @@ export default {
 			
 			position: [],
 			cat: {
-				
+				parent_cat_id: ''
 			}
 		}
 	},
@@ -64,14 +64,15 @@ export default {
 
 		onSubmit () {
 			var vm = this;
-			var url = baseUrl + 'categories';
-			axios.post(url, {
+			let id = vm.$route.params.id;
+			var url = baseUrl + 'categories/' + id;
+			axios.put(url, {
 				category: vm.cat
 			}).then(function (response) {
 				var result = response.data;
 				if (result.status == Common.statusCode._CREATED) {
-					Common.setToast('Category has been created', 'success');
-					vm.$router.push('/categories/detail/' + result.data.cat_id);
+					Common.setToast('Category has been updated', 'success');
+					vm.$router.push('/categories/detail/' + id);
 				}else {
 					Common.setToast(result.message, 'error');
 				}
