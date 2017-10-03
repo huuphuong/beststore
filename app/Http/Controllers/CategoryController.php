@@ -121,7 +121,9 @@ class CategoryController extends Controller
      */
     public function edit($id)
     {
-        //
+        $category = Category::findOrFail($id);
+        $res = Api::resourceApi(Api::$_OK, $category);
+        return response()->json($res, Api::$_OK);
     }
 
     /**

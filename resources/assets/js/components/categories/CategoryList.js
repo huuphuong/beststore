@@ -69,7 +69,7 @@ export default {
 			var vm = this;
 			vm.searchText = '';
 			vm.filterCategory();
-		}
+		},
 	}
 
 } // End class

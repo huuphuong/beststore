@@ -57,9 +57,9 @@ class AppHelper
 						<td>$display</td>
 						<td>{$value['updated_at']}</td>
 						<td>
-							<a> Edit</a> | 
+							<a href='".url('/categories/edit/'.$id)."'>Edit</a> | 
 							<button class='btn btn-link p-0 m-0'> Delete</button> |
-							<a href=''>Detail</a>
+							<a href='".url('/categories/detail/'.$id)."'>Detail</a>
 						</td>
 					</tr>
 				";

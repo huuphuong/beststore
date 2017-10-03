@@ -23,7 +23,8 @@ import ProductList from '../components/products/ProductList.vue'
 // Category
 import Category from '../components/categories/Category.vue'
 import CategoryDetail from '../components/categories/CategoryDetail.vue'
-import CategoryList from '../components/categories/CategoryList.vue';
+import CategoryList from '../components/categories/CategoryList.vue'
+import CategoryEdit from '../components/categories/CategoryEdit.vue'
 
 Vue.use(VueRouter);
 
@@ -49,7 +50,8 @@ export default new VueRouter({
 
 		{ path: '/categories', name: 'Category', component: Category },
 		{ path: '/categories/detail/:id', name: 'CategoryDetail', component: CategoryDetail },
-		{ path: '/categories/list', name: 'CategoryList', component: CategoryList }
+		{ path: '/categories/list', name: 'CategoryList', component: CategoryList },
+		{ path: '/categories/edit/:id', name: 'CategoryEdit', component: CategoryEdit },
 	],
 	mode: 'history'
 })
