@@ -2,7 +2,9 @@
 	<div id="root">
 		<div class="row">
 			<div class="btn-group m-b-10 pull-right m-r-10">
-				<button type="button" class="btn btn-default">List Category</button>
+				<router-link class="btn btn-default" :to="{name: 'CategoryList'}">
+					<span class="glyphicon glyphicon-th-list"></span> List Category
+				</router-link>
 			</div>
 		</div>
 		

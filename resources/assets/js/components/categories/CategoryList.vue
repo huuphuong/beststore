@@ -1,5 +1,13 @@
 <template>
 	<div id="root">
+		<div class="row">
+			<div class="btn-group m-b-10 pull-right m-r-10">
+				<router-link class="btn btn-default" :to="{name: 'Category'}">
+					<span class="glyphicon glyphicon-plus"></span> Add Category
+				</router-link>
+			</div>
+		</div>
+
 		<div class="panel panel-default">
 			<div class="panel-heading">
 				<h3 class="panel-title">List Category</h3>

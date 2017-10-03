@@ -55960,7 +55960,26 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { attrs: { id: "root" } }, [
-    _vm._m(0),
+    _c("div", { staticClass: "row" }, [
+      _c(
+        "div",
+        { staticClass: "btn-group m-b-10 pull-right m-r-10" },
+        [
+          _c(
+            "router-link",
+            {
+              staticClass: "btn btn-default",
+              attrs: { to: { name: "CategoryList" } }
+            },
+            [
+              _c("span", { staticClass: "glyphicon glyphicon-th-list" }),
+              _vm._v(" List Category\n\t\t\t")
+            ]
+          )
+        ],
+        1
+      )
+    ]),
     _vm._v(" "),
     _c(
       "form",
@@ -55977,7 +55996,7 @@ var render = function() {
         _c("div", { staticClass: "row" }, [
           _c("div", { staticClass: "col-sm-7" }, [
             _c("div", { staticClass: "panel panel-default" }, [
-              _vm._m(1),
+              _vm._m(0),
               _vm._v(" "),
               _c("div", { staticClass: "panel-body" }, [
                 _c(
@@ -56204,13 +56223,13 @@ var render = function() {
                 ])
               ]),
               _vm._v(" "),
-              _vm._m(2)
+              _vm._m(1)
             ])
           ]),
           _vm._v(" "),
           _c("div", { staticClass: "col-sm-5" }, [
             _c("div", { staticClass: "panel panel-default" }, [
-              _vm._m(3),
+              _vm._m(2),
               _vm._v(" "),
               _c("div", { staticClass: "panel-body" }, [
                 _c("div", { staticClass: "row" }, [
@@ -56391,20 +56410,6 @@ var render = function() {
   ])
 }
 var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "row" }, [
-      _c("div", { staticClass: "btn-group m-b-10 pull-right m-r-10" }, [
-        _c(
-          "button",
-          { staticClass: "btn btn-default", attrs: { type: "button" } },
-          [_vm._v("List Category")]
-        )
-      ])
-    ])
-  },
   function() {
     var _vm = this
     var _h = _vm.$createElement
@@ -56851,6 +56856,27 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { attrs: { id: "root" } }, [
+    _c("div", { staticClass: "row" }, [
+      _c(
+        "div",
+        { staticClass: "btn-group m-b-10 pull-right m-r-10" },
+        [
+          _c(
+            "router-link",
+            {
+              staticClass: "btn btn-default",
+              attrs: { to: { name: "Category" } }
+            },
+            [
+              _c("span", { staticClass: "glyphicon glyphicon-plus" }),
+              _vm._v(" Add Category\n\t\t\t")
+            ]
+          )
+        ],
+        1
+      )
+    ]),
+    _vm._v(" "),
     _c("div", { staticClass: "panel panel-default" }, [
       _vm._m(0),
       _vm._v(" "),
