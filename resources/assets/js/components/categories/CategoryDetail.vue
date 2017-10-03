@@ -1,5 +1,25 @@
 <template>
 	<div id="root">
+		<div class="row">
+			<div class="form-group pull-right m-r-10">
+				<router-link :to="{name: 'Category'}" class="btn btn-default">
+					<span class="glyphicon glyphicon-plus"></span> Add Category
+				</router-link>
+
+				<router-link :to="{name: 'CategoryList'}" class="btn btn-default">
+					<span class="glyphicon glyphicon-th-list"></span> List Category
+				</router-link>
+
+				<router-link :to="{name: 'CategoryEdit', param: {id: this.$route.params.id}}" class="btn btn-default">
+					<span class="glyphicon glyphicon-pencil"></span> Edit Category
+				</router-link>
+
+				<!-- <router-link :to="{name: 'Category'}">
+					Delete Category
+				</router-link> -->
+			</div>	
+		</div>
+
 		<div class="panel panel-default">
 			<div class="panel-heading">
 				<h3 class="panel-title">Category Detail</h3>
@@ -14,7 +34,7 @@
 
 						<tr>
 							<th>Parent category:</th>
-							<th class="text-success">{{ category.parent_cat_id }} > {{ category.cat_name }}</th>
+							<th class="text-success">{{ category.parent_cat_id }}</th>
 						</tr>
 
 						<tr>

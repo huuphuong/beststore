@@ -56548,6 +56548,56 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { attrs: { id: "root" } }, [
+    _c("div", { staticClass: "row" }, [
+      _c(
+        "div",
+        { staticClass: "form-group pull-right m-r-10" },
+        [
+          _c(
+            "router-link",
+            {
+              staticClass: "btn btn-default",
+              attrs: { to: { name: "Category" } }
+            },
+            [
+              _c("span", { staticClass: "glyphicon glyphicon-plus" }),
+              _vm._v(" Add Category\n\t\t\t")
+            ]
+          ),
+          _vm._v(" "),
+          _c(
+            "router-link",
+            {
+              staticClass: "btn btn-default",
+              attrs: { to: { name: "CategoryList" } }
+            },
+            [
+              _c("span", { staticClass: "glyphicon glyphicon-th-list" }),
+              _vm._v(" List Category\n\t\t\t")
+            ]
+          ),
+          _vm._v(" "),
+          _c(
+            "router-link",
+            {
+              staticClass: "btn btn-default",
+              attrs: {
+                to: {
+                  name: "CategoryEdit",
+                  param: { id: this.$route.params.id }
+                }
+              }
+            },
+            [
+              _c("span", { staticClass: "glyphicon glyphicon-pencil" }),
+              _vm._v(" Edit Category\n\t\t\t")
+            ]
+          )
+        ],
+        1
+      )
+    ]),
+    _vm._v(" "),
     _c("div", { staticClass: "panel panel-default" }, [
       _vm._m(0),
       _vm._v(" "),
@@ -56571,11 +56621,7 @@ var render = function() {
                   _c("th", [_vm._v("Parent category:")]),
                   _vm._v(" "),
                   _c("th", { staticClass: "text-success" }, [
-                    _vm._v(
-                      _vm._s(_vm.category.parent_cat_id) +
-                        " > " +
-                        _vm._s(_vm.category.cat_name)
-                    )
+                    _vm._v(_vm._s(_vm.category.parent_cat_id))
                   ])
                 ]),
                 _vm._v(" "),

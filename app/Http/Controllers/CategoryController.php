@@ -106,6 +106,7 @@ class CategoryController extends Controller
 
                 while ($flag == 'valid') {
                     $parent = $this->getParentCategory($parent_id);
+
                     if (!empty ($parent)) {
                         $parentArray[] = $parent->cat_name;
                         $parent_id = $parent->parent_cat_id; // sét lại giá trị parent_id của thằng parent đang đc select
@@ -116,7 +117,12 @@ class CategoryController extends Controller
                 }
 
                 // Sắp xếp lại level category từ cao nhất xuống thấp nhất.
-                $category->parent_cat_id = implode(' > ', array_reverse($parentArray));
+                $category->parent_cat_id = implode(' > ', array_reverse($parentArray)) . ' > ' . $category->cat_name;
+                $category->parent_cat_id = trim($category->parent_cat_id, ' > ');
+            }
+            else
+            {
+              $category->parent_cat_id = '';
             }
             $res = Api::resourceApi(Api::$_OK, $category);
         } catch (\Exception $e) {
