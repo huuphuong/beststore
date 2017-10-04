@@ -27,6 +27,7 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 <script type="text/javascript" src="js/bootstrap-3.1.1.min.js"></script>
 <!-- //for bootstrap working -->
 <script src="js/jquery.easing.min.js"></script>
+<script src="js/app.jquery.js"></script>
 </head>
 <body>
 	<!-- header -->
@@ -77,10 +78,10 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 					<li><a href="#" class="use1" data-toggle="modal" data-target="#myModal4"><span>Login</span></a>
 
 					</li>
-					<li><a class="fb" href="#"></a></li>
-					<li><a class="twi" href="#"></a></li>
-					<li><a class="insta" href="#"></a></li>
-					<li><a class="you" href="#"></a></li>
+					<li><a title="Facebook" class="fb" href="#"></a></li>
+					<li><a title="Tweeter" class="twi" href="#"></a></li>
+					<li><a title="Instagram" class="insta" href="#"></a></li>
+					<li><a title="Youtube" class="you" href="#"></a></li>
 				</ul>
 			</div>
 			<div class="clearfix"></div>
@@ -196,6 +197,8 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 			<div class="clearfix"></div>
 		</div>
 	</div>
+
+	<div id="stickyalias"></div>
 	<!-- //banner-top -->
 	<!-- banner -->
 	<div class="banner-grid">
