@@ -43,7 +43,7 @@ class AppHelper
 				$this->tbodyString .= "
 					<tr>
 						<td>$id</td>
-						<td>$name</td>
+						<td>$string $name</td>
 						<td>
 					";
 						$cat = Category::where('cat_id', $value['parent_cat_id'])->select('cat_name')->first();
@@ -65,7 +65,7 @@ class AppHelper
 				";
 				
 
-				$this->recusiveTable( $data, $id, $string . '----|', $select );
+				$this->recusiveTable( $data, $id, $string . '-----|', $select );
 			}
 		}
 
