@@ -7,6 +7,42 @@
 						<span class="glyphicon glyphicon-plus"></span> Add Product
 					</a>
 				</router-link>
+				
+				<button type="button" class="btn btn-default m-l-10 m-r-10" @click="modalOpen = true">Add product group</button>
+
+				<modal :show.sync="modalOpen" effect="fade" width="400">
+				
+						<div slot="modal-header" class="modal-header">
+							<h4 class="modal-title">
+								Product Collection
+							</h4>
+						</div>
+
+						<div slot="modal-body" class="modal-body">
+							<ul class="list-unstyled" v-if="group_data" style="padding-left: 50px;">
+								<li>
+									<div class="radio">
+										<input type="radio" name="product_group_id" v-model="choose_group" value="" />
+										Chọn
+									</div>
+								</li>
+
+								<li v-for="group in group_data">
+									<div class="radio">
+										<input type="radio" name="product_group_id" v-model="choose_group" v-bind:value="group.pg_id" />
+										{{ group.pg_name }}
+									</div>
+								</li>
+							</ul>
+						</div>
+
+						<div slot="modal-footer" class="modal-footer">
+							<button type="button" class="btn btn-default" @click="modalOpen = false">Exit</button>
+							<button type="button" class="btn btn-success" @click="modalOpen = false">Add to group</button>
+						</div>
+				
+				</modal>
+
 			</div>
 		</div>
 
@@ -64,7 +100,7 @@
 
 							<div class="col-sm-3">
 								<div class="form-group">
-									<h2 class="m-t-15 text-center">Quantity: {{ total }}</h2>
+									<h2 class="text-center">Quantity: {{ total }}</h2>
 								</div>
 
 								<div class="form-group ">
@@ -81,6 +117,9 @@
 					<table class="table table-hover">
 						<thead>
 							<tr>
+								<th>
+									<input type="checkbox">
+								</th>
 								<th>ID</th>
 								<th>Category</th>
 								<th>Image</th>
@@ -96,6 +135,9 @@
 						</thead>
 						<tbody>
 							<tr v-for="(product, index) in products">
+								<td>
+									<input type="checkbox">
+								</td>
 								<td>#{{ product.product_id }}</td>
 								<td>{{ product.cat_name }}</td>
 								<td>

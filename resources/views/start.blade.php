@@ -36,7 +36,7 @@
     <script src="{{ asset('assets/js/jquery.min.js') }}"></script>
     <script src="{{ asset('assets/js/bootstrap.min.js') }}"></script>
     <script src="{{ asset('assets/js/metisMenu.min.js') }}"></script>
-    <!-- <script src="{{ asset('assets/js/waves.js') }}"></script> -->
+    <script src="{{ asset('assets/js/waves.js') }}"></script>
     <script src="{{ asset('assets/js/jquery.slimscroll.js') }}"></script>
     <script src="{{ asset('plugins/jscolor-usage/jscolor.js')}}"></script>
     <script src="https://unpkg.com/nprogress@0.2.0/nprogress.js"></script>

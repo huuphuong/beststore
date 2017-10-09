@@ -3,12 +3,13 @@ import Common from '../../Common.js';
 import Recusive from '../shared/Recusive.vue';
 import SelectOption from '../shared/SelectOption.vue';
 import VConditional from '../shared/VConditional.vue';
+import { modal } from 'vue-strap';
 import Paginate from 'vuejs-paginate'
 
 export default {
 	name: 'ProductList',
 
-	components: { Recusive, SelectOption, VConditional, Paginate },
+	components: { Recusive, SelectOption, VConditional, Paginate, modal },
 
 	data () {
 		return {
@@ -29,6 +30,10 @@ export default {
 			current_page: 1,
 
 			total: 0,
+
+			modalOpen: false, // Hiển thị/Tắt modal,
+			group_data: [], // Nhóm sản phẩm,
+			choose_group: '', // Chọn nhóm sp
 		}
 	},
 
@@ -38,6 +43,7 @@ export default {
 
 	mounted: function () {
 		var vm = this;
+		vm.getProductGroup();
 		vm.getProducts();
 		var promise = new Promise(function (resolve, reject) {
 			resolve (Common.getComponent());
@@ -122,6 +128,17 @@ export default {
 		parseMoney (price) {
 			price = price.replace(/,/g , '');
 			return parseInt(price);
+		},
+
+
+		getProductGroup () {
+			var url = baseUrl + 'product-groups';
+			var vm = this;
+			axios.get(url).then(function (response) {
+				vm.group_data = response.data.data;
+			}).catch(function (errors) {
+				console.log(errors);
+			});
 		}
 
 	},
