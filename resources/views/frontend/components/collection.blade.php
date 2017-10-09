@@ -2,8 +2,8 @@
 	<div class="col-md-3 product-men">
 		<div class="men-pro-item simpleCart_shelfItem">
 			<div class="men-thumb-item">
-				<img src="images/g1.png" alt="" class="pro-image-front">
-				<img src="images/g1.png" alt="" class="pro-image-back">
+				<img src="{{asset('frontend/images/g1.png')}}" alt="" class="pro-image-front">
+				<img src="{{asset('frontend/images/g1.png')}}" alt="" class="pro-image-back">
 				<div class="men-cart-pro">
 					<div class="inner-men-cart-pro">
 						<a href="single.html" class="link-product-add-cart">Chi tiết</a>
@@ -25,8 +25,8 @@
 	<div class="col-md-3 product-men">
 		<div class="men-pro-item simpleCart_shelfItem">
 			<div class="men-thumb-item">
-				<img src="images/g2.png" alt="" class="pro-image-front">
-				<img src="images/g2.png" alt="" class="pro-image-back">
+				<img src="{{asset('frontend/images/g2.png')}}" alt="" class="pro-image-front">
+				<img src="{{asset('frontend/images/g2.png')}}" alt="" class="pro-image-back">
 				<div class="men-cart-pro">
 					<div class="inner-men-cart-pro">
 						<a href="single.html" class="link-product-add-cart">Chi tiết</a>
@@ -48,8 +48,8 @@
 	<div class="col-md-3 product-men">
 		<div class="men-pro-item simpleCart_shelfItem">
 			<div class="men-thumb-item">
-				<img src="images/g3.png" alt="" class="pro-image-front">
-				<img src="images/g3.png" alt="" class="pro-image-back">
+				<img src="{{asset('frontend/images/g3.png')}}" alt="" class="pro-image-front">
+				<img src="{{asset('frontend/images/g3.png')}}" alt="" class="pro-image-back">
 				<div class="men-cart-pro">
 					<div class="inner-men-cart-pro">
 						<a href="single.html" class="link-product-add-cart">Chi tiết</a>
@@ -71,8 +71,8 @@
 	<div class="col-md-3 product-men">
 		<div class="men-pro-item simpleCart_shelfItem">
 			<div class="men-thumb-item">
-				<img src="images/mw2.png" alt="" class="pro-image-front">
-				<img src="images/mw2.png" alt="" class="pro-image-back">
+				<img src="{{asset('frontend/images/mw2.png')}}" alt="" class="pro-image-front">
+				<img src="{{asset('frontend/images/mw2.png')}}" alt="" class="pro-image-back">
 				<div class="men-cart-pro">
 					<div class="inner-men-cart-pro">
 						<a href="single.html" class="link-product-add-cart">Chi tiết</a>
@@ -94,8 +94,8 @@
 	<div class="col-md-3 product-men yes-marg">
 		<div class="men-pro-item simpleCart_shelfItem">
 			<div class="men-thumb-item">
-				<img src="images/w4.png" alt="" class="pro-image-front">
-				<img src="images/w4.png" alt="" class="pro-image-back">
+				<img src="{{asset('frontend/images/w4.png')}}" alt="" class="pro-image-front">
+				<img src="{{asset('frontend/images/w4.png')}}" alt="" class="pro-image-back">
 				<div class="men-cart-pro">
 					<div class="inner-men-cart-pro">
 						<a href="single.html" class="link-product-add-cart">Chi tiết</a>
@@ -117,8 +117,8 @@
 	<div class="col-md-3 product-men yes-marg">
 		<div class="men-pro-item simpleCart_shelfItem">
 			<div class="men-thumb-item">
-				<img src="images/w3.png" alt="" class="pro-image-front">
-				<img src="images/w3.png" alt="" class="pro-image-back">
+				<img src="{{asset('frontend/images/w3.png')}}" alt="" class="pro-image-front">
+				<img src="{{asset('frontend/images/w3.png')}}" alt="" class="pro-image-back">
 				<div class="men-cart-pro">
 					<div class="inner-men-cart-pro">
 						<a href="single.html" class="link-product-add-cart">Chi tiết</a>

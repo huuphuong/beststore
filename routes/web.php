@@ -16,11 +16,15 @@ Route::group(['prefix' => 'admin'], function() {
     	return view('start');
     });
 });
-Route::get('/', function () {
-    return view('start');
-});
+
+
+Route::get('/', [
+	'as' => 'index',
+	'uses' => 'Frontend\IndexController@index'
+]);
 
 Route::get('/login', 'LoginController@index');
+
 Route::get('{all}', function () {
 	return view('start');
 })->where(['all' => '.*']);
