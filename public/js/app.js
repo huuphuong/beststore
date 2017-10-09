@@ -54914,7 +54914,8 @@ var queryString = __webpack_require__(19);
 
 			modalOpen: false, // Hiển thị/Tắt modal,
 			group_data: [], // Nhóm sản phẩm,
-			choose_group: '' // Chọn nhóm sp
+			choose_group: '', // Chọn nhóm sp
+			checkproduct: [] // check product
 		};
 	},
 	created: function created() {
@@ -55009,6 +55010,21 @@ var queryString = __webpack_require__(19);
 				vm.group_data = response.data.data;
 			}).catch(function (errors) {
 				console.log(errors);
+			});
+		},
+
+
+		/**
+   * Thêm sản phẩm vào group
+   **/
+		addProductToGroup: function addProductToGroup() {
+			var vm = this;
+			var url = baseUrl + 'product-groups';
+			axios.post(url, {
+				pg_id: vm.choose_group,
+				product_id: vm.checkproduct
+			}).then(function (response) {}).catch(function (errors) {
+				console.log('errors');
 			});
 		}
 	},
@@ -55583,11 +55599,7 @@ var render = function() {
                     {
                       staticClass: "btn btn-success",
                       attrs: { type: "button" },
-                      on: {
-                        click: function($event) {
-                          _vm.modalOpen = false
-                        }
-                      }
+                      on: { click: _vm.addProductToGroup }
                     },
                     [_vm._v("Add to group")]
                   )
@@ -55792,7 +55804,46 @@ var render = function() {
               "tbody",
               _vm._l(_vm.products, function(product, index) {
                 return _c("tr", [
-                  _vm._m(2, true),
+                  _c("td", [
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.checkproduct,
+                          expression: "checkproduct"
+                        }
+                      ],
+                      attrs: { type: "checkbox" },
+                      domProps: {
+                        value: product.product_id,
+                        checked: Array.isArray(_vm.checkproduct)
+                          ? _vm._i(_vm.checkproduct, product.product_id) > -1
+                          : _vm.checkproduct
+                      },
+                      on: {
+                        __c: function($event) {
+                          var $$a = _vm.checkproduct,
+                            $$el = $event.target,
+                            $$c = $$el.checked ? true : false
+                          if (Array.isArray($$a)) {
+                            var $$v = product.product_id,
+                              $$i = _vm._i($$a, $$v)
+                            if ($$el.checked) {
+                              $$i < 0 && (_vm.checkproduct = $$a.concat([$$v]))
+                            } else {
+                              $$i > -1 &&
+                                (_vm.checkproduct = $$a
+                                  .slice(0, $$i)
+                                  .concat($$a.slice($$i + 1)))
+                            }
+                          } else {
+                            _vm.checkproduct = $$c
+                          }
+                        }
+                      }
+                    })
+                  ]),
                   _vm._v(" "),
                   _c("td", [_vm._v("#" + _vm._s(product.product_id))]),
                   _vm._v(" "),
@@ -56007,12 +56058,6 @@ var staticRenderFns = [
         _c("th", [_vm._v("Action")])
       ])
     ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("td", [_c("input", { attrs: { type: "checkbox" } })])
   }
 ]
 render._withStripped = true

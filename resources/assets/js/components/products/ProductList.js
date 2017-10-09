@@ -34,6 +34,7 @@ export default {
 			modalOpen: false, // Hiển thị/Tắt modal,
 			group_data: [], // Nhóm sản phẩm,
 			choose_group: '', // Chọn nhóm sp
+			checkproduct: [], // check product
 		}
 	},
 
@@ -138,6 +139,23 @@ export default {
 				vm.group_data = response.data.data;
 			}).catch(function (errors) {
 				console.log(errors);
+			});
+		},
+
+
+		/**
+		 * Thêm sản phẩm vào group
+		 **/
+		addProductToGroup () {
+			var vm = this;
+			var url = baseUrl + 'product-groups';
+			axios.post(url, {
+				pg_id: vm.choose_group,
+				product_id: vm.checkproduct
+			}).then(function (response) {
+				
+			}).catch(function (errors) {
+				console.log('errors');
 			});
 		}
 

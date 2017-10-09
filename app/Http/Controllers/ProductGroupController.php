@@ -41,7 +41,14 @@ class ProductGroupController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $post_data = $request->all();
+        foreach ($post_data['product_id'] AS $key => $value)
+        {
+            $productGroup = array(
+                'product_id' => $value,
+                'group_id' => $post_data['pg_id']
+            );
+        }
     }
 
     /**

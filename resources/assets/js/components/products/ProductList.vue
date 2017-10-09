@@ -38,7 +38,7 @@
 
 						<div slot="modal-footer" class="modal-footer">
 							<button type="button" class="btn btn-default" @click="modalOpen = false">Exit</button>
-							<button type="button" class="btn btn-success" @click="modalOpen = false">Add to group</button>
+							<button type="button" class="btn btn-success" @click="addProductToGroup">Add to group</button>
 						</div>
 				
 				</modal>
@@ -136,7 +136,7 @@
 						<tbody>
 							<tr v-for="(product, index) in products">
 								<td>
-									<input type="checkbox">
+									<input type="checkbox" v-model="checkproduct" v-bind:value="product.product_id">
 								</td>
 								<td>#{{ product.product_id }}</td>
 								<td>{{ product.cat_name }}</td>
