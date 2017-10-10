@@ -8,39 +8,40 @@
 					</a>
 				</router-link>
 				
-				<button type="button" class="btn btn-default m-l-10 m-r-10" @click="modalOpen = true">Add product group</button>
-
-				<modal :show.sync="modalOpen" effect="fade" width="400">
+				<button type="button" class="btn btn-default m-l-10 m-r-10" @click="modalOpen = true">
+					<span class="glyphicon glyphicon-plus"></span>
+					 Add product group
+				</button>
 				
-						<div slot="modal-header" class="modal-header">
-							<h4 class="modal-title">
-								Product Collection
-							</h4>
-						</div>
+				<modal :show.sync="modalOpen" effect="fade" width="400" :backdrop="false">
+					<div slot="modal-header" class="modal-header">
+						<h4 class="modal-title">
+							Product Collection
+						</h4>
+					</div>
 
-						<div slot="modal-body" class="modal-body">
-							<ul class="list-unstyled" v-if="group_data" style="padding-left: 50px;">
-								<li>
-									<div class="radio">
-										<input type="radio" name="product_group_id" v-model="choose_group" value="" />
-										Chọn
-									</div>
-								</li>
+					<div slot="modal-body" class="modal-body">
+						<ul class="list-unstyled" v-if="group_data" style="padding-left: 50px;">
+							<li>
+								<div class="radio">
+									<input type="radio" name="product_group_id" v-model="choose_group" value="" />
+									Chọn
+								</div>
+							</li>
 
-								<li v-for="group in group_data">
-									<div class="radio">
-										<input type="radio" name="product_group_id" v-model="choose_group" v-bind:value="group.pg_id" />
-										{{ group.pg_name }}
-									</div>
-								</li>
-							</ul>
-						</div>
+							<li v-for="group in group_data">
+								<div class="radio">
+									<input type="radio" name="product_group_id" v-model="choose_group" v-bind:value="group.pg_id" />
+									{{ group.pg_name }} ({{group.count}} sản phẩm)
+								</div>
+							</li>
+						</ul>
+					</div>
 
-						<div slot="modal-footer" class="modal-footer">
-							<button type="button" class="btn btn-default" @click="modalOpen = false">Exit</button>
-							<button type="button" class="btn btn-success" @click="addProductToGroup">Add to group</button>
-						</div>
-				
+					<div slot="modal-footer" class="modal-footer">
+						<button type="button" class="btn btn-default" @click="modalOpen = false">Exit</button>
+						<button type="button" class="btn btn-success" @click="addProductToGroup">Add to group</button>
+					</div>
 				</modal>
 
 			</div>

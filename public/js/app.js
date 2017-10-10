@@ -54894,6 +54894,7 @@ var queryString = __webpack_require__(19);
 
 	data: function data() {
 		return {
+			show: '',
 			products: [],
 			vendors: [],
 
@@ -55027,7 +55028,8 @@ var queryString = __webpack_require__(19);
 			}).then(function (response) {
 				var result = response.data;
 				__WEBPACK_IMPORTED_MODULE_0__Common_js__["a" /* default */].setToast(result.message, result.status);
-				// Ẩn modal
+
+				vm.getProductGroup();
 			}).catch(function (errors) {
 				console.log('errors');
 			});
@@ -65041,13 +65043,21 @@ var render = function() {
                 }
               }
             },
-            [_vm._v("Add product group")]
+            [
+              _c("span", { staticClass: "glyphicon glyphicon-plus" }),
+              _vm._v("\n\t\t\t\t Add product group\n\t\t\t")
+            ]
           ),
           _vm._v(" "),
           _c(
             "modal",
             {
-              attrs: { show: _vm.modalOpen, effect: "fade", width: "400" },
+              attrs: {
+                show: _vm.modalOpen,
+                effect: "fade",
+                width: "400",
+                backdrop: false
+              },
               on: {
                 "update:show": function($event) {
                   _vm.modalOpen = $event
@@ -65064,7 +65074,7 @@ var render = function() {
                 },
                 [
                   _c("h4", { staticClass: "modal-title" }, [
-                    _vm._v("\n\t\t\t\t\t\t\tProduct Collection\n\t\t\t\t\t\t")
+                    _vm._v("\n\t\t\t\t\t\tProduct Collection\n\t\t\t\t\t")
                   ])
                 ]
               ),
@@ -65110,9 +65120,7 @@ var render = function() {
                                   }
                                 }
                               }),
-                              _vm._v(
-                                "\n\t\t\t\t\t\t\t\t\tChọn\n\t\t\t\t\t\t\t\t"
-                              )
+                              _vm._v("\n\t\t\t\t\t\t\t\tChọn\n\t\t\t\t\t\t\t")
                             ])
                           ]),
                           _vm._v(" "),
@@ -65146,9 +65154,11 @@ var render = function() {
                                   }
                                 }),
                                 _vm._v(
-                                  "\n\t\t\t\t\t\t\t\t\t" +
+                                  "\n\t\t\t\t\t\t\t\t" +
                                     _vm._s(group.pg_name) +
-                                    "\n\t\t\t\t\t\t\t\t"
+                                    " (" +
+                                    _vm._s(group.count) +
+                                    " sản phẩm)\n\t\t\t\t\t\t\t"
                                 )
                               ])
                             ])

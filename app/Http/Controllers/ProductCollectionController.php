@@ -38,26 +38,34 @@ class ProductCollectionController extends Controller
     {
         try {
             $product_data = $request->product_id;
-            $insertArray = array();
-
-            // Kiểm tra xem sản phẩm có tồn tại trong collection không?
-            foreach ($product_data AS $p) {
-                $count = ProductCollection::where('product_id', $p)
-                                          ->where('pg_id', $request->pg_id)
-                                          ->count();
-                if ($count == 0) {
-                    $insertArray[] = array(
-                        'product_id' => $p,
-                        'pg_id' => $request->pg_id
-                    );
-                }                          
+            if (empty ($product_data)) 
+            {
+                $message = 'Please choose product for this collection';
+                $res = Api::resourceApi(Api::$_NOCONTENT, $message);
             }
+            else {
+                $insertArray = array();
+
+                // Kiểm tra xem sản phẩm có tồn tại trong collection không?
+                   foreach ($product_data AS $p) {
+                    $count = ProductCollection::where('product_id', $p)
+                    ->where('pg_id', $request->pg_id)
+                    ->count();
+                    if ($count == 0) {
+                        $insertArray[] = array(
+                            'product_id' => $p,
+                            'pg_id' => $request->pg_id
+                        );
+                    }                          
+                }
 
 
-            $insert = ProductCollection::insert($insertArray);
+                $insert = ProductCollection::insert($insertArray);
 
-            $message = 'Add product into collection has been success';
-            $res = Api::resourceApi(Api::$_OK, $message);
+                $message = 'Add product into collection has been success';
+                $res = Api::resourceApi(Api::$_OK, $message);
+            }
+           
         } catch (\Exception $e) {
             dd($e);
             $message = 'Can not add product into collection. Please try again later';

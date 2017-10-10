@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\ProductGroup;
+use App\Models\ProductCollection;
 use App\Api;
 
 class ProductGroupController extends Controller
@@ -15,9 +16,11 @@ class ProductGroupController extends Controller
      */
     public function index()
     {
+        $product_group = new ProductGroup();
+
         $res = array(
             'status' => Api::$_OK,
-            'data' => ProductGroup::all()
+            'data' => $product_group->getGroupWithCollection()
         );
 
         return response()->json($res, Api::$_OK);

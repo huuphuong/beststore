@@ -13,6 +13,7 @@ export default {
 
 	data () {
 		return {
+			show: '',
 			products: [],
 			vendors: [],
 
@@ -156,7 +157,8 @@ export default {
 			}).then(function (response) {
 				var result = response.data;
 				Common.setToast(result.message, result.status);
-				// Ẩn modal
+				
+				vm.getProductGroup();
 			}).catch(function (errors) {
 				console.log('errors');
 			});
@@ -166,5 +168,7 @@ export default {
 
 	computed: {
 
-	}
+	},
+
+
 } // End class
