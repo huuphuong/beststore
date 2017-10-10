@@ -3,10 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\ProductGroup;
+use App\Models\ProductCollection;
 use App\Api;
 
-class ProductGroupController extends Controller
+class ProductCollectionController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,12 +15,7 @@ class ProductGroupController extends Controller
      */
     public function index()
     {
-        $res = array(
-            'status' => Api::$_OK,
-            'data' => ProductGroup::all()
-        );
-
-        return response()->json($res, Api::$_OK);
+        //
     }
 
     /**
@@ -41,7 +36,35 @@ class ProductGroupController extends Controller
      */
     public function store(Request $request)
     {
-       
+        try {
+            $product_data = $request->product_id;
+            $insertArray = array();
+
+            // Kiểm tra xem sản phẩm có tồn tại trong collection không?
+            foreach ($product_data AS $p) {
+                $count = ProductCollection::where('product_id', $p)
+                                          ->where('pg_id', $request->pg_id)
+                                          ->count();
+                if ($count == 0) {
+                    $insertArray[] = array(
+                        'product_id' => $p,
+                        'pg_id' => $request->pg_id
+                    );
+                }                          
+            }
+
+
+            $insert = ProductCollection::insert($insertArray);
+
+            $message = 'Add product into collection has been success';
+            $res = Api::resourceApi(Api::$_OK, $message);
+        } catch (\Exception $e) {
+            dd($e);
+            $message = 'Can not add product into collection. Please try again later';
+            $res = Api::resourceApi(Api::$_SERVERERROR, $message);
+        }
+
+        return response()->json($res, Api::$_OK);
     }
 
     /**

@@ -32,5 +32,6 @@ Route::group(['prefix' => 'v1'], function() {
     Route::post('/products/upload', 'ProductController@upload');
     Route::resource('product-image', 'ProductImageController');
     Route::resource('product-groups', 'ProductGroupController');
+    Route::resource('product-collections', 'ProductCollectionController');
 });
 

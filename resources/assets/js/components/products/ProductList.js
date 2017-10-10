@@ -148,12 +148,15 @@ export default {
 		 **/
 		addProductToGroup () {
 			var vm = this;
-			var url = baseUrl + 'product-groups';
+			var url = baseUrl + 'product-collections';
+			
 			axios.post(url, {
+				product_id: vm.checkproduct,
 				pg_id: vm.choose_group,
-				product_id: vm.checkproduct
 			}).then(function (response) {
-				
+				var result = response.data;
+				Common.setToast(result.message, result.status);
+				// Ẩn modal
 			}).catch(function (errors) {
 				console.log('errors');
 			});
