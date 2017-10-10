@@ -55,7 +55,15 @@ class ProductGroupController extends Controller
      */
     public function show($id)
     {
-        //
+        try {
+            $productGroup = ProductGroup::findOrFail($id);
+            $res = Api::resourceApi(Api::$_OK, $productGroup);
+        } catch (\Exception $e) {
+            $message = 'No data';
+            $res = Api::resourceApi(Api::$_OK, $message);
+        }
+
+        return response()->json($res, Api::$_OK);
     }
 
     /**

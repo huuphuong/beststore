@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\ProductCollection;
+use App\Models\Product;
 use App\Api;
 
 class ProductCollectionController extends Controller
@@ -23,9 +24,23 @@ class ProductCollectionController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function productOfCollection(Request $request)
     {
-        //
+        try {
+            $products = Product::join('product_collection', 'product_collection.product_id', '=', 'products.product_id')
+                               ->select('products.product_id', 'products.product_name', 'products.product_image')
+                               ->where('product_collection.pg_id', $request->pg_id)
+                               ->orderBy('product_collection.position', 'ASC')
+                               ->orderBy('product_collection.pc_id', 'DESC')
+                               ->get();
+                               
+            $res = Api::resourceApi(Api::$_OK, $products);
+        } catch (\Exception $e) {
+            $message = $e->getMessage();
+            $res = Api::resourceApi($e->getCode(), $message);
+        }
+        
+        return response()->json($res, Api::$_OK);
     }
 
     /**

@@ -26,6 +26,10 @@ import CategoryDetail from '../components/categories/CategoryDetail.vue'
 import CategoryList from '../components/categories/CategoryList.vue'
 import CategoryEdit from '../components/categories/CategoryEdit.vue'
 
+// Product Collection
+import ProductCollection from '../components/products/ProductCollection.vue';
+import ProductCollectionDetail from '../components/products/ProductCollectionDetail.vue';
+
 Vue.use(VueRouter);
 
 export default new VueRouter({
@@ -52,6 +56,9 @@ export default new VueRouter({
 		{ path: '/categories/detail/:id', name: 'CategoryDetail', component: CategoryDetail },
 		{ path: '/categories/list', name: 'CategoryList', component: CategoryList },
 		{ path: '/categories/edit/:id', name: 'CategoryEdit', component: CategoryEdit },
+
+		{ path: '/productcollections', name: 'ProductCollection', component: ProductCollection },
+		{ path: '/productcollections/:id', name: 'ProductCollectionDetail', component: ProductCollectionDetail },
 	],
 	mode: 'history'
 })
