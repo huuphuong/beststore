@@ -7,16 +7,16 @@
 	<div class="product-easy">
 		<div class="container">
 			<div class="sap_tabs">
-				<div id="horizontalTab" style="display: block; width: 100%; margin: 0px;">
+				<div id="horizontalTab">
 					<ul class="resp-tabs-list">
-						<li class="resp-tab-item" aria-controls="tab_item-0" role="tab"><span>Sản phẩm mới</span></li>
-						<li class="resp-tab-item" aria-controls="tab_item-1" role="tab"><span>Ưu đãi đặc biệt</span></li>
-						<li class="resp-tab-item" aria-controls="tab_item-2" role="tab"><span>Bộ sưu tập</span></li>
+						@forelse ($productGroup AS $k => $pg)
+						<li class="resp-tab-item" aria-controls="tab_item-{{$k}}" role="tab"><span>{{$pg->pg_name}}</span></li>
+						@endforeach
 					</ul>
 					<div class="resp-tabs-container">
-						@include('frontend.components.product_new')
-						@include('frontend.components.special_offer')
-						@include('frontend.components.collection')
+						@include('frontend.components.product_easy_block', ['products' => $data[1]])
+						@include('frontend.components.product_easy_block', ['products' => $data[2]])
+						@include('frontend.components.product_easy_block', ['products' => $data[3]])
 					</div>
 				</div>
 			</div>

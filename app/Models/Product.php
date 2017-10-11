@@ -4,6 +4,8 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Cacche;
+use DB;
 
 class Product extends Model
 {
@@ -29,7 +31,7 @@ class Product extends Model
 
 	public function getAll($query = array())
 	{
-		$result = \DB::table('products')
+		$result =  DB::table('products')
 					 ->join('categories', 'categories.cat_id', '=', 'products.cat_id')
 					 ->join('vendors', 'vendors.vendor_id', '=', 'products.vendor_id')
 					 ->select(
@@ -66,4 +68,7 @@ class Product extends Model
 
 		return $data;
 	}
+
+
+	
 } // End class

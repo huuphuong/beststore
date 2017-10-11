@@ -13,6 +13,7 @@
     <link href="{{asset('frontend/css/pignose.layerslider.css')}}" rel="stylesheet" type="text/css" media="all" />
     <!-- style -->
     <link href="{{asset('frontend/css/style.css')}}" rel="stylesheet" type="text/css" media="all" />
+    <link href="{{asset('frontend/css/customize.css')}}" rel="stylesheet" type="text/css" media="all" />
     <link rel="shortcut icon" href="http://example.com/myicon.ico" />
   </head>
   <body>
