@@ -4,10 +4,10 @@
 			<div class="panel-heading">
 				<h3 class="panel-title">Collection Detail</h3>
 			</div>
-			<div class="panel-body">
+			<div class="panel-body" v-if="group">
 				<div class="col-sm-6">
 					<legend>Collection information</legend>
-					<table class="table table-hover" v-if="group">
+					<table class="table table-hover">
 						<tr>
 							<th class="text-success">CollectionID: </th>
 							<th>{{ group.pg_id }}</th>
@@ -38,33 +38,40 @@
 							<th>{{ group.deleted_at }}</th>
 						</tr>
 					</table>
+
+					<hr class="row">
+
+					<button type="button" class="btn btn-primary" @click="updatePosition">Update position</button>
 				</div><!-- /.col-sm-6 -->
 
 				<div class="col-sm-6">
 					<legend>Number of product</legend>
 					
-					<ul class="list-group">
-						<li class="list-group-item" v-for="product in product_number">
-							<div class="row">
-								<div class="col-sm-4">
-									<img v-bind:src="product.product_image" class="img-responsive img-circle" width="30px" height="30px">	
-								</div>
-
-								<div class="col-sm-2">
-									{{ product.position }}
-								</div>
-								
-								<div class="col-sm-6">
-									{{ product.product_name }}	
-								</div>
+					<!-- /.Model chính bằng product_number vì 2 way binding -->
+					<draggable v-model="product_number">
+						<transition-group>
+							<div v-for="(product, index) in product_number" :key="product.product_id">
+								<li class="list-group-item r-0 m-b-10">
+									<img v-bind:src="product.product_image" class="image-responsive img-circle" width="35px" height="35px">
+									<span class="m-l-15">{{product.product_name}}</span>
+									<span class="glyphicon glyphicon-remove pull-right remove-product" @click="removeProduct(product.product_id, index)"></span>
+								</li>
 							</div>
-						</li>
-					</ul>
+						</transition-group>
+					</draggable>
 					
 				</div>
 			</div>
+			
+			<!-- /.No data -->
+			<div class="panel-body" v-else>
+				No data
+			</div>
+			<!-- /.End no data -->
 		</div>
+		
 	</div>
 </template>
+
 
 <script src="./ProductCollectionDetail.js"></script>

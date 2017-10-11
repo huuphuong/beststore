@@ -33,6 +33,8 @@ Route::group(['prefix' => 'v1'], function() {
     Route::resource('product-image', 'ProductImageController');
     Route::resource('product-groups', 'ProductGroupController');
     Route::get('/contains_product', 'ProductCollectionController@productOfCollection');
+    Route::post('/collection/position', 'ProductCollectionController@updatePosition');
+    Route::delete('/collection/remove/{product_id}', 'ProductCollectionController@removeProduct');
     Route::resource('product-collections', 'ProductCollectionController');
 });
 

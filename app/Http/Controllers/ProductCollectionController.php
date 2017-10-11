@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\ProductCollection;
 use App\Models\Product;
+use App\Models\ProductGroup;
 use App\Api;
 
 class ProductCollectionController extends Controller
@@ -28,13 +29,18 @@ class ProductCollectionController extends Controller
     {
         try {
             $products = Product::join('product_collection', 'product_collection.product_id', '=', 'products.product_id')
-                               ->select('products.product_id', 'products.product_name', 'products.product_image')
+                               ->select('products.product_id', 'products.product_name', 'products.product_image', 'product_collection.position')
                                ->where('product_collection.pg_id', $request->pg_id)
                                ->orderBy('product_collection.position', 'ASC')
                                ->orderBy('product_collection.pc_id', 'DESC')
-                               ->get();
-                               
-            $res = Api::resourceApi(Api::$_OK, $products);
+                               ->get()
+                               ->toArray();
+
+            if (!empty ($products)) {
+                $res = Api::resourceApi(Api::$_OK, $products);
+            } else {
+                $res = Api::resourceApi(Api::$_OK, 'No data');
+            }                  
         } catch (\Exception $e) {
             $message = $e->getMessage();
             $res = Api::resourceApi($e->getCode(), $message);
@@ -125,13 +131,51 @@ class ProductCollectionController extends Controller
     }
 
     /**
-     * Remove the specified resource from storage.
+     * Xóa sản phẩm trong collection
      *
-     * @param  int  $id
+     * @param  int  $product_id: Mã sản phẩm
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function removeProduct($product_id)
     {
-        //
+        try {
+            $delete = ProductCollection::where('product_id', $product_id)->delete();
+            $message = 'Delete product has been success';
+            $res = Api::resourceApi(Api::$_CREATED, $message);
+        } catch (\Exception $e) {
+            $res = Api::resourceApi($e->getCode(), $e->getMessage());
+        }
+
+        return response()->json($res, Api::$_OK);
     }
-}
+
+    
+    /**
+     * Cập nhật vị trí hiển thị của product trong collection
+     * @param  Request
+     * @return Response
+     */
+    public function updatePosition(Request $request)
+    {
+        $post_data = $request->all();
+        if (! empty ($post_data)) {
+            $pg_id = $post_data[0]['pg_id'];
+            try {
+                // Xóa hết sản phẩm trong collection rồi chèn lại
+                $row = ProductCollection::where('pg_id', '=', $pg_id)->delete();
+                $insert = ProductCollection::insert($post_data);
+                $message = 'Update position success';
+                $res = Api::resourceApi(Api::$_CREATED, $message);
+            } catch (\Exception $e) {
+                $res = Api::resourceApi($e->getCode(), $e->getMessage());
+            }
+
+        }else {
+            // Gửi lên empty => đã xóa hết item, messgae yêu cầu add sản phẩm vào group
+            $messgae = 'Please add product into this group';
+            $res = Api::resourceApi(Api::$_OK, $message);
+        }
+
+        return response()->json($res, Api::$_OK);
+    }
+} // End class

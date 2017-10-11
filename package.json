@@ -49,6 +49,7 @@
     "vue-top-progress": "^0.6.0",
     "vue2-dropzone": "^2.0.0",
     "vue2-editor": "^2.0.26",
+    "vuedraggable": "^2.14.1",
     "vuejs-colorpicker": "^1.0.0",
     "vuejs-paginate": "^1.2.0"
   }

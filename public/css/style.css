@@ -64,3 +64,19 @@ tr>td {
 .border-top-none {
     border-top: none !important;
 }
+
+.r-0 {
+   border-radius: 0 !important;
+}
+
+.r-0:hover {
+    cursor: move;
+}
+
+.remove-product {
+    font-size: 20px;
+}
+
+.remove-product:hover {
+    cursor: pointer;
+}
