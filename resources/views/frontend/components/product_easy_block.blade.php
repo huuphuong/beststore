@@ -23,7 +23,8 @@
 						<span class="item_price">{{$product->product_price}}</span>
 					@endif
 				</div>
-				<a href="#" class="item_add single-item hvr-outline-out button2">Thêm vào giỏ</a>
+				<a href="#" class="btn btn-success btn-radius"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Mua hàng</a>
+				<a href="#" class="btn btn-default btn-radius"><i class="fa fa-share-alt" aria-hidden="true"></i> Chia sẻ</a>
 			</div>
 		</div>
 	</div>

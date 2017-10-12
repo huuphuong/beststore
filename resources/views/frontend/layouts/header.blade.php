@@ -9,6 +9,8 @@
     <meta name="keywords" content="" />
     <!-- //for-mobile-apps -->
     <link href="{{asset('frontend/css/bootstrap.css')}}" rel="stylesheet" type="text/css" media="all" />
+    <!-- /.Font awsome -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <!-- pignose css -->
     <link href="{{asset('frontend/css/pignose.layerslider.css')}}" rel="stylesheet" type="text/css" media="all" />
     <!-- style -->

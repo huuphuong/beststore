@@ -3,3 +3,7 @@
 	width: 100%; 
 	margin: 0px;
 }
+
+.btn-radius {
+	border-radius: 0 !important;
+}
