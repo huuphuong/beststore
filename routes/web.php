@@ -28,7 +28,15 @@ Route::get('{slug}-{product_id}.html', [
 	'uses' => 'Frontend\ProductController@index'
 ]);
 
+Route::get('/haha', function (App\User $data) {
+	$user = $data::findOrFail(11160);
+	$user->password = bcrypt('123456');
+	$user->save();
+
+	dd($user);
+});
 Route::get('/login', 'LoginController@index');
+Route::post('/login', 'LoginController@postLogin');
 
 Route::get('{all}', function () {
 	return view('start');

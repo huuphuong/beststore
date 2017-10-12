@@ -3,7 +3,7 @@
 <html>
     <head>
         <meta charset="utf-8" />
-        <title>Adminox - Responsive Web App Kit</title>
+        <title>@yield('title', 'Đăng nhập')</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
         <meta content="A fully featured admin theme which can be used to build CRM, CMS, etc." name="description" />
         <meta content="Coderthemes" name="author" />
@@ -28,15 +28,6 @@
 
 
     <body class="bg-accpunt-pages">
-        <div id="fb-root"></div>
-        <script>(function(d, s, id) {
-          var js, fjs = d.getElementsByTagName(s)[0];
-          if (d.getElementById(id)) return;
-          js = d.createElement(s); js.id = id;
-          js.src = "//connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v2.10&appId=1334434319999234";
-          fjs.parentNode.insertBefore(js, fjs);
-      }(document, 'script', 'facebook-jssdk'));</script>
-
       
         <!-- HOME -->
         <section>
@@ -54,24 +45,42 @@
                                                 <span><img src="assets/images/logo_dark.png" alt="" height="30"></span>
                                             </a>
                                         </h2>
-                                        <h5 class="text-uppercase font-bold m-b-5 m-t-50">Sign In</h5>
-                                        <p class="m-b-0">Login to your Admin account</p>
+                                        <h5 class="text-uppercase font-bold m-b-5 m-t-50">Đăng nhập</h5>
+
+                                        @if (Session::has('flash_message'))
+	                                        <p class="m-b-0 text-danger">
+	                                        	<span class="glyphicon glyphicon-exclamation-sign"></span> 
+	                                        	{{ Session::get('flash_message') }}
+	                                        </p>
+                                        @else
+                                        	<p class="m-b-0">Đăng nhập vào tài khoản quản trị của bạn.</p>
+                                        @endif
                                     </div>
+
                                     <div class="account-content">
-                                        <form class="form-horizontal" action="#">
+                                        <form class="form-horizontal" method="POST" autocomplete="off">
+        									<input type="hidden" name="_token" value="{{ csrf_token() }}" />
 
                                             <div class="form-group m-b-20">
                                                 <div class="col-xs-12">
-                                                    <label for="emailaddress">Email address</label>
-                                                    <input class="form-control" type="email" id="emailaddress" required="" placeholder="john@deo.com">
+                                                    <label for="emailaddress">E-mail</label>
+                                                    <input class="form-control" 
+                                                    	   type="email" 
+                                                    	   name="email" 
+                                                    	   placeholder="VD: admin@gmail.com" 
+                                                    	   required="required" 
+                                                    	   tabindex="1" 
+                                                    	   autofocus="true" 
+                                                    	   value="{{ Session::has('flash_email') ? Session::get('flash_email') : '' }}"
+                                                    />
                                                 </div>
                                             </div>
 
                                             <div class="form-group m-b-20">
                                                 <div class="col-xs-12">
-                                                    <a href="page-recoverpw.html" class="text-muted pull-right"><small>Forgot your password?</small></a>
-                                                    <label for="password">Password</label>
-                                                    <input class="form-control" type="password" required="" id="password" placeholder="Enter your password">
+                                                    <a href="page-recoverpw.html" class="text-muted pull-right"><small>Quên mật khẩu?</small></a>
+                                                    <label for="password">Mật khẩu</label>
+                                                    <input class="form-control" type="password" name="password" required="required" tabindex="2">
                                                 </div>
                                             </div>
 
@@ -81,7 +90,7 @@
                                                     <div class="checkbox checkbox-success">
                                                         <input id="remember" type="checkbox" checked="">
                                                         <label for="remember">
-                                                            Remember me
+                                                            Lưu đăng nhập
                                                         </label>
                                                     </div>
 
@@ -90,7 +99,7 @@
 
                                             <div class="form-group text-center m-t-10">
                                                 <div class="col-xs-12">
-                                                    <button class="btn btn-md btn-block btn-primary waves-effect waves-light" type="submit">Sign In</button>
+                                                    <button class="btn btn-md btn-block btn-primary waves-effect waves-light" type="submit">Đăng nhập</button>
                                                 </div>
                                             </div>
 
@@ -112,10 +121,9 @@
 
                                         <div class="row m-t-50">
                                             <div class="col-sm-12 text-center">
-                                                <p class="text-muted">Don't have an account? <a href="page-register.html" class="text-dark m-l-5"><b>Sign Up</b></a></p>
+                                                <p class="text-muted">Không có tài khoản? <a href="page-register.html" class="text-dark m-l-5"><b>Đăng ký</b></a></p>
                                             </div>
                                         </div>
-
                                     </div>
                                 </div>
                             </div>

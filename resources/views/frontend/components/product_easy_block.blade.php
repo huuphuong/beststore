@@ -1,4 +1,4 @@
-@inject('AppHelper', 'App\Helpers\AppHelper');
+@inject('AppHelper', 'App\Helpers\AppHelper')
 
 <div class="tab-1 resp-tab-content" aria-labelledby="tab_item-0">
 	@foreach ($products AS $k => $product)
