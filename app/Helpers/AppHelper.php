@@ -7,6 +7,14 @@ class AppHelper
 	public $optionStr = "<option value=''>Choose category</option>";
 	public $tbodyString = '';
 
+	/**
+	 * Đệ quy combo box
+	 * @param  [type]  $data   [description]
+	 * @param  integer $parent [description]
+	 * @param  string  $string [description]
+	 * @param  integer $select [description]
+	 * @return [type]          [description]
+	 */
 	public function recusive($data, $parent = 0, $string = '',$select=0)
 	{
 		foreach ( $data as $value ) {
@@ -30,6 +38,14 @@ class AppHelper
 	}
 
 
+	/**
+	 * Đệ qua table
+	 * @param  [type]  $data   [description]
+	 * @param  integer $parent [description]
+	 * @param  string  $string [description]
+	 * @param  integer $select [description]
+	 * @return [type]          [description]
+	 */
 	public function recusiveTable($data, $parent = 0, $string = '',$select=0)
 	{
 		foreach ( $data as $value ) {
@@ -83,5 +99,12 @@ class AppHelper
 		}
 
 		return json_encode($colorArray);
+	}
+
+
+	public static function number($strNumber)
+	{
+		$strNumber = str_replace(',', '', $strNumber);
+		return (int)$strNumber;
 	}
 } // End class

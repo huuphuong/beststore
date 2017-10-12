@@ -7,3 +7,17 @@
 .btn-radius {
 	border-radius: 0 !important;
 }
+
+.is-new{
+	background-color: #5cb85c;
+	text-transform: capitalize;
+}
+
+.is-sale {
+	background-color: #fda30e;
+}
+
+.is-hot {
+	background-color: #ff5656;
+	text-transform: capitalize;
+}

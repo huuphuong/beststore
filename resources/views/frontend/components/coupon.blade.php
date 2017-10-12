@@ -2,25 +2,22 @@
 	<div class="container">
 		<div class="coupons-grids text-center">
 			<div class="col-md-3 coupons-gd">
-				<h3>Buy your product in a simple way</h3>
+				<h3>Mua sản phẩm theo cách đơn giản</h3>
 			</div>
 			<div class="col-md-3 coupons-gd">
 				<span class="glyphicon glyphicon-user" aria-hidden="true"></span>
-				<h4>LOGIN TO YOUR ACCOUNT</h4>
-				<p>Neque porro quisquam est, qui dolorem ipsum quia dolor
-				sit amet, consectetur.</p>
+				<h4>Đăng nhập tài khoản</h4>
+				<p>Sử dụng tài khoản đã đăng ký để đăng nhập</p>
 			</div>
 			<div class="col-md-3 coupons-gd">
 				<span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
-				<h4>SELECT YOUR ITEM</h4>
-				<p>Neque porro quisquam est, qui dolorem ipsum quia dolor
-				sit amet, consectetur.</p>
+				<h4>Lựa chọn sản phẩm</h4>
+				<p>Chọn các sản phẩm bạn muốn mua và bấm "Mua hàng"</p>
 			</div>
 			<div class="col-md-3 coupons-gd">
 				<span class="glyphicon glyphicon-credit-card" aria-hidden="true"></span>
-				<h4>MAKE PAYMENT</h4>
-				<p>Neque porro quisquam est, qui dolorem ipsum quia dolor
-				sit amet, consectetur.</p>
+				<h4>Thanh toán</h4>
+				<p>Bấm "Thanh toán" và đơn hàng sẽ được gửi tới bạn sớm nhất.</p>
 			</div>
 			<div class="clearfix"> </div>
 		</div>

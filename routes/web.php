@@ -23,6 +23,11 @@ Route::get('/', [
 	'uses' => 'Frontend\IndexController@index'
 ]);
 
+Route::get('{slug}-{product_id}.html', [
+	'as' => 'site.product.detail',
+	'uses' => 'Frontend\ProductController@index'
+]);
+
 Route::get('/login', 'LoginController@index');
 
 Route::get('{all}', function () {
