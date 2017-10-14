@@ -2,11 +2,12 @@
 
 namespace App\Http\Controllers\Frontend;
 
+use App\Helpers\AppHelper;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Models\Product;
 use App\Models\ProductGroup;
 use App\Models\ProductCollection;
+use Illuminate\Support\Facades\Redis;
 
 class IndexController extends Controller
 {
@@ -15,11 +16,20 @@ class IndexController extends Controller
     	$product = new ProductCollection();
     	$productGroup = ProductGroup::all();
 
-    	foreach ($productGroup AS $pg)
-    	{
-    		$data[$pg->pg_id] = $product->getProductCollection($pg->pg_id);
-    	}
+    	if (Redis::exists('products'))
+        {
+            $data = json_decode(Redis::get('products'));
+        }
+        else {
+            foreach ($productGroup AS $pg)
+            {
+                $data[$pg->pg_id] = $product->getProductCollection($pg->pg_id);
+            }
 
+            Redis::set('products', json_encode($data));
+        }
+
+        $data = AppHelper::convertArray($data);
     	return view('frontend.index', compact('productGroup', 'data'));
     }
 } // End class

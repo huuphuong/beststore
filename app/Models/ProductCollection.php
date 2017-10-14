@@ -33,7 +33,8 @@ class ProductCollection extends Model
 				    ->whereNull('products.deleted_at')
 				    ->where('product_collection.pg_id', $pg_id)
 				    ->orderBy('product_collection.position', 'ASC')
-				    ->get();
+				    ->get()
+                    ->toArray();
 		// dd($result[0]);
 		return $result;
 	}

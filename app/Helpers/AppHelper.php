@@ -1,110 +1,117 @@
 <?php
+
 namespace App\Helpers;
+
 use App\Models\Category;
 
 class AppHelper
 {
-	public $optionStr = "<option value=''>Choose category</option>";
-	public $tbodyString = '';
+    public $optionStr = "<option value=''>Choose category</option>";
+    public $tbodyString = '';
 
-	/**
-	 * Đệ quy combo box
-	 * @param  [type]  $data   [description]
-	 * @param  integer $parent [description]
-	 * @param  string  $string [description]
-	 * @param  integer $select [description]
-	 * @return [type]          [description]
-	 */
-	public function recusive($data, $parent = 0, $string = '',$select=0)
-	{
-		foreach ( $data as $value ) {
+    /**
+     * Đệ quy combo box
+     * @param  [type]  $data   [description]
+     * @param  integer $parent [description]
+     * @param  string $string [description]
+     * @param  integer $select [description]
+     * @return [type]          [description]
+     */
+    public function recusive($data, $parent = 0, $string = '', $select = 0)
+    {
+        foreach ($data as $value) {
 
-			if ($value['parent_cat_id'] == $parent) {
-				$id = $value["cat_id"];
+            if ($value['parent_cat_id'] == $parent) {
+                $id = $value["cat_id"];
 
-				$name = $value["cat_name"];
+                $name = $value["cat_name"];
 
-				if($select != 0 && $select==$id){
-					$this->optionStr .= "<option value='$id' selected>$string $name</option>";
-				}else {
-					$this->optionStr .= "<option value='$id'>$string $name</option>";
-				}
+                if ($select != 0 && $select == $id) {
+                    $this->optionStr .= "<option value='$id' selected>$string $name</option>";
+                } else {
+                    $this->optionStr .= "<option value='$id'>$string $name</option>";
+                }
 
-				$this->recusive( $data, $id, $string . '----|', $select );
-			}
-		}
+                $this->recusive($data, $id, $string . '----|', $select);
+            }
+        }
 
-		return $this->optionStr;
-	}
+        return $this->optionStr;
+    }
 
 
-	/**
-	 * Đệ qua table
-	 * @param  [type]  $data   [description]
-	 * @param  integer $parent [description]
-	 * @param  string  $string [description]
-	 * @param  integer $select [description]
-	 * @return [type]          [description]
-	 */
-	public function recusiveTable($data, $parent = 0, $string = '',$select=0)
-	{
-		foreach ( $data as $value ) {
+    /**
+     * Đệ qua table
+     * @param  [type]  $data   [description]
+     * @param  integer $parent [description]
+     * @param  string $string [description]
+     * @param  integer $select [description]
+     * @return [type]          [description]
+     */
+    public function recusiveTable($data, $parent = 0, $string = '', $select = 0)
+    {
+        foreach ($data as $value) {
 
-			if ($value['parent_cat_id'] == $parent) {
-				$id = $value["cat_id"];
-				$name = $value["cat_name"];
-				$display = $value['display'] == 1 ? '<span class="label label-success">Display</label>' : '<span class="label label-warning">None</label>';
+            if ($value['parent_cat_id'] == $parent) {
+                $id = $value["cat_id"];
+                $name = $value["cat_name"];
+                $display = $value['display'] == 1 ? '<span class="label label-success">Display</label>' : '<span class="label label-warning">None</label>';
 
-				
-				$this->tbodyString .= "
+
+                $this->tbodyString .= "
 					<tr>
 						<td>$id</td>
 						<td>$string $name</td>
 						<td>
 					";
-						$cat = Category::where('cat_id', $value['parent_cat_id'])->select('cat_name')->first();
-						if ($cat) {
-							$this->tbodyString .= $string . '  ' . $cat->cat_name;
-						}
+                $cat = Category::where('cat_id', $value['parent_cat_id'])->select('cat_name')->first();
+                if ($cat) {
+                    $this->tbodyString .= $string . '  ' . $cat->cat_name;
+                }
 
-					$this->tbodyString .= "</td>
+                $this->tbodyString .= "</td>
 						<td>{$value['cat_desc']}</td>
 						<td>{$value['position']}</td>
 						<td>$display</td>
 						<td>{$value['updated_at']}</td>
 						<td>
-							<a href='".url('/categories/edit/'.$id)."'>Edit</a> | 
+							<a href='" . url('/categories/edit/' . $id) . "'>Edit</a> | 
 							<button class='btn btn-link p-0 m-0'> Delete</button> |
-							<a href='".url('/categories/detail/'.$id)."'>Detail</a>
+							<a href='" . url('/categories/detail/' . $id) . "'>Detail</a>
 						</td>
 					</tr>
 				";
-				
-
-				$this->recusiveTable( $data, $id, $string . '-----|', $select );
-			}
-		}
-
-		return $this->tbodyString;
-	}
 
 
-	public static function setColor($colors)
-	{
-		$colorArray = array();
+                $this->recusiveTable($data, $id, $string . '-----|', $select);
+            }
+        }
 
-		foreach ($colors AS $key => $color)
-		{
-			$colorArray[$color['color_code']] = $color['color_name'];
-		}
-
-		return json_encode($colorArray);
-	}
+        return $this->tbodyString;
+    }
 
 
-	public static function number($strNumber)
-	{
-		$strNumber = str_replace(',', '', $strNumber);
-		return (int)$strNumber;
-	}
+    public static function setColor($colors)
+    {
+        $colorArray = array();
+
+        foreach ($colors AS $key => $color) {
+            $colorArray[$color['color_code']] = $color['color_name'];
+        }
+
+        return json_encode($colorArray);
+    }
+
+
+    public static function number($strNumber)
+    {
+        $strNumber = str_replace(',', '', $strNumber);
+        return (int)$strNumber;
+    }
+
+
+    public static function convertArray($data)
+    {
+        return json_decode(json_encode($data), true);
+    }
 } // End class
