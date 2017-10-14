@@ -30,6 +30,9 @@ import CategoryEdit from '../components/categories/CategoryEdit.vue'
 import ProductCollection from '../components/products/ProductCollection.vue';
 import ProductCollectionDetail from '../components/products/ProductCollectionDetail.vue';
 
+// Settings
+import Settings from '../components/settings/Setting.vue';
+
 Vue.use(VueRouter);
 
 export default new VueRouter({
@@ -59,6 +62,8 @@ export default new VueRouter({
 
 		{ path: '/productcollections', name: 'ProductCollection', component: ProductCollection },
 		{ path: '/productcollections/:id', name: 'ProductCollectionDetail', component: ProductCollectionDetail },
+
+		{ path: '/settings', name: 'Settings', component: Settings },
 	],
 	mode: 'history'
 })

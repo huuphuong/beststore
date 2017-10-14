@@ -29,13 +29,23 @@ Route::get('{slug}-{product_id}.html', [
 ]);
 
 Route::get('/haha', function (App\User $data) {
-	$user = $data::findOrFail(11160);
-	$user->password = bcrypt('123456');
-	$user->save();
 
-	dd($user);
+
+	$data = Route::getRoutes();
+	$data = $data->get();
+	foreach ($data AS $k => $v)
+    {
+        $uri = $v->uri;
+        if (strstr($uri, 'api'))
+        {
+            continue;
+        }
+        else {
+            echo $uri ."<hr>";
+        }
+    }
 });
-Route::get('/login', 'LoginController@index');
+Route::get('/login', ['as' => 'site.login', 'uses' => 'LoginController@index']);
 Route::post('/login', 'LoginController@postLogin');
 
 Route::get('{all}', function () {

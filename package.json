@@ -36,7 +36,7 @@
     "vue-js-modal": "^1.2.11",
     "vue-loader": "^13.0.4",
     "vue-loading-ajax-nprogress": "^0.2.0",
-    "vue-multiselect": "^2.0.2",
+    "vue-multiselect": "^2.0.3",
     "vue-notifications": "^0.8.0",
     "vue-nprogress": "^0.1.5",
     "vue-picture-input": "^1.13.2",

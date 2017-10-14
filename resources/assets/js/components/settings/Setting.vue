@@ -1,0 +1,127 @@
+<template>
+    <div id="root">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">Settings</h3>
+            </div>
+            
+            <form action="" method="post" @submit.prevent="validateBeforeSubmit">
+                <div class="panel-body">
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label for="">Logo</label>
+                            <picture-input
+                                ref="pictureInput"
+                                @change="onChangeImage"
+                                width="200"
+                                height="200"
+                                accept="image/jpeg,image/png"
+                                size="10"
+                                :crop="true"
+                                :removable="true"
+                                :buttonClass="'btn btn-default'"
+                                :removeButtonClass="'btn btn-warning'"
+                                :customStrings="{
+                                    upload: '<h1>Bummer!</h1>',
+                                    drag: 'Size: 186x74.'
+                                }"
+                                v-validate="'image'"
+                                data-vv-value-path="innerValue"
+                                data-vv-name="customImage"
+                                data-vv-as="Ảnh đại diện"
+                            >
+                        </picture-input>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="">Slogan</label>
+                        <textarea name="slogan" class="form-control" v-validate="'required'" v-model="slogan" data-vv-as="Slogan"></textarea>
+                        <span class="label label-danger" v-show="errors.has('slogan')">{{ errors.first('slogan') }}</span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="">Newletter</label>
+                        <input type="text" class="form-control" name="newletter" v-model="newletter" v-validate="'required'" data-vv-as="Thông tin thêm">
+                        <span class="label label-danger" v-show="errors.has('newletter')">{{ errors.first('newletter') }}</span>
+                    </div>
+                    <!-- /.form-group -->
+
+                    <div class="form-group">
+                        <label for="">Copyright</label>
+                        <textarea class="form-control" name="copyright" v-model="copyright" v-validate="'required'"></textarea>
+                        <span class="label label-danger" v-show="errors.has('copyright')">{{ errors.first('copyright') }}</span>
+                    </div>
+                </div>
+
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label for="">Category name</label>
+                        <input type="text" class="form-control" name="categories" v-model="categories" v-validate="'required'">
+                        <span class="label label-danger" v-show="errors.has('categories')">{{ errors.first('categories') }}</span>
+                        <!-- /#inputID.form-control -->
+                    </div>
+
+                    <div class="form-group">
+                        <button type="button" class="btn btn-success" @click="addPage">Add page</button> 
+
+                        <div class="input-group m-t-15" v-for="(page,key) in pages">
+                          <div class="input-group-addon">Page name</div>
+                          <input type="text" class="form-control" name="page_name" v-model="page_name[key]" placeholder="Page name" v-validate="'required'">
+                          <div class="input-group-addon">Slug</div>
+                          <input type="text" class="form-control" name="page_slug" v-model="page_slug[key]" placeholder="slug" v-validate="'required'">
+                          <div class="input-group-addon" style="cursor: pointer;" @click="removeItem(key)" v-if="key == (pages.length - 1)">X</div>
+                        </div>
+                        <span class="label label-danger" v-show="errors.has('page_name')">{{ errors.first('page_name') }}</span>
+                        <span class="label label-danger" v-show="errors.has('page_slug')">{{ errors.first('page_slug') }}</span>
+                  </div>
+
+                  <hr>
+
+                  <div class="form-group">
+                    <label for="">Shop label:</label>
+                    <input type="text" class="form-control" name="shop_label" v-model="shop_label" v-validate="'required'">
+                    <span class="label label-danger" v-show="errors.has('shop_label')">{{ errors.first('shop_label') }}</span>
+                </div>
+                <!-- /.form-group -->
+
+                <div class="form-group">
+                    <label for="">Address:</label>
+                    <input type="text" class="form-control" name="address" v-model="address" v-validate="'required'">
+                    <span class="label label-danger" v-show="errors.has('address')">{{ errors.first('address') }}</span>
+                </div>
+
+                <div class="form-group">
+                    <label for="">Email:</label>
+                    <input type="text" class="form-control" name="email" v-model="email" v-validate="'required|email'">
+                    <span class="label label-danger" v-show="errors.has('email')">{{ errors.first('email') }}</span>
+                </div>
+
+                <div class="form-group">
+                    <label for="">Phone:</label>
+                    <input type="text" class="form-control" name="phone" v-model="phone" v-validate="'required'">
+                    <span class="label label-danger" v-show="errors.has('phone')">{{ errors.first('phone') }}</span>
+                </div>
+
+                <div class="form-group">
+                    <label for="">Skype:</label>
+                    <input type="text" class="form-control" name="skype" v-model="skype" v-validate="'required'">
+                    <span class="label label-danger" v-show="errors.has('skype')">{{ errors.first('skype') }}</span>
+                </div>
+            </div>
+            <!-- /.col-sm-6 -->
+
+        </div>
+
+        <div class="panel-footer">
+            <button type="submit" class="btn btn-primary">Update Settings</button>
+        </div>
+    </form>
+    <!-- /.form-group -->
+</div>
+<!-- /.panel panel-default -->
+</div>
+<!-- /#root -->
+</template>
+
+<script src="./Setting.js"></script>
+
