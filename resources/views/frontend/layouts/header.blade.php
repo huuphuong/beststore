@@ -163,6 +163,15 @@
                   </li>
                   <li class=" menu__item"><a class="menu__link" href="electronics.html">Công nghệ</a></li>
                   <li class=" menu__item"><a class="menu__link" href="electronics.html">Bộ sưu tập</a></li>
+                  <li class="dropdown menu__item">
+                    <a href="#" class="dropdown-toggle menu__link" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Chính sách <span class="caret"></span></a>
+                      <ul class="dropdown-menu">
+                        <li><a href="#">Chính sách vận chuyển</a></li>
+                        <li><a href="#">Chính sách bán hàng</a></li>
+                        <li><a href="#">Cam kết chất lượng</a></li>
+                        <li><a href="#">Bảo hành sản phẩm</a></li>
+                      </ul>
+                  </li>
                   <li class=" menu__item"><a class="menu__link" href="contact.html">Liên hệ</a></li>
                 </ul>
               </div>
