@@ -1,64 +1,56 @@
+@inject('setting', 'App\Models\Setting')
+
+@php
+    $data = $setting->getSetting();
+@endphp
 <!-- footer -->
 <div class="footer">
   <div class="container">
     <div class="col-md-3 footer-left">
-      <h2><a href="index.html"><img src="{{asset('frontend/images/logo3.jpg')}}" alt=" " /></a></h2>
-      <p>Neque porro quisquam est, qui dolorem ipsum quia dolor
-        sit amet, consectetur, adipisci velit, sed quia non
-        numquam eius modi tempora incidunt ut labore
-        et dolore magnam aliquam quaerat voluptatem.
-      </p>
+      <h2><a href="index.html"><img src="{{ $data['logo'] }}" alt="Smart Shop" /></a></h2>
+      <p>{{ $data['slogan'] }}</p>
     </div>
     <div class="col-md-9 footer-right">
-      <div class="col-sm-6 newsleft">
-        <h3>Đăng ký nhận thông tin Shop</h3>
+      <div class="col-sm-4 newsleft">
+        <h3>{{ $data['newletter'] }}</h3>
       </div>
-      <div class="col-sm-6 newsright">
-        <form>
-          <input type="text" value="Email" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Email';}" required="">
-          <input type="submit" value="Submit">
+      <div class="col-sm-8 newsright" id="subscribeForm">
+        <form @submit.prevent="subscribe">
+          <input type="text" placeholder="Nhập email của bạn" required="required" v-model="sub_email">
+          <input type="submit" value="Đăng ký">
+          <span class="label label-danger" v-show="message">@{{message}}</span>
         </form>
       </div>
       <div class="clearfix"></div>
       <div class="sign-grds">
         <div class="col-md-4 sign-gd">
-          <h4>Danh mục</h4>
+          <h4>{{ $data['categories'] }}</h4>
           <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="mens.html">Men's Wear</a></li>
-            <li><a href="womens.html">Women's Wear</a></li>
-            <li><a href="electronics.html">Electronics</a></li>
-            <li><a href="codes.html">Short Codes</a></li>
-            <li><a href="contact.html">Contact</a></li>
+            @forelse (json_decode($data['categories_item'], true) AS $slug => $page)
+              <li><a href="{!! $slug !!}">{{ $page }}</a></li>
+            @empty
+              <!-- No page item -->
+            @endforelse
           </ul>
         </div>
         <div class="col-md-4 sign-gd-two">
           <h4>Thông tin Shop</h4>
           <ul>
-            <li><i class="glyphicon glyphicon-map-marker" aria-hidden="true"></i>Address : 1234k Avenue, 4th block, <span>Newyork City.</span></li>
-            <li><i class="glyphicon glyphicon-envelope" aria-hidden="true"></i>Email : <a href="mailto:info@example.com">info@example.com</a></li>
-            <li><i class="glyphicon glyphicon-earphone" aria-hidden="true"></i>Phone : +1234 567 567</li>
+            <li><i class="glyphicon glyphicon-map-marker" aria-hidden="true"></i>Địa chỉ: {{ $data['address'] }}</li>
+            <li><i class="glyphicon glyphicon-envelope" aria-hidden="true"></i>Email: <a href="mailto:info@example.com">{{ $data['email'] }}</a></li>
+            <li><i class="glyphicon glyphicon-earphone" aria-hidden="true"></i>Điện thoại: <a href="tel:{{$data['phone']}}">{{ $data['phone'] }}</a></li>
+            <li><i class="glyphicon glyphicon-headphones" aria-hidden="true"></i>Skype: {{ $data['skype'] }}</li>
           </ul>
         </div>
         <div class="col-md-4 sign-gd flickr-post">
-          <h4>Thư viện ảnh</h4>
-          <ul>
-            <li><a href="single.html"><img src="{{asset('frontend/images/b15.jpg')}}" alt=" " class="img-responsive" /></a></li>
-            <li><a href="single.html"><img src="{{asset('frontend/images/b16.jpg')}}" alt=" " class="img-responsive" /></a></li>
-            <li><a href="single.html"><img src="{{asset('frontend/images/b17.jpg')}}" alt=" " class="img-responsive" /></a></li>
-            <li><a href="single.html"><img src="{{asset('frontend/images/b18.jpg')}}" alt=" " class="img-responsive" /></a></li>
-            <li><a href="single.html"><img src="{{asset('frontend/images/b15.jpg')}}" alt=" " class="img-responsive" /></a></li>
-            <li><a href="single.html"><img src="{{asset('frontend/images/b16.jpg')}}" alt=" " class="img-responsive" /></a></li>
-            <li><a href="single.html"><img src="{{asset('frontend/images/b17.jpg')}}" alt=" " class="img-responsive" /></a></li>
-            <li><a href="single.html"><img src="{{asset('frontend/images/b18.jpg')}}" alt=" " class="img-responsive" /></a></li>
-            <li><a href="single.html"><img src="{{asset('frontend/images/b15.jpg')}}" alt=" " class="img-responsive" /></a></li>
-          </ul>
+          <h4>Facebook Fanpage</h4>
+          {{--<div class="fb-page" data-href="https://www.facebook.com/Testing-Fanpage-1435158473270561/" data-width="450" data-height="450" data-small-header="true" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"><blockquote cite="https://www.facebook.com/Testing-Fanpage-1435158473270561/" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/Testing-Fanpage-1435158473270561/">Testing Fanpage</a></blockquote></div>--}}
         </div>
         <div class="clearfix"></div>
       </div>
     </div>
     <div class="clearfix"></div>
-    <p class="copy-right">&copy 2016 Smart Shop. All rights reserved | Design by <a href="http://w3layouts.com/">W3layouts</a></p>
+    <p class="copy-right">{!! $data['copyright'] !!}</p>
   </div>
 </div>
 <!-- //footer -->
@@ -135,5 +127,7 @@
   <script type="text/javascript" src="{{asset('frontend/js/pignose.layerslider.js')}}"></script>
   <script src="{{asset('frontend/js/app.jquery.js')}}"></script>
   <script src="{{asset('frontend/js/easyResponsiveTabs.js')}}" type="text/javascript"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vue-resource@1.3.4"></script>
+  <script src="{{asset('frontend/js/HomeComponent.js')}}" type="text/javascript"></script>
 </body>
 </html>

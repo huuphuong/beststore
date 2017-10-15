@@ -23,6 +23,11 @@ Route::get('/', [
 	'uses' => 'Frontend\IndexController@index'
 ]);
 
+Route::post('/subscribe', [
+    'as' => 'index.subscribe',
+    'uses' => 'Frontend\IndexController@subscribe'
+]);
+
 Route::get('{slug}-{product_id}.html', [
 	'as' => 'site.product.detail',
 	'uses' => 'Frontend\ProductController@index'

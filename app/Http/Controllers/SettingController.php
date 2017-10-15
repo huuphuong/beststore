@@ -24,7 +24,7 @@ class SettingController extends Controller
 			$truncate = Setting::truncate();
 
 			$setting = new Setting();
-			$setting->logo       = $request->logo;
+			$setting->logo       = !empty($request->logo) ? $request->logo : Cache::get('settings')->logo;
 			$setting->slogan     = $request->slogan;
 			$setting->newletter  = $request->newletter;
 			$setting->categories = $request->categories;
@@ -43,6 +43,12 @@ class SettingController extends Controller
 			$setting->skype           = $request->skype;
 			$setting->copyright       = $request->copyright;
 			$setting->save();
+
+			if (Cache::has('settings')) {
+				Cache::forget('settings');
+			}
+
+			Cache::forever('settings', $setting);
 
 			$message = 'Update settings has been success';
 			$res = Api::resourceApi(Api::$_CREATED, $message);
