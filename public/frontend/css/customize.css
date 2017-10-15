@@ -1,6 +1,9 @@
+body {
+	overflow-x: hidden;
+}
 #horizontalTab {
-	display: block; 
-	width: 100%; 
+	display: block;
+	width: 100%;
 	margin: 0px;
 }
 
@@ -20,4 +23,30 @@
 .is-hot {
 	background-color: #ff5656;
 	text-transform: capitalize;
+}
+
+.btn-callaction {
+	border-radius: 2px;
+	background-color: #FDA30E;
+	color: #fff;
+}
+
+.btn-callaction:hover {
+	color: #fff;
+}
+
+.carousel-indicators {
+	margin-bottom: 0px;
+}
+
+.collection-group {
+	padding: 0;
+}
+
+.collection-data {
+	margin-top: 15px;
+}
+
+.m-r-15 {
+	margin-right: 15px;
 }

@@ -124,7 +124,7 @@
   <!-- for bootstrap working -->
   <script type="text/javascript" src="{{asset('frontend/js/bootstrap-3.1.1.min.js')}}"></script>
   <script src="{{asset('frontend/js/jquery.easing.min.js')}}"></script>
-  <script type="text/javascript" src="{{asset('frontend/js/pignose.layerslider.js')}}"></script>
+  <!-- <script type="text/javascript" src="{{asset('frontend/js/pignose.layerslider.js')}}"></script> -->
   <script src="{{asset('frontend/js/app.jquery.js')}}"></script>
   <script src="{{asset('frontend/js/easyResponsiveTabs.js')}}" type="text/javascript"></script>
   <script src="https://cdn.jsdelivr.net/npm/vue-resource@1.3.4"></script>
