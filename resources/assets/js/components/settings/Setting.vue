@@ -4,8 +4,8 @@
             <div class="panel-heading">
                 <h3 class="panel-title">Settings</h3>
             </div>
-            
-            <form action="" method="post" @submit.prevent="validateBeforeSubmit">
+
+            <form method="post" @submit.prevent="validateBeforeSubmit" enctype="multipart/form-data">
                 <div class="panel-body">
                     <div class="col-sm-6">
                         <div class="form-group">
@@ -32,6 +32,10 @@
                             >
                         </picture-input>
                     </div>
+
+                    <div class="form-group">
+                        <img v-bind:src="avatar" class="img-responsive img-circle" width="100px" height="auto" v-show="avatar" />
+                    </div><!-- /.form-group -->
 
                     <div class="form-group">
                         <label for="">Slogan</label>
@@ -62,7 +66,7 @@
                     </div>
 
                     <div class="form-group">
-                        <button type="button" class="btn btn-success" @click="addPage">Add page</button> 
+                        <button type="button" class="btn btn-success" @click="addPage">Add page</button>
 
                         <div class="input-group m-t-15" v-for="(page,key) in pages">
                           <div class="input-group-addon">Page name</div>
@@ -78,9 +82,9 @@
                   <hr>
 
                   <div class="form-group">
-                    <label for="">Shop label:</label>
-                    <input type="text" class="form-control" name="shop_label" v-model="shop_label" v-validate="'required'">
-                    <span class="label label-danger" v-show="errors.has('shop_label')">{{ errors.first('shop_label') }}</span>
+                    <label for="">Shop info (label):</label>
+                    <input type="text" class="form-control" name="shop_info" v-model="shop_info" v-validate="'required'">
+                    <span class="label label-danger" v-show="errors.has('shop_info')">{{ errors.first('shop_info') }}</span>
                 </div>
                 <!-- /.form-group -->
 

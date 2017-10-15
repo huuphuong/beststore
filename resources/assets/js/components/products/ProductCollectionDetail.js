@@ -22,7 +22,7 @@ export default {
 		vm.getGroup();
 		vm.getProductNumber();
 
-		
+
 	},
 
 
