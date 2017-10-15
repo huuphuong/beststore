@@ -44,7 +44,7 @@
         </div>
         <div class="col-md-4 sign-gd flickr-post">
           <h4>Facebook Fanpage</h4>
-          {{--<div class="fb-page" data-href="https://www.facebook.com/Testing-Fanpage-1435158473270561/" data-width="450" data-height="450" data-small-header="true" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"><blockquote cite="https://www.facebook.com/Testing-Fanpage-1435158473270561/" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/Testing-Fanpage-1435158473270561/">Testing Fanpage</a></blockquote></div>--}}
+          <div class="fb-page" data-href="https://www.facebook.com/Testing-Fanpage-1435158473270561/" data-width="450" data-height="450" data-small-header="true" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"><blockquote cite="https://www.facebook.com/Testing-Fanpage-1435158473270561/" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/Testing-Fanpage-1435158473270561/">Testing Fanpage</a></blockquote></div>
         </div>
         <div class="clearfix"></div>
       </div>
