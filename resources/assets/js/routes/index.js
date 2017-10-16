@@ -32,6 +32,7 @@ import ProductCollectionDetail from '../components/products/ProductCollectionDet
 
 // Settings
 import Settings from '../components/settings/Setting.vue';
+import Slideshow from '../components/settings/Slideshow.vue';
 
 Vue.use(VueRouter);
 
@@ -64,6 +65,7 @@ export default new VueRouter({
 		{ path: '/productcollections/:id', name: 'ProductCollectionDetail', component: ProductCollectionDetail },
 
 		{ path: '/settings', name: 'Settings', component: Settings },
+		{ path: '/slideshows', name: 'Slideshow', component: Slideshow },
 	],
 	mode: 'history'
 })
