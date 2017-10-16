@@ -4,7 +4,7 @@
     <div class="slide-visual">
       <div class="row">
 
-        <div class="col-sm-8">
+        <div class="col-sm-12">
           <div id="carousel-id" class="carousel slide" data-ride="carousel">
             <ol class="carousel-indicators">
               <li data-target="#carousel-id" data-slide-to="0" class=""></li>
@@ -13,7 +13,7 @@
             </ol>
             <div class="carousel-inner">
               <div class="item">
-                <img src="http://via.placeholder.com/900x480" class="img-responsive" />
+                <img src="http://www.merry.vn/wp-content/uploads/2016/11/1-1024x480.jpg" class="img-responsive" style="min-width: 100%;" />
                 <div class="container">
                   <div class="carousel-caption">
                     <p><a class="btn btn-lg btn-callaction" href="#" role="button">Đăng ký ngay</a></p>
@@ -21,7 +21,7 @@
                 </div>
               </div>
               <div class="item">
-                <img src="http://via.placeholder.com/900x480" class="img-responsive" />
+                <img src="http://www.merry.vn/wp-content/uploads/2016/11/1-1024x480.jpg" class="img-responsive" style="min-width: 100%;" />
                 <div class="container">
                   <div class="carousel-caption">
                     <p><a class="btn btn-lg btn-callaction" href="#" role="button">Tìm hiểu ngay</a></p>
@@ -29,7 +29,7 @@
                 </div>
               </div>
               <div class="item active">
-                <img src="http://via.placeholder.com/900x480" class="img-responsive" />
+                <img src="http://www.merry.vn/wp-content/uploads/2016/11/1-1024x480.jpg" class="img-responsive" style="min-width: 100%;" />
                 <div class="container">
                   <div class="carousel-caption">
                     <p><a class="btn btn-lg btn-callaction" href="#" role="button">Báo giá ngay</a></p>
@@ -42,30 +42,7 @@
           </div>
         </div><!-- /.col-sm-8 -->
 
-        <div class="col-sm-4" style="padding: 0;">
-          <div class="row">
-            <div class="col-sm-6 col-xs-12" style="padding: 0;">
-              <img src="http://via.placeholder.com/230x230" class="img-responsive" />
-            </div><!-- /.col-sm-6 -->
-
-            <div class="col-sm-6 col-xs-12" style="padding: 0;">
-              <img src="http://via.placeholder.com/230x230" class="img-responsive" />
-            </div><!-- /.col-sm-6 -->
-          </div><!-- /.row -->
-
-          <div class="clearfix"></div><!-- /.clearfix -->
-
-          <div class="row" style="margin-top: 15px;">
-            <div class="col-sm-6 col-xs-12" style="padding: 0;">
-              <img src="http://via.placeholder.com/230x230" class="img-responsive" />
-            </div><!-- /.col-sm-6 -->
-
-            <div class="col-sm-6 col-xs-12" style="padding: 0;">
-              <img src="http://via.placeholder.com/230x230" class="img-responsive" />
-            </div><!-- /.col-sm-6 -->
-          </div><!-- /.row -->
-        </div><!-- /.col-sm-4 -->
-
+    
       </div><!-- /.row -->
     </div>
     <div class="clearfix"></div>
