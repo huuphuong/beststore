@@ -36,17 +36,28 @@ class SlideshowController extends Controller
      */
     public function store(Request $request)
     {
-        $slideshow = new Slideshow();
-        $slideshow->url = $request->url;
-        $slideshow->text_link = $request->text_link;
+        try {
+            $slideshow            = new Slideshow();
+            $slideshow->url       = $request->url;
+            $slideshow->text_link = $request->text_link;
+            $slideshow->display   = $request->display;
+            $slideshow->position  = $request->position;
 
-        $img = str_replace('data:image/png;base64,', '', $request->image);
-        $img = str_replace(' ', '+', $img);
+            $path = public_path() . '/thumbnail/' . uniqid() . '.jpg';
+            $saveFile = file_put_contents($path, base64_decode(preg_replace('#^data:image/\w+;base64,#i', '', $request->image)));
 
-        $img = base64_decode($img);
+            if ($saveFile) {
+                $slideshow->image = $path;
+            }
+
+            $slideshow->save();
+            $res = Api::resourceApi(Api::$_CREATED, 'Create slideshow has been success');
+        } catch (\Exception $e) {
+            $res = Api::resourceApi($e->getCode(), $e->getMessage());
+        }
         
-        $file = public_path() . '/thumbnail';
-        $success = file_put_contents($file, $img);
+
+        return response()->json($res, Api::$_OK);
     }
 
     /**

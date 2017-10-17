@@ -70840,13 +70840,23 @@ module.exports = Component.exports
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Common__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__SlideshowList_vue__ = __webpack_require__(178);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__SlideshowList_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__SlideshowList_vue__);
+
+
+
 /* harmony default export */ __webpack_exports__["default"] = ({
 	name: 'Slideshow',
+
+	components: { SlideshowList: __WEBPACK_IMPORTED_MODULE_1__SlideshowList_vue___default.a },
 
 	data: function data() {
 		return {
 			text_link: '',
 			url: '',
+			display: 1,
+			position: '',
 			image: ''
 		};
 	},
@@ -70877,16 +70887,38 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 			this.image = '';
 		},
 
+		validateBeforeSubmit: function validateBeforeSubmit() {
+			var vm = this;
+			vm.$validator.validateAll().then(function (result) {
+				if (result) {
+					return vm.onSubmit();
+				}
+			});
+		},
+
+
 		onSubmit: function onSubmit() {
 			var vm = this;
 			var endpoint = baseUrl + 'slideshows';
 			axios.post(endpoint, {
 				url: vm.url,
 				text_link: vm.text_link,
+				display: vm.display,
+				position: vm.position,
 				image: vm.image
-			}).then(function (response) {}).catch(function (errors) {
+			}).then(function (response) {
+				var result = response.data;
+				if (result.status == __WEBPACK_IMPORTED_MODULE_0__Common__["a" /* default */].statusCode._CREATED) {
+					__WEBPACK_IMPORTED_MODULE_0__Common__["a" /* default */].setToast(result.message, result.status);
+					$('#myModal').modal('hide');
+				}
+			}).catch(function (errors) {
 				console.log(errors);
 			});
+		},
+
+		showModal: function showModal() {
+			$('#myModal').modal('show');
 		}
 	} // End class
 
@@ -70900,127 +70932,338 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "panel panel-default" }, [
-    _vm._m(0),
-    _vm._v(" "),
-    _c("div", { staticClass: "panel-body" }, [
-      _c(
-        "form",
-        {
-          attrs: { action: "", method: "POST", role: "form" },
-          on: {
-            submit: function($event) {
-              $event.preventDefault()
-              _vm.onSubmit($event)
-            }
-          }
-        },
-        [
-          _c("div", { staticClass: "form-group" }, [
-            _c("label", { attrs: { for: "" } }, [_vm._v("Text link:")]),
-            _vm._v(" "),
-            _c("input", {
-              directives: [
-                {
-                  name: "model",
-                  rawName: "v-model",
-                  value: _vm.text_link,
-                  expression: "text_link"
-                }
-              ],
-              staticClass: "form-control",
-              attrs: { type: "text" },
-              domProps: { value: _vm.text_link },
-              on: {
-                input: function($event) {
-                  if ($event.target.composing) {
-                    return
-                  }
-                  _vm.text_link = $event.target.value
-                }
-              }
-            })
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "form-group" }, [
-            _c("label", { attrs: { for: "" } }, [_vm._v("URL:")]),
-            _vm._v(" "),
-            _c("input", {
-              directives: [
-                {
-                  name: "model",
-                  rawName: "v-model",
-                  value: _vm.url,
-                  expression: "url"
-                }
-              ],
-              staticClass: "form-control",
-              attrs: { type: "text" },
-              domProps: { value: _vm.url },
-              on: {
-                input: function($event) {
-                  if ($event.target.composing) {
-                    return
-                  }
-                  _vm.url = $event.target.value
-                }
-              }
-            })
-          ]),
-          _vm._v(" "),
-          !_vm.image
-            ? _c("div", { staticClass: "form-group" }, [
-                _c("label", { attrs: { for: "" } }, [
-                  _vm._v("Image(1024x480)")
-                ]),
-                _vm._v(" "),
-                _c("input", {
-                  attrs: { type: "file" },
-                  on: { change: _vm.onFileChange }
-                })
-              ])
-            : _c("div", { staticClass: "form-group" }, [
-                _c("label", { attrs: { for: "" } }, [
-                  _vm._v("Image(1024x480)")
-                ]),
-                _vm._v(" "),
-                _c("img", {
-                  staticClass: "img-responsive",
-                  attrs: { src: _vm.image }
-                }),
-                _vm._v(" "),
-                _c("br"),
+  return _c(
+    "div",
+    { attrs: { id: "root" } },
+    [
+      _c("div", { staticClass: "btn-group-vertical m-b-15" }, [
+        _c(
+          "button",
+          {
+            staticClass: "btn btn-default",
+            attrs: { type: "button", "data-toggle": "modal" },
+            on: { click: _vm.showModal }
+          },
+          [_vm._v("Add Slideshow")]
+        ),
+        _vm._v(" "),
+        _c(
+          "div",
+          {
+            staticClass: "modal fade",
+            attrs: { id: "myModal", role: "dialog" }
+          },
+          [
+            _c("div", { staticClass: "modal-dialog modal-lg" }, [
+              _c("div", { staticClass: "modal-content" }, [
+                _vm._m(0),
                 _vm._v(" "),
                 _c(
-                  "button",
+                  "form",
                   {
-                    staticClass: "btn btn-default",
-                    on: { click: _vm.removeImage }
+                    attrs: { action: "", method: "POST", role: "form" },
+                    on: {
+                      submit: function($event) {
+                        $event.preventDefault()
+                        _vm.validateBeforeSubmit($event)
+                      }
+                    }
                   },
-                  [_vm._v("Remove image")]
+                  [
+                    _c("div", { staticClass: "modal-body" }, [
+                      _c("div", { staticClass: "form-group" }, [
+                        _c("label", { attrs: { for: "" } }, [
+                          _vm._v("Text link:")
+                        ]),
+                        _vm._v(" "),
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.text_link,
+                              expression: "text_link"
+                            },
+                            {
+                              name: "validate",
+                              rawName: "v-validate",
+                              value: "required",
+                              expression: "'required'"
+                            }
+                          ],
+                          staticClass: "form-control",
+                          attrs: {
+                            type: "text",
+                            name: "text_link",
+                            "data-vv-as": "Tên action"
+                          },
+                          domProps: { value: _vm.text_link },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.text_link = $event.target.value
+                            }
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c(
+                          "span",
+                          {
+                            directives: [
+                              {
+                                name: "show",
+                                rawName: "v-show",
+                                value: _vm.errors.has("text_link"),
+                                expression: "errors.has('text_link')"
+                              }
+                            ],
+                            staticClass: "label label-danger"
+                          },
+                          [_vm._v(_vm._s(_vm.errors.first("text_link")))]
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "form-group" }, [
+                        _c("label", { attrs: { for: "" } }, [_vm._v("URL:")]),
+                        _vm._v(" "),
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.url,
+                              expression: "url"
+                            },
+                            {
+                              name: "validate",
+                              rawName: "v-validate",
+                              value: "required",
+                              expression: "'required'"
+                            }
+                          ],
+                          staticClass: "form-control",
+                          attrs: {
+                            type: "text",
+                            name: "url",
+                            "data-vv-as": "Địa chỉ đường dẫn"
+                          },
+                          domProps: { value: _vm.url },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.url = $event.target.value
+                            }
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c(
+                          "span",
+                          {
+                            directives: [
+                              {
+                                name: "show",
+                                rawName: "v-show",
+                                value: _vm.errors.has("url"),
+                                expression: "errors.has('url')"
+                              }
+                            ],
+                            staticClass: "label label-danger"
+                          },
+                          [_vm._v(_vm._s(_vm.errors.first("url")))]
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "form-group" }, [
+                        _c("label", { attrs: { for: "" } }, [
+                          _vm._v("Display:")
+                        ]),
+                        _vm._v(" "),
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.display,
+                              expression: "display"
+                            }
+                          ],
+                          attrs: {
+                            type: "radio",
+                            name: "display",
+                            id: "input",
+                            value: "1"
+                          },
+                          domProps: { checked: _vm._q(_vm.display, "1") },
+                          on: {
+                            __c: function($event) {
+                              _vm.display = "1"
+                            }
+                          }
+                        }),
+                        _vm._v(" Yes\n\t\t\t\t\t\t\t\t"),
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.display,
+                              expression: "display"
+                            }
+                          ],
+                          attrs: {
+                            type: "radio",
+                            name: "display",
+                            id: "input",
+                            value: "0"
+                          },
+                          domProps: { checked: _vm._q(_vm.display, "0") },
+                          on: {
+                            __c: function($event) {
+                              _vm.display = "0"
+                            }
+                          }
+                        }),
+                        _vm._v(" No\n\t\t\t\t\t\t\t")
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "form-group" }, [
+                        _c("label", { attrs: { for: "" } }, [
+                          _vm._v("Position:")
+                        ]),
+                        _vm._v(" "),
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.position,
+                              expression: "position"
+                            },
+                            {
+                              name: "validate",
+                              rawName: "v-validate",
+                              value: "required",
+                              expression: "'required'"
+                            }
+                          ],
+                          staticClass: "form-control",
+                          attrs: {
+                            type: "text",
+                            name: "position",
+                            "data-vv-as": "Thứ tự sắp xếp"
+                          },
+                          domProps: { value: _vm.position },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.position = $event.target.value
+                            }
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c(
+                          "span",
+                          {
+                            directives: [
+                              {
+                                name: "show",
+                                rawName: "v-show",
+                                value: _vm.errors.has("position"),
+                                expression: "errors.has('position')"
+                              }
+                            ],
+                            staticClass: "label label-danger"
+                          },
+                          [_vm._v(_vm._s(_vm.errors.first("position")))]
+                        )
+                      ]),
+                      _vm._v(" "),
+                      !_vm.image
+                        ? _c("div", { staticClass: "form-group" }, [
+                            _c("label", { attrs: { for: "" } }, [
+                              _vm._v("Image(1024x480)")
+                            ]),
+                            _vm._v(" "),
+                            _c("input", {
+                              attrs: { type: "file" },
+                              on: { change: _vm.onFileChange }
+                            })
+                          ])
+                        : _c("div", { staticClass: "form-group" }, [
+                            _c("label", { attrs: { for: "" } }, [
+                              _vm._v("Image(1024x480)")
+                            ]),
+                            _vm._v(" "),
+                            _c("img", {
+                              staticClass: "img-responsive",
+                              attrs: { src: _vm.image }
+                            }),
+                            _vm._v(" "),
+                            _c("br"),
+                            _vm._v(" "),
+                            _c(
+                              "button",
+                              {
+                                staticClass: "btn btn-default",
+                                on: { click: _vm.removeImage }
+                              },
+                              [_vm._v("Remove image")]
+                            )
+                          ])
+                    ]),
+                    _vm._v(" "),
+                    _vm._m(1)
+                  ]
                 )
-              ]),
-          _vm._v(" "),
-          _vm._m(1)
-        ]
-      )
-    ])
-  ])
+              ])
+            ])
+          ]
+        )
+      ]),
+      _vm._v(" "),
+      _c("slideshow-list")
+    ],
+    1
+  )
 }
 var staticRenderFns = [
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "panel-heading" }, [
-      _c("h3", { staticClass: "panel-title" }, [_vm._v("Panel title")])
+    return _c("div", { staticClass: "modal-header" }, [
+      _c(
+        "button",
+        {
+          staticClass: "close",
+          attrs: { type: "button", "data-dismiss": "modal" }
+        },
+        [_vm._v("×")]
+      ),
+      _vm._v(" "),
+      _c("h4", { staticClass: "modal-title" }, [_vm._v("Add Product")])
     ])
   },
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "form-group" }, [
+    return _c("div", { staticClass: "modal-footer" }, [
+      _c(
+        "button",
+        {
+          staticClass: "btn btn-default",
+          attrs: { type: "button", "data-dismiss": "modal" }
+        },
+        [_vm._v("Close")]
+      ),
+      _vm._v(" "),
       _c(
         "button",
         { staticClass: "btn btn-primary", attrs: { type: "submit" } },
@@ -82439,6 +82682,118 @@ function ($) {
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 170 */,
+/* 171 */,
+/* 172 */,
+/* 173 */,
+/* 174 */,
+/* 175 */,
+/* 176 */,
+/* 177 */,
+/* 178 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+var normalizeComponent = __webpack_require__(0)
+/* script */
+var __vue_script__ = __webpack_require__(179)
+/* template */
+var __vue_template__ = __webpack_require__(180)
+/* styles */
+var __vue_styles__ = null
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources\\assets\\js\\components\\settings\\SlideshowList.vue"
+if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key.substr(0, 2) !== "__"})) {console.error("named exports are not supported in *.vue files.")}
+if (Component.options.functional) {console.error("[vue-loader] SlideshowList.vue: functional components are not supported with templates, they should use render functions.")}
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-7df58d25", Component.options)
+  } else {
+    hotAPI.reload("data-v-7df58d25", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 179 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+	name: 'SlideshowList'
+
+});
+
+/***/ }),
+/* 180 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _vm._m(0)
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "panel panel-default" }, [
+      _c("div", { staticClass: "panel-heading" }, [
+        _c("h3", { staticClass: "panel-title" }, [_vm._v("Slideshow")])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "panel-body" }, [
+        _vm._v("\n\t\tPanel content\n\t")
+      ])
+    ])
+  }
+]
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+     require("vue-hot-reload-api").rerender("data-v-7df58d25", module.exports)
+  }
+}
 
 /***/ })
 /******/ ]);
