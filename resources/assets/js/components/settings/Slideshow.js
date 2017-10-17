@@ -13,11 +13,14 @@ export default {
 			display: 1,
 			position: '',
 			image: '',
+
+			slideshows: [], // List slideshow
 		}
 	},
 
 	mounted () {
 		document.title = 'Slide Show';
+		this.getSlideshow();
 	},
 
 	methods: {
@@ -79,6 +82,17 @@ export default {
 
 		showModal: function () {
 			$('#myModal').modal('show');
+		},
+
+		getSlideshow: function () {
+			var vm = this;
+			var url = baseUrl + 'slideshows';
+			axios.get(url).then(function (response) {
+				var result = response.data;
+				vm.slideshows = result.data;
+			}).catch(function (errors) {
+				console.log(errors);
+			});
 		}
-	}
+	} // End class
 } // End class

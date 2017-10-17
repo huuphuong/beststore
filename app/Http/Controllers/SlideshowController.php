@@ -15,7 +15,12 @@ class SlideshowController extends Controller
      */
     public function index()
     {
-        //
+        $slideshows = Slideshow::orderBy('display', 'ASC')
+                               ->orderBy('position', 'ASC')
+                               ->get();
+
+        $res = Api::resourceApi(Api::$_OK, $slideshows);
+        return response()->json($res, Api::$_OK);
     }
 
     /**
@@ -55,7 +60,7 @@ class SlideshowController extends Controller
         } catch (\Exception $e) {
             $res = Api::resourceApi($e->getCode(), $e->getMessage());
         }
-        
+
 
         return response()->json($res, Api::$_OK);
     }

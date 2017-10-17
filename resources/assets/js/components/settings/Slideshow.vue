@@ -60,7 +60,7 @@
 		</div>
 		<!-- /.End Add -->
 
-		<slideshow-list></slideshow-list>
+		<slideshow-list :data="slideshows"></slideshow-list>
 	</div>
 </template>
 <script src="./Slideshow.js"></script>
