@@ -37,5 +37,6 @@ Route::group(['prefix' => 'v1'], function() {
     Route::delete('/collection/remove/{product_id}', 'ProductCollectionController@removeProduct');
     Route::resource('product-collections', 'ProductCollectionController');
     Route::resource('settings', 'SettingController');
+    Route::resource('slideshows', 'SlideshowController');
 });
 
