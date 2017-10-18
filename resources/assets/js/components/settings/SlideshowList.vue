@@ -24,7 +24,7 @@
 						<td>{{ slideshow.display == 1 ? 'Yes' : 'No' }}</td>
 						<td>{{ slideshow.position }}</td>
 						<td>
-							<img v-bind:src="btoa(slideshow.image)" class="img-responsive" />
+							<img v-bind:src="slideshow.image" class="img-responsive" with="80px" height="80px">
 						</td>
 						<td>
 							<a href="">Edit</a> |

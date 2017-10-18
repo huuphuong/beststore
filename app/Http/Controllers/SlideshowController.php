@@ -17,7 +17,14 @@ class SlideshowController extends Controller
     {
         $slideshows = Slideshow::orderBy('display', 'ASC')
                                ->orderBy('position', 'ASC')
-                               ->get();
+                               ->get()
+                               ->toArray();
+
+        // foreach ($slideshows AS $k => $slideshow)
+        // {
+        //     $slideshows[$k]['image'] = "<img src='".$slideshow['image']."' />";
+        // }
+
 
         $res = Api::resourceApi(Api::$_OK, $slideshows);
         return response()->json($res, Api::$_OK);
@@ -48,11 +55,12 @@ class SlideshowController extends Controller
             $slideshow->display   = $request->display;
             $slideshow->position  = $request->position;
 
-            $path = public_path() . '/thumbnail/' . uniqid() . '.jpg';
+            $imageName = uniqid() . '.jpg';
+            $path = public_path() . '/thumbnail/' . $imageName;
             $saveFile = file_put_contents($path, base64_decode(preg_replace('#^data:image/\w+;base64,#i', '', $request->image)));
 
             if ($saveFile) {
-                $slideshow->image = $path;
+                $slideshow->image = asset('thumbnail/' . $imageName);
             }
 
             $slideshow->save();

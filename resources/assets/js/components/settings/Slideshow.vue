@@ -34,7 +34,7 @@
 
 								<div class="form-group">
 									<label for="">Position:</label>
-									<input type="text" class="form-control" v-model="position" name="position" v-validate="'required'" data-vv-as="Thứ tự sắp xếp">
+									<input type="number" class="form-control" v-model="position" name="position" v-validate="'required'" data-vv-as="Thứ tự sắp xếp">
 									<span class="label label-danger" v-show="errors.has('position')">{{ errors.first('position') }}</span>
 								</div>
 

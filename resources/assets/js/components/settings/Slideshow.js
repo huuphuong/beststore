@@ -13,6 +13,7 @@ export default {
 			display: 1,
 			position: '',
 			image: '',
+			position: 1,
 
 			slideshows: [], // List slideshow
 		}
@@ -74,6 +75,8 @@ export default {
 					Common.setToast(result.message, result.status);
 					$('#myModal').modal('hide');
 				}
+
+				vm.getSlideshow();
 			}).catch(function (errors) {
 				console.log(errors);
 			});
