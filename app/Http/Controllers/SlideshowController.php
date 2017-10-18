@@ -107,7 +107,33 @@ class SlideshowController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        try {
+            $slideshow = Slideshow::findOrFail($id);
+            $currentImage = $slideshow->image;
+
+            $slideshow->name      = $request->name;
+            $slideshow->url       = $request->url;
+            $slideshow->text_link = $request->text_link;
+            $slideshow->display   = $request->display;
+            $slideshow->position  = $request->position;
+
+            if ($currentImage != $request->image) {
+                $imageName = uniqid() . '.jpg';
+                $path = public_path() . '/thumbnail/' . $imageName;
+                $saveFile = file_put_contents($path, base64_decode(preg_replace('#^data:image/\w+;base64,#i', '', $request->image)));
+
+                if ($saveFile) {
+                    $slideshow->image = asset('thumbnail/' . $imageName);
+                }
+            }
+
+            $slideshow->save();
+            $res = Api::resourceApi(Api::$_CREATED, 'Update slideshow has been success');
+        }catch (\Exception $e) {
+            $res = Api::resourceApi($e->getCode(), $e->getMessage());
+        }
+
+        return response()->json($res, Api::$_OK);
     }
 
     /**

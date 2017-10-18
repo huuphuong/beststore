@@ -74,15 +74,7 @@ export default {
 
 
 		getSlide: function (id) {
-			$('#myModal').modal('show');
-			var vm = this;
-			var url = baseUrl + 'slideshows/' + id + '/edit/';
-			axios.get(url).then(function (response) {
-				var result = response.data;
-				vm.slideshow = result.data;
-			}).catch(function (errors) {
-				console.log(errors);
-			});
+			this.$emit('getSlide', id);
 		}
 	}
 } // End class

@@ -70843,8 +70843,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Common__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__SlideshowList_vue__ = __webpack_require__(148);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__SlideshowList_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__SlideshowList_vue__);
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
 
 
 
@@ -70855,14 +70853,14 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 	data: function data() {
 		return {
-			slideshow: _defineProperty({
+			slideshow: {
 				name: '',
 				text_link: '',
 				url: '',
 				display: 1,
-				position: '',
-				image: ''
-			}, 'position', 1),
+				image: '',
+				position: 1
+			},
 
 			slideshows: [] // List slideshow
 		};
@@ -70907,18 +70905,61 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 		onSubmit: function onSubmit() {
 			var vm = this;
+
+			if (typeof Storage !== "undefined") {
+				var isSave = localStorage.getItem('isSave');
+				if (typeof isSave != 'undefined' && isSave != null) {
+					var id = localStorage.getItem('isSave');
+					vm.update(id);
+				} else {
+					vm.save();
+				}
+			}
+		},
+
+		save: function save() {
+			// Không có trong localStorage => Thêm
+			var vm = this;
 			var endpoint = baseUrl + 'slideshows';
 			axios.post(endpoint, vm.slideshow).then(function (response) {
 				var result = response.data;
 				if (result.status == __WEBPACK_IMPORTED_MODULE_0__Common__["a" /* default */].statusCode._CREATED) {
 					__WEBPACK_IMPORTED_MODULE_0__Common__["a" /* default */].setToast(result.message, result.status);
 					$('#myModal').modal('hide');
+					localStorage.removeItem('isSave');
 				}
 
 				vm.getSlideshow();
+				vm.emptyObject();
 			}).catch(function (errors) {
 				console.log(errors);
 			});
+		},
+
+		update: function update(id) {
+			var vm = this;
+			var endpoint = baseUrl + 'slideshows/' + id;
+			axios.put(endpoint, vm.slideshow).then(function (response) {
+				var result = response.data;
+				if (result.status == __WEBPACK_IMPORTED_MODULE_0__Common__["a" /* default */].statusCode._CREATED) {
+					__WEBPACK_IMPORTED_MODULE_0__Common__["a" /* default */].setToast(result.message, result.status);
+					localStorage.removeItem('isSave');
+					$('#myModal').modal('hide');
+				}
+
+				vm.getSlideshow();
+				vm.emptyObject();
+			}).catch(function (errors) {
+				console.log(errors);
+			});
+		},
+
+		emptyObject: function emptyObject() {
+			var vm = this;
+
+			vm.slideshow = {
+				position: 1, display: 1
+			};
 		},
 
 		showModal: function showModal() {
@@ -70931,6 +70972,24 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 			axios.get(url).then(function (response) {
 				var result = response.data;
 				vm.slideshows = result.data;
+			}).catch(function (errors) {
+				console.log(errors);
+			});
+		},
+
+		getEditSlideshow: function getEditSlideshow(id) {
+			var vm = this;
+			var url = baseUrl + 'slideshows/' + id + '/edit';
+			axios.get(url).then(function (response) {
+				var result = response.data;
+				vm.slideshow = result.data;
+				$('#myModal').modal('show');
+
+				// Lưu thông tin vào localStore để check là đang Update hay Thêm mới
+				if (typeof Storage !== "undefined") {
+					var isSave = id;
+					localStorage.setItem('isSave', isSave);
+				}
 			}).catch(function (errors) {
 				console.log(errors);
 			});
@@ -71064,15 +71123,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 		},
 
 		getSlide: function getSlide(id) {
-			$('#myModal').modal('show');
-			var vm = this;
-			var url = baseUrl + 'slideshows/' + id + '/edit/';
-			axios.get(url).then(function (response) {
-				var result = response.data;
-				vm.slideshow = result.data;
-			}).catch(function (errors) {
-				console.log(errors);
-			});
+			this.$emit('getSlide', id);
 		}
 	} // End class
 
@@ -71483,7 +71534,8 @@ var render = function() {
                           attrs: {
                             type: "number",
                             name: "position",
-                            "data-vv-as": "Thứ tự sắp xếp"
+                            "data-vv-as": "Thứ tự sắp xếp",
+                            min: "1"
                           },
                           domProps: { value: _vm.slideshow.position },
                           on: {
@@ -71556,7 +71608,10 @@ var render = function() {
         )
       ]),
       _vm._v(" "),
-      _c("slideshow-list", { attrs: { data: _vm.slideshows } })
+      _c("slideshow-list", {
+        attrs: { data: _vm.slideshows },
+        on: { getSlide: _vm.getEditSlideshow }
+      })
     ],
     1
   )
@@ -71576,7 +71631,7 @@ var staticRenderFns = [
         [_vm._v("×")]
       ),
       _vm._v(" "),
-      _c("h4", { staticClass: "modal-title" }, [_vm._v("Add Product")])
+      _c("h4", { staticClass: "modal-title" }, [_vm._v("Update Product")])
     ])
   },
   function() {

@@ -10,7 +10,7 @@
 					<div class="modal-content">
 						<div class="modal-header">
 							<button type="button" class="close" data-dismiss="modal">&times;</button>
-							<h4 class="modal-title">Add Product</h4>
+							<h4 class="modal-title">Update Product</h4>
 						</div>
 						<form action="" method="POST" role="form" @submit.prevent="validateBeforeSubmit">
 							<div class="modal-body">
@@ -40,7 +40,7 @@
 
 								<div class="form-group">
 									<label for="">Position:</label>
-									<input type="number" class="form-control" v-model="slideshow.position" name="position" v-validate="'required'" data-vv-as="Thứ tự sắp xếp">
+									<input type="number" class="form-control" v-model="slideshow.position" name="position" v-validate="'required'" data-vv-as="Thứ tự sắp xếp" min="1">
 									<span class="label label-danger" v-show="errors.has('position')">{{ errors.first('position') }}</span>
 								</div>
 
@@ -66,7 +66,7 @@
 		</div>
 		<!-- /.End Add -->
 
-		<slideshow-list :data="slideshows"></slideshow-list>
+		<slideshow-list :data="slideshows" @getSlide="getEditSlideshow"></slideshow-list>
 	</div>
 </template>
 <script src="./Slideshow.js"></script>
