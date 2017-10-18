@@ -115,6 +115,16 @@ class SlideshowController extends Controller
      */
     public function destroy($id)
     {
-        //
+        try {
+            $slideshoe = Slideshow::findOrFail($id)
+                                  ->delete();
+
+            $message = 'Delete slide has been success';
+            $res = Api::resourceApi(Api::$_CREATED, $message);
+        } catch (\Exception $e) {
+            $res = Api::resourceApi($e->getCode(), $e->getMessage());
+        }
+
+        return response()->json($res, Api::$_OK);
     }
 }

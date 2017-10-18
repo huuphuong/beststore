@@ -70994,6 +70994,7 @@ module.exports = Component.exports
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Common__ = __webpack_require__(1);
 //
 //
 //
@@ -71034,9 +71035,29 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 
+
 /* harmony default export */ __webpack_exports__["default"] = ({
 	name: 'SlideshowList',
-	props: ['data']
+	props: ['data'],
+
+	methods: {
+		deleteSlide: function deleteSlide(id, key) {
+			var confirmDelete = confirm('Do you want delete this slideshow');
+			if (confirmDelete) {
+				var vm = this;
+				var url = baseUrl + 'slideshows/' + id;
+				axios.delete(url).then(function (response) {
+					var result = response.data;
+					if (result.status = __WEBPACK_IMPORTED_MODULE_0__Common__["a" /* default */].statusCode._CREATED) {
+						__WEBPACK_IMPORTED_MODULE_0__Common__["a" /* default */].setToast(result.message, result.status);
+						vm.data.splice(key, 1);
+					}
+				}).catch(function (errors) {
+					console.log(errors);
+				});
+			}
+		}
+	}
 });
 
 /***/ }),
@@ -71051,14 +71072,14 @@ var render = function() {
     _vm._m(0),
     _vm._v(" "),
     _c("div", { staticClass: "panel-body" }, [
-      _c("table", { staticClass: "table table-hover" }, [
+      _c("table", { staticClass: "table table-hover table-bordered" }, [
         _vm._m(1),
         _vm._v(" "),
         _c(
           "tbody",
-          _vm._l(_vm.data, function(slideshow) {
+          _vm._l(_vm.data, function(slideshow, key) {
             return _c("tr", [
-              _c("td"),
+              _c("td", [_vm._v(_vm._s(key + 1))]),
               _vm._v(" "),
               _c("td", [_vm._v(_vm._s(slideshow.text_link))]),
               _vm._v(" "),
@@ -71071,11 +71092,31 @@ var render = function() {
               _c("td", [
                 _c("img", {
                   staticClass: "img-responsive",
-                  attrs: { src: slideshow.image, with: "80px", height: "80px" }
+                  attrs: { src: slideshow.image, width: "80px", height: "80px" }
                 })
               ]),
               _vm._v(" "),
-              _vm._m(2, true)
+              _c("td", [
+                _c(
+                  "button",
+                  { staticClass: "btn btn-default", attrs: { type: "button" } },
+                  [_vm._v("Edit")]
+                ),
+                _vm._v(" "),
+                _c(
+                  "button",
+                  {
+                    staticClass: "btn btn-danger",
+                    attrs: { type: "button" },
+                    on: {
+                      click: function($event) {
+                        _vm.deleteSlide(slideshow.id, key)
+                      }
+                    }
+                  },
+                  [_vm._v("Delete")]
+                )
+              ])
             ])
           })
         )
@@ -71112,16 +71153,6 @@ var staticRenderFns = [
         _vm._v(" "),
         _c("th", [_vm._v("Action")])
       ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("td", [
-      _c("a", { attrs: { href: "" } }, [_vm._v("Edit")]),
-      _vm._v(" |\n\t\t\t\t\t\t"),
-      _c("a", { attrs: { href: "" } }, [_vm._v("Delete")])
     ])
   }
 ]

@@ -4,7 +4,7 @@
 			<h3 class="panel-title">Slideshow</h3>
 		</div>
 		<div class="panel-body">
-			<table class="table table-hover">
+			<table class="table table-hover table-bordered">
 				<thead>
 					<tr>
 						<th>#</th>
@@ -17,18 +17,18 @@
 					</tr>
 				</thead>
 				<tbody>
-					<tr v-for="slideshow in data">
-						<td></td>
+					<tr v-for="(slideshow, key) in data">
+						<td>{{ key + 1 }}</td>
 						<td>{{ slideshow.text_link }}</td>
 						<td>{{ slideshow.url }}</td>
 						<td>{{ slideshow.display == 1 ? 'Yes' : 'No' }}</td>
 						<td>{{ slideshow.position }}</td>
 						<td>
-							<img v-bind:src="slideshow.image" class="img-responsive" with="80px" height="80px">
+							<img v-bind:src="slideshow.image" class="img-responsive" width="80px" height="80px">
 						</td>
 						<td>
-							<a href="">Edit</a> |
-							<a href="">Delete</a>
+							<button type="button" class="btn btn-default">Edit</button>
+							<button type="button" class="btn btn-danger" @click="deleteSlide(slideshow.id, key)">Delete</button>
 						</td>
 					</tr>
 				</tbody>
@@ -38,8 +38,31 @@
 </template>
 
 <script>
-	export default {
-		name: 'SlideshowList',
-		props: ['data']
+import Common from '../../Common';
+export default {
+	name: 'SlideshowList',
+	props: ['data'],
+
+	methods: {
+		deleteSlide: function (id, key) {
+			var confirmDelete = confirm('Do you want delete this slideshow');
+			if (confirmDelete) {
+				var vm = this;
+				var url = baseUrl + 'slideshows/' + id;
+				axios.delete(url).then(function (response) {
+					var result = response.data;
+					if (result.status = Common.statusCode._CREATED)
+					{
+						Common.setToast(result.message, result.status);
+						vm.data.splice(key, 1);
+					}
+					
+				}).catch(function (errors) {
+					console.log(errors);
+				});
+			}
+			
+		}
 	}
+}
 </script>
