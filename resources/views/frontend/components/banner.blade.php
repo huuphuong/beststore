@@ -1,3 +1,7 @@
+@inject('slideshow', 'App\Models\Slideshow')
+@php
+    $slideshows = $slideshow->getSlideBanner();
+@endphp
 <!-- banner -->
 <div class="banner-grid">
   <div id="visual">
@@ -7,35 +11,22 @@
         <div class="col-sm-12">
           <div id="carousel-id" class="carousel slide" data-ride="carousel">
             <ol class="carousel-indicators">
-              <li data-target="#carousel-id" data-slide-to="0" class=""></li>
-              <li data-target="#carousel-id" data-slide-to="1" class=""></li>
-              <li data-target="#carousel-id" data-slide-to="2" class="active"></li>
+              @foreach ($slideshows AS $k => $slideshow)
+              <li data-target="#carousel-id" data-slide-to="{{ $k }}" class="{{ $k == 0 ? 'active' : null }}"></li>
+              @endforeach
             </ol>
+
             <div class="carousel-inner">
-              <div class="item">
-                <img src="http://www.merry.vn/wp-content/uploads/2016/11/1-1024x480.jpg" class="img-responsive" style="min-width: 100%;" />
+              @foreach ($slideshows AS $index => $slide)
+              <div class="item {{ $index == 0 ? 'active' : null }}">
+                <img src="{{ $slide->image }}" class="img-responsive" style="min-width: 100%;" />
                 <div class="container">
                   <div class="carousel-caption">
-                    <p><a class="btn btn-lg btn-callaction" href="#" role="button">Đăng ký ngay</a></p>
+                    <p><a class="btn btn-callaction" href="{{ $slide->url }}" role="button">{{ $slide->text_link }}</a></p>
                   </div>
                 </div>
               </div>
-              <div class="item">
-                <img src="http://www.merry.vn/wp-content/uploads/2016/11/1-1024x480.jpg" class="img-responsive" style="min-width: 100%;" />
-                <div class="container">
-                  <div class="carousel-caption">
-                    <p><a class="btn btn-lg btn-callaction" href="#" role="button">Tìm hiểu ngay</a></p>
-                  </div>
-                </div>
-              </div>
-              <div class="item active">
-                <img src="http://www.merry.vn/wp-content/uploads/2016/11/1-1024x480.jpg" class="img-responsive" style="min-width: 100%;" />
-                <div class="container">
-                  <div class="carousel-caption">
-                    <p><a class="btn btn-lg btn-callaction" href="#" role="button">Báo giá ngay</a></p>
-                  </div>
-                </div>
-              </div>
+              @endforeach
             </div>
             <a class="left carousel-control" href="#carousel-id" data-slide="prev"><span class="glyphicon glyphicon-chevron-left"></span></a>
             <a class="right carousel-control" href="#carousel-id" data-slide="next"><span class="glyphicon glyphicon-chevron-right"></span></a>
