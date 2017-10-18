@@ -8,6 +8,7 @@
 				<thead>
 					<tr>
 						<th>#</th>
+						<th>Name(Collection, event, image v.v..)</th>
 						<th>Text link</th>
 						<th>URL</th>
 						<th>Display</th>
@@ -19,6 +20,7 @@
 				<tbody>
 					<tr v-for="(slideshow, key) in data">
 						<td>{{ key + 1 }}</td>
+						<td>{{ slideshow.name }}</td>
 						<td>{{ slideshow.text_link }}</td>
 						<td>{{ slideshow.url }}</td>
 						<td>{{ slideshow.display == 1 ? 'Yes' : 'No' }}</td>
@@ -27,7 +29,7 @@
 							<img v-bind:src="slideshow.image" class="img-responsive" width="80px" height="80px">
 						</td>
 						<td>
-							<button type="button" class="btn btn-default">Edit</button>
+							<button type="button" class="btn btn-default" @click="getSlide(slideshow.id)">Edit</button>
 							<button type="button" class="btn btn-danger" @click="deleteSlide(slideshow.id, key)">Delete</button>
 						</td>
 					</tr>
@@ -42,6 +44,12 @@ import Common from '../../Common';
 export default {
 	name: 'SlideshowList',
 	props: ['data'],
+
+	data: function () {
+		return {
+			slideshow: { },
+		}
+	},
 
 	methods: {
 		deleteSlide: function (id, key) {
@@ -62,7 +70,20 @@ export default {
 				});
 			}
 			
+		},
+
+
+		getSlide: function (id) {
+			$('#myModal').modal('show');
+			var vm = this;
+			var url = baseUrl + 'slideshows/' + id + '/edit/';
+			axios.get(url).then(function (response) {
+				var result = response.data;
+				vm.slideshow = result.data;
+			}).catch(function (errors) {
+				console.log(errors);
+			});
 		}
 	}
-}
+} // End class
 </script>

@@ -70854,15 +70854,18 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 	components: { SlideshowList: __WEBPACK_IMPORTED_MODULE_1__SlideshowList_vue___default.a },
 
 	data: function data() {
-		var _ref;
+		return {
+			slideshow: _defineProperty({
+				name: '',
+				text_link: '',
+				url: '',
+				display: 1,
+				position: '',
+				image: ''
+			}, 'position', 1),
 
-		return _ref = {
-			text_link: '',
-			url: '',
-			display: 1,
-			position: '',
-			image: ''
-		}, _defineProperty(_ref, 'position', 1), _defineProperty(_ref, 'slideshows', []), _ref;
+			slideshows: [] // List slideshow
+		};
 	},
 	mounted: function mounted() {
 		document.title = 'Slide Show';
@@ -70882,14 +70885,14 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 			var vm = this;
 
 			reader.onload = function (e) {
-				vm.image = e.target.result;
+				vm.slideshow.image = e.target.result;
 			};
 			reader.readAsDataURL(file);
 		},
 
 
 		removeImage: function removeImage(e) {
-			this.image = '';
+			this.slideshow.image = '';
 		},
 
 		validateBeforeSubmit: function validateBeforeSubmit() {
@@ -70905,13 +70908,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 		onSubmit: function onSubmit() {
 			var vm = this;
 			var endpoint = baseUrl + 'slideshows';
-			axios.post(endpoint, {
-				url: vm.url,
-				text_link: vm.text_link,
-				display: vm.display,
-				position: vm.position,
-				image: vm.image
-			}).then(function (response) {
+			axios.post(endpoint, vm.slideshow).then(function (response) {
 				var result = response.data;
 				if (result.status == __WEBPACK_IMPORTED_MODULE_0__Common__["a" /* default */].statusCode._CREATED) {
 					__WEBPACK_IMPORTED_MODULE_0__Common__["a" /* default */].setToast(result.message, result.status);
@@ -71034,11 +71031,19 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
 	name: 'SlideshowList',
 	props: ['data'],
+
+	data: function data() {
+		return {
+			slideshow: {}
+		};
+	},
 
 	methods: {
 		deleteSlide: function deleteSlide(id, key) {
@@ -71056,8 +71061,21 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 					console.log(errors);
 				});
 			}
+		},
+
+		getSlide: function getSlide(id) {
+			$('#myModal').modal('show');
+			var vm = this;
+			var url = baseUrl + 'slideshows/' + id + '/edit/';
+			axios.get(url).then(function (response) {
+				var result = response.data;
+				vm.slideshow = result.data;
+			}).catch(function (errors) {
+				console.log(errors);
+			});
 		}
-	}
+	} // End class
+
 });
 
 /***/ }),
@@ -71081,6 +71099,8 @@ var render = function() {
             return _c("tr", [
               _c("td", [_vm._v(_vm._s(key + 1))]),
               _vm._v(" "),
+              _c("td", [_vm._v(_vm._s(slideshow.name))]),
+              _vm._v(" "),
               _c("td", [_vm._v(_vm._s(slideshow.text_link))]),
               _vm._v(" "),
               _c("td", [_vm._v(_vm._s(slideshow.url))]),
@@ -71099,7 +71119,15 @@ var render = function() {
               _c("td", [
                 _c(
                   "button",
-                  { staticClass: "btn btn-default", attrs: { type: "button" } },
+                  {
+                    staticClass: "btn btn-default",
+                    attrs: { type: "button" },
+                    on: {
+                      click: function($event) {
+                        _vm.getSlide(slideshow.id)
+                      }
+                    }
+                  },
                   [_vm._v("Edit")]
                 ),
                 _vm._v(" "),
@@ -71140,6 +71168,8 @@ var staticRenderFns = [
     return _c("thead", [
       _c("tr", [
         _c("th", [_vm._v("#")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Name(Collection, event, image v.v..)")]),
         _vm._v(" "),
         _c("th", [_vm._v("Text link")]),
         _vm._v(" "),
@@ -71214,7 +71244,7 @@ var render = function() {
                     _c("div", { staticClass: "modal-body" }, [
                       _c("div", { staticClass: "form-group" }, [
                         _c("label", { attrs: { for: "" } }, [
-                          _vm._v("Text link:")
+                          _vm._v("Name (collection, event, v.v..)")
                         ]),
                         _vm._v(" "),
                         _c("input", {
@@ -71222,8 +71252,62 @@ var render = function() {
                             {
                               name: "model",
                               rawName: "v-model",
-                              value: _vm.text_link,
-                              expression: "text_link"
+                              value: _vm.slideshow.name,
+                              expression: "slideshow.name"
+                            },
+                            {
+                              name: "validate",
+                              rawName: "v-validate",
+                              value: "required",
+                              expression: "'required'"
+                            }
+                          ],
+                          staticClass: "form-control",
+                          attrs: {
+                            type: "text",
+                            name: "name",
+                            "data-vv-as": "Ảnh, bộ sưu tập, sự kiện v.v.."
+                          },
+                          domProps: { value: _vm.slideshow.name },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.slideshow.name = $event.target.value
+                            }
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c(
+                          "span",
+                          {
+                            directives: [
+                              {
+                                name: "show",
+                                rawName: "v-show",
+                                value: _vm.errors.has("name"),
+                                expression: "errors.has('name')"
+                              }
+                            ],
+                            staticClass: "label label-danger"
+                          },
+                          [_vm._v(_vm._s(_vm.errors.first("name")))]
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "form-group" }, [
+                        _c("label", { attrs: { for: "" } }, [
+                          _vm._v("Text link for button:")
+                        ]),
+                        _vm._v(" "),
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.slideshow.text_link,
+                              expression: "slideshow.text_link"
                             },
                             {
                               name: "validate",
@@ -71238,13 +71322,13 @@ var render = function() {
                             name: "text_link",
                             "data-vv-as": "Tên action"
                           },
-                          domProps: { value: _vm.text_link },
+                          domProps: { value: _vm.slideshow.text_link },
                           on: {
                             input: function($event) {
                               if ($event.target.composing) {
                                 return
                               }
-                              _vm.text_link = $event.target.value
+                              _vm.slideshow.text_link = $event.target.value
                             }
                           }
                         }),
@@ -71274,8 +71358,8 @@ var render = function() {
                             {
                               name: "model",
                               rawName: "v-model",
-                              value: _vm.url,
-                              expression: "url"
+                              value: _vm.slideshow.url,
+                              expression: "slideshow.url"
                             },
                             {
                               name: "validate",
@@ -71290,13 +71374,13 @@ var render = function() {
                             name: "url",
                             "data-vv-as": "Địa chỉ đường dẫn"
                           },
-                          domProps: { value: _vm.url },
+                          domProps: { value: _vm.slideshow.url },
                           on: {
                             input: function($event) {
                               if ($event.target.composing) {
                                 return
                               }
-                              _vm.url = $event.target.value
+                              _vm.slideshow.url = $event.target.value
                             }
                           }
                         }),
@@ -71328,8 +71412,8 @@ var render = function() {
                             {
                               name: "model",
                               rawName: "v-model",
-                              value: _vm.display,
-                              expression: "display"
+                              value: _vm.slideshow.display,
+                              expression: "slideshow.display"
                             }
                           ],
                           attrs: {
@@ -71338,10 +71422,12 @@ var render = function() {
                             id: "input",
                             value: "1"
                           },
-                          domProps: { checked: _vm._q(_vm.display, "1") },
+                          domProps: {
+                            checked: _vm._q(_vm.slideshow.display, "1")
+                          },
                           on: {
                             __c: function($event) {
-                              _vm.display = "1"
+                              _vm.slideshow.display = "1"
                             }
                           }
                         }),
@@ -71351,8 +71437,8 @@ var render = function() {
                             {
                               name: "model",
                               rawName: "v-model",
-                              value: _vm.display,
-                              expression: "display"
+                              value: _vm.slideshow.display,
+                              expression: "slideshow.display"
                             }
                           ],
                           attrs: {
@@ -71361,10 +71447,12 @@ var render = function() {
                             id: "input",
                             value: "0"
                           },
-                          domProps: { checked: _vm._q(_vm.display, "0") },
+                          domProps: {
+                            checked: _vm._q(_vm.slideshow.display, "0")
+                          },
                           on: {
                             __c: function($event) {
-                              _vm.display = "0"
+                              _vm.slideshow.display = "0"
                             }
                           }
                         }),
@@ -71381,8 +71469,8 @@ var render = function() {
                             {
                               name: "model",
                               rawName: "v-model",
-                              value: _vm.position,
-                              expression: "position"
+                              value: _vm.slideshow.position,
+                              expression: "slideshow.position"
                             },
                             {
                               name: "validate",
@@ -71397,13 +71485,13 @@ var render = function() {
                             name: "position",
                             "data-vv-as": "Thứ tự sắp xếp"
                           },
-                          domProps: { value: _vm.position },
+                          domProps: { value: _vm.slideshow.position },
                           on: {
                             input: function($event) {
                               if ($event.target.composing) {
                                 return
                               }
-                              _vm.position = $event.target.value
+                              _vm.slideshow.position = $event.target.value
                             }
                           }
                         }),
@@ -71425,7 +71513,7 @@ var render = function() {
                         )
                       ]),
                       _vm._v(" "),
-                      !_vm.image
+                      !_vm.slideshow.image
                         ? _c("div", { staticClass: "form-group" }, [
                             _c("label", { attrs: { for: "" } }, [
                               _vm._v("Image(1024x480)")
@@ -71443,7 +71531,7 @@ var render = function() {
                             _vm._v(" "),
                             _c("img", {
                               staticClass: "img-responsive",
-                              attrs: { src: _vm.image }
+                              attrs: { src: _vm.slideshow.image }
                             }),
                             _vm._v(" "),
                             _c("br"),

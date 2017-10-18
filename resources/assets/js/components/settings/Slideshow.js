@@ -8,12 +8,15 @@ export default {
 
 	data () {
 		return {
-			text_link: '',
-			url: '',
-			display: 1,
-			position: '',
-			image: '',
-			position: 1,
+			slideshow: {
+				name: '',
+				text_link: '',
+				url: '',
+				display: 1,
+				position: '',
+				image: '',
+				position: 1,
+			},
 
 			slideshows: [], // List slideshow
 		}
@@ -39,36 +42,30 @@ export default {
 			var vm = this;
 
 			reader.onload = (e) => {
-				vm.image = e.target.result;
+				vm.slideshow.image = e.target.result;
 			};
 			reader.readAsDataURL(file);
 		},
 
 
 		removeImage: function (e) {
-			this.image = '';
+			this.slideshow.image = '';
 		},
 
 
 		validateBeforeSubmit() {
-	      var vm = this;
-	      vm.$validator.validateAll().then((result) => {
-	        if (result) {
-	          return vm.onSubmit()
-	        }
-	      });
-	    },
+			var vm = this;
+			vm.$validator.validateAll().then((result) => {
+				if (result) {
+					return vm.onSubmit()
+				}
+			});
+		},
 
 		onSubmit: function () {
 			var vm = this;
 			var endpoint = baseUrl + 'slideshows';
-			axios.post(endpoint, {
-				url: vm.url,
-				text_link: vm.text_link,
-				display: vm.display,
-				position: vm.position,
-				image: vm.image
-			}).then(function (response) {
+			axios.post(endpoint, vm.slideshow).then(function (response) {
 				var result = response.data;
 				if (result.status == Common.statusCode._CREATED)
 				{

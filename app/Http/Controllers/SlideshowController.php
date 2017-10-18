@@ -50,6 +50,7 @@ class SlideshowController extends Controller
     {
         try {
             $slideshow            = new Slideshow();
+            $slideshow->name      = $request->name;
             $slideshow->url       = $request->url;
             $slideshow->text_link = $request->text_link;
             $slideshow->display   = $request->display;
@@ -92,7 +93,9 @@ class SlideshowController extends Controller
      */
     public function edit($id)
     {
-        //
+        $slideshow = Slideshow::findOrFail($id);
+        $res = Api::resourceApi(Api::$_OK, $slideshow);
+        return response()->json($res, Api::$_OK);
     }
 
     /**
