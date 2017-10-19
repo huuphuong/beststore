@@ -8,12 +8,13 @@ export default {
 			preview_image: 'frontend/images/tutorial_preview.jpg',
 			tutorial: {
 				background: ''
-			}
+			},
 		}
 	},
 
 	mounted () {
-		document.title = 'Tutorial'
+		document.title = 'Tutorial';
+		this.getTutorial();
 	},
 
 	methods: {
@@ -56,8 +57,15 @@ export default {
 		},
 
 
-		setTutorial: function () {
-
+		getTutorial: function () {
+			var vm = this;
+			var url = baseUrl + 'tutorials';
+			axios.get(url).then(function (response) {
+				vm.tutorial = response.data.data[0];
+				console.log(vm.tutorial);
+			}).catch(function (errors) {
+				console.log(errors);
+			});
 		},
 
 

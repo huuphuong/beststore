@@ -44830,7 +44830,12 @@ var render = function() {
                     _c(
                       "router-link",
                       { attrs: { tag: "li", to: { name: "Tutorial" } } },
-                      [_c("a", [_vm._v("Tutorial")])]
+                      [
+                        _c("a", [
+                          _c("i", { staticClass: "mdi mdi-settings" }),
+                          _vm._v(" Tutorial")
+                        ])
+                      ]
                     )
                   ],
                   1
@@ -71733,6 +71738,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 	},
 	mounted: function mounted() {
 		document.title = 'Tutorial';
+		this.getTutorial();
 	},
 
 
@@ -71772,7 +71778,16 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 			$('#modalPreview').modal('show');
 		},
 
-		setTutorial: function setTutorial() {},
+		getTutorial: function getTutorial() {
+			var vm = this;
+			var url = baseUrl + 'tutorials';
+			axios.get(url).then(function (response) {
+				vm.tutorial = response.data.data[0];
+				console.log(vm.tutorial);
+			}).catch(function (errors) {
+				console.log(errors);
+			});
+		},
 
 		onSubmit: function onSubmit() {
 			var vm = this;

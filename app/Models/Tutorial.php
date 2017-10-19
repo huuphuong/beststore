@@ -10,7 +10,7 @@ class Tutorial extends Model
 {
 	protected $table			= 'tutorials';
 	public $timestamps			= true;
-	private static $cacheKey	= 'tutorials';
+	public static $cacheKey	= 'tutorials';
 
 	public function getTutorial() 
 	{

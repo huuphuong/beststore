@@ -53,7 +53,7 @@
                         <ul class="nav-second-level nav">
                             <router-link tag="li" :to="{ name: 'Settings' }"><a><i class="mdi mdi-settings"></i> Footer</a></router-link>
                             <router-link tag="li" :to="{ name: 'Slideshow' }"><a><i class="mdi mdi-settings"></i> Slide show</a></router-link>
-                            <router-link tag="li" :to="{ name: 'Tutorial' }"><a>Tutorial</a></router-link>
+                            <router-link tag="li" :to="{ name: 'Tutorial' }"><a><i class="mdi mdi-settings"></i> Tutorial</a></router-link>
                         </ul>
                     </li>
 

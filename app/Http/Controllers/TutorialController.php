@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Tutorial;
 use App\Api;
+use Cache;
 
 class TutorialController extends Controller
 {
@@ -15,7 +16,8 @@ class TutorialController extends Controller
      */
     public function index()
     {
-        //
+        $res = Api::resourceApi(Api::$_OK, Tutorial::all());
+        return response()->json($res, Api::$_OK);
     }
 
     /**
@@ -36,7 +38,12 @@ class TutorialController extends Controller
      */
     public function store(Request $request)
     {
+        $tutorials = Tutorial::all();
+        $currentImage = $tutorials[0]->background;
+
         try {
+            Tutorial::truncate();
+
             $tutorial          = new Tutorial();
             $tutorial->title   = $request->title;
             $tutorial->icon1   = trim($request->icon1);
@@ -50,13 +57,18 @@ class TutorialController extends Controller
             $tutorial->desc3   = $request->desc3;
             $tutorial->display = 1;
 
-            $imageName = uniqid() . '.jpg';
-            $path = public_path() . '/thumbnail/' . $imageName;
-            $saveFile = file_put_contents($path, base64_decode(preg_replace('#^data:image/\w+;base64,#i', '', $request->background)));
+            if ($currentImage != $request->background) {
+                $imageName = uniqid() . '.jpg';
+                $path = public_path() . '/thumbnail/' . $imageName;
+                $saveFile = file_put_contents($path, base64_decode(preg_replace('#^data:image/\w+;base64,#i', '', $request->background)));
 
-            if ($saveFile) {
-                $tutorial->background = asset('thumbnail/' . $imageName);
+                if ($saveFile) {
+                    $tutorial->background = asset('thumbnail/' . $imageName);
+                }
+            }else {
+                $tutorial->background = $currentImage;
             }
+
 
             $tutorial->save();
 
@@ -65,6 +77,8 @@ class TutorialController extends Controller
             $res = Api::resourceApi($e->getCode(), $e->getMessage());
         }
         
+        
+        Cache::forget(Tutorial::$cacheKey);
         return response()->json($res, Api::$_OK);
     }
 
