@@ -1640,12 +1640,6 @@ ul.multi-column-dropdown li a:hover{
 }
 /*-- coupons --*/
 .coupons{
-background:url(../images/coupons.jpg) no-repeat center;
-background-size:cover;
--webkit-background-size: cover;
--o-background-size: cover;
--ms-background-size: cover;
--moz-background-size: cover;
 min-height: 470px;
 padding-top:110px;
 }

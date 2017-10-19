@@ -38,5 +38,6 @@ Route::group(['prefix' => 'v1'], function() {
     Route::resource('product-collections', 'ProductCollectionController');
     Route::resource('settings', 'SettingController');
     Route::resource('slideshows', 'SlideshowController');
+    Route::resource('tutorials', 'TutorialController');
 });
 
