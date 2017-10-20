@@ -34,6 +34,7 @@ import ProductCollectionDetail from '../components/products/ProductCollectionDet
 import Settings from '../components/settings/Setting.vue';
 import Slideshow from '../components/settings/Slideshow.vue';
 import Tutorial from '../components/settings/Tutorial.vue';
+import Navigation from '../components/settings/Navigation.vue';
 
 Vue.use(VueRouter);
 
@@ -68,6 +69,7 @@ export default new VueRouter({
 		{ path: '/settings', name: 'Settings', component: Settings },
 		{ path: '/slideshows', name: 'Slideshow', component: Slideshow },
 		{ path: '/tutorials', name: 'Tutorial', component: Tutorial },
+		{ path: '/navigations', name: 'Navigation', component: Navigation },
 	],
 	mode: 'history'
 })

@@ -39,5 +39,6 @@ Route::group(['prefix' => 'v1'], function() {
     Route::resource('settings', 'SettingController');
     Route::resource('slideshows', 'SlideshowController');
     Route::resource('tutorials', 'TutorialController');
+    Route::resource('navigations', 'NavigationController');
 });
 
