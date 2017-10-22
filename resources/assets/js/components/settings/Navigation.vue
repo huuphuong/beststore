@@ -7,11 +7,12 @@
 
 			<div class="panel-body">
 				<form method="POST" enctype="multipart/form-data" @submit.prevent="onSubmit">
-					
+
 					<div class="form-group">
 						<label for="text_link">Parent navigation:</label>
-						<select name="" id="input" class="form-control">
-							<option value=""></option>
+						<select name="parent_id" class="form-control" v-model="nav.parent_id">
+							<option value="">Chọn</option>
+							<option v-for="parent in parents" v-bind:value="parent.id">{{ parent.text_link }}</option>
 						</select>
 					</div>
 
@@ -19,7 +20,7 @@
 						<label for="text_link">Text link:</label>
 						<input type="text" class="form-control" name="text_link" v-model="nav.text_link">
 					</div>
-					
+
 					<div class="form-group">
 						<label for="url">URL</label>
 						<input type="text" class="form-control" name="url" v-model="nav.url">
@@ -41,7 +42,7 @@
 						</div>
 					</div>
 
-					
+
 					<div v-if="!nav.image" class="form-group">
 						<label for="">Image(304x238)</label>
 						<input type="file" @change="onFileChange" name="image">
@@ -54,7 +55,7 @@
 						<button @click="removeImage" class="btn btn-default">Remove image</button>
 					</div>
 
-					
+
 					<button type="reset" class="btn btn-default">Cancel</button>
 					<button type="submit" class="btn btn-primary">Add navigiation</button>
 				</form>

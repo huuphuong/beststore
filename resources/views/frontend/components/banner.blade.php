@@ -1,3 +1,4 @@
+{{--
 @inject('slideshow', 'App\Models\Slideshow')
 @php
     $slideshows = $slideshow->getSlideBanner();
@@ -33,10 +34,11 @@
           </div>
         </div><!-- /.col-sm-8 -->
 
-    
+
       </div><!-- /.row -->
     </div>
     <div class="clearfix"></div>
   </div>
 </div>
 <!-- //banner -->
+--}}

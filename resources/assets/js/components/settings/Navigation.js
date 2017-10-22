@@ -5,14 +5,18 @@ export default {
 		return {
 			nav: {
 				image: '',
-				display: 1
-			}
+				display: 1,
+				parent_id: ''
+			},
+
+			parents: []
 		}
 	},
 
 
 	mounted () {
 		document.title = 'Navigation';
+		this.getParents();
 	},
 
 
@@ -48,9 +52,20 @@ export default {
 			var url = baseUrl + 'navigations';
 			axios.post(url, vm.nav).then(function (response) {
 				console.log(response);
-			}).catch(function (response) {
-				console.log(response);
+			}).catch(function (errors) {
+				console.log(errors);
 			});
-		}
+		},
+
+
+		getParents () {
+			var vm = this;
+			var url = baseUrl + 'navigations/parents';
+			axios.get(url).then(function (response) {
+				vm.parents = response.data.data;
+			}).catch(function (errors) {
+				console.log(errors);
+			});
+		},
 	}
 } // End class

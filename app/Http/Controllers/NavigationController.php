@@ -42,6 +42,7 @@ class NavigationController extends Controller
             $navigation->url = $request->url;
             $navigation->display = $request->display;
             $navigation->position = $request->position;
+            $navigation->parent_id = !empty($request->parent_id) ? $request->parent_id : 0;
 
             $imageName = uniqid() . '.jpg';
             $path = public_path() . '/thumbnail/' . $imageName;
@@ -105,4 +106,13 @@ class NavigationController extends Controller
     {
         //
     }
-}
+
+
+    public function getParents() {
+        $parents = Navigation::where('parent_id', 0)
+                             ->get()
+                             ->toArray();
+        $res = Api::resourceApi(Api::$_OK, $parents);
+        return response()->json($res, Api::$_OK);
+    }
+} // End class
