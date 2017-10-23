@@ -26,6 +26,10 @@ export default {
 
 
 	methods: {
+		showModal () {
+			$('#myModal').modal('show');
+		},
+
 
 		onFileChange(e) {
 			var files = e.target.files || e.dataTransfer.files;

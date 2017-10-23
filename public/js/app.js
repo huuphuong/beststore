@@ -72588,6 +72588,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 
 	methods: {
+		showModal: function showModal() {
+			$('#myModal').modal('show');
+		},
 		onFileChange: function onFileChange(e) {
 			var files = e.target.files || e.dataTransfer.files;
 			if (!files.length) return;
@@ -72648,261 +72651,352 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { attrs: { id: "root" } }, [
-    _c("div", { staticClass: "panel panel-default" }, [
-      _vm._m(0),
+    _c("div", { staticClass: "btn-group-vertical" }, [
+      _c(
+        "button",
+        {
+          staticClass: "btn btn-default",
+          attrs: { type: "button", "data-toggle": "modal" },
+          on: { click: _vm.showModal }
+        },
+        [_vm._v("Create Navigation")]
+      ),
       _vm._v(" "),
-      _c("div", { staticClass: "panel-body" }, [
-        _c(
-          "form",
-          {
-            attrs: { method: "POST", enctype: "multipart/form-data" },
-            on: {
-              submit: function($event) {
-                $event.preventDefault()
-                _vm.onSubmit($event)
-              }
-            }
-          },
-          [
-            _c("div", { staticClass: "form-group" }, [
-              _c("label", { attrs: { for: "text_link" } }, [
-                _vm._v("Parent navigation:")
-              ]),
-              _vm._v(" "),
-              _c(
-                "select",
-                {
-                  directives: [
-                    {
-                      name: "model",
-                      rawName: "v-model",
-                      value: _vm.nav.parent_id,
-                      expression: "nav.parent_id"
-                    }
-                  ],
-                  staticClass: "form-control",
-                  attrs: { name: "parent_id" },
-                  on: {
-                    change: function($event) {
-                      var $$selectedVal = Array.prototype.filter
-                        .call($event.target.options, function(o) {
-                          return o.selected
+      _c("div", { staticClass: "modal fade", attrs: { id: "myModal" } }, [
+        _c("div", { staticClass: "modal-dialog modal-lg" }, [
+          _c("div", { staticClass: "modal-content" }, [
+            _vm._m(0),
+            _vm._v(" "),
+            _c(
+              "form",
+              {
+                attrs: { method: "POST", enctype: "multipart/form-data" },
+                on: {
+                  submit: function($event) {
+                    $event.preventDefault()
+                    _vm.onSubmit($event)
+                  }
+                }
+              },
+              [
+                _c("div", { staticClass: "modal-body" }, [
+                  _c("div", { staticClass: "form-group" }, [
+                    _c("label", { attrs: { for: "text_link" } }, [
+                      _vm._v("Parent navigation(optional):")
+                    ]),
+                    _vm._v(" "),
+                    _c(
+                      "select",
+                      {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.nav.parent_id,
+                            expression: "nav.parent_id"
+                          }
+                        ],
+                        staticClass: "form-control",
+                        attrs: { name: "parent_id" },
+                        on: {
+                          change: function($event) {
+                            var $$selectedVal = Array.prototype.filter
+                              .call($event.target.options, function(o) {
+                                return o.selected
+                              })
+                              .map(function(o) {
+                                var val = "_value" in o ? o._value : o.value
+                                return val
+                              })
+                            _vm.nav.parent_id = $event.target.multiple
+                              ? $$selectedVal
+                              : $$selectedVal[0]
+                          }
+                        }
+                      },
+                      [
+                        _c("option", { attrs: { value: "" } }, [
+                          _vm._v("Chọn")
+                        ]),
+                        _vm._v(" "),
+                        _vm._l(_vm.parents, function(parent) {
+                          return _c(
+                            "option",
+                            { domProps: { value: parent.id } },
+                            [_vm._v(_vm._s(parent.text_link))]
+                          )
                         })
-                        .map(function(o) {
-                          var val = "_value" in o ? o._value : o.value
-                          return val
-                        })
-                      _vm.nav.parent_id = $event.target.multiple
-                        ? $$selectedVal
-                        : $$selectedVal[0]
-                    }
-                  }
-                },
-                [
-                  _c("option", { attrs: { value: "" } }, [_vm._v("Chọn")]),
-                  _vm._v(" "),
-                  _vm._l(_vm.parents, function(parent) {
-                    return _c("option", { domProps: { value: parent.id } }, [
-                      _vm._v(_vm._s(parent.text_link))
-                    ])
-                  })
-                ],
-                2
-              )
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "form-group" }, [
-              _c("label", { attrs: { for: "text_link" } }, [
-                _vm._v("Text link:")
-              ]),
-              _vm._v(" "),
-              _c("input", {
-                directives: [
-                  {
-                    name: "model",
-                    rawName: "v-model",
-                    value: _vm.nav.text_link,
-                    expression: "nav.text_link"
-                  }
-                ],
-                staticClass: "form-control",
-                attrs: { type: "text", name: "text_link" },
-                domProps: { value: _vm.nav.text_link },
-                on: {
-                  input: function($event) {
-                    if ($event.target.composing) {
-                      return
-                    }
-                    _vm.nav.text_link = $event.target.value
-                  }
-                }
-              })
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "form-group" }, [
-              _c("label", { attrs: { for: "url" } }, [_vm._v("URL")]),
-              _vm._v(" "),
-              _c("input", {
-                directives: [
-                  {
-                    name: "model",
-                    rawName: "v-model",
-                    value: _vm.nav.url,
-                    expression: "nav.url"
-                  }
-                ],
-                staticClass: "form-control",
-                attrs: { type: "text", name: "url" },
-                domProps: { value: _vm.slugTitle, value: _vm.nav.url },
-                on: {
-                  input: function($event) {
-                    if ($event.target.composing) {
-                      return
-                    }
-                    _vm.nav.url = $event.target.value
-                  }
-                }
-              })
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "form-group" }, [
-              _c("label", { attrs: { for: "position" } }, [_vm._v("Position")]),
-              _vm._v(" "),
-              _c("input", {
-                directives: [
-                  {
-                    name: "model",
-                    rawName: "v-model",
-                    value: _vm.nav.position,
-                    expression: "nav.position"
-                  }
-                ],
-                staticClass: "form-control",
-                attrs: {
-                  type: "number",
-                  name: "display",
-                  min: "1",
-                  maxlength: "4"
-                },
-                domProps: { value: _vm.nav.position },
-                on: {
-                  input: function($event) {
-                    if ($event.target.composing) {
-                      return
-                    }
-                    _vm.nav.position = $event.target.value
-                  }
-                }
-              })
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "form-group" }, [
-              _c("label", { attrs: { for: "display" } }, [_vm._v("Display")]),
-              _vm._v(" "),
-              _c("div", { staticClass: "form-group" }, [
-                _c("input", {
-                  directives: [
-                    {
-                      name: "model",
-                      rawName: "v-model",
-                      value: _vm.nav.display,
-                      expression: "nav.display"
-                    }
-                  ],
-                  attrs: { type: "radio", name: "display", value: "1" },
-                  domProps: { checked: _vm._q(_vm.nav.display, "1") },
-                  on: {
-                    __c: function($event) {
-                      _vm.nav.display = "1"
-                    }
-                  }
-                }),
-                _vm._v("\n\t\t\t\t\t\tYes\n\n\t\t\t\t\t\t"),
-                _c("input", {
-                  directives: [
-                    {
-                      name: "model",
-                      rawName: "v-model",
-                      value: _vm.nav.display,
-                      expression: "nav.display"
-                    }
-                  ],
-                  attrs: { type: "radio", name: "display", value: "0" },
-                  domProps: { checked: _vm._q(_vm.nav.display, "0") },
-                  on: {
-                    __c: function($event) {
-                      _vm.nav.display = "0"
-                    }
-                  }
-                }),
-                _vm._v("\n\t\t\t\t\t\tNo\n\t\t\t\t\t")
-              ])
-            ]),
-            _vm._v(" "),
-            !_vm.nav.image
-              ? _c("div", { staticClass: "form-group" }, [
-                  _c("label", { attrs: { for: "" } }, [
-                    _vm._v("Image(304x238)")
+                      ],
+                      2
+                    )
                   ]),
                   _vm._v(" "),
-                  _c("input", {
-                    attrs: { type: "file", name: "image" },
-                    on: { change: _vm.onFileChange }
-                  }),
-                  _vm._v(" "),
-                  _c(
-                    "span",
-                    {
+                  _c("div", { staticClass: "form-group" }, [
+                    _c("label", { attrs: { for: "text_link" } }, [
+                      _vm._v("Text link:")
+                    ]),
+                    _vm._v(" "),
+                    _c("input", {
                       directives: [
                         {
-                          name: "show",
-                          rawName: "v-show",
-                          value: _vm.errors.has("image"),
-                          expression: "errors.has('image')"
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.nav.text_link,
+                          expression: "nav.text_link"
+                        },
+                        {
+                          name: "validate",
+                          rawName: "v-validate",
+                          value: "required",
+                          expression: "'required'"
                         }
                       ],
-                      staticClass: "label label-danger"
-                    },
-                    [_vm._v(_vm._s(_vm.errors.first("image")))]
-                  )
-                ])
-              : _c("div", { staticClass: "form-group" }, [
-                  _c("label", { attrs: { for: "" } }, [
-                    _vm._v("Image(304x238)")
+                      staticClass: "form-control",
+                      attrs: {
+                        type: "text",
+                        name: "text_link",
+                        "data-vv-as": "Tên trang"
+                      },
+                      domProps: { value: _vm.nav.text_link },
+                      on: {
+                        input: function($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.nav.text_link = $event.target.value
+                        }
+                      }
+                    }),
+                    _vm._v(" "),
+                    _c(
+                      "span",
+                      {
+                        directives: [
+                          {
+                            name: "show",
+                            rawName: "v-show",
+                            value: _vm.errors.has("text_link"),
+                            expression: "errors.has('text_link')"
+                          }
+                        ],
+                        staticClass: "label label-danger"
+                      },
+                      [_vm._v(_vm._s(_vm.errors.first("text_link")))]
+                    )
                   ]),
                   _vm._v(" "),
-                  _c("img", {
-                    staticClass: "img-responsive",
-                    attrs: { src: _vm.nav.image }
-                  }),
+                  _c("div", { staticClass: "form-group" }, [
+                    _c("label", { attrs: { for: "url" } }, [_vm._v("URL")]),
+                    _vm._v(" "),
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.nav.url,
+                          expression: "nav.url"
+                        },
+                        {
+                          name: "validate",
+                          rawName: "v-validate",
+                          value: "required",
+                          expression: "'required'"
+                        }
+                      ],
+                      staticClass: "form-control",
+                      attrs: { type: "text", name: "url" },
+                      domProps: { value: _vm.slugTitle, value: _vm.nav.url },
+                      on: {
+                        input: function($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.nav.url = $event.target.value
+                        }
+                      }
+                    }),
+                    _vm._v(" "),
+                    _c(
+                      "span",
+                      {
+                        directives: [
+                          {
+                            name: "show",
+                            rawName: "v-show",
+                            value: _vm.errors.has("url"),
+                            expression: "errors.has('url')"
+                          }
+                        ],
+                        staticClass: "label label-danger"
+                      },
+                      [_vm._v(_vm._s(_vm.errors.first("url")))]
+                    )
+                  ]),
                   _vm._v(" "),
-                  _c("br"),
+                  _c("div", { staticClass: "form-group" }, [
+                    _c("label", { attrs: { for: "position" } }, [
+                      _vm._v("Position")
+                    ]),
+                    _vm._v(" "),
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.nav.position,
+                          expression: "nav.position"
+                        },
+                        {
+                          name: "validate",
+                          rawName: "v-validate",
+                          value: "display",
+                          expression: "'display'"
+                        }
+                      ],
+                      staticClass: "form-control",
+                      attrs: {
+                        type: "number",
+                        name: "display",
+                        min: "1",
+                        maxlength: "4",
+                        "data-vv-as": "Vị trí hiển thị"
+                      },
+                      domProps: { value: _vm.nav.position },
+                      on: {
+                        input: function($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.nav.position = $event.target.value
+                        }
+                      }
+                    }),
+                    _vm._v(" "),
+                    _c(
+                      "span",
+                      {
+                        directives: [
+                          {
+                            name: "show",
+                            rawName: "v-show",
+                            value: _vm.errors.has("display"),
+                            expression: "errors.has('display')"
+                          }
+                        ],
+                        staticClass: "label label-danger"
+                      },
+                      [_vm._v(_vm._s(_vm.errors.first("display")))]
+                    )
+                  ]),
                   _vm._v(" "),
-                  _c(
-                    "button",
-                    {
-                      staticClass: "btn btn-default",
-                      on: { click: _vm.removeImage }
-                    },
-                    [_vm._v("Remove image")]
-                  )
+                  _c("div", { staticClass: "form-group" }, [
+                    _c("label", { attrs: { for: "display" } }, [
+                      _vm._v("Display")
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "form-group" }, [
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.nav.display,
+                            expression: "nav.display"
+                          }
+                        ],
+                        attrs: { type: "radio", name: "display", value: "1" },
+                        domProps: { checked: _vm._q(_vm.nav.display, "1") },
+                        on: {
+                          __c: function($event) {
+                            _vm.nav.display = "1"
+                          }
+                        }
+                      }),
+                      _vm._v(
+                        "\n                                    Yes\n                                    "
+                      ),
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.nav.display,
+                            expression: "nav.display"
+                          }
+                        ],
+                        attrs: { type: "radio", name: "display", value: "0" },
+                        domProps: { checked: _vm._q(_vm.nav.display, "0") },
+                        on: {
+                          __c: function($event) {
+                            _vm.nav.display = "0"
+                          }
+                        }
+                      }),
+                      _vm._v(
+                        "\n                                    No\n                                "
+                      )
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  !_vm.nav.image
+                    ? _c("div", { staticClass: "form-group" }, [
+                        _c("label", { attrs: { for: "" } }, [
+                          _vm._v("Image(304x238)")
+                        ]),
+                        _vm._v(" "),
+                        _c("input", {
+                          attrs: { type: "file", name: "image" },
+                          on: { change: _vm.onFileChange }
+                        }),
+                        _vm._v(" "),
+                        _c(
+                          "span",
+                          {
+                            directives: [
+                              {
+                                name: "show",
+                                rawName: "v-show",
+                                value: _vm.errors.has("image"),
+                                expression: "errors.has('image')"
+                              }
+                            ],
+                            staticClass: "label label-danger"
+                          },
+                          [_vm._v(_vm._s(_vm.errors.first("image")))]
+                        )
+                      ])
+                    : _c("div", { staticClass: "form-group" }, [
+                        _c("label", { attrs: { for: "" } }, [
+                          _vm._v("Image(304x238)")
+                        ]),
+                        _vm._v(" "),
+                        _c("img", {
+                          staticClass: "img-responsive",
+                          attrs: { src: _vm.nav.image }
+                        }),
+                        _vm._v(" "),
+                        _c("br"),
+                        _vm._v(" "),
+                        _c(
+                          "button",
+                          {
+                            staticClass: "btn btn-default",
+                            on: { click: _vm.removeImage }
+                          },
+                          [_vm._v("Remove image")]
+                        )
+                      ])
                 ]),
-            _vm._v(" "),
-            _c(
-              "button",
-              { staticClass: "btn btn-default", attrs: { type: "reset" } },
-              [_vm._v("Cancel")]
-            ),
-            _vm._v(" "),
-            _c(
-              "button",
-              { staticClass: "btn btn-primary", attrs: { type: "submit" } },
-              [_vm._v("Add navigiation")]
+                _vm._v(" "),
+                _vm._m(1)
+              ]
             )
-          ]
-        )
+          ])
+        ])
       ])
-    ])
+    ]),
+    _vm._v(" "),
+    _vm._m(2)
   ])
 }
 var staticRenderFns = [
@@ -72910,8 +73004,54 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "panel-heading" }, [
-      _c("h3", { staticClass: "panel-title" }, [_vm._v("Navigation Setting")])
+    return _c("div", { staticClass: "modal-header" }, [
+      _c(
+        "button",
+        {
+          staticClass: "close",
+          attrs: {
+            type: "button",
+            "data-dismiss": "modal",
+            "aria-hidden": "true"
+          }
+        },
+        [_vm._v("×")]
+      ),
+      _vm._v(" "),
+      _c("h4", { staticClass: "modal-title" }, [_vm._v("Create navigation")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "modal-footer" }, [
+      _c(
+        "button",
+        {
+          staticClass: "btn btn-default",
+          attrs: { type: "button", "data-dismiss": "modal" }
+        },
+        [_vm._v("Close")]
+      ),
+      _vm._v(" "),
+      _c(
+        "button",
+        { staticClass: "btn btn-primary", attrs: { type: "submit" } },
+        [_vm._v("Save changes")]
+      )
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "panel panel-default m-t-10" }, [
+      _c("div", { staticClass: "panel-heading" }, [
+        _c("h3", { staticClass: "panel-title" }, [_vm._v("Navigation Setting")])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "panel-body" })
     ])
   }
 ]
