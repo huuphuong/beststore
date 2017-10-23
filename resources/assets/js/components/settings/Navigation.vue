@@ -23,7 +23,7 @@
 
 					<div class="form-group">
 						<label for="url">URL</label>
-						<input type="text" class="form-control" name="url" v-model="nav.url">
+						<input type="text" class="form-control" name="url" v-model="nav.url" v-bind:value="slugTitle">
 					</div>
 
 					<div class="form-group">

@@ -1,3 +1,5 @@
+import Common from '../../Common';
+
 export default {
 	name: 'navigation',
 
@@ -6,7 +8,10 @@ export default {
 			nav: {
 				image: '',
 				display: 1,
-				parent_id: ''
+				parent_id: '',
+				text_link: '',
+				url: '',
+				position: 1
 			},
 
 			parents: []
@@ -67,5 +72,13 @@ export default {
 				console.log(errors);
 			});
 		},
+	},
+
+	computed: {
+		slugTitle () {
+			var title = this.nav.text_link;
+			var stringArrayUrl = Common.changeToSlug(title).split(" ");;
+			this.nav.url = stringArrayUrl.join('-');
+		}
 	}
 } // End class
