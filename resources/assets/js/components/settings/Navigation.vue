@@ -30,8 +30,8 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="position">Position</label>
-                                    <input type="number" class="form-control" name="display" v-model="nav.position" min="1" maxlength="4" v-validate="'display'" data-vv-as="Vị trí hiển thị">
-                                    <span class="label label-danger" v-show="errors.has('display')">{{ errors.first('display') }}</span>
+                                    <input type="number" class="form-control" name="position" v-model="nav.position" min="1" maxlength="4" v-validate="'required'" data-vv-as="Vị trí hiển thị">
+                                    <span class="label label-danger" v-show="errors.has('position')">{{ errors.first('position') }}</span>
                                 </div>
                                 <div class="form-group">
                                     <label for="display">Display</label>
@@ -62,13 +62,8 @@
                 </div>
             </div>
         </div>
-        <div class="panel panel-default m-t-10">
-            <div class="panel-heading">
-                <h3 class="panel-title">Navigation Setting</h3>
-            </div>
-            <div class="panel-body">
-            </div>
-        </div>
+
+        <navigation-list></navigation-list>
     </div>
 </template>
 <script src="./Navigation.js"></script>

@@ -1,7 +1,10 @@
 import Common from '../../Common';
+import NavigationList from './NavigationList.vue';
 
 export default {
 	name: 'navigation',
+
+	components: { NavigationList },
 
 	data () {
 		return {
