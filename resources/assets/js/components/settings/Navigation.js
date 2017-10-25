@@ -79,6 +79,17 @@ export default {
 				console.log(errors);
 			});
 		},
+
+		
+		getEditNav (id) {
+			var vm = this;
+			var url = baseUrl + 'navigations/' + id + '/edit';
+			axios.get(url).then(function (response) {
+				vm.nav = response.data.data;
+			}).catch(function (errors) {
+				console.log(errors);
+			});
+		}
 	},
 
 	computed: {

@@ -13,9 +13,12 @@ class NavigationController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        //
+        $parent = !empty($request->parent) ? $request->parent : 0;
+        $navigations = \DB::table('navigations')->where('parent_id', $parent)->get();
+        $res = Api::resourceApi(Api::$_OK, $navigations);
+        return response()->json($res, Api::$_OK);
     }
 
     /**
@@ -81,7 +84,14 @@ class NavigationController extends Controller
      */
     public function edit($id)
     {
-        //
+        try {
+            $navigation = Navigation::findOrFail($id);
+            $res = Api::resourceApi(Api::$_OK, $navigation);
+        } catch (\Exception $e) {
+            $res = Api::resourceApi($e->getCode(), $e->getMessage());
+        }
+
+        return response()->json($res, Api::$_OK);
     }
 
     /**
@@ -104,7 +114,14 @@ class NavigationController extends Controller
      */
     public function destroy($id)
     {
-        //
+        try {
+            $nav = Navigation::findOrFail($id)->delete();
+            $res = Api::resourceApi(Api::$_CREATED, 'Delete this navigation has been success');
+        } catch (\Exception $e) {
+            $res = Api::resourceApi($e->getCode(), $e->getMessage());
+        }
+        
+        return response()->json($res, Api::$_OK);
     }
 
 
@@ -113,6 +130,22 @@ class NavigationController extends Controller
                              ->get()
                              ->toArray();
         $res = Api::resourceApi(Api::$_OK, $parents);
+        return response()->json($res, Api::$_OK);
+    }
+
+
+    public function restore(Request $request) {
+        try {
+            $id = $request->navigation;
+
+            Navigation::withTrashed()->where('id', $id)
+                                     ->restore();
+
+            $res = Api::resourceApi(Api::$_OK, 'Updated navigation has been success');
+        } catch (\Exception $e) {
+            $res = Api::resourceApi($e->getCode(), $e->getMessage());
+        }
+        
         return response()->json($res, Api::$_OK);
     }
 } // End class

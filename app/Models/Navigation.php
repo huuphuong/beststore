@@ -4,16 +4,21 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Collection;
+use Illuminate\Database\Eloquent\SoftDeletes;
 use DB;
 
 class Navigation extends Model
 {
+    use SoftDeletes;
+
     protected $table = 'navigations';
     public $timestamps = false;
+    protected $dates = ['deleted_at'];
 
     public function getNavigation()
     {
     	$result = DB::table($this->table)
+                    ->whereNull('deleted_at')
     				->orderBy('parent_id', 'ASC')
     				->orderBy('position', 'ASC')
     				->get()

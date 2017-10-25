@@ -63,7 +63,7 @@
             </div>
         </div>
 
-        <navigation-list></navigation-list>
+        <navigation-list @getNav="getEditNav"></navigation-list>
     </div>
 </template>
 <script src="./Navigation.js"></script>

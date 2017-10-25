@@ -72634,6 +72634,15 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 			}).catch(function (errors) {
 				console.log(errors);
 			});
+		},
+		getEditNav: function getEditNav(id) {
+			var vm = this;
+			var url = baseUrl + 'navigations/' + id + '/edit';
+			axios.get(url).then(function (response) {
+				vm.nav = response.data.data;
+			}).catch(function (errors) {
+				console.log(errors);
+			});
 		}
 	},
 
@@ -72699,6 +72708,7 @@ module.exports = Component.exports
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Common__ = __webpack_require__(1);
 //
 //
 //
@@ -72710,15 +72720,109 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+
 
 /* harmony default export */ __webpack_exports__["default"] = ({
 	name: 'NavigationList',
 	props: ['nav'],
 
-	mounted: function mounted() {},
+	data: function data() {
+		return {
+			navigations: [],
+			childs: []
+		};
+	},
+	mounted: function mounted() {
+		this.getNavgination();
+	},
 
 
-	methods: {}
+	methods: {
+		getNavgination: function getNavgination() {
+			var vm = this;
+			var url = baseUrl + 'navigations';
+			axios.get(url).then(function (response) {
+				vm.navigations = response.data.data;
+			}).catch(function (errors) {
+				console.log(errors);
+			});
+		},
+		getChild: function getChild(parent) {
+			var vm = this;
+			var url = baseUrl + 'navigations?parent=' + parent;
+			axios.get(url).then(function (response) {
+				vm.childs = response.data.data;
+			}).catch(function (errors) {
+				console.log(errors);
+			});
+		},
+		removeNav: function removeNav(navId, index) {
+			var checkDelete = confirm('Do you want delete this navigation and all children of it?');
+			if (checkDelete) {
+				var vm = this;
+				var url = baseUrl + 'navigations/' + navId;
+				axios.delete(url).then(function (response) {
+					var result = response.data;
+					if (result.status == __WEBPACK_IMPORTED_MODULE_0__Common__["a" /* default */].statusCode._CREATED) {
+						__WEBPACK_IMPORTED_MODULE_0__Common__["a" /* default */].setToast(result.message, result.status);
+						vm.navigations[index].deleted_at = true;
+					}
+				}).catch(function (errors) {
+					console.log(errors);
+				});
+			}
+		},
+		restoreNav: function restoreNav(navId, index) {
+			var vm = this;
+			var url = baseUrl + 'navigations/restore';
+			axios.put(url, {
+				navigation: navId
+			}).then(function (response) {
+				vm.navigations[index].deleted_at = null;
+			}).catch(function (errors) {
+				console.log(errors);
+			});
+		},
+		getEditModal: function getEditModal(id) {
+			$('#myModal').modal('show');
+			this.$emit('getNav', id);
+		}
+	} // End method
 });
 
 /***/ }),
@@ -72729,19 +72833,145 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
+  return _c("div", { staticClass: "panel panel-default m-t-10" }, [
+    _vm._m(0),
+    _vm._v(" "),
+    _c("div", { staticClass: "panel-body" }, [
+      _c("table", { staticClass: "table table-hover" }, [
+        _vm._m(1),
+        _vm._v(" "),
+        _c(
+          "tbody",
+          _vm._l(_vm.navigations, function(nav, index) {
+            return _c("tr", [
+              _c("td", [_vm._v(_vm._s(index + 1))]),
+              _vm._v(" "),
+              _c("td", [_vm._v(_vm._s(nav.text_link))]),
+              _vm._v(" "),
+              _c("td", [_vm._v(_vm._s(nav.url))]),
+              _vm._v(" "),
+              _c("td", [_vm._v(_vm._s(nav.position))]),
+              _vm._v(" "),
+              _c("td", [_vm._v(_vm._s(nav.display == "1" ? "Yes" : "No"))]),
+              _vm._v(" "),
+              _c("td", [
+                _c(
+                  "div",
+                  {
+                    directives: [
+                      {
+                        name: "show",
+                        rawName: "v-show",
+                        value: nav.deleted_at,
+                        expression: "nav.deleted_at"
+                      }
+                    ]
+                  },
+                  [
+                    _c("span", { staticClass: "label label-danger" }, [
+                      _vm._v("Deleted")
+                    ])
+                  ]
+                )
+              ]),
+              _vm._v(" "),
+              _c("td", [
+                _c("div", { staticClass: "btn-group" }, [
+                  _c(
+                    "button",
+                    {
+                      staticClass: "btn btn-default",
+                      attrs: { type: "button" },
+                      on: {
+                        click: function($event) {
+                          _vm.getEditModal(nav.id)
+                        }
+                      }
+                    },
+                    [_vm._v("Edit")]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "button",
+                    {
+                      directives: [
+                        {
+                          name: "show",
+                          rawName: "v-show",
+                          value: !nav.deleted_at,
+                          expression: "!nav.deleted_at"
+                        }
+                      ],
+                      staticClass: "btn btn-danger",
+                      attrs: { type: "button" },
+                      on: {
+                        click: function($event) {
+                          _vm.removeNav(nav.id, index)
+                        }
+                      }
+                    },
+                    [_vm._v("Delete")]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "button",
+                    {
+                      directives: [
+                        {
+                          name: "show",
+                          rawName: "v-show",
+                          value: nav.deleted_at,
+                          expression: "nav.deleted_at"
+                        }
+                      ],
+                      staticClass: "btn btn-info",
+                      attrs: { type: "button" },
+                      on: {
+                        click: function($event) {
+                          _vm.restoreNav(nav.id, index)
+                        }
+                      }
+                    },
+                    [_vm._v("Restore")]
+                  )
+                ])
+              ])
+            ])
+          })
+        )
+      ])
+    ])
+  ])
 }
 var staticRenderFns = [
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "panel panel-default m-t-10" }, [
-      _c("div", { staticClass: "panel-heading" }, [
-        _c("h3", { staticClass: "panel-title" }, [_vm._v("Navigation Setting")])
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "panel-body" }, [_vm._v("\n\t\tsadasd\n\t")])
+    return _c("div", { staticClass: "panel-heading" }, [
+      _c("h3", { staticClass: "panel-title" }, [_vm._v("Navigation Setting")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("thead", [
+      _c("tr", [
+        _c("th", [_vm._v("#")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Text link")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("URL")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Position")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Display")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Status")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Action")])
+      ])
     ])
   }
 ]
@@ -73111,7 +73341,7 @@ var render = function() {
         ])
       ]),
       _vm._v(" "),
-      _c("navigation-list")
+      _c("navigation-list", { on: { getNav: _vm.getEditNav } })
     ],
     1
   )

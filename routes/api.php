@@ -40,6 +40,7 @@ Route::group(['prefix' => 'v1'], function() {
     Route::resource('slideshows', 'SlideshowController');
     Route::resource('tutorials', 'TutorialController');
     Route::get('navigations/parents', 'NavigationController@getParents');
+    Route::put('navigations/restore', 'NavigationController@restore');
     Route::resource('navigations', 'NavigationController');
 });
 
