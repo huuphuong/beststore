@@ -103,7 +103,34 @@ class NavigationController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        try {
+            $navigation = Navigation::findOrFail($id);
+            $currentImage = $navigation->image;
+
+            $navigation->text_link = $request->text_link;
+            $navigation->url = $request->url;
+            $navigation->display = $request->display;
+            $navigation->position = $request->position;
+            $navigation->parent_id = !empty($request->parent_id) ? $request->parent_id : 0;
+
+            if ($currentImage != $request->image) {
+                $imageName = uniqid() . '.jpg';
+                $path = public_path() . '/thumbnail/' . $imageName;
+                $saveFile = file_put_contents($path, base64_decode(preg_replace('#^data:image/\w+;base64,#i', '', $request->image)));
+
+                if ($saveFile) {
+                    $navigation->image = asset('thumbnail/' . $imageName);
+                }
+            }
+
+            $navigation->save();
+
+            $res = Api::resourceApi(Api::$_CREATED, 'Update navigation has been success');
+        } catch (\Exception $e) {
+            $res = Api::resourceApi($e->getCode(), $e->getMessage());
+        }
+
+        return response()->json($res, Api::$_OK);
     }
 
     /**
@@ -141,7 +168,7 @@ class NavigationController extends Controller
             Navigation::withTrashed()->where('id', $id)
                                      ->restore();
 
-            $res = Api::resourceApi(Api::$_OK, 'Updated navigation has been success');
+            $res = Api::resourceApi(Api::$_OK, 'Restore navigation has been success');
         } catch (\Exception $e) {
             $res = Api::resourceApi($e->getCode(), $e->getMessage());
         }

@@ -72583,24 +72583,33 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 				position: 1
 			},
 
-			parents: []
+			parents: [],
+			navigations: []
 		};
 	},
 	mounted: function mounted() {
 		document.title = 'Navigation';
 		this.getParents();
+		this.getNavgination();
 	},
 
 
 	methods: {
+		// Bấm nút thì showmodal
 		showModal: function showModal() {
 			$('#myModal').modal('show');
 		},
+
+
+		// Bắt sự kiện khi thay đổi file image
 		onFileChange: function onFileChange(e) {
 			var files = e.target.files || e.dataTransfer.files;
 			if (!files.length) return;
 			this.createImage(files[0]);
 		},
+
+
+		// Hàm tạo và đọc hình ảnh
 		createImage: function createImage(file) {
 			var image = new Image();
 			var reader = new FileReader();
@@ -72613,19 +72622,72 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 		},
 
 
+		// Hàm hủy hình ảnh
 		removeImage: function removeImage(e) {
 			this.nav.image = '';
 		},
 
-		onSubmit: function onSubmit() {
+		// Thêm data
+		save: function save() {
 			var vm = this;
 			var url = baseUrl + 'navigations';
 			axios.post(url, vm.nav).then(function (response) {
-				console.log(response);
+				var result = response.data;
+				if (result.status == __WEBPACK_IMPORTED_MODULE_0__Common__["a" /* default */].statusCode._CREATED) {
+					__WEBPACK_IMPORTED_MODULE_0__Common__["a" /* default */].setToast(result.message, result.status);
+					$('#myModal').modal('hide');
+				}
 			}).catch(function (errors) {
 				console.log(errors);
 			});
 		},
+
+
+		/**
+   * Update dât
+   * @param  {[type]} id : Mã id được lưu trong storegae
+   * @return {[type]} Update xong thì phải clear Storage vì có thể thêm mới hoặc sửa bản ghi khác
+   */
+		update: function update(id) {
+			var vm = this;
+			var url = baseUrl + 'navigations/' + id;
+			axios.put(url, vm.nav).then(function (response) {
+				var result = response.data;
+				if (result.status == __WEBPACK_IMPORTED_MODULE_0__Common__["a" /* default */].statusCode._CREATED) {
+					__WEBPACK_IMPORTED_MODULE_0__Common__["a" /* default */].setToast(result.message, result.status);
+					$('#myModal').modal('hide');
+					localStorage.removeItem('isSaveNav');
+				}
+			}).catch(function (errors) {
+				console.log(errors);
+			});
+		},
+
+
+		/**
+   * Khi submit, kiểm tra Storage nếu có isSaveNav => Update() và ngược lại là Save()
+   * @return {[type]} [description]
+   */
+		onSubmit: function onSubmit() {
+			var vm = this;
+
+			if (typeof Storage !== "undefined") {
+				var isSaveNav = localStorage.getItem('isSaveNav');
+				if (typeof isSaveNav != 'undefined' && isSaveNav != null) {
+					var id = localStorage.getItem('isSaveNav');
+					vm.update(id);
+				} else {
+					vm.save();
+				}
+
+				vm.getNavgination();
+			}
+		},
+
+		/**
+   * Lấy danh sách parent rồi đưa vào select option
+   * @return {[type]} [description]
+   */
 		getParents: function getParents() {
 			var vm = this;
 			var url = baseUrl + 'navigations/parents';
@@ -72635,11 +72697,37 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 				console.log(errors);
 			});
 		},
+
+
+		/**
+   * Lấy dữ liệu để sửa, id được lưu vào Storage
+   * @param  {[type]} id [description]
+   * @return {[type]}    [description]
+   */
 		getEditNav: function getEditNav(id) {
 			var vm = this;
 			var url = baseUrl + 'navigations/' + id + '/edit';
 			axios.get(url).then(function (response) {
 				vm.nav = response.data.data;
+				if (typeof Storage !== "undefined") {
+					var isSaveNav = id;
+					localStorage.setItem('isSaveNav', isSaveNav);
+				}
+			}).catch(function (errors) {
+				console.log(errors);
+			});
+		},
+
+
+		/**
+   * Lấy danh sách nagation rồi bắn vào component con (NavgiationList)
+   * @return {[type]} [description]
+   */
+		getNavgination: function getNavgination() {
+			var vm = this;
+			var url = baseUrl + 'navigations';
+			axios.get(url).then(function (response) {
+				vm.navigations = response.data.data;
 			}).catch(function (errors) {
 				console.log(errors);
 			});
@@ -72647,6 +72735,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 	},
 
 	computed: {
+		// Chuyển hóa text về dạng slug
 		slugTitle: function slugTitle() {
 			var title = this.nav.text_link;
 			var stringArrayUrl = __WEBPACK_IMPORTED_MODULE_0__Common__["a" /* default */].changeToSlug(title).split(" ");;
@@ -72759,29 +72848,17 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 /* harmony default export */ __webpack_exports__["default"] = ({
 	name: 'NavigationList',
-	props: ['nav'],
+	props: ['nav', 'navigations'],
 
 	data: function data() {
 		return {
-			navigations: [],
 			childs: []
 		};
 	},
-	mounted: function mounted() {
-		this.getNavgination();
-	},
+	mounted: function mounted() {},
 
 
 	methods: {
-		getNavgination: function getNavgination() {
-			var vm = this;
-			var url = baseUrl + 'navigations';
-			axios.get(url).then(function (response) {
-				vm.navigations = response.data.data;
-			}).catch(function (errors) {
-				console.log(errors);
-			});
-		},
 		getChild: function getChild(parent) {
 			var vm = this;
 			var url = baseUrl + 'navigations?parent=' + parent;
@@ -72814,6 +72891,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 				navigation: navId
 			}).then(function (response) {
 				vm.navigations[index].deleted_at = null;
+				var result = response.data;
+				if (result.status == __WEBPACK_IMPORTED_MODULE_0__Common__["a" /* default */].statusCode._OK) {
+					__WEBPACK_IMPORTED_MODULE_0__Common__["a" /* default */].setToast(result.message, result.status);
+				}
 			}).catch(function (errors) {
 				console.log(errors);
 			});
@@ -73015,7 +73096,11 @@ var render = function() {
               _c(
                 "form",
                 {
-                  attrs: { method: "POST", enctype: "multipart/form-data" },
+                  attrs: {
+                    method: "POST",
+                    enctype: "multipart/form-data",
+                    autocomplete: "off"
+                  },
                   on: {
                     submit: function($event) {
                       $event.preventDefault()
@@ -73341,7 +73426,10 @@ var render = function() {
         ])
       ]),
       _vm._v(" "),
-      _c("navigation-list", { on: { getNav: _vm.getEditNav } })
+      _c("navigation-list", {
+        attrs: { navigations: _vm.navigations },
+        on: { getNav: _vm.getEditNav }
+      })
     ],
     1
   )

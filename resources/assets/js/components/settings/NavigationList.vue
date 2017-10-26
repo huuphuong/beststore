@@ -48,36 +48,26 @@ import Common from '../../Common';
 
 export default {
 	name: 'NavigationList',
-	props: ['nav'],
+	props: ['nav', 'navigations'],
 
 	data () {
 		return {
-			navigations: [],
 			childs: []
 		}
 	},
 
 	mounted () {
-		this.getNavgination();
+		
 	},
 
 	methods: {
-		getNavgination () {
-			var vm = this;
-			var url = baseUrl + 'navigations';
-			axios.get(url).then(function (response) {
-				vm.navigations = response.data.data;
-			}).catch(function (errors) {
-				console.log(errors);
-			});
-		},
-
-
+		
 		getChild (parent) {
 			var vm = this;
 			var url = baseUrl + 'navigations?parent='+parent;
 			axios.get(url).then(function (response) {
 				vm.childs = response.data.data;
+
 			}).catch(function (errors) {
 				console.log(errors);
 			});
@@ -110,6 +100,11 @@ export default {
 				navigation: navId
 			}).then(function (response) {
 				vm.navigations[index].deleted_at = null;
+				var result = response.data;
+				if (result.status == Common.statusCode._OK)
+				{
+					Common.setToast(result.message, result.status);
+				}
 			}).catch(function (errors) {
 				console.log(errors);
 			});
@@ -120,8 +115,6 @@ export default {
 			$('#myModal').modal('show');
 			this.$emit('getNav', id);
 		}
-
-
 	} // End method
 }
 </script>

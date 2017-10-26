@@ -9,7 +9,7 @@
                             <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                             <h4 class="modal-title">Create navigation</h4>
                         </div>
-                        <form method="POST" enctype="multipart/form-data" @submit.prevent="onSubmit">
+                        <form method="POST" enctype="multipart/form-data" @submit.prevent="onSubmit" autocomplete="off">
                             <div class="modal-body">
                                 <div class="form-group">
                                     <label for="text_link">Parent navigation(optional):</label>
@@ -63,7 +63,7 @@
             </div>
         </div>
 
-        <navigation-list @getNav="getEditNav"></navigation-list>
+        <navigation-list @getNav="getEditNav" :navigations="navigations"></navigation-list>
     </div>
 </template>
 <script src="./Navigation.js"></script>
