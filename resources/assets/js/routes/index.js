@@ -35,6 +35,7 @@ import Settings from '../components/settings/Setting.vue';
 import Slideshow from '../components/settings/Slideshow.vue';
 import Tutorial from '../components/settings/Tutorial.vue';
 import Navigation from '../components/settings/Navigation.vue';
+import NavigationEdit from '../components/settings/NavigationEdit.vue';
 
 Vue.use(VueRouter);
 
@@ -70,6 +71,7 @@ export default new VueRouter({
 		{ path: '/slideshows', name: 'Slideshow', component: Slideshow },
 		{ path: '/tutorials', name: 'Tutorial', component: Tutorial },
 		{ path: '/navigations', name: 'Navigation', component: Navigation },
+		{ path: '/navigations/:id', name: 'NavigationEdit', component: NavigationEdit },
 	],
 	mode: 'history'
 })

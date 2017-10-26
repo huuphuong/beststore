@@ -41,6 +41,7 @@ Route::group(['prefix' => 'v1'], function() {
     Route::resource('tutorials', 'TutorialController');
     Route::get('navigations/parents', 'NavigationController@getParents');
     Route::put('navigations/restore', 'NavigationController@restore');
+    Route::post('navigations/position', 'NavigationController@updatePosition');
     Route::resource('navigations', 'NavigationController');
 });
 

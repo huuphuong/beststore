@@ -16,7 +16,8 @@ class NavigationController extends Controller
     public function index(Request $request)
     {
         $parent = !empty($request->parent) ? $request->parent : 0;
-        $navigations = \DB::table('navigations')->where('parent_id', $parent)->get();
+        $navigations = \DB::table('navigations')->where('parent_id', $parent)->orderBy('position', 'ASC')->get();
+        // $navigations = \DB::table('navigations')->orderBy('position', 'ASC')->get();
         $res = Api::resourceApi(Api::$_OK, $navigations);
         return response()->json($res, Api::$_OK);
     }
@@ -73,7 +74,26 @@ class NavigationController extends Controller
      */
     public function show($id)
     {
-        //
+        try {
+            $navigation = Navigation::findOrFail($id);
+            $parent_id =  $navigation->parent_id;
+            $parent = Navigation::find($parent_id);
+            if (!empty ($parent)) {
+                $navigation->parent_id = $parent->text_link;
+            }else {
+                $navigation->parent_id = '';
+            }
+
+            $navigation->childs = Navigation::where('parent_id', $id)
+                                            ->orderBy('position', 'ASC')
+                                            ->get()
+                                            ->toArray();
+            $res = Api::resourceApi(Api::$_OK, $navigation);
+        } catch (\Exception $e) {
+            $res = Api::resourceApi($e->getCode(), $e->getMessage());
+        }
+
+        return response()->json($res, Api::$_OK);
     }
 
     /**
@@ -173,6 +193,21 @@ class NavigationController extends Controller
             $res = Api::resourceApi($e->getCode(), $e->getMessage());
         }
         
+        return response()->json($res, Api::$_OK);
+    }
+
+
+    public function updatePosition(Request $request)
+    {
+        $post_data = $request->all();
+        foreach ($post_data AS $key => $val)
+        {
+            $nav = Navigation::findOrFail($val['id']);
+            $nav->position = $key;
+            $nav->save();
+        }
+
+        $res = Api::resourceApi(Api::$_CREATED, 'Update position has been success');
         return response()->json($res, Api::$_OK);
     }
 } // End class

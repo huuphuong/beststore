@@ -19,7 +19,9 @@
 				<tbody>
 					<tr v-for="(nav, index) in navigations">
 						<td>{{ index+1 }}</td>
-						<td>{{ nav.text_link }}</td>
+						<td>
+							<router-link :to="{ name: 'NavigationEdit', params: {id: nav.id} }">{{ nav.text_link }}</router-link>
+						</td>
 						<td>{{ nav.url }}</td>
 						<td>{{ nav.position }}</td>
 						<td>{{ nav.display == '1' ? 'Yes' : 'No'}}</td>

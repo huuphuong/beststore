@@ -3,7 +3,7 @@ import NavigationList from './NavigationList.vue';
 
 export default {
 	name: 'navigation',
-
+	props: ['selectedId'],
 	components: { NavigationList },
 
 	data () {
@@ -22,6 +22,9 @@ export default {
 		}
 	},
 
+	created () {
+		console.log(this.$parent);
+	},
 
 	mounted () {
 		document.title = 'Navigation';
@@ -62,6 +65,15 @@ export default {
 		},
 
 
+		validateBeforeSubmit() {
+			var vm = this;
+			vm.$validator.validateAll().then((result) => {
+				if (result) {
+					return vm.onSubmit()
+				}
+			});
+		},
+    
 		// Thêm data
 		save () {
 			var vm = this;
@@ -76,6 +88,8 @@ export default {
 			}).catch(function (errors) {
 				console.log(errors);
 			});
+
+			vm.$emit('reloadPage');
 		},
 
 
