@@ -78,10 +78,17 @@
         <div class="col-md-3 header-right footer-bottom">
           <ul>
             <li><a href="#" class="use1" data-toggle="modal" data-target="#myModal4"><span>Đăng nhập</span></a></li>
-            <li><a title="Facebook" class="fb" href="#"></a></li>
-            <li><a title="Tweeter" class="twi" href="#"></a></li>
-            <li><a title="Instagram" class="insta" href="#"></a></li>
-            <li><a title="Youtube" class="you" href="#"></a></li>
+            @php
+              $socials     = json_decode($data['social_item'], true);
+              $collections = collect($socials);
+              $orders      = $collections->sortBy('social_order');
+            @endphp
+
+            @foreach ($orders AS $key => $item)
+              <li>
+                <a title="{{ $item['social_name'] }}" class="{{ $item['social_icon'] }}" href="{{ $item['social_url'] }}"></a>
+              </li>
+            @endforeach
           </ul>
         </div>
         <div class="clearfix"></div>

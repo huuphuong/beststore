@@ -85,4 +85,5 @@ tr>td {
     position: fixed;
     bottom: 25px;
     right: 40%;
+    z-index: 9999;
 }

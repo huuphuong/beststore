@@ -48,6 +48,23 @@ class SettingController extends Controller
 			$setting->header_text_info_1 = $request->header_text_info_1;
 			$setting->header_text_info_2 = $request->header_text_info_2;
 			$setting->header_text_info_3 = $request->header_text_info_3;
+
+			foreach ($request->social_name AS $key => $social)
+			{
+				$icons  = $request->social_icon;
+				$urls   = $request->social_url;
+				$orders = $request->social_order;
+
+				$social_item[] = array(
+					'social_name'  => $social,
+					'social_icon'  => $icons[$key],
+					'social_url'   => $urls[$key],
+					'social_order' => $orders[$key]
+				);
+			}
+
+			$setting->social_item = json_encode($social_item);
+
 			$setting->save();
 
 			if (Cache::has('settings')) {

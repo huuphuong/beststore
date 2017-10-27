@@ -85,12 +85,20 @@ export default {
                 categories: vm.categories,
                 page_name: vm.page_name,
                 page_slug: vm.page_slug,
+
+                // Header text
                 header_icon_info_1: vm.header_icon_info_1,
                 header_icon_info_2: vm.header_icon_info_2,
                 header_icon_info_3: vm.header_icon_info_3,
                 header_text_info_1: vm.header_text_info_1,
                 header_text_info_2: vm.header_text_info_2,
                 header_text_info_3: vm.header_text_info_3,
+
+                // Social
+                social_name: vm.social_name,
+                social_icon: vm.social_icon,
+                social_url: vm.social_url,
+                social_order: vm.social_order
             }).then(function (response) {
                 var result = response.data;
                 Common.setToast(result.message, result.status);
@@ -128,6 +136,16 @@ export default {
                         vm.page_name.push(categories_item[objectKey]);
                         vm.page_slug.push(objectKey);
                     }
+
+                var social_item = JSON.parse(result.social_item);
+
+                for (var item of social_item) {
+                    vm.addSocial();
+                    vm.social_name.push(item['social_name']);
+                    vm.social_icon.push(item['social_icon']);
+                    vm.social_url.push(item['social_url']);
+                    vm.social_order.push(item['social_order']);
+                }
             }).catch(function (errors) {
                 console.log(errors);
             });
@@ -143,6 +161,10 @@ export default {
 
         removeItem (key) {
             this.$delete(this.pages, key);
+        },
+
+        removePageItem (key) {
+             this.$delete(this.socials, key);
         },
 
         openHeaderModal: function () {

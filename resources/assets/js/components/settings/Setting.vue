@@ -113,9 +113,9 @@
                 </div>
             </div>
             <!-- /.col-sm-6 -->
-            
+
             <br><br>
-            
+
             <legend class="m-b-20">
                 <h1>HEADER INFOMATION</h1>
                 <button type="button" class="btn btn-info" data-toggle="modal" @click="openHeaderModal">Preview</button>
@@ -187,17 +187,17 @@
 
               <div class="input-group-addon">Icon</div>
               <input type="text" class="form-control" name="social_icon" v-model="social_icon[key]" />
-              
+
               <div class="input-group-addon">URL</div>
               <input type="text" class="form-control" name="social_url" v-model="social_url[key]" />
 
               <div class="input-group-addon">Order</div>
               <input type="number" class="form-control" name="social_order" min="1" v-model="social_order[key]" />
-              <div class="input-group-addon" style="cursor: pointer;" @click="removeItem(key)" v-if="key == (pages.length - 1)">X</div>
+              <div class="input-group-addon" style="cursor: pointer;" @click="removePageItem(key)" v-if="key == (socials.length - 1)">X</div>
             </div>
         </div>
 
-        
+
         <div class="panel-footer">
             <button type="submit" class="btn btn-primary btn-lg fix-button">Update Settings</button>
         </div>
