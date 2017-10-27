@@ -1,4 +1,3 @@
-{{--
 @inject('slideshow', 'App\Models\Slideshow')
 @php
     $slideshows = $slideshow->getSlideBanner();
@@ -41,4 +40,3 @@
   </div>
 </div>
 <!-- //banner -->
---}}
