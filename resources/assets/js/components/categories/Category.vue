@@ -7,7 +7,7 @@
 				</router-link>
 			</div>
 		</div>
-		
+
 		<form method="POST" @submit.prevent="validateBeforeSubmit">
 			<div class="row">
 				<div class="col-sm-7">
@@ -23,7 +23,7 @@
 								<recusive v-model="cat.parent_cat_id" @input="getPosition" name="parent_cat_id"></recusive>
 							</div>
 
-		
+
 							<div class="form-group">
 								<label for="">Category name:</label>
 								<input type="text" class="form-control" v-model="cat.cat_name" name="cat_name" v-validate="'required'" data-vv-as="Tên danh mục" />
@@ -35,25 +35,17 @@
 								<select class="form-control" v-model="cat.position" name="position" v-validate="'required'" data-vv-as="Vị trí hiển thị">
 									<option v-for="p in position" v-bind:value="p">{{ p }}</option>
 								</select>
-								
+
 								<span class="label label-danger" v-show="errors.has('position')">{{ errors.first('position') }}</span>
 							</div>
 
 							<div class="form-group">
-								<label for="">Display:</label>
-								<div class="radio">
-									<label>
-										<input type="radio" value="1" v-model="cat.display">
-										Display
-									</label>
-								</div>
+								<label for="">Display:</label> <br />
+								<input type="radio" value="1" v-model="cat.display">
+								Display <br />
 
-								<div class="radio">
-									<label>
-										<input type="radio" value="0" v-model="cat.display">
-										None (products of this category will not be displayed either)
-									</label>
-								</div>
+								<input type="radio" value="0" v-model="cat.display">
+								None (products of this category will not be displayed either)
 							</div>
 
 							<div class="form-group">
@@ -112,8 +104,8 @@
 				</div>
 			</div><!-- /.row -->
 		</form>
-		
+
 	</div>
 </template>
 
-<script src="./Category.js"></script> 
+<script src="./Category.js"></script>

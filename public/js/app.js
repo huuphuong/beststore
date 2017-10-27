@@ -64446,7 +64446,14 @@ if (false) {(function () {
 			cat: {
 				parent_cat_id: '',
 				display: 1,
-				position: 1
+				position: 1,
+				cat_desc: '',
+				seo_title: '',
+				seo_keyword: '',
+				seo_desc: '',
+				seo_robot: '',
+				seo_revisit: '',
+				seo_copyright: ''
 			}
 		};
 	},
@@ -64653,9 +64660,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     attrs: {
       "for": ""
     }
-  }, [_vm._v("Display:")]), _vm._v(" "), _c('div', {
-    staticClass: "radio"
-  }, [_c('label', [_c('input', {
+  }, [_vm._v("Display:")]), _vm._v(" "), _c('br'), _vm._v(" "), _c('input', {
     directives: [{
       name: "model",
       rawName: "v-model",
@@ -64674,9 +64679,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
         _vm.cat.display = "1"
       }
     }
-  }), _vm._v("\n\t\t\t\t\t\t\t\t\tDisplay\n\t\t\t\t\t\t\t\t")])]), _vm._v(" "), _c('div', {
-    staticClass: "radio"
-  }, [_c('label', [_c('input', {
+  }), _vm._v("\n\t\t\t\t\t\t\tDisplay "), _c('br'), _vm._v(" "), _c('input', {
     directives: [{
       name: "model",
       rawName: "v-model",
@@ -64695,7 +64698,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
         _vm.cat.display = "0"
       }
     }
-  }), _vm._v("\n\t\t\t\t\t\t\t\t\tNone (products of this category will not be displayed either)\n\t\t\t\t\t\t\t\t")])])]), _vm._v(" "), _c('div', {
+  }), _vm._v("\n\t\t\t\t\t\t\tNone (products of this category will not be displayed either)\n\t\t\t\t\t\t")]), _vm._v(" "), _c('div', {
     staticClass: "form-group"
   }, [_c('label', {
     attrs: {

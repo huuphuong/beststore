@@ -9,12 +9,19 @@ export default {
 
 	data () {
 		return {
-			
+
 			position: [],
 			cat: {
 				parent_cat_id: '',
 				display: 1,
-				position: 1
+				position: 1,
+				cat_desc: '',
+				seo_title: '',
+				seo_keyword: '',
+				seo_desc: '',
+				seo_robot: '',
+				seo_revisit: '',
+				seo_copyright: ''
 			}
 		}
 	},
@@ -32,7 +39,7 @@ export default {
 			var url = baseUrl + 'categories/positions?category=' + vm.cat.parent_cat_id;
 			axios.get(url).then(function (response) {
 				vm.position = response.data.data;
-				
+
 			}).catch(function (errors) {
 				console.log(errors);
 			})
