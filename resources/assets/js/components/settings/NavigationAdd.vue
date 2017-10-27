@@ -66,4 +66,4 @@
         </div>
     </div>
 </template>
-<script src="./Navigation.js"></script>
+<script src="./NavigationAdd.js"></script>
