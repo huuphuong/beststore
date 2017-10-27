@@ -158,6 +158,8 @@ export default {
 			}).catch(function (errors) {
 				console.log(errors);
 			});
-		}
+		},
+
+		
 	} // End class
 } // End class

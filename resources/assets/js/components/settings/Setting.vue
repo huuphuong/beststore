@@ -113,11 +113,93 @@
                 </div>
             </div>
             <!-- /.col-sm-6 -->
+            
+            <br><br>
+            
+            <legend class="m-b-20">
+                <h1>HEADER INFOMATION</h1>
+                <button type="button" class="btn btn-info" data-toggle="modal" @click="openHeaderModal">Preview</button>
 
+                <!-- Modal -->
+                <div id="openHeaderModal" class="modal fade" role="dialog">
+                  <div class="modal-dialog">
+
+                    <!-- Modal content-->
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">Modal Header</h4>
+                    </div>
+                    <div class="modal-body">
+                        <p>Some text in the modal.</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+
+            </div>
         </div>
 
+            </legend>
+            <div class="form-group">
+                <label for="">Icon info 1</label>
+                <input type="text" class="form-control" name="header_icon_info_1" v-model="header_icon_info_1" v-validate="'required'">
+                <span class="label label-danger" v-show="errors.has('header_icon_info_1')">{{ errors.first('header_icon_info_1') }}</span>
+            </div>
+
+            <div class="form-group">
+                <label for="">Text info 1</label>
+                <input type="text" class="form-control" name="header_text_info_1" v-model="header_text_info_1" v-validate="'required'">
+                <span class="label label-danger" v-show="errors.has('header_text_info_1')">{{ errors.first('header_text_info_1') }}</span>
+            </div> <hr>
+
+            <div class="form-group">
+                <label for="">Icon info 2</label>
+                <input type="text" class="form-control" name="header_icon_info_2" v-model="header_icon_info_2" v-validate="'required'">
+                <span class="label label-danger" v-show="errors.has('header_icon_info_2')">{{ errors.first('header_icon_info_2') }}</span>
+            </div>
+
+            <div class="form-group">
+                <label for="">Text info 2</label>
+                <input type="text" class="form-control" name="header_text_info_2" v-model="header_text_info_2" v-validate="'required'">
+                <span class="label label-danger" v-show="errors.has('header_text_info_2')">{{ errors.first('header_text_info_2') }}</span>
+            </div> <hr>
+
+            <div class="form-group">
+                <label for="">Icon info 3</label>
+                <input type="text" class="form-control" name="header_icon_info_3" v-model="header_icon_info_3" v-validate="'required'">
+                <span class="label label-danger" v-show="errors.has('header_icon_info_3')">{{ errors.first('header_icon_info_3') }}</span>
+            </div>
+
+            <div class="form-group">
+                <label for="">Text info 3</label>
+                <input type="text" class="form-control" name="header_text_info_3" v-model="header_text_info_3" v-validate="'required'">
+                <span class="label label-danger" v-show="errors.has('header_text_info_3')">{{ errors.first('header_text_info_3') }}</span>
+            </div>
+
+            <legend class="m-t-20"><h1>SOCIALITE</h1></legend>
+            <button type="button" class="btn btn-success" @click="addSocial">Add Socialite</button>
+
+            <div class="input-group m-t-15" v-for="(social,key) in socials">
+              <div class="input-group-addon">Social name:</div>
+              <input type="text" class="form-control" name="social_name" v-model="social_name[key]" />
+
+              <div class="input-group-addon">Icon</div>
+              <input type="text" class="form-control" name="social_icon" v-model="social_icon[key]" />
+              
+              <div class="input-group-addon">URL</div>
+              <input type="text" class="form-control" name="social_url" v-model="social_url[key]" />
+
+              <div class="input-group-addon">Order</div>
+              <input type="number" class="form-control" name="social_order" min="1" v-model="social_order[key]" />
+              <div class="input-group-addon" style="cursor: pointer;" @click="removeItem(key)" v-if="key == (pages.length - 1)">X</div>
+            </div>
+        </div>
+
+        
         <div class="panel-footer">
-            <button type="submit" class="btn btn-primary">Update Settings</button>
+            <button type="submit" class="btn btn-primary btn-lg fix-button">Update Settings</button>
         </div>
     </form>
     <!-- /.form-group -->

@@ -51,7 +51,7 @@
                         <a href="javascript: void(0);"><i class="fi-share"></i> <span>Settings</span> <span
                                 class="menu-arrow"></span></a>
                         <ul class="nav-second-level nav">
-                            <router-link tag="li" :to="{ name: 'Settings' }"><a><i class="mdi mdi-settings"></i> Footer</a></router-link>
+                            <router-link tag="li" :to="{ name: 'Settings' }"><a><i class="mdi mdi-settings"></i> Settings</a></router-link>
                             <router-link tag="li" :to="{ name: 'Slideshow' }"><a><i class="mdi mdi-settings"></i> Slide show</a></router-link>
                             <router-link tag="li" :to="{ name: 'Tutorial' }"><a><i class="mdi mdi-settings"></i> Tutorial</a></router-link>
                             <router-link tag="li" :to="{ name: 'Navigation' }"><a><i class="mdi mdi-settings"></i> Navigation</a></router-link>

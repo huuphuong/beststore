@@ -1,3 +1,8 @@
+@inject('setting', 'App\Models\Setting')
+
+@php
+    $data = $setting->getSetting();
+@endphp
 <!DOCTYPE html>
 <html>
   <head>
@@ -32,9 +37,9 @@
       <div class="container">
         <div class="center-block align">
           <ul class="list-inline">
-            <li><span class="glyphicon glyphicon-time" aria-hidden="true"></span>Ship COD toàn quốc</li>
-            <li><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>Đa dạng sản phẩm</li>
-            <li><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span><a href="mailto:info@example.com">Chiết khấu cao</a></li>
+            <li><span class="{{ $data['header_icon_info_1'] }}" aria-hidden="true"></span>{{ $data['header_text_info_1'] }}</li>
+            <li><span class="{{ $data['header_icon_info_2'] }}" aria-hidden="true"></span>{{ $data['header_text_info_2'] }}</li>
+            <li><span class="{{ $data['header_icon_info_3'] }}" aria-hidden="true"></span>{{ $data['header_text_info_3'] }}</li>
           </ul>
         </div>
         <!-- /.center-block -->
@@ -72,8 +77,7 @@
         </div>
         <div class="col-md-3 header-right footer-bottom">
           <ul>
-            <li><a href="#" class="use1" data-toggle="modal" data-target="#myModal4"><span>Login</span></a>
-            </li>
+            <li><a href="#" class="use1" data-toggle="modal" data-target="#myModal4"><span>Đăng nhập</span></a></li>
             <li><a title="Facebook" class="fb" href="#"></a></li>
             <li><a title="Tweeter" class="twi" href="#"></a></li>
             <li><a title="Instagram" class="insta" href="#"></a></li>

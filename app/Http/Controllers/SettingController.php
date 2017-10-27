@@ -42,6 +42,12 @@ class SettingController extends Controller
 			$setting->phone           = $request->phone;
 			$setting->skype           = $request->skype;
 			$setting->copyright       = $request->copyright;
+			$setting->header_icon_info_1 = $request->header_icon_info_1;
+			$setting->header_icon_info_2 = $request->header_icon_info_2;
+			$setting->header_icon_info_3 = $request->header_icon_info_3;
+			$setting->header_text_info_1 = $request->header_text_info_1;
+			$setting->header_text_info_2 = $request->header_text_info_2;
+			$setting->header_text_info_3 = $request->header_text_info_3;
 			$setting->save();
 
 			if (Cache::has('settings')) {

@@ -80,3 +80,9 @@ tr>td {
 .remove-product:hover {
     cursor: pointer;
 }
+
+.fix-button {
+    position: fixed;
+    bottom: 25px;
+    right: 40%;
+}

@@ -23,7 +23,21 @@ export default {
             page_name: [],
             page_slug: [],
             pages: [],
-            avatar: ''
+            avatar: '',
+            header_icon_info_1: '',
+            header_icon_info_2: '',
+            header_icon_info_3: '',
+
+
+            header_text_info_1: '',
+            header_text_info_2: '',
+            header_text_info_3: '',
+
+            socials: [],
+            social_name: [],
+            social_icon: [],
+            social_url: [],
+            social_order: []
         }
     },
 
@@ -70,7 +84,13 @@ export default {
                 skype: vm.skype,
                 categories: vm.categories,
                 page_name: vm.page_name,
-                page_slug: vm.page_slug
+                page_slug: vm.page_slug,
+                header_icon_info_1: vm.header_icon_info_1,
+                header_icon_info_2: vm.header_icon_info_2,
+                header_icon_info_3: vm.header_icon_info_3,
+                header_text_info_1: vm.header_text_info_1,
+                header_text_info_2: vm.header_text_info_2,
+                header_text_info_3: vm.header_text_info_3,
             }).then(function (response) {
                 var result = response.data;
                 Common.setToast(result.message, result.status);
@@ -95,6 +115,12 @@ export default {
                 vm.shop_info = result.shop_info;
                 vm.categories = result.categories;
                 vm.avatar = result.logo;
+                vm.header_icon_info_1 = result.header_icon_info_1;
+                vm.header_icon_info_2 = result.header_icon_info_2;
+                vm.header_icon_info_3 = result.header_icon_info_3;
+                vm.header_text_info_1 = result.header_text_info_1;
+                vm.header_text_info_2 = result.header_text_info_2;
+                vm.header_text_info_3 = result.header_text_info_3;
                 var categories_item = JSON.parse(result.categories_item);
                     for (var objectKey in categories_item)
                     {
@@ -111,8 +137,16 @@ export default {
             this.pages.push({ index: 1 });
         },
 
+        addSocial () {
+            this.socials.push({index: 1});
+        },
+
         removeItem (key) {
             this.$delete(this.pages, key);
+        },
+
+        openHeaderModal: function () {
+            $('#openHeaderModal').modal('show');
         }
 
     }
