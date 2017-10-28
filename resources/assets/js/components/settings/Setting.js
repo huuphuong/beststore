@@ -163,7 +163,7 @@ export default {
             this.$delete(this.pages, key);
         },
 
-        removePageItem (key) {
+        removeSocialItem (key) {
              this.$delete(this.socials, key);
         },
 
