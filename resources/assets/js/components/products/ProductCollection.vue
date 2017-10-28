@@ -20,6 +20,8 @@
 							<th>Discount</th>
 							<th>Shop name</th>
 							<th>Background</th>
+							<th>Display</th>
+							<th>Description</th>
 							<th>Product's number</th>
 							<th>Action</th>
 						</tr>
@@ -33,6 +35,8 @@
 							<td>
 								<img v-bind:src="collection.pg_background" class="img-responsive" width="144" height="144">
 							</td>
+							<td>{{ collection.display == '1' ? 'Display' : 'None' }}</td>
+							<td>{{ collection.description }}</td>
 							<td>{{ collection.count }}</td>
 							<td>
 								<router-link :to="{name: 'CollectionEdit', params: {id: collection.pg_id}}">Edit</router-link> | 

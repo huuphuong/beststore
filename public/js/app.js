@@ -45088,6 +45088,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     name: 'sidebar'
@@ -45210,6 +45211,12 @@ var render = function() {
                       "router-link",
                       { attrs: { tag: "li", to: { name: "ProductList" } } },
                       [_c("a", [_vm._v("List Product")])]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "router-link",
+                      { attrs: { tag: "li", to: { name: "CollectionAdd" } } },
+                      [_c("a", [_vm._v("Create Collection")])]
                     ),
                     _vm._v(" "),
                     _c(
@@ -45664,16 +45671,18 @@ if (false) {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__components_products_ProductCollectionDetail_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_20__components_products_ProductCollectionDetail_vue__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__components_products_CollectionAdd_vue__ = __webpack_require__(196);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__components_products_CollectionAdd_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_21__components_products_CollectionAdd_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__components_settings_Setting_vue__ = __webpack_require__(144);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__components_settings_Setting_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_22__components_settings_Setting_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_23__components_settings_Slideshow_vue__ = __webpack_require__(147);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_23__components_settings_Slideshow_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_23__components_settings_Slideshow_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_24__components_settings_Tutorial_vue__ = __webpack_require__(153);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_24__components_settings_Tutorial_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_24__components_settings_Tutorial_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_25__components_settings_Navigation_vue__ = __webpack_require__(156);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_25__components_settings_Navigation_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_25__components_settings_Navigation_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_26__components_settings_NavigationEdit_vue__ = __webpack_require__(161);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_26__components_settings_NavigationEdit_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_26__components_settings_NavigationEdit_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__components_products_CollectionEdit_vue__ = __webpack_require__(199);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__components_products_CollectionEdit_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_22__components_products_CollectionEdit_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_23__components_settings_Setting_vue__ = __webpack_require__(144);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_23__components_settings_Setting_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_23__components_settings_Setting_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_24__components_settings_Slideshow_vue__ = __webpack_require__(147);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_24__components_settings_Slideshow_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_24__components_settings_Slideshow_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_25__components_settings_Tutorial_vue__ = __webpack_require__(153);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_25__components_settings_Tutorial_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_25__components_settings_Tutorial_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_26__components_settings_Navigation_vue__ = __webpack_require__(156);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_26__components_settings_Navigation_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_26__components_settings_Navigation_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_27__components_settings_NavigationEdit_vue__ = __webpack_require__(161);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_27__components_settings_NavigationEdit_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_27__components_settings_NavigationEdit_vue__);
 
 
 
@@ -45707,6 +45716,7 @@ if (false) {
 
 
 
+
 // Settings
 
 
@@ -45718,7 +45728,7 @@ __WEBPACK_IMPORTED_MODULE_0_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_1_vue_
 
 /* harmony default export */ __webpack_exports__["a"] = (new __WEBPACK_IMPORTED_MODULE_1_vue_router__["a" /* default */]({
 
-		routes: [{ path: '/roles/create', name: 'RoleCreate', component: __WEBPACK_IMPORTED_MODULE_3__components_roles_RoleCreate_vue___default.a }, { path: '/roles', name: 'RoleList', component: __WEBPACK_IMPORTED_MODULE_4__components_roles_RoleList_vue___default.a }, { path: '/roles/detail/:id', name: 'RoleDetail', component: __WEBPACK_IMPORTED_MODULE_5__components_roles_RoleDetail_vue___default.a }, { path: '/roles/edit/:id', name: 'RoleEdit', component: __WEBPACK_IMPORTED_MODULE_6__components_roles_RoleEdit_vue___default.a }, { path: '/users/create', name: 'UserCreate', component: __WEBPACK_IMPORTED_MODULE_7__components_users_UserCreate_vue___default.a }, { path: '/users/detail/:id', name: 'UserDetail', component: __WEBPACK_IMPORTED_MODULE_8__components_users_UserDetail_vue___default.a }, { path: '/users', name: 'UserList', component: __WEBPACK_IMPORTED_MODULE_9__components_users_UserList_vue___default.a }, { path: '/users/edit/:id', name: 'UserEdit', component: __WEBPACK_IMPORTED_MODULE_10__components_users_UserEdit_vue___default.a }, { path: '/products/create', name: 'ProductCreate', component: __WEBPACK_IMPORTED_MODULE_11__components_products_ProductCreate_vue___default.a }, { path: '/products/detail/:id', name: 'ProductDetail', component: __WEBPACK_IMPORTED_MODULE_12__components_products_ProductDetail_vue___default.a }, { path: '/products/edit/:id', name: 'ProductEdit', component: __WEBPACK_IMPORTED_MODULE_13__components_products_ProductEdit_vue___default.a }, { path: '/products', name: 'ProductList', component: __WEBPACK_IMPORTED_MODULE_14__components_products_ProductList_vue___default.a }, { path: '/categories', name: 'Category', component: __WEBPACK_IMPORTED_MODULE_15__components_categories_Category_vue___default.a }, { path: '/categories/detail/:id', name: 'CategoryDetail', component: __WEBPACK_IMPORTED_MODULE_16__components_categories_CategoryDetail_vue___default.a }, { path: '/categories/list', name: 'CategoryList', component: __WEBPACK_IMPORTED_MODULE_17__components_categories_CategoryList_vue___default.a }, { path: '/categories/edit/:id', name: 'CategoryEdit', component: __WEBPACK_IMPORTED_MODULE_18__components_categories_CategoryEdit_vue___default.a }, { path: '/productcollections', name: 'ProductCollection', component: __WEBPACK_IMPORTED_MODULE_19__components_products_ProductCollection_vue___default.a }, { path: '/productcollections/:id', name: 'ProductCollectionDetail', component: __WEBPACK_IMPORTED_MODULE_20__components_products_ProductCollectionDetail_vue___default.a }, { path: '/collections', name: 'CollectionAdd', component: __WEBPACK_IMPORTED_MODULE_21__components_products_CollectionAdd_vue___default.a }, { path: '/settings', name: 'Settings', component: __WEBPACK_IMPORTED_MODULE_22__components_settings_Setting_vue___default.a }, { path: '/slideshows', name: 'Slideshow', component: __WEBPACK_IMPORTED_MODULE_23__components_settings_Slideshow_vue___default.a }, { path: '/tutorials', name: 'Tutorial', component: __WEBPACK_IMPORTED_MODULE_24__components_settings_Tutorial_vue___default.a }, { path: '/navigations', name: 'Navigation', component: __WEBPACK_IMPORTED_MODULE_25__components_settings_Navigation_vue___default.a }, { path: '/navigations/:id', name: 'NavigationEdit', component: __WEBPACK_IMPORTED_MODULE_26__components_settings_NavigationEdit_vue___default.a }],
+		routes: [{ path: '/roles/create', name: 'RoleCreate', component: __WEBPACK_IMPORTED_MODULE_3__components_roles_RoleCreate_vue___default.a }, { path: '/roles', name: 'RoleList', component: __WEBPACK_IMPORTED_MODULE_4__components_roles_RoleList_vue___default.a }, { path: '/roles/detail/:id', name: 'RoleDetail', component: __WEBPACK_IMPORTED_MODULE_5__components_roles_RoleDetail_vue___default.a }, { path: '/roles/edit/:id', name: 'RoleEdit', component: __WEBPACK_IMPORTED_MODULE_6__components_roles_RoleEdit_vue___default.a }, { path: '/users/create', name: 'UserCreate', component: __WEBPACK_IMPORTED_MODULE_7__components_users_UserCreate_vue___default.a }, { path: '/users/detail/:id', name: 'UserDetail', component: __WEBPACK_IMPORTED_MODULE_8__components_users_UserDetail_vue___default.a }, { path: '/users', name: 'UserList', component: __WEBPACK_IMPORTED_MODULE_9__components_users_UserList_vue___default.a }, { path: '/users/edit/:id', name: 'UserEdit', component: __WEBPACK_IMPORTED_MODULE_10__components_users_UserEdit_vue___default.a }, { path: '/products/create', name: 'ProductCreate', component: __WEBPACK_IMPORTED_MODULE_11__components_products_ProductCreate_vue___default.a }, { path: '/products/detail/:id', name: 'ProductDetail', component: __WEBPACK_IMPORTED_MODULE_12__components_products_ProductDetail_vue___default.a }, { path: '/products/edit/:id', name: 'ProductEdit', component: __WEBPACK_IMPORTED_MODULE_13__components_products_ProductEdit_vue___default.a }, { path: '/products', name: 'ProductList', component: __WEBPACK_IMPORTED_MODULE_14__components_products_ProductList_vue___default.a }, { path: '/categories', name: 'Category', component: __WEBPACK_IMPORTED_MODULE_15__components_categories_Category_vue___default.a }, { path: '/categories/detail/:id', name: 'CategoryDetail', component: __WEBPACK_IMPORTED_MODULE_16__components_categories_CategoryDetail_vue___default.a }, { path: '/categories/list', name: 'CategoryList', component: __WEBPACK_IMPORTED_MODULE_17__components_categories_CategoryList_vue___default.a }, { path: '/categories/edit/:id', name: 'CategoryEdit', component: __WEBPACK_IMPORTED_MODULE_18__components_categories_CategoryEdit_vue___default.a }, { path: '/productcollections', name: 'ProductCollection', component: __WEBPACK_IMPORTED_MODULE_19__components_products_ProductCollection_vue___default.a }, { path: '/productcollections/:id', name: 'ProductCollectionDetail', component: __WEBPACK_IMPORTED_MODULE_20__components_products_ProductCollectionDetail_vue___default.a }, { path: '/collections', name: 'CollectionAdd', component: __WEBPACK_IMPORTED_MODULE_21__components_products_CollectionAdd_vue___default.a }, { path: '/collections/:id', name: 'CollectionEdit', component: __WEBPACK_IMPORTED_MODULE_22__components_products_CollectionEdit_vue___default.a }, { path: '/settings', name: 'Settings', component: __WEBPACK_IMPORTED_MODULE_23__components_settings_Setting_vue___default.a }, { path: '/slideshows', name: 'Slideshow', component: __WEBPACK_IMPORTED_MODULE_24__components_settings_Slideshow_vue___default.a }, { path: '/tutorials', name: 'Tutorial', component: __WEBPACK_IMPORTED_MODULE_25__components_settings_Tutorial_vue___default.a }, { path: '/navigations', name: 'Navigation', component: __WEBPACK_IMPORTED_MODULE_26__components_settings_Navigation_vue___default.a }, { path: '/navigations/:id', name: 'NavigationEdit', component: __WEBPACK_IMPORTED_MODULE_27__components_settings_NavigationEdit_vue___default.a }],
 		mode: 'history'
 }));
 
@@ -68172,6 +68182,12 @@ var render = function() {
                   })
                 ]),
                 _vm._v(" "),
+                _c("td", [
+                  _vm._v(_vm._s(collection.display == "1" ? "Display" : "None"))
+                ]),
+                _vm._v(" "),
+                _c("td", [_vm._v(_vm._s(collection.description))]),
+                _vm._v(" "),
                 _c("td", [_vm._v(_vm._s(collection.count))]),
                 _vm._v(" "),
                 _c(
@@ -68251,6 +68267,10 @@ var staticRenderFns = [
         _c("th", [_vm._v("Shop name")]),
         _vm._v(" "),
         _c("th", [_vm._v("Background")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Display")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Description")]),
         _vm._v(" "),
         _c("th", [_vm._v("Product's number")]),
         _vm._v(" "),
@@ -87275,6 +87295,438 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
+  return _c("div", { attrs: { id: "root" } }, [
+    _c(
+      "div",
+      { staticClass: "btn-group" },
+      [
+        _c(
+          "router-link",
+          {
+            staticClass: "btn btn-default",
+            attrs: { to: { name: "ProductCollection" } }
+          },
+          [
+            _c("span", { staticClass: "glyphicon glyphicon-th-list" }),
+            _vm._v("\n\t\t\t\tList Collection\n\t\t\t")
+          ]
+        )
+      ],
+      1
+    ),
+    _vm._v(" "),
+    _c("div", { staticClass: "panel panel-default m-t-20" }, [
+      _vm._m(0),
+      _vm._v(" "),
+      _c("div", { staticClass: "panel-body" }, [
+        _c(
+          "form",
+          {
+            attrs: {
+              action: "",
+              method: "POST",
+              enctype: "multipart/form-data"
+            },
+            on: {
+              submit: function($event) {
+                $event.preventDefault()
+                _vm.validateBeforeSubmit($event)
+              }
+            }
+          },
+          [
+            _c("div", { staticClass: "form-group" }, [
+              _c("label", { attrs: { for: "" } }, [_vm._v("Collectio name:")]),
+              _vm._v(" "),
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.collection.pg_name,
+                    expression: "collection.pg_name"
+                  },
+                  {
+                    name: "validate",
+                    rawName: "v-validate",
+                    value: "required",
+                    expression: "'required'"
+                  }
+                ],
+                staticClass: "form-control",
+                attrs: { type: "text", name: "name" },
+                domProps: { value: _vm.collection.pg_name },
+                on: {
+                  input: function($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.collection.pg_name = $event.target.value
+                  }
+                }
+              }),
+              _vm._v(" "),
+              _c(
+                "span",
+                {
+                  directives: [
+                    {
+                      name: "show",
+                      rawName: "v-show",
+                      value: _vm.errors.has("name"),
+                      expression: "errors.has('name')"
+                    }
+                  ],
+                  staticClass: "label label-danger"
+                },
+                [_vm._v(_vm._s(_vm.errors.first("name")))]
+              )
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "form-group" }, [
+              _c("label", { attrs: { for: "" } }, [_vm._v("Discount:")]),
+              _vm._v(" "),
+              _c("div", { staticClass: "input-group" }, [
+                _c("div", { staticClass: "input-group-addon" }, [_vm._v("-")]),
+                _vm._v(" "),
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.collection.pg_discount,
+                      expression: "collection.pg_discount"
+                    },
+                    {
+                      name: "validate",
+                      rawName: "v-validate",
+                      value: "required",
+                      expression: "'required'"
+                    }
+                  ],
+                  staticClass: "form-control",
+                  attrs: { type: "number", name: "discount", maxlength: "2" },
+                  domProps: { value: _vm.collection.pg_discount },
+                  on: {
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.collection.pg_discount = $event.target.value
+                    }
+                  }
+                }),
+                _vm._v(" "),
+                _c("div", { staticClass: "input-group-addon" }, [_vm._v("%")])
+              ]),
+              _vm._v(" "),
+              _c(
+                "span",
+                {
+                  directives: [
+                    {
+                      name: "show",
+                      rawName: "v-show",
+                      value: _vm.errors.has("discount"),
+                      expression: "errors.has('discount')"
+                    }
+                  ],
+                  staticClass: "label label-danger"
+                },
+                [_vm._v(_vm._s(_vm.errors.first("discount")))]
+              )
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "form-group" }, [
+              _c("label", { attrs: { for: "" } }, [_vm._v("Shop name:")]),
+              _vm._v(" "),
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.collection.pg_shopname,
+                    expression: "collection.pg_shopname"
+                  }
+                ],
+                staticClass: "form-control",
+                attrs: { type: "text", name: "shop_name" },
+                domProps: { value: _vm.collection.pg_shopname },
+                on: {
+                  input: function($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.collection.pg_shopname = $event.target.value
+                  }
+                }
+              })
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "form-group" }, [
+              _c("label", { attrs: { for: "display" } }, [_vm._v("Display:")]),
+              _vm._v(" "),
+              _c("br"),
+              _vm._v(" "),
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.collection.display,
+                    expression: "collection.display"
+                  }
+                ],
+                attrs: { type: "radio", name: "display", value: "1" },
+                domProps: { checked: _vm._q(_vm.collection.display, "1") },
+                on: {
+                  __c: function($event) {
+                    _vm.collection.display = "1"
+                  }
+                }
+              }),
+              _vm._v("\n\t\t\t\t\t\tDisplay\n\n\t\t\t\t\t\t"),
+              _c("br"),
+              _vm._v(" "),
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.collection.display,
+                    expression: "collection.display"
+                  }
+                ],
+                attrs: { type: "radio", name: "display", value: "0" },
+                domProps: { checked: _vm._q(_vm.collection.display, "0") },
+                on: {
+                  __c: function($event) {
+                    _vm.collection.display = "0"
+                  }
+                }
+              }),
+              _vm._v("\n\t\t\t\t\t\tNone\n\n\t\t\t\t\t")
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "form-group" }, [
+              _c("label", { attrs: { for: "" } }, [_vm._v("Description:")]),
+              _vm._v(" "),
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.collection.pg_desc,
+                    expression: "collection.pg_desc"
+                  }
+                ],
+                staticClass: "form-control",
+                attrs: { type: "text", name: "description" },
+                domProps: { value: _vm.collection.pg_desc },
+                on: {
+                  input: function($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.collection.pg_desc = $event.target.value
+                  }
+                }
+              })
+            ]),
+            _vm._v(" "),
+            _c(
+              "div",
+              { staticClass: "form-group" },
+              [
+                _c("label", { attrs: { for: "" } }, [_vm._v("Background:")]),
+                _vm._v(" "),
+                _c("picture-input", {
+                  ref: "pictureInput",
+                  attrs: {
+                    width: "250",
+                    height: "250",
+                    accept: "image/jpeg,image/png",
+                    size: "10",
+                    crop: true,
+                    removable: true,
+                    buttonClass: "btn btn-default",
+                    removeButtonClass: "btn btn-warning",
+                    customStrings: {
+                      upload: "<h1>Bummer!</h1>",
+                      drag: "Size: 350x456."
+                    }
+                  },
+                  on: { change: _vm.onChangeImage }
+                })
+              ],
+              1
+            ),
+            _vm._v(" "),
+            _c("hr"),
+            _vm._v(" "),
+            _c(
+              "button",
+              {
+                staticClass: "btn btn-lg btn-default",
+                attrs: { type: "reset" }
+              },
+              [_vm._v("Cancel")]
+            ),
+            _vm._v(" "),
+            _c(
+              "button",
+              {
+                staticClass: "btn btn-lg btn-primary",
+                attrs: { type: "submit" }
+              },
+              [_vm._v("Add Collection")]
+            )
+          ]
+        )
+      ])
+    ])
+  ])
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "panel-heading" }, [
+      _c("h3", { staticClass: "panel-title" }, [_vm._v("Add Collection")])
+    ])
+  }
+]
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+     require("vue-hot-reload-api").rerender("data-v-6e74efdd", module.exports)
+  }
+}
+
+/***/ }),
+/* 198 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Common__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_vue_picture_input__ = __webpack_require__(3);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_vue_picture_input___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_vue_picture_input__);
+
+
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+	name: 'CollectionAdd',
+
+	components: { PictureInput: __WEBPACK_IMPORTED_MODULE_1_vue_picture_input___default.a },
+
+	data: function data() {
+		return {
+			collection: {
+				pg_name: '',
+				pg_discount: 1,
+				pg_shopname: '',
+				display: 1,
+				pg_desc: '',
+				pg_background: ''
+			},
+
+			avatar: ''
+		};
+	},
+	mounted: function mounted() {
+		document.title = 'Add Collection';
+	},
+
+
+	methods: {
+		onChangeImage: function onChangeImage() {
+			var vm = this;
+			if (vm.$refs.pictureInput.image) {
+				vm.avatar = vm.$refs.pictureInput.image;
+			}
+		},
+		validateBeforeSubmit: function validateBeforeSubmit() {
+			var vm = this;
+			vm.$validator.validateAll().then(function (result) {
+				if (result) {
+					return vm.save();
+				}
+			});
+		},
+		save: function save() {
+			var vm = this;
+			var url = baseUrl + 'product-groups';
+			vm.collection.pg_background = vm.avatar;
+			axios.post(url, vm.collection).then(function (response) {
+				var result = response.data;
+				__WEBPACK_IMPORTED_MODULE_0__Common__["a" /* default */].setToast(result.message, result.status);
+				return vm.$router.push('/productcollections');
+			}).catch(function (errors) {
+				console.log(errors);
+			});
+		}
+	} // End class
+
+});
+
+/***/ }),
+/* 199 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+var normalizeComponent = __webpack_require__(0)
+/* script */
+var __vue_script__ = __webpack_require__(201)
+/* template */
+var __vue_template__ = __webpack_require__(200)
+/* styles */
+var __vue_styles__ = null
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources\\assets\\js\\components\\products\\CollectionEdit.vue"
+if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key.substr(0, 2) !== "__"})) {console.error("named exports are not supported in *.vue files.")}
+if (Component.options.functional) {console.error("[vue-loader] CollectionEdit.vue: functional components are not supported with templates, they should use render functions.")}
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-0befb2fe", Component.options)
+  } else {
+    hotAPI.reload("data-v-0befb2fe", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 200 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
   return _c("div", { staticClass: "panel panel-default" }, [
     _vm._m(0),
     _vm._v(" "),
@@ -87490,6 +87942,21 @@ var render = function() {
             })
           ]),
           _vm._v(" "),
+          _c("div", { staticClass: "form-group" }, [
+            _c("label", { attrs: { for: "" } }, [
+              _vm._v("Current background:")
+            ]),
+            _vm._v(" "),
+            _c("img", {
+              staticClass: "img-responsive",
+              attrs: {
+                src: _vm.collection.pg_background,
+                width: "150",
+                height: "150"
+              }
+            })
+          ]),
+          _vm._v(" "),
           _c(
             "div",
             { staticClass: "form-group" },
@@ -87532,7 +87999,7 @@ var render = function() {
               staticClass: "btn btn-lg btn-primary",
               attrs: { type: "submit" }
             },
-            [_vm._v("Add Collection")]
+            [_vm._v("Update Collection")]
           )
         ]
       )
@@ -87545,7 +88012,7 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "panel-heading" }, [
-      _c("h3", { staticClass: "panel-title" }, [_vm._v("Add Collection")])
+      _c("h3", { staticClass: "panel-title" }, [_vm._v("Update Collection")])
     ])
   }
 ]
@@ -87554,12 +88021,12 @@ module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
   module.hot.accept()
   if (module.hot.data) {
-     require("vue-hot-reload-api").rerender("data-v-6e74efdd", module.exports)
+     require("vue-hot-reload-api").rerender("data-v-0befb2fe", module.exports)
   }
 }
 
 /***/ }),
-/* 198 */
+/* 201 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -87591,6 +88058,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 	},
 	mounted: function mounted() {
 		document.title = 'Add Collection';
+		this.getProductGroup();
 	},
 
 
@@ -87605,15 +88073,26 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 			var vm = this;
 			vm.$validator.validateAll().then(function (result) {
 				if (result) {
-					return vm.save();
+					return vm.update();
 				}
 			});
 		},
-		save: function save() {
+		getProductGroup: function getProductGroup() {
 			var vm = this;
-			var url = baseUrl + 'product-groups';
+			var id = vm.$route.params.id;
+			var url = baseUrl + 'product-groups/' + id + '/edit';
+			axios.get(url).then(function (response) {
+				vm.collection = response.data.data;
+			}).then(function (errors) {
+				console.log(errors);
+			});
+		},
+		update: function update() {
+			var vm = this;
+			var id = vm.$route.params.id;
+			var url = baseUrl + 'product-groups/' + id;
 			vm.collection.pg_background = vm.avatar;
-			axios.post(url, vm.collection).then(function (response) {
+			axios.put(url, vm.collection).then(function (response) {
 				var result = response.data;
 				__WEBPACK_IMPORTED_MODULE_0__Common__["a" /* default */].setToast(result.message, result.status);
 				return vm.$router.push('/productcollections');

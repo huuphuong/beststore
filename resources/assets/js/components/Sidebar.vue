@@ -42,6 +42,7 @@
                         <ul class="nav-second-level nav">
                             <router-link tag="li" :to="{ name: 'ProductCreate' }"><a>Create Product</a></router-link>
                             <router-link tag="li" :to="{ name: 'ProductList' }"><a>List Product</a></router-link>
+                            <router-link tag="li" :to="{ name: 'CollectionAdd' }"><a>Create Collection</a></router-link>
                             <router-link tag="li" :to="{ name: 'ProductCollection' }"><a>Product Collection</a>
                             </router-link>
                         </ul>
