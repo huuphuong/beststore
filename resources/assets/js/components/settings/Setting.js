@@ -41,6 +41,7 @@ export default {
 
             // List collection
             listCollection: [],
+            listVendors: [],
             arr_title: '',
             arr_desc: '',
             arr_collection_1: '',
@@ -61,6 +62,7 @@ export default {
         var vm = this;
         vm.getSetting();
         vm.getCollections();
+        vm.getVendors();
     },
 
     methods: {
@@ -111,7 +113,16 @@ export default {
                 social_name: vm.social_name,
                 social_icon: vm.social_icon,
                 social_url: vm.social_url,
-                social_order: vm.social_order
+                social_order: vm.social_order,
+
+                arr_title: vm.arr_title,
+                arr_desc: vm.arr_desc,
+                arr_collection_1: vm.arr_collection_1,
+                arr_collection_2: vm.arr_collection_2,
+                vendor_1: vm.vendor_1,
+                text_1: vm.text_1,
+                vendor_2: vm.vendor_2,
+                text_2: vm.text_2,
             }).then(function (response) {
                 var result = response.data;
                 Common.setToast(result.message, result.status);
@@ -142,6 +153,17 @@ export default {
                 vm.header_text_info_1 = result.header_text_info_1;
                 vm.header_text_info_2 = result.header_text_info_2;
                 vm.header_text_info_3 = result.header_text_info_3;
+
+                // NEW ARRIVALS
+                vm.arr_title        = result.arr_title;
+                vm.arr_desc         = result.arr_desc;
+                vm.arr_collection_1 = result.arr_collection_1;
+                vm.arr_collection_2 = result.arr_collection_2;
+                vm.vendor_1         = result.vendor_1;
+                vm.text_1           = result.text_1;
+                vm.vendor_2         = result.vendor_2;
+                vm.text_2           = result.text_2;
+
                 var categories_item = JSON.parse(result.categories_item);
                     for (var objectKey in categories_item)
                     {
@@ -190,6 +212,16 @@ export default {
             var url = baseUrl + 'product-groups';
             axios.get(url).then(function (response) {
                 vm.listCollection = response.data.data;
+            }).catch(function (errors) {
+                console.log(errors);
+            });
+        },
+
+        getVendors () {
+            var vm = this;
+            var url = baseUrl + 'vendors';
+            axios.get(url).then(function (response) {
+                vm.listVendors = response.data.data;
             }).catch(function (errors) {
                 console.log(errors);
             });

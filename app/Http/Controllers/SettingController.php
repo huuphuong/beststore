@@ -63,8 +63,15 @@ class SettingController extends Controller
 				);
 			}
 
-			$setting->social_item = json_encode($social_item);
-
+			$setting->social_item      = json_encode($social_item);
+			$setting->arr_title        = $request->arr_title;
+			$setting->arr_desc         = $request->arr_desc;
+			$setting->arr_collection_1 = $request->arr_collection_1;
+			$setting->arr_collection_2 = $request->arr_collection_2;
+			$setting->vendor_1         = $request->vendor_1;
+			$setting->text_1           = $request->text_1;
+			$setting->vendor_2         = $request->vendor_2;
+			$setting->text_2           = $request->text_2;
 			$setting->save();
 
 			if (Cache::has('settings')) {
