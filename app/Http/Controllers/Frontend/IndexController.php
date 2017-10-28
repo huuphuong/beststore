@@ -15,7 +15,7 @@ class IndexController extends Controller
     public function index(Request $request)
     {
     	$product = new ProductCollection();
-    	$productGroup = ProductGroup::all();
+    	$productGroup = ProductGroup::whereIn('pg_id', [1,2,3])->get();
 
     	if (Redis::exists('products'))
         {

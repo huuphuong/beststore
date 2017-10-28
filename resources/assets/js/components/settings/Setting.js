@@ -37,7 +37,19 @@ export default {
             social_name: [],
             social_icon: [],
             social_url: [],
-            social_order: []
+            social_order: [],
+
+            // List collection
+            listCollection: [],
+            arr_title: '',
+            arr_desc: '',
+            arr_collection_1: '',
+            arr_collection_2: '',
+            vendor_1: '',
+            text_1: '',
+            vendor_2: '',
+            text_2: '',
+
         }
     },
 
@@ -48,6 +60,7 @@ export default {
     mounted () {
         var vm = this;
         vm.getSetting();
+        vm.getCollections();
     },
 
     methods: {
@@ -169,7 +182,18 @@ export default {
 
         openHeaderModal: function () {
             $('#openHeaderModal').modal('show');
+        },
+
+
+        getCollections () {
+            var vm = this;
+            var url = baseUrl + 'product-groups';
+            axios.get(url).then(function (response) {
+                vm.listCollection = response.data.data;
+            }).catch(function (errors) {
+                console.log(errors);
+            });
         }
 
-    }
+    } // End method
 } // End class

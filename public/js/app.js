@@ -70194,7 +70194,19 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             social_name: [],
             social_icon: [],
             social_url: [],
-            social_order: []
+            social_order: [],
+
+            // List collection
+            listCollection: [],
+            arr_title: '',
+            arr_desc: '',
+            arr_collection_1: '',
+            arr_collection_2: '',
+            vendor_1: '',
+            text_1: '',
+            vendor_2: '',
+            text_2: ''
+
         };
     },
     created: function created() {
@@ -70203,6 +70215,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     mounted: function mounted() {
         var vm = this;
         vm.getSetting();
+        vm.getCollections();
     },
 
 
@@ -70336,9 +70349,19 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
         openHeaderModal: function openHeaderModal() {
             $('#openHeaderModal').modal('show');
-        }
+        },
 
-    } // End class
+        getCollections: function getCollections() {
+            var vm = this;
+            var url = baseUrl + 'product-groups';
+            axios.get(url).then(function (response) {
+                vm.listCollection = response.data.data;
+            }).catch(function (errors) {
+                console.log(errors);
+            });
+        }
+    } // End method
+    // End class
 
 });
 
@@ -71456,8 +71479,8 @@ var render = function() {
                     {
                       name: "model",
                       rawName: "v-model",
-                      value: _vm.categories,
-                      expression: "categories"
+                      value: _vm.arr_title,
+                      expression: "arr_title"
                     },
                     {
                       name: "validate",
@@ -71467,14 +71490,14 @@ var render = function() {
                     }
                   ],
                   staticClass: "form-control",
-                  attrs: { type: "text", name: "categories" },
-                  domProps: { value: _vm.categories },
+                  attrs: { type: "text", name: "arr_title" },
+                  domProps: { value: _vm.arr_title },
                   on: {
                     input: function($event) {
                       if ($event.target.composing) {
                         return
                       }
-                      _vm.categories = $event.target.value
+                      _vm.arr_title = $event.target.value
                     }
                   }
                 }),
@@ -71486,13 +71509,13 @@ var render = function() {
                       {
                         name: "show",
                         rawName: "v-show",
-                        value: _vm.errors.has("categories"),
-                        expression: "errors.has('categories')"
+                        value: _vm.errors.has("arr_title"),
+                        expression: "errors.has('arr_title')"
                       }
                     ],
                     staticClass: "label label-danger"
                   },
-                  [_vm._v(_vm._s(_vm.errors.first("categories")))]
+                  [_vm._v(_vm._s(_vm.errors.first("arr_title")))]
                 )
               ]),
               _vm._v(" "),
@@ -71501,13 +71524,13 @@ var render = function() {
                   _vm._v("Description:")
                 ]),
                 _vm._v(" "),
-                _c("input", {
+                _c("textarea", {
                   directives: [
                     {
                       name: "model",
                       rawName: "v-model",
-                      value: _vm.categories,
-                      expression: "categories"
+                      value: _vm.arr_desc,
+                      expression: "arr_desc"
                     },
                     {
                       name: "validate",
@@ -71517,14 +71540,14 @@ var render = function() {
                     }
                   ],
                   staticClass: "form-control",
-                  attrs: { type: "text", name: "categories" },
-                  domProps: { value: _vm.categories },
+                  attrs: { name: "arr_desc" },
+                  domProps: { value: _vm.arr_desc },
                   on: {
                     input: function($event) {
                       if ($event.target.composing) {
                         return
                       }
-                      _vm.categories = $event.target.value
+                      _vm.arr_desc = $event.target.value
                     }
                   }
                 }),
@@ -71536,21 +71559,70 @@ var render = function() {
                       {
                         name: "show",
                         rawName: "v-show",
-                        value: _vm.errors.has("categories"),
-                        expression: "errors.has('categories')"
+                        value: _vm.errors.has("arr_desc"),
+                        expression: "errors.has('arr_desc')"
                       }
                     ],
                     staticClass: "label label-danger"
                   },
-                  [_vm._v(_vm._s(_vm.errors.first("categories")))]
+                  [_vm._v(_vm._s(_vm.errors.first("arr_desc")))]
                 )
               ]),
               _vm._v(" "),
-              _vm._m(5),
+              _c("div", { staticClass: "form-group" }, [
+                _c("label", { attrs: { for: "Description" } }, [
+                  _vm._v("Collection 1:")
+                ]),
+                _vm._v(" "),
+                _c(
+                  "select",
+                  {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.arr_collection_1,
+                        expression: "arr_collection_1"
+                      }
+                    ],
+                    staticClass: "form-control",
+                    attrs: { name: "name" },
+                    on: {
+                      change: function($event) {
+                        var $$selectedVal = Array.prototype.filter
+                          .call($event.target.options, function(o) {
+                            return o.selected
+                          })
+                          .map(function(o) {
+                            var val = "_value" in o ? o._value : o.value
+                            return val
+                          })
+                        _vm.arr_collection_1 = $event.target.multiple
+                          ? $$selectedVal
+                          : $$selectedVal[0]
+                      }
+                    }
+                  },
+                  [
+                    _c("option", { attrs: { value: "" } }, [
+                      _vm._v(" -- Select -- ")
+                    ]),
+                    _vm._v(" "),
+                    _vm._l(_vm.listCollection, function(collection) {
+                      return _c(
+                        "option",
+                        { domProps: { value: collection.pg_id } },
+                        [_vm._v(_vm._s(collection.pg_name))]
+                      )
+                    })
+                  ],
+                  2
+                )
+              ]),
               _vm._v(" "),
               _c("div", { staticClass: "form-group" }, [
                 _c("label", { attrs: { for: "Description" } }, [
-                  _vm._v("Discount")
+                  _vm._v("Vendor 1:")
                 ]),
                 _vm._v(" "),
                 _c("input", {
@@ -71558,8 +71630,8 @@ var render = function() {
                     {
                       name: "model",
                       rawName: "v-model",
-                      value: _vm.categories,
-                      expression: "categories"
+                      value: _vm.vendor_1,
+                      expression: "vendor_1"
                     },
                     {
                       name: "validate",
@@ -71569,14 +71641,14 @@ var render = function() {
                     }
                   ],
                   staticClass: "form-control",
-                  attrs: { type: "text", name: "categories" },
-                  domProps: { value: _vm.categories },
+                  attrs: { type: "text", name: "vendor_1" },
+                  domProps: { value: _vm.vendor_1 },
                   on: {
                     input: function($event) {
                       if ($event.target.composing) {
                         return
                       }
-                      _vm.categories = $event.target.value
+                      _vm.vendor_1 = $event.target.value
                     }
                   }
                 }),
@@ -71588,19 +71660,220 @@ var render = function() {
                       {
                         name: "show",
                         rawName: "v-show",
-                        value: _vm.errors.has("categories"),
-                        expression: "errors.has('categories')"
+                        value: _vm.errors.has("vendor_1"),
+                        expression: "errors.has('vendor_1')"
                       }
                     ],
                     staticClass: "label label-danger"
                   },
-                  [_vm._v(_vm._s(_vm.errors.first("categories")))]
+                  [_vm._v(_vm._s(_vm.errors.first("vendor_1")))]
+                )
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "form-group" }, [
+                _c("label", { attrs: { for: "Description" } }, [
+                  _vm._v("Text 1:")
+                ]),
+                _vm._v(" "),
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.text_1,
+                      expression: "text_1"
+                    },
+                    {
+                      name: "validate",
+                      rawName: "v-validate",
+                      value: "required",
+                      expression: "'required'"
+                    }
+                  ],
+                  staticClass: "form-control",
+                  attrs: { type: "text", name: "text_1" },
+                  domProps: { value: _vm.text_1 },
+                  on: {
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.text_1 = $event.target.value
+                    }
+                  }
+                }),
+                _vm._v(" "),
+                _c(
+                  "span",
+                  {
+                    directives: [
+                      {
+                        name: "show",
+                        rawName: "v-show",
+                        value: _vm.errors.has("text_1"),
+                        expression: "errors.has('text_1')"
+                      }
+                    ],
+                    staticClass: "label label-danger"
+                  },
+                  [_vm._v(_vm._s(_vm.errors.first("text_1")))]
+                )
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "form-group" }, [
+                _c("label", { attrs: { for: "Description" } }, [
+                  _vm._v("Vendor 2:")
+                ]),
+                _vm._v(" "),
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.vendor_2,
+                      expression: "vendor_2"
+                    },
+                    {
+                      name: "validate",
+                      rawName: "v-validate",
+                      value: "required",
+                      expression: "'required'"
+                    }
+                  ],
+                  staticClass: "form-control",
+                  attrs: { type: "text", name: "vendor_2" },
+                  domProps: { value: _vm.vendor_2 },
+                  on: {
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.vendor_2 = $event.target.value
+                    }
+                  }
+                }),
+                _vm._v(" "),
+                _c(
+                  "span",
+                  {
+                    directives: [
+                      {
+                        name: "show",
+                        rawName: "v-show",
+                        value: _vm.errors.has("vendor_2"),
+                        expression: "errors.has('vendor_2')"
+                      }
+                    ],
+                    staticClass: "label label-danger"
+                  },
+                  [_vm._v(_vm._s(_vm.errors.first("vendor_2")))]
+                )
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "form-group" }, [
+                _c("label", { attrs: { for: "Description" } }, [
+                  _vm._v("Text 2:")
+                ]),
+                _vm._v(" "),
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.text_2,
+                      expression: "text_2"
+                    },
+                    {
+                      name: "validate",
+                      rawName: "v-validate",
+                      value: "required",
+                      expression: "'required'"
+                    }
+                  ],
+                  staticClass: "form-control",
+                  attrs: { type: "text", name: "text_2" },
+                  domProps: { value: _vm.text_2 },
+                  on: {
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.text_2 = $event.target.value
+                    }
+                  }
+                }),
+                _vm._v(" "),
+                _c(
+                  "span",
+                  {
+                    directives: [
+                      {
+                        name: "show",
+                        rawName: "v-show",
+                        value: _vm.errors.has("text_2"),
+                        expression: "errors.has('text_2')"
+                      }
+                    ],
+                    staticClass: "label label-danger"
+                  },
+                  [_vm._v(_vm._s(_vm.errors.first("text_2")))]
+                )
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "form-group" }, [
+                _c("label", { attrs: { for: "Description" } }, [
+                  _vm._v("Collection 2:")
+                ]),
+                _vm._v(" "),
+                _c(
+                  "select",
+                  {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.arr_collection_2,
+                        expression: "arr_collection_2"
+                      }
+                    ],
+                    staticClass: "form-control",
+                    attrs: { name: "arr_collection_2", id: "inputID" },
+                    on: {
+                      change: function($event) {
+                        var $$selectedVal = Array.prototype.filter
+                          .call($event.target.options, function(o) {
+                            return o.selected
+                          })
+                          .map(function(o) {
+                            var val = "_value" in o ? o._value : o.value
+                            return val
+                          })
+                        _vm.arr_collection_2 = $event.target.multiple
+                          ? $$selectedVal
+                          : $$selectedVal[0]
+                      }
+                    }
+                  },
+                  [
+                    _c("option", { attrs: { value: "" } }, [
+                      _vm._v(" -- Select -- ")
+                    ]),
+                    _vm._v(" "),
+                    _vm._l(_vm.listCollection, function(collection) {
+                      return _c(
+                        "option",
+                        { domProps: { value: collection.pg_id } },
+                        [_vm._v(_vm._s(collection.pg_name))]
+                      )
+                    })
+                  ],
+                  2
                 )
               ])
             ])
           ]),
           _vm._v(" "),
-          _vm._m(6)
+          _vm._m(5)
         ]
       )
     ])
@@ -71642,22 +71915,6 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("legend", [_c("h1", [_vm._v("NEW ARRIVALS")])])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "form-group" }, [
-      _c("label", { attrs: { for: "Description" } }, [
-        _vm._v("Collection name")
-      ]),
-      _vm._v(" "),
-      _c(
-        "select",
-        { staticClass: "form-control", attrs: { name: "name", id: "inputID" } },
-        [_c("option", { attrs: { value: "" } }, [_vm._v(" -- Select One -- ")])]
-      )
-    ])
   },
   function() {
     var _vm = this

@@ -240,40 +240,72 @@
                         <legend><h1>NEW ARRIVALS</h1></legend>
                         <div class="form-group">
                             <label for="title">Title:</label>
-                            <input type="text" class="form-control" name="categories" v-model="categories"
+                            <input type="text" class="form-control" name="arr_title" v-model="arr_title"
                                    v-validate="'required'">
                             <span class="label label-danger"
-                                  v-show="errors.has('categories')">{{ errors.first('categories') }}</span>
+                                  v-show="errors.has('arr_title')">{{ errors.first('arr_title') }}</span>
                             <!-- /#inputID.form-control -->
                         </div>
 
                         <div class="form-group">
                             <label for="Description">Description:</label>
-                            <input type="text" class="form-control" name="categories" v-model="categories"
-                                   v-validate="'required'">
-                            <span class="label label-danger"
-                                  v-show="errors.has('categories')">{{ errors.first('categories') }}</span>
-                            <!-- /#inputID.form-control -->
+                            <textarea class="form-control" name="arr_desc" v-model="arr_desc" v-validate="'required'"></textarea>
+                            <span class="label label-danger" v-show="errors.has('arr_desc')">{{ errors.first('arr_desc') }}</span>
                         </div>
 
                         <div class="form-group">
-                            <label for="Description">Collection name</label>
-                            <select name="name" id="inputID" class="form-control">
-                                <option value=""> -- Select One -- </option>
+                            <label for="Description">Collection 1:</label>
+                            <select name="name" class="form-control" v-model="arr_collection_1">
+                                <option value=""> -- Select -- </option>
+                                <option v-for="collection in listCollection" v-bind:value="collection.pg_id">{{ collection.pg_name }}</option>
                             </select>
                             <!-- /#inputID.form-control -->
                         </div>
 
                         <div class="form-group">
-                            <label for="Description">Discount</label>
-                            <input type="text" class="form-control" name="categories" v-model="categories"
+                            <label for="Description">Vendor 1:</label>
+                            <input type="text" class="form-control" name="vendor_1" v-model="vendor_1"
                                    v-validate="'required'">
                             <span class="label label-danger"
-                                  v-show="errors.has('categories')">{{ errors.first('categories') }}</span>
+                                  v-show="errors.has('vendor_1')">{{ errors.first('vendor_1') }}</span>
                             <!-- /#inputID.form-control -->
                         </div>
 
+                        <div class="form-group">
+                            <label for="Description">Text 1:</label>
+                            <input type="text" class="form-control" name="text_1" v-model="text_1"
+                                   v-validate="'required'">
+                            <span class="label label-danger"
+                                  v-show="errors.has('text_1')">{{ errors.first('text_1') }}</span>
+                            <!-- /#inputID.form-control -->
+                        </div>
 
+                        <div class="form-group">
+                            <label for="Description">Vendor 2:</label>
+                            <input type="text" class="form-control" name="vendor_2" v-model="vendor_2"
+                                   v-validate="'required'">
+                            <span class="label label-danger"
+                                  v-show="errors.has('vendor_2')">{{ errors.first('vendor_2') }}</span>
+                            <!-- /#inputID.form-control -->
+                        </div>
+
+                        <div class="form-group">
+                            <label for="Description">Text 2:</label>
+                            <input type="text" class="form-control" name="text_2" v-model="text_2"
+                                   v-validate="'required'">
+                            <span class="label label-danger"
+                                  v-show="errors.has('text_2')">{{ errors.first('text_2') }}</span>
+                            <!-- /#inputID.form-control -->
+                        </div>
+
+                        <div class="form-group">
+                            <label for="Description">Collection 2:</label>
+                            <select name="arr_collection_2" id="inputID" class="form-control" v-model="arr_collection_2">
+                                <option value=""> -- Select -- </option>
+                                <option v-for="collection in listCollection" v-bind:value="collection.pg_id">{{ collection.pg_name }}</option>
+                            </select>
+                            <!-- /#inputID.form-control -->
+                        </div>
                     </div>
                     <!-- /.row m-t-20 -->
                 </div>
