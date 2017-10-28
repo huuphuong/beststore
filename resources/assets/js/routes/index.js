@@ -29,6 +29,7 @@ import CategoryEdit from '../components/categories/CategoryEdit.vue'
 // Product Collection
 import ProductCollection from '../components/products/ProductCollection.vue';
 import ProductCollectionDetail from '../components/products/ProductCollectionDetail.vue';
+import CollectionAdd from '../components/products/CollectionAdd.vue';
 
 // Settings
 import Settings from '../components/settings/Setting.vue';
@@ -66,6 +67,7 @@ export default new VueRouter({
 
 		{ path: '/productcollections', name: 'ProductCollection', component: ProductCollection },
 		{ path: '/productcollections/:id', name: 'ProductCollectionDetail', component: ProductCollectionDetail },
+		{ path: '/collections', name: 'CollectionAdd', component: CollectionAdd },
 
 		{ path: '/settings', name: 'Settings', component: Settings },
 		{ path: '/slideshows', name: 'Slideshow', component: Slideshow },

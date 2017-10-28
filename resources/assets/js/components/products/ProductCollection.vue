@@ -1,6 +1,10 @@
 <template>
 	<div id="root">
-		<div class="panel panel-default">
+		<div class="btn-group">
+			<router-link :to="{name: 'CollectionAdd'}" class="btn btn-default">Add Collection</router-link>
+		</div>
+
+		<div class="panel panel-default m-t-20">
 			<div class="panel-heading">
 				<h3 class="panel-title">Product Collection</h3>
 			</div>
@@ -10,6 +14,9 @@
 						<tr>
 							<th>ID</th>
 							<th>Collection name</th>
+							<th>Discount</th>
+							<th>Shop name</th>
+							<th>Background</th>
 							<th>Product's number</th>
 							<th>Action</th>
 						</tr>
@@ -18,6 +25,9 @@
 						<tr v-for="collection in collections">
 							<td>#CL{{ collection.pg_id }}</td>
 							<td>{{ collection.pg_name }}</td>
+							<td></td>
+							<td></td>
+							<td></td>
 							<td>{{ collection.count }}</td>
 							<td>
 								<router-link :to="{name: 'ProductCollectionDetail', params: {id: collection.pg_id} }">Detail</router-link>
