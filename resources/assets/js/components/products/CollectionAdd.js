@@ -43,7 +43,7 @@ export default {
             }
           });
         },
-        
+
 		save () {
 			var vm = this;
 			var url = baseUrl + 'product-groups';
@@ -51,6 +51,7 @@ export default {
 			axios.post(url, vm.collection).then(function (response) {
 				var result = response.data;
 				Common.setToast(result.message, result.status);
+				return vm.$router.push('/productcollections');
 			}).catch(function (errors) {
 				console.log(errors);
 			});

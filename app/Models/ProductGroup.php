@@ -14,7 +14,7 @@ class ProductGroup extends Model
     public function getGroupWithCollection() {
     	$result = DB::table('product_group')
     				->leftJoin('product_collection', 'product_collection.pg_id', '=', 'product_group.pg_id')
-    				->select(DB::raw('product_group.pg_id, product_group.pg_name, COUNT(pc_id) AS count'))
+    				->select(DB::raw('product_group.*, COUNT(pc_id) AS count'))
     				->groupBy('product_group.pg_id')
     				->get();
     	return $result;

@@ -119,6 +119,13 @@ class ProductGroupController extends Controller
      */
     public function destroy($id)
     {
-        //
+        try {
+            $productGroup = ProductGroup::findOrFail($id)->delete();
+            $res = Api::resourceApi(Api::$_CREATED, 'Delete product group has been success');
+        } catch (\Exception $e) {
+            $res = Api::resourceApi($e->getCode(), $e->getMessage());
+        }
+
+        return response()->json($res, Api::$_CREATED);
     }
 }

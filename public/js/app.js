@@ -68067,6 +68067,9 @@ module.exports = Component.exports
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Common__ = __webpack_require__(1);
+
+
 /* harmony default export */ __webpack_exports__["default"] = ({
 	name: 'ProductCollection',
 
@@ -68090,6 +68093,22 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 			}).catch(function (errors) {
 				console.log(errors);
 			});
+		},
+		deleteProductGroup: function deleteProductGroup(pg_id, key) {
+			var confirmDetele = confirm('Do you want delete this collection?');
+			if (confirmDetele) {
+				var vm = this;
+				var url = baseUrl + 'product-groups/' + pg_id;
+				axios.delete(url).then(function (response) {
+					var result = response.data;
+					if (result.status == __WEBPACK_IMPORTED_MODULE_0__Common__["a" /* default */].statusCode._CREATED) {
+						__WEBPACK_IMPORTED_MODULE_0__Common__["a" /* default */].setToast(result.message, result.status);
+						vm.collections.splice(key, 1);
+					}
+				}).catch(function (errors) {
+					console.log(errors);
+				});
+			}
 		}
 	} // End class
 
@@ -68114,7 +68133,10 @@ var render = function() {
             staticClass: "btn btn-default",
             attrs: { to: { name: "CollectionAdd" } }
           },
-          [_vm._v("Add Collection")]
+          [
+            _c("span", { staticClass: "glyphicon glyphicon-plus" }),
+            _vm._v("\n\t\t\tAdd Collection\n\t\t")
+          ]
         )
       ],
       1
@@ -68129,17 +68151,26 @@ var render = function() {
           _vm._v(" "),
           _c(
             "tbody",
-            _vm._l(_vm.collections, function(collection) {
+            _vm._l(_vm.collections, function(collection, key) {
               return _c("tr", [
                 _c("td", [_vm._v("#CL" + _vm._s(collection.pg_id))]),
                 _vm._v(" "),
                 _c("td", [_vm._v(_vm._s(collection.pg_name))]),
                 _vm._v(" "),
-                _c("td"),
+                _c("td", [_vm._v("-" + _vm._s(collection.pg_discount))]),
                 _vm._v(" "),
-                _c("td"),
+                _c("td", [_vm._v(_vm._s(collection.pg_shopname))]),
                 _vm._v(" "),
-                _c("td"),
+                _c("td", [
+                  _c("img", {
+                    staticClass: "img-responsive",
+                    attrs: {
+                      src: collection.pg_background,
+                      width: "144",
+                      height: "144"
+                    }
+                  })
+                ]),
                 _vm._v(" "),
                 _c("td", [_vm._v(_vm._s(collection.count))]),
                 _vm._v(" "),
@@ -68151,12 +68182,39 @@ var render = function() {
                       {
                         attrs: {
                           to: {
+                            name: "CollectionEdit",
+                            params: { id: collection.pg_id }
+                          }
+                        }
+                      },
+                      [_vm._v("Edit")]
+                    ),
+                    _vm._v(" | \n\t\t\t\t\t\t\t"),
+                    _c(
+                      "router-link",
+                      {
+                        attrs: {
+                          to: {
                             name: "ProductCollectionDetail",
                             params: { id: collection.pg_id }
                           }
                         }
                       },
                       [_vm._v("Detail")]
+                    ),
+                    _vm._v(" | \n\t\t\t\t\t\t\t"),
+                    _c(
+                      "button",
+                      {
+                        staticClass: "btn btn-link p-0",
+                        attrs: { type: "button" },
+                        on: {
+                          click: function($event) {
+                            _vm.deleteProductGroup(collection.pg_id, key)
+                          }
+                        }
+                      },
+                      [_vm._v("Delete")]
                     )
                   ],
                   1
@@ -87558,6 +87616,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 			axios.post(url, vm.collection).then(function (response) {
 				var result = response.data;
 				__WEBPACK_IMPORTED_MODULE_0__Common__["a" /* default */].setToast(result.message, result.status);
+				return vm.$router.push('/productcollections');
 			}).catch(function (errors) {
 				console.log(errors);
 			});
