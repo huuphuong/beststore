@@ -39,6 +39,9 @@ import Tutorial from '../components/settings/Tutorial.vue';
 import Navigation from '../components/settings/Navigation.vue';
 import NavigationEdit from '../components/settings/NavigationEdit.vue';
 
+// Vendors
+import VendorCreate from '../components/vendors/VendorCreate.vue';
+
 Vue.use(VueRouter);
 
 export default new VueRouter({
@@ -76,6 +79,8 @@ export default new VueRouter({
 		{ path: '/tutorials', name: 'Tutorial', component: Tutorial },
 		{ path: '/navigations', name: 'Navigation', component: Navigation },
 		{ path: '/navigations/:id', name: 'NavigationEdit', component: NavigationEdit },
+
+		{ path: '/vendors/create', name: 'VendorCreate', component: VendorCreate },
 	],
 	mode: 'history'
 })

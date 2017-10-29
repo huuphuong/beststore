@@ -49,6 +49,15 @@
                     </li>
 
                     <li>
+                        <a href="javascript: void(0);"><i class="fi-share"></i> <span>Vendors</span> <span
+                                class="menu-arrow"></span></a>
+                        <ul class="nav-second-level nav">
+                            <router-link tag="li" :to="{ name: 'VendorCreate' }"><a>Create Vendor</a></router-link>
+                            <router-link tag="li" :to="{ name: 'ProductList' }"><a>List Vendor</a></router-link>
+                        </ul>
+                    </li>
+
+                    <li>
                         <a href="javascript: void(0);"><i class="fi-share"></i> <span>Settings</span> <span
                                 class="menu-arrow"></span></a>
                         <ul class="nav-second-level nav">
