@@ -53,11 +53,17 @@
 				</div>
 				<div class="clearfix"></div>
 			</div>
+
+			@php
+				$collection_2 = $productGroup::where('pg_id', $settings['arr_collection_2'])
+											 ->first()
+											 ->toArray();
+			@endphp
 			<div class="col-md-4 new-gd-left">
-				<img src="{{asset('frontend/images/wed2.jpg')}}" alt=" " />
+				<img src="{{ $collection_2['pg_background'] }}" alt=" " />
 				<div class="wed-brandtwo simpleCart_shelfItem">
-					<h4>Spring / Summer</h4>
-					<p>Shop Men</p>
+					<h4>{{ $collection_2['pg_shopname'] }}</h4>
+					<p>{{ $collection_2['pg_name'] }}</p>
 				</div>
 			</div>
 			<div class="clearfix"></div>
