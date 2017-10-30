@@ -1,5 +1,6 @@
 @inject('setting', 'App\Models\Setting')
 @inject('productGroup', 'App\Models\ProductGroup')
+@inject('vendor', 'App\Models\Vendor')
 
 @php
 	$settings = $setting->getSetting();
@@ -33,11 +34,16 @@
 			<div class="col-md-4 new-gd-middle">
 				<div class="new-levis">
 					<div class="mid-img">
-						<img src="{{asset('frontend/images/levis1.png')}}" alt=" " />
+						@php
+							$vendor_1 = $vendor::where('vendor_id', $settings['vendor_1'])
+											   ->first()
+											   ->toArray();
+						@endphp
+						<img src="{{ $vendor_1['vendor_images'] }}" alt="{{ $vendor_1['vendor_name'] }}" />
 					</div>
 					<div class="mid-text">
 						<h4>{{ $settings['text_1'] }}</h4>
-						<a class="hvr-outline-out button2" href="product.html">Xem ngay </a>
+						<a class="hvr-outline-out button2" href="product.html">Xem ngay</a>
 					</div>
 					<div class="clearfix"></div>
 				</div>
@@ -47,7 +53,12 @@
 						<a class="hvr-outline-out button2" href="product.html">Xem ngay </a>
 					</div>
 					<div class="mid-img">
-						<img src="{{asset('frontend/images/dig.jpg')}}" alt=" " />
+						@php
+							$vendor_2 = $vendor::where('vendor_id', $settings['vendor_2'])
+											   ->first()
+											   ->toArray();
+						@endphp
+						<img src="{{ $vendor_2['vendor_images'] }}" alt="{{ $vendor_2['vendor_name'] }}" />
 					</div>
 					<div class="clearfix"></div>
 				</div>
