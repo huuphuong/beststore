@@ -45258,7 +45258,7 @@ var render = function() {
                     _vm._v(" "),
                     _c(
                       "router-link",
-                      { attrs: { tag: "li", to: { name: "ProductList" } } },
+                      { attrs: { tag: "li", to: { name: "VendorList" } } },
                       [_c("a", [_vm._v("List Vendor")])]
                     )
                   ],
@@ -45732,6 +45732,8 @@ if (false) {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_27__components_settings_NavigationEdit_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_27__components_settings_NavigationEdit_vue__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_28__components_vendors_VendorCreate_vue__ = __webpack_require__(173);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_28__components_vendors_VendorCreate_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_28__components_vendors_VendorCreate_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_29__components_vendors_VendorList_vue__ = __webpack_require__(206);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_29__components_vendors_VendorList_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_29__components_vendors_VendorList_vue__);
 
 
 
@@ -45776,11 +45778,12 @@ if (false) {
 // Vendors
 
 
+
 __WEBPACK_IMPORTED_MODULE_0_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_1_vue_router__["a" /* default */]);
 
 /* harmony default export */ __webpack_exports__["a"] = (new __WEBPACK_IMPORTED_MODULE_1_vue_router__["a" /* default */]({
 
-		routes: [{ path: '/roles/create', name: 'RoleCreate', component: __WEBPACK_IMPORTED_MODULE_3__components_roles_RoleCreate_vue___default.a }, { path: '/roles', name: 'RoleList', component: __WEBPACK_IMPORTED_MODULE_4__components_roles_RoleList_vue___default.a }, { path: '/roles/detail/:id', name: 'RoleDetail', component: __WEBPACK_IMPORTED_MODULE_5__components_roles_RoleDetail_vue___default.a }, { path: '/roles/edit/:id', name: 'RoleEdit', component: __WEBPACK_IMPORTED_MODULE_6__components_roles_RoleEdit_vue___default.a }, { path: '/users/create', name: 'UserCreate', component: __WEBPACK_IMPORTED_MODULE_7__components_users_UserCreate_vue___default.a }, { path: '/users/detail/:id', name: 'UserDetail', component: __WEBPACK_IMPORTED_MODULE_8__components_users_UserDetail_vue___default.a }, { path: '/users', name: 'UserList', component: __WEBPACK_IMPORTED_MODULE_9__components_users_UserList_vue___default.a }, { path: '/users/edit/:id', name: 'UserEdit', component: __WEBPACK_IMPORTED_MODULE_10__components_users_UserEdit_vue___default.a }, { path: '/products/create', name: 'ProductCreate', component: __WEBPACK_IMPORTED_MODULE_11__components_products_ProductCreate_vue___default.a }, { path: '/products/detail/:id', name: 'ProductDetail', component: __WEBPACK_IMPORTED_MODULE_12__components_products_ProductDetail_vue___default.a }, { path: '/products/edit/:id', name: 'ProductEdit', component: __WEBPACK_IMPORTED_MODULE_13__components_products_ProductEdit_vue___default.a }, { path: '/products', name: 'ProductList', component: __WEBPACK_IMPORTED_MODULE_14__components_products_ProductList_vue___default.a }, { path: '/categories', name: 'Category', component: __WEBPACK_IMPORTED_MODULE_15__components_categories_Category_vue___default.a }, { path: '/categories/detail/:id', name: 'CategoryDetail', component: __WEBPACK_IMPORTED_MODULE_16__components_categories_CategoryDetail_vue___default.a }, { path: '/categories/list', name: 'CategoryList', component: __WEBPACK_IMPORTED_MODULE_17__components_categories_CategoryList_vue___default.a }, { path: '/categories/edit/:id', name: 'CategoryEdit', component: __WEBPACK_IMPORTED_MODULE_18__components_categories_CategoryEdit_vue___default.a }, { path: '/productcollections', name: 'ProductCollection', component: __WEBPACK_IMPORTED_MODULE_19__components_products_ProductCollection_vue___default.a }, { path: '/productcollections/:id', name: 'ProductCollectionDetail', component: __WEBPACK_IMPORTED_MODULE_20__components_products_ProductCollectionDetail_vue___default.a }, { path: '/collections', name: 'CollectionAdd', component: __WEBPACK_IMPORTED_MODULE_21__components_products_CollectionAdd_vue___default.a }, { path: '/collections/:id', name: 'CollectionEdit', component: __WEBPACK_IMPORTED_MODULE_22__components_products_CollectionEdit_vue___default.a }, { path: '/settings', name: 'Settings', component: __WEBPACK_IMPORTED_MODULE_23__components_settings_Setting_vue___default.a }, { path: '/slideshows', name: 'Slideshow', component: __WEBPACK_IMPORTED_MODULE_24__components_settings_Slideshow_vue___default.a }, { path: '/tutorials', name: 'Tutorial', component: __WEBPACK_IMPORTED_MODULE_25__components_settings_Tutorial_vue___default.a }, { path: '/navigations', name: 'Navigation', component: __WEBPACK_IMPORTED_MODULE_26__components_settings_Navigation_vue___default.a }, { path: '/navigations/:id', name: 'NavigationEdit', component: __WEBPACK_IMPORTED_MODULE_27__components_settings_NavigationEdit_vue___default.a }, { path: '/vendors/create', name: 'VendorCreate', component: __WEBPACK_IMPORTED_MODULE_28__components_vendors_VendorCreate_vue___default.a }],
+		routes: [{ path: '/roles/create', name: 'RoleCreate', component: __WEBPACK_IMPORTED_MODULE_3__components_roles_RoleCreate_vue___default.a }, { path: '/roles', name: 'RoleList', component: __WEBPACK_IMPORTED_MODULE_4__components_roles_RoleList_vue___default.a }, { path: '/roles/detail/:id', name: 'RoleDetail', component: __WEBPACK_IMPORTED_MODULE_5__components_roles_RoleDetail_vue___default.a }, { path: '/roles/edit/:id', name: 'RoleEdit', component: __WEBPACK_IMPORTED_MODULE_6__components_roles_RoleEdit_vue___default.a }, { path: '/users/create', name: 'UserCreate', component: __WEBPACK_IMPORTED_MODULE_7__components_users_UserCreate_vue___default.a }, { path: '/users/detail/:id', name: 'UserDetail', component: __WEBPACK_IMPORTED_MODULE_8__components_users_UserDetail_vue___default.a }, { path: '/users', name: 'UserList', component: __WEBPACK_IMPORTED_MODULE_9__components_users_UserList_vue___default.a }, { path: '/users/edit/:id', name: 'UserEdit', component: __WEBPACK_IMPORTED_MODULE_10__components_users_UserEdit_vue___default.a }, { path: '/products/create', name: 'ProductCreate', component: __WEBPACK_IMPORTED_MODULE_11__components_products_ProductCreate_vue___default.a }, { path: '/products/detail/:id', name: 'ProductDetail', component: __WEBPACK_IMPORTED_MODULE_12__components_products_ProductDetail_vue___default.a }, { path: '/products/edit/:id', name: 'ProductEdit', component: __WEBPACK_IMPORTED_MODULE_13__components_products_ProductEdit_vue___default.a }, { path: '/products', name: 'ProductList', component: __WEBPACK_IMPORTED_MODULE_14__components_products_ProductList_vue___default.a }, { path: '/categories', name: 'Category', component: __WEBPACK_IMPORTED_MODULE_15__components_categories_Category_vue___default.a }, { path: '/categories/detail/:id', name: 'CategoryDetail', component: __WEBPACK_IMPORTED_MODULE_16__components_categories_CategoryDetail_vue___default.a }, { path: '/categories/list', name: 'CategoryList', component: __WEBPACK_IMPORTED_MODULE_17__components_categories_CategoryList_vue___default.a }, { path: '/categories/edit/:id', name: 'CategoryEdit', component: __WEBPACK_IMPORTED_MODULE_18__components_categories_CategoryEdit_vue___default.a }, { path: '/productcollections', name: 'ProductCollection', component: __WEBPACK_IMPORTED_MODULE_19__components_products_ProductCollection_vue___default.a }, { path: '/productcollections/:id', name: 'ProductCollectionDetail', component: __WEBPACK_IMPORTED_MODULE_20__components_products_ProductCollectionDetail_vue___default.a }, { path: '/collections', name: 'CollectionAdd', component: __WEBPACK_IMPORTED_MODULE_21__components_products_CollectionAdd_vue___default.a }, { path: '/collections/:id', name: 'CollectionEdit', component: __WEBPACK_IMPORTED_MODULE_22__components_products_CollectionEdit_vue___default.a }, { path: '/settings', name: 'Settings', component: __WEBPACK_IMPORTED_MODULE_23__components_settings_Setting_vue___default.a }, { path: '/slideshows', name: 'Slideshow', component: __WEBPACK_IMPORTED_MODULE_24__components_settings_Slideshow_vue___default.a }, { path: '/tutorials', name: 'Tutorial', component: __WEBPACK_IMPORTED_MODULE_25__components_settings_Tutorial_vue___default.a }, { path: '/navigations', name: 'Navigation', component: __WEBPACK_IMPORTED_MODULE_26__components_settings_Navigation_vue___default.a }, { path: '/navigations/:id', name: 'NavigationEdit', component: __WEBPACK_IMPORTED_MODULE_27__components_settings_NavigationEdit_vue___default.a }, { path: '/vendors/create', name: 'VendorCreate', component: __WEBPACK_IMPORTED_MODULE_28__components_vendors_VendorCreate_vue___default.a }, { path: '/vendors', name: 'VendorList', component: __WEBPACK_IMPORTED_MODULE_29__components_vendors_VendorList_vue___default.a }],
 		mode: 'history'
 }));
 
@@ -89925,6 +89928,242 @@ var index_esm = {
 
 /* harmony default export */ __webpack_exports__["a"] = (index_esm);
 
+
+/***/ }),
+/* 206 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+var normalizeComponent = __webpack_require__(0)
+/* script */
+var __vue_script__ = __webpack_require__(207)
+/* template */
+var __vue_template__ = __webpack_require__(208)
+/* styles */
+var __vue_styles__ = null
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources\\assets\\js\\components\\vendors\\VendorList.vue"
+if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key.substr(0, 2) !== "__"})) {console.error("named exports are not supported in *.vue files.")}
+if (Component.options.functional) {console.error("[vue-loader] VendorList.vue: functional components are not supported with templates, they should use render functions.")}
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-2ee6b04f", Component.options)
+  } else {
+    hotAPI.reload("data-v-2ee6b04f", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 207 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Common__ = __webpack_require__(1);
+
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+	name: 'VendorList',
+
+	data: function data() {
+		return {
+			vendors: []
+		};
+	},
+	mounted: function mounted() {
+		document.title = 'List Vendor';
+		this.getVendors();
+	},
+
+
+	methods: {
+		getVendors: function getVendors() {
+			var vm = this;
+			var url = baseUrl + 'vendors';
+
+			axios.get(url).then(function (response) {
+				vm.vendors = response.data.data;
+				console.log(vm.vendors);
+			}).catch(function (errors) {
+				console.log(errors);
+			});
+		},
+		removeVendor: function removeVendor(vendorId, key) {
+			var url = baseUrl + 'vendors/' + vendorId;
+			var vm = this;
+
+			var confirmDelete = confirm('Do you want delete this vendor?');
+			if (confirmDelete) {
+				axios.delete(url).then(function (response) {
+					var result = response.data;
+					__WEBPACK_IMPORTED_MODULE_0__Common__["a" /* default */].setToast(result.message, result.status);
+					if (result.status == __WEBPACK_IMPORTED_MODULE_0__Common__["a" /* default */].statusCode._CREATED) {
+						vm.vendors.splice(key, 1);
+					}
+				}).catch(function (errors) {
+					console.log(errors);
+				});
+			}
+		}
+	} // End class
+
+	// End class
+
+});
+
+/***/ }),
+/* 208 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "panel panel-default" }, [
+    _vm._m(0),
+    _vm._v(" "),
+    _c("div", { staticClass: "panel-body" }, [
+      _c("table", { staticClass: "table table-hover" }, [
+        _vm._m(1),
+        _vm._v(" "),
+        _c(
+          "tbody",
+          _vm._l(_vm.vendors, function(vendor, key) {
+            return _c("tr", [
+              _c("td", [_vm._v(_vm._s(vendor.vendor_id))]),
+              _vm._v(" "),
+              _c("td", [
+                _c("img", {
+                  staticClass: "img-responsive",
+                  attrs: { src: vendor.vendor_images }
+                })
+              ]),
+              _vm._v(" "),
+              _c("td", [
+                _vm._v(
+                  "\n\t\t\t\t\t\t" +
+                    _vm._s(vendor.vendor_name) +
+                    "\n\t\t\t\t\t\t"
+                ),
+                _c("p", [
+                  _c("strong", [
+                    _vm._v("(" + _vm._s(vendor.vendor_shortname) + ")")
+                  ])
+                ])
+              ]),
+              _vm._v(" "),
+              _c("td", [_vm._v(_vm._s(vendor.vendor_email))]),
+              _vm._v(" "),
+              _c("td", [_vm._v(_vm._s(vendor.vendor_skype))]),
+              _vm._v(" "),
+              _c("td", [_vm._v(_vm._s(vendor.vendor_phone))]),
+              _vm._v(" "),
+              _c("td", [_vm._v(_vm._s(vendor.vendor_address))]),
+              _vm._v(" "),
+              _c(
+                "td",
+                [
+                  _c(
+                    "router-link",
+                    {
+                      staticClass: "btn btn-default",
+                      attrs: {
+                        to: {
+                          name: "EditVendor",
+                          params: { id: vendor.vendor_id }
+                        }
+                      }
+                    },
+                    [_vm._v("Edit")]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "button",
+                    {
+                      staticClass: "btn btn-danger",
+                      attrs: { type: "button" },
+                      on: {
+                        click: function($event) {
+                          _vm.removeVendor(vendor.vendor_id, key)
+                        }
+                      }
+                    },
+                    [_vm._v("Delete")]
+                  )
+                ],
+                1
+              )
+            ])
+          })
+        )
+      ])
+    ])
+  ])
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "panel-heading" }, [
+      _c("h3", { staticClass: "panel-title" }, [_vm._v("List Vendor")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("thead", [
+      _c("tr", [
+        _c("th", [_vm._v("#VendorID")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Logo branch")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Vendor name")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Email")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Skype")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Phone")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Address")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Action")])
+      ])
+    ])
+  }
+]
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+     require("vue-hot-reload-api").rerender("data-v-2ee6b04f", module.exports)
+  }
+}
 
 /***/ })
 /******/ ]);

@@ -41,6 +41,7 @@ import NavigationEdit from '../components/settings/NavigationEdit.vue';
 
 // Vendors
 import VendorCreate from '../components/vendors/VendorCreate.vue';
+import VendorList from '../components/vendors/VendorList.vue';
 
 Vue.use(VueRouter);
 
@@ -81,6 +82,7 @@ export default new VueRouter({
 		{ path: '/navigations/:id', name: 'NavigationEdit', component: NavigationEdit },
 
 		{ path: '/vendors/create', name: 'VendorCreate', component: VendorCreate },
+		{ path: '/vendors', name: 'VendorList', component: VendorList },
 	],
 	mode: 'history'
 })

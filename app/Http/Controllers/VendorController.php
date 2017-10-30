@@ -9,7 +9,7 @@ use App\Api;
 
 class VendorController extends Controller
 {
-	private static $path = 'vendors';
+	private static $path = 'asset_vendors';
 
 	/**
 	 * Display a listing of the resource.
@@ -108,7 +108,14 @@ class VendorController extends Controller
 	 */
 	public function destroy($id)
 	{
-		//
+		try {
+			$vendor = Vendor::findOrFail($id)->delete();
+			$res = Api::resourceApi(Api::$_CREATED, 'Delete vendor has been success');	
+		} catch (\Exception $e) {
+			$res = Api::resourceApi($e->getCode(), $e->getMessage());
+		}
+		
+		return response()->json($res, Api::$_OK);
 	}
 
 }

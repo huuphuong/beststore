@@ -53,7 +53,7 @@
                                 class="menu-arrow"></span></a>
                         <ul class="nav-second-level nav">
                             <router-link tag="li" :to="{ name: 'VendorCreate' }"><a>Create Vendor</a></router-link>
-                            <router-link tag="li" :to="{ name: 'ProductList' }"><a>List Vendor</a></router-link>
+                            <router-link tag="li" :to="{ name: 'VendorList' }"><a>List Vendor</a></router-link>
                         </ul>
                     </li>
 
