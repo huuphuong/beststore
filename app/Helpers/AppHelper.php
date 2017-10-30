@@ -114,4 +114,18 @@ class AppHelper
     {
         return json_decode(json_encode($data), true);
     }
+
+
+    public static function base64ImgToFile($assetPath, $requestFile) {
+        if (!empty ($requestFile))
+        {
+            $imageName = uniqid() . '.jpg';
+            $path = public_path() . '/'. $assetPath. '/' . $imageName;
+            $saveFile = file_put_contents($path, base64_decode(preg_replace('#^data:image/\w+;base64,#i', '', $requestFile)));
+
+            return asset($assetPath . '/' . $imageName);
+        }
+        
+        return null;
+    }
 } // End class

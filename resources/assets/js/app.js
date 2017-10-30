@@ -9,6 +9,7 @@ require('./bootstrap');
 
 
 import Vue from 'vue'
+import Vuex from 'vuex'
 import App from './components/App.vue'
 
 import router from './routes'
@@ -22,6 +23,7 @@ import VModal from 'vue-js-modal'
 Vue.use(VueClipboard)
 Vue.use(vueTopprogress)
 Vue.use(VModal, {dialog: true})
+Vue.use(Vuex)
 
 
 // Add locale helper.

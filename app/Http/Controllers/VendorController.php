@@ -4,10 +4,13 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Vendor;
+use App\Helpers\AppHelper;
 use App\Api;
 
 class VendorController extends Controller
 {
+	private static $path = 'vendors';
+
 	/**
 	 * Display a listing of the resource.
 	 *
@@ -44,7 +47,23 @@ class VendorController extends Controller
 	 */
 	public function store(Request $request)
 	{
-		//
+		try {
+			$vendor = new Vendor();
+			$vendor->vendor_name		= $request->vendor_name;
+			$vendor->vendor_shortname	= $request->vendor_shortname;
+			$vendor->vendor_email		= $request->vendor_email;
+			$vendor->vendor_skype		= $request->vendor_skype;
+			$vendor->vendor_phone		= $request->vendor_phone;
+			$vendor->vendor_address		= $request->vendor_address;
+			$image						= AppHelper::base64ImgToFile(self::$path, $request->vendor_images);
+			$vendor->vendor_images		= $image;
+			$vendor->save();
+
+			$res = Api::resourceApi(Api::$_CREATED, 'Create vendor has been success');
+		} catch (\Exception $e) {
+			$res = Api::resourceApi($e->getCode(), $e->getMessage());
+		}
+		return response()->json($res, Api::$_OK);
 	}
 
 	/**
