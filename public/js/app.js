@@ -69700,8 +69700,20 @@ if (false) {(function () {
             vendor_1: '',
             text_1: '',
             vendor_2: '',
-            text_2: ''
+            text_2: '',
 
+            // Bottom Content
+            top_offer_content_1: '',
+            top_offer_content_2: '',
+            top_offer_content_3: '',
+            bottom_offer_content_1: '',
+            bottom_offer_content_2: '',
+            bottom_offer_content_3: '',
+            special_product_1: '',
+            special_product_2: '',
+            special_product_3: '',
+
+            listSpecialProducts: []
         };
     },
     created: function created() {
@@ -69712,6 +69724,7 @@ if (false) {(function () {
         vm.getSetting();
         vm.getCollections();
         vm.getVendors();
+        vm.getProducts();
     },
 
 
@@ -69768,7 +69781,20 @@ if (false) {(function () {
                 vendor_1: vm.vendor_1,
                 text_1: vm.text_1,
                 vendor_2: vm.vendor_2,
-                text_2: vm.text_2
+                text_2: vm.text_2,
+
+                // Bottom Setting
+                top_offer_content_1: vm.top_offer_content_1,
+                top_offer_content_2: vm.top_offer_content_2,
+                top_offer_content_3: vm.top_offer_content_3,
+
+                bottom_offer_content_1: vm.bottom_offer_content_1,
+                bottom_offer_content_2: vm.bottom_offer_content_2,
+                bottom_offer_content_3: vm.bottom_offer_content_3,
+
+                special_product_1: vm.special_product_1,
+                special_product_2: vm.special_product_2,
+                special_product_3: vm.special_product_3
             }).then(function (response) {
                 var result = response.data;
                 __WEBPACK_IMPORTED_MODULE_0__Common__["a" /* default */].setToast(result.message, result.status);
@@ -69831,6 +69857,8 @@ if (false) {(function () {
                         vm.social_url.push(item['social_url']);
                         vm.social_order.push(item['social_order']);
                     }
+
+                    // Bottom offer
                 } catch (err) {
                     _didIteratorError = true;
                     _iteratorError = err;
@@ -69845,6 +69873,13 @@ if (false) {(function () {
                         }
                     }
                 }
+
+                vm.top_offer_content_1 = result.top_offer_content_1;
+                vm.top_offer_content_2 = result.top_offer_content_2;
+                vm.top_offer_content_3 = result.top_offer_content_3;
+                vm.bottom_offer_content_1 = result.bottom_offer_content_1;
+                vm.bottom_offer_content_2 = result.bottom_offer_content_2;
+                vm.bottom_offer_content_3 = result.bottom_offer_content_3;
             }).catch(function (errors) {
                 console.log(errors);
             });
@@ -69881,6 +69916,15 @@ if (false) {(function () {
             var url = baseUrl + 'vendors';
             axios.get(url).then(function (response) {
                 vm.listVendors = response.data.data;
+            }).catch(function (errors) {
+                console.log(errors);
+            });
+        },
+        getProducts: function getProducts() {
+            var vm = this;
+            var url = baseUrl + 'products/names';
+            axios.get(url).then(function (response) {
+                vm.listSpecialProducts = response.data.data;
             }).catch(function (errors) {
                 console.log(errors);
             });
@@ -71152,7 +71196,402 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
       expression: "errors.has('arr_collection_2')"
     }],
     staticClass: "label label-danger"
-  }, [_vm._v(_vm._s(_vm.errors.first('arr_collection_2')))])])])]), _vm._v(" "), _vm._m(5)])])])
+  }, [_vm._v(_vm._s(_vm.errors.first('arr_collection_2')))])])]), _vm._v(" "), _c('div', {
+    staticClass: "row m-t-20"
+  }, [_vm._m(5), _vm._v(" "), _c('div', {
+    staticClass: "form-group"
+  }, [_c('label', {
+    attrs: {
+      "for": "title"
+    }
+  }, [_vm._v("Top offer content 1:")]), _vm._v(" "), _c('input', {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: (_vm.top_offer_content_1),
+      expression: "top_offer_content_1"
+    }, {
+      name: "validate",
+      rawName: "v-validate",
+      value: ('required'),
+      expression: "'required'"
+    }],
+    staticClass: "form-control",
+    attrs: {
+      "type": "text",
+      "name": "top_offer_content_1"
+    },
+    domProps: {
+      "value": (_vm.top_offer_content_1)
+    },
+    on: {
+      "input": function($event) {
+        if ($event.target.composing) { return; }
+        _vm.top_offer_content_1 = $event.target.value
+      }
+    }
+  }), _vm._v(" "), _c('span', {
+    directives: [{
+      name: "show",
+      rawName: "v-show",
+      value: (_vm.errors.has('top_offer_content_1')),
+      expression: "errors.has('top_offer_content_1')"
+    }],
+    staticClass: "label label-danger"
+  }, [_vm._v(_vm._s(_vm.errors.first('top_offer_content_1')))])]), _vm._v(" "), _c('div', {
+    staticClass: "form-group"
+  }, [_c('label', {
+    attrs: {
+      "for": "title"
+    }
+  }, [_vm._v("Top offer content 2:")]), _vm._v(" "), _c('input', {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: (_vm.top_offer_content_2),
+      expression: "top_offer_content_2"
+    }, {
+      name: "validate",
+      rawName: "v-validate",
+      value: ('required'),
+      expression: "'required'"
+    }],
+    staticClass: "form-control",
+    attrs: {
+      "type": "text",
+      "name": "top_offer_content_2"
+    },
+    domProps: {
+      "value": (_vm.top_offer_content_2)
+    },
+    on: {
+      "input": function($event) {
+        if ($event.target.composing) { return; }
+        _vm.top_offer_content_2 = $event.target.value
+      }
+    }
+  }), _vm._v(" "), _c('span', {
+    directives: [{
+      name: "show",
+      rawName: "v-show",
+      value: (_vm.errors.has('top_offer_content_2')),
+      expression: "errors.has('top_offer_content_2')"
+    }],
+    staticClass: "label label-danger"
+  }, [_vm._v(_vm._s(_vm.errors.first('top_offer_content_2')))])]), _vm._v(" "), _c('div', {
+    staticClass: "form-group"
+  }, [_c('label', {
+    attrs: {
+      "for": "title"
+    }
+  }, [_vm._v("Top offer content 3:")]), _vm._v(" "), _c('input', {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: (_vm.top_offer_content_3),
+      expression: "top_offer_content_3"
+    }, {
+      name: "validate",
+      rawName: "v-validate",
+      value: ('required'),
+      expression: "'required'"
+    }],
+    staticClass: "form-control",
+    attrs: {
+      "type": "text",
+      "name": "top_offer_content_3"
+    },
+    domProps: {
+      "value": (_vm.top_offer_content_3)
+    },
+    on: {
+      "input": function($event) {
+        if ($event.target.composing) { return; }
+        _vm.top_offer_content_3 = $event.target.value
+      }
+    }
+  }), _vm._v(" "), _c('span', {
+    directives: [{
+      name: "show",
+      rawName: "v-show",
+      value: (_vm.errors.has('top_offer_content_3')),
+      expression: "errors.has('top_offer_content_3')"
+    }],
+    staticClass: "label label-danger"
+  }, [_vm._v(_vm._s(_vm.errors.first('top_offer_content_3')))])]), _vm._v(" "), _c('div', {
+    staticClass: "form-group"
+  }, [_c('label', {
+    attrs: {
+      "for": "title"
+    }
+  }, [_vm._v("Bottom offer content 1:")]), _vm._v(" "), _c('input', {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: (_vm.bottom_offer_content_1),
+      expression: "bottom_offer_content_1"
+    }, {
+      name: "validate",
+      rawName: "v-validate",
+      value: ('required'),
+      expression: "'required'"
+    }],
+    staticClass: "form-control",
+    attrs: {
+      "type": "text",
+      "name": "bottom_offer_content_1"
+    },
+    domProps: {
+      "value": (_vm.bottom_offer_content_1)
+    },
+    on: {
+      "input": function($event) {
+        if ($event.target.composing) { return; }
+        _vm.bottom_offer_content_1 = $event.target.value
+      }
+    }
+  }), _vm._v(" "), _c('span', {
+    directives: [{
+      name: "show",
+      rawName: "v-show",
+      value: (_vm.errors.has('bottom_offer_content_1')),
+      expression: "errors.has('bottom_offer_content_1')"
+    }],
+    staticClass: "label label-danger"
+  }, [_vm._v(_vm._s(_vm.errors.first('bottom_offer_content_1')))])]), _vm._v(" "), _c('div', {
+    staticClass: "form-group"
+  }, [_c('label', {
+    attrs: {
+      "for": "title"
+    }
+  }, [_vm._v("Bottom offer content 2:")]), _vm._v(" "), _c('input', {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: (_vm.bottom_offer_content_2),
+      expression: "bottom_offer_content_2"
+    }, {
+      name: "validate",
+      rawName: "v-validate",
+      value: ('required'),
+      expression: "'required'"
+    }],
+    staticClass: "form-control",
+    attrs: {
+      "type": "text",
+      "name": "bottom_offer_content_2"
+    },
+    domProps: {
+      "value": (_vm.bottom_offer_content_2)
+    },
+    on: {
+      "input": function($event) {
+        if ($event.target.composing) { return; }
+        _vm.bottom_offer_content_2 = $event.target.value
+      }
+    }
+  }), _vm._v(" "), _c('span', {
+    directives: [{
+      name: "show",
+      rawName: "v-show",
+      value: (_vm.errors.has('bottom_offer_content_2')),
+      expression: "errors.has('bottom_offer_content_2')"
+    }],
+    staticClass: "label label-danger"
+  }, [_vm._v(_vm._s(_vm.errors.first('bottom_offer_content_2')))])]), _vm._v(" "), _c('div', {
+    staticClass: "form-group"
+  }, [_c('label', {
+    attrs: {
+      "for": "title"
+    }
+  }, [_vm._v("Bottom offer content 3:")]), _vm._v(" "), _c('input', {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: (_vm.bottom_offer_content_3),
+      expression: "bottom_offer_content_3"
+    }, {
+      name: "validate",
+      rawName: "v-validate",
+      value: ('required'),
+      expression: "'required'"
+    }],
+    staticClass: "form-control",
+    attrs: {
+      "type": "text",
+      "name": "bottom_offer_content_3"
+    },
+    domProps: {
+      "value": (_vm.bottom_offer_content_3)
+    },
+    on: {
+      "input": function($event) {
+        if ($event.target.composing) { return; }
+        _vm.bottom_offer_content_3 = $event.target.value
+      }
+    }
+  }), _vm._v(" "), _c('span', {
+    directives: [{
+      name: "show",
+      rawName: "v-show",
+      value: (_vm.errors.has('bottom_offer_content_3')),
+      expression: "errors.has('bottom_offer_content_3')"
+    }],
+    staticClass: "label label-danger"
+  }, [_vm._v(_vm._s(_vm.errors.first('bottom_offer_content_3')))])]), _vm._v(" "), _c('div', {
+    staticClass: "form-group"
+  }, [_c('label', {
+    attrs: {
+      "for": "Description"
+    }
+  }, [_vm._v("Special Product 1:")]), _vm._v(" "), _c('select', {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: (_vm.special_product_1),
+      expression: "special_product_1"
+    }, {
+      name: "validate",
+      rawName: "v-validate",
+      value: ('required'),
+      expression: "'required'"
+    }],
+    staticClass: "form-control",
+    attrs: {
+      "name": "special_product_1"
+    },
+    on: {
+      "change": function($event) {
+        var $$selectedVal = Array.prototype.filter.call($event.target.options, function(o) {
+          return o.selected
+        }).map(function(o) {
+          var val = "_value" in o ? o._value : o.value;
+          return val
+        });
+        _vm.special_product_1 = $event.target.multiple ? $$selectedVal : $$selectedVal[0]
+      }
+    }
+  }, [_c('option', {
+    attrs: {
+      "value": ""
+    }
+  }, [_vm._v(" -- Select -- ")]), _vm._v(" "), _vm._l((_vm.listSpecialProducts), function(product) {
+    return _c('option', {
+      domProps: {
+        "value": product.product_id
+      }
+    }, [_vm._v(_vm._s(product.product_name))])
+  })], 2), _vm._v(" "), _c('span', {
+    directives: [{
+      name: "show",
+      rawName: "v-show",
+      value: (_vm.errors.has('special_product_1')),
+      expression: "errors.has('special_product_1')"
+    }],
+    staticClass: "label label-danger"
+  }, [_vm._v(_vm._s(_vm.errors.first('special_product_1')))])]), _vm._v(" "), _c('div', {
+    staticClass: "form-group"
+  }, [_c('label', {
+    attrs: {
+      "for": "Description"
+    }
+  }, [_vm._v("Special Product 2:")]), _vm._v(" "), _c('select', {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: (_vm.special_product_2),
+      expression: "special_product_2"
+    }, {
+      name: "validate",
+      rawName: "v-validate",
+      value: ('required'),
+      expression: "'required'"
+    }],
+    staticClass: "form-control",
+    attrs: {
+      "name": "special_product_2"
+    },
+    on: {
+      "change": function($event) {
+        var $$selectedVal = Array.prototype.filter.call($event.target.options, function(o) {
+          return o.selected
+        }).map(function(o) {
+          var val = "_value" in o ? o._value : o.value;
+          return val
+        });
+        _vm.special_product_2 = $event.target.multiple ? $$selectedVal : $$selectedVal[0]
+      }
+    }
+  }, [_c('option', {
+    attrs: {
+      "value": ""
+    }
+  }, [_vm._v(" -- Select -- ")]), _vm._v(" "), _vm._l((_vm.listSpecialProducts), function(product) {
+    return _c('option', {
+      domProps: {
+        "value": product.product_id
+      }
+    }, [_vm._v(_vm._s(product.product_name))])
+  })], 2), _vm._v(" "), _c('span', {
+    directives: [{
+      name: "show",
+      rawName: "v-show",
+      value: (_vm.errors.has('special_product_2')),
+      expression: "errors.has('special_product_2')"
+    }],
+    staticClass: "label label-danger"
+  }, [_vm._v(_vm._s(_vm.errors.first('special_product_2')))])]), _vm._v(" "), _c('div', {
+    staticClass: "form-group"
+  }, [_c('label', {
+    attrs: {
+      "for": "Description"
+    }
+  }, [_vm._v("Special Product 3:")]), _vm._v(" "), _c('select', {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: (_vm.special_product_3),
+      expression: "special_product_3"
+    }, {
+      name: "validate",
+      rawName: "v-validate",
+      value: ('required'),
+      expression: "'required'"
+    }],
+    staticClass: "form-control",
+    attrs: {
+      "name": "special_product_3"
+    },
+    on: {
+      "change": function($event) {
+        var $$selectedVal = Array.prototype.filter.call($event.target.options, function(o) {
+          return o.selected
+        }).map(function(o) {
+          var val = "_value" in o ? o._value : o.value;
+          return val
+        });
+        _vm.special_product_3 = $event.target.multiple ? $$selectedVal : $$selectedVal[0]
+      }
+    }
+  }, [_c('option', {
+    attrs: {
+      "value": ""
+    }
+  }, [_vm._v(" -- Select -- ")]), _vm._v(" "), _vm._l((_vm.listSpecialProducts), function(product) {
+    return _c('option', {
+      domProps: {
+        "value": product.product_id
+      }
+    }, [_vm._v(_vm._s(product.product_name))])
+  })], 2), _vm._v(" "), _c('span', {
+    directives: [{
+      name: "show",
+      rawName: "v-show",
+      value: (_vm.errors.has('special_product_3')),
+      expression: "errors.has('special_product_3')"
+    }],
+    staticClass: "label label-danger"
+  }, [_vm._v(_vm._s(_vm.errors.first('special_product_3')))])])])]), _vm._v(" "), _vm._m(6)])])])
 }
 var staticRenderFns = [function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('div', {
@@ -71172,6 +71611,8 @@ var staticRenderFns = [function () {var _vm=this;var _h=_vm.$createElement;var _
   return _c('legend', [_c('h1', [_vm._v("Footer")])])
 },function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('legend', [_c('h1', [_vm._v("NEW ARRIVALS")])])
+},function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('legend', [_c('h1', [_vm._v("BOTTOM OFFER")])])
 },function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('div', {
     staticClass: "panel-footer"

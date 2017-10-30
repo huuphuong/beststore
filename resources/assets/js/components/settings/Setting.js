@@ -51,6 +51,18 @@ export default {
             vendor_2: '',
             text_2: '',
 
+            // Bottom Content
+            top_offer_content_1: '',
+            top_offer_content_2: '',
+            top_offer_content_3: '',
+            bottom_offer_content_1: '',
+            bottom_offer_content_2: '',
+            bottom_offer_content_3: '',
+            special_product_1: '',
+            special_product_2: '',
+            special_product_3: '',
+
+            listSpecialProducts: []
         }
     },
 
@@ -63,6 +75,7 @@ export default {
         vm.getSetting();
         vm.getCollections();
         vm.getVendors();
+        vm.getProducts();
     },
 
     methods: {
@@ -123,6 +136,19 @@ export default {
                 text_1: vm.text_1,
                 vendor_2: vm.vendor_2,
                 text_2: vm.text_2,
+
+                // Bottom Setting
+                top_offer_content_1: vm.top_offer_content_1,
+                top_offer_content_2: vm.top_offer_content_2,
+                top_offer_content_3: vm.top_offer_content_3,
+
+                bottom_offer_content_1: vm.bottom_offer_content_1,
+                bottom_offer_content_2: vm.bottom_offer_content_2,
+                bottom_offer_content_3: vm.bottom_offer_content_3,
+
+                special_product_1: vm.special_product_1,
+                special_product_2: vm.special_product_2,
+                special_product_3: vm.special_product_3,
             }).then(function (response) {
                 var result = response.data;
                 Common.setToast(result.message, result.status);
@@ -181,6 +207,14 @@ export default {
                     vm.social_url.push(item['social_url']);
                     vm.social_order.push(item['social_order']);
                 }
+
+                // Bottom offer
+                vm.top_offer_content_1 = result.top_offer_content_1;
+                vm.top_offer_content_2 = result.top_offer_content_2;
+                vm.top_offer_content_3 = result.top_offer_content_3;
+                vm.bottom_offer_content_1 = result.bottom_offer_content_1;
+                vm.bottom_offer_content_2 = result.bottom_offer_content_2;
+                vm.bottom_offer_content_3 = result.bottom_offer_content_3;
             }).catch(function (errors) {
                 console.log(errors);
             });
@@ -222,6 +256,16 @@ export default {
             var url = baseUrl + 'vendors';
             axios.get(url).then(function (response) {
                 vm.listVendors = response.data.data;
+            }).catch(function (errors) {
+                console.log(errors);
+            });
+        },
+
+        getProducts () {
+            var vm = this;
+            var url = baseUrl + 'products/names';
+            axios.get(url).then(function (response) {
+                vm.listSpecialProducts = response.data.data;
             }).catch(function (errors) {
                 console.log(errors);
             });

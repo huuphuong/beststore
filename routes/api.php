@@ -28,6 +28,7 @@ Route::group(['prefix' => 'v1'], function() {
 	Route::resource('roles', 'RoleController');
     Route::resource('users', 'UserController');
     Route::resource('vendors', 'VendorController');
+    Route::get('products/names', 'ProductController@onlyName');
     Route::resource('products', 'ProductController');
     Route::post('/products/upload', 'ProductController@upload');
     Route::resource('product-image', 'ProductImageController');

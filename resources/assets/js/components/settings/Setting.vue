@@ -305,6 +305,91 @@
                         </div>
                     </div>
                     <!-- /.row m-t-20 -->
+
+                    <!-- BOTTOM OFFER -->
+                    <div class="row m-t-20">
+                        <legend><h1>BOTTOM OFFER</h1></legend>
+                        <div class="form-group">
+                            <label for="title">Top offer content 1:</label>
+                            <input type="text" class="form-control" name="top_offer_content_1" v-model="top_offer_content_1"
+                                   v-validate="'required'">
+                            <span class="label label-danger"
+                                  v-show="errors.has('top_offer_content_1')">{{ errors.first('top_offer_content_1') }}</span>
+                            <!-- /#inputID.form-control -->
+                        </div>
+
+                        <div class="form-group">
+                            <label for="title">Top offer content 2:</label>
+                            <input type="text" class="form-control" name="top_offer_content_2" v-model="top_offer_content_2"
+                                   v-validate="'required'">
+                            <span class="label label-danger"
+                                  v-show="errors.has('top_offer_content_2')">{{ errors.first('top_offer_content_2') }}</span>
+                            <!-- /#inputID.form-control -->
+                        </div>
+
+                        <div class="form-group">
+                            <label for="title">Top offer content 3:</label>
+                            <input type="text" class="form-control" name="top_offer_content_3" v-model="top_offer_content_3"
+                                   v-validate="'required'">
+                            <span class="label label-danger"
+                                  v-show="errors.has('top_offer_content_3')">{{ errors.first('top_offer_content_3') }}</span>
+                            <!-- /#inputID.form-control -->
+                        </div>
+
+                        <div class="form-group">
+                            <label for="title">Bottom offer content 1:</label>
+                            <input type="text" class="form-control" name="bottom_offer_content_1" v-model="bottom_offer_content_1"
+                                   v-validate="'required'">
+                            <span class="label label-danger"
+                                  v-show="errors.has('bottom_offer_content_1')">{{ errors.first('bottom_offer_content_1') }}</span>
+                            <!-- /#inputID.form-control -->
+                        </div>
+
+                        <div class="form-group">
+                            <label for="title">Bottom offer content 2:</label>
+                            <input type="text" class="form-control" name="bottom_offer_content_2" v-model="bottom_offer_content_2"
+                                   v-validate="'required'">
+                            <span class="label label-danger"
+                                  v-show="errors.has('bottom_offer_content_2')">{{ errors.first('bottom_offer_content_2') }}</span>
+                            <!-- /#inputID.form-control -->
+                        </div>
+
+                        <div class="form-group">
+                            <label for="title">Bottom offer content 3:</label>
+                            <input type="text" class="form-control" name="bottom_offer_content_3" v-model="bottom_offer_content_3"
+                                   v-validate="'required'">
+                            <span class="label label-danger"
+                                  v-show="errors.has('bottom_offer_content_3')">{{ errors.first('bottom_offer_content_3') }}</span>
+                            <!-- /#inputID.form-control -->
+                        </div>
+
+                        <div class="form-group">
+                            <label for="Description">Special Product 1:</label>
+                            <select name="special_product_1" class="form-control" v-model="special_product_1" v-validate="'required'">
+                                <option value=""> -- Select -- </option>
+                                <option v-for="product in listSpecialProducts" v-bind:value="product.product_id">{{ product.product_name }}</option>
+                            </select>
+                            <span class="label label-danger" v-show="errors.has('special_product_1')">{{ errors.first('special_product_1') }}</span>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="Description">Special Product 2:</label>
+                            <select name="special_product_2" class="form-control" v-model="special_product_2" v-validate="'required'">
+                                <option value=""> -- Select -- </option>
+                                <option v-for="product in listSpecialProducts" v-bind:value="product.product_id">{{ product.product_name }}</option>
+                            </select>
+                            <span class="label label-danger" v-show="errors.has('special_product_2')">{{ errors.first('special_product_2') }}</span>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="Description">Special Product 3:</label>
+                            <select name="special_product_3" class="form-control" v-model="special_product_3" v-validate="'required'">
+                                <option value=""> -- Select -- </option>
+                                <option v-for="product in listSpecialProducts" v-bind:value="product.product_id">{{ product.product_name }}</option>
+                            </select>
+                            <span class="label label-danger" v-show="errors.has('special_product_3')">{{ errors.first('special_product_3') }}</span>
+                        </div>
+                    </div><!-- /.row m-t-20 -->
                 </div>
 
 

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers; 
+namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Product;
@@ -117,7 +117,7 @@ class ProductController extends Controller
                                           ->where('product_id', $id)
                                           ->get()
                                           ->toArray();
-            $product_response['image_list'] = $product_images;                             
+            $product_response['image_list'] = $product_images;
             $res = Api::resourceApi(Api::$_OK, $product_response);
         }catch (\Exception $e) {
 
@@ -144,7 +144,7 @@ class ProductController extends Controller
                 $res['product'] = Api::resourceApi(Api::$_OK, $product);
                 $res['product']['data']['size'] = explode(', ', $product->size);
                 $res['product']['data']['color'] = explode(',', $product->color);
-               
+
                 $res['images'] = ProductImage::where('product_id', $id)
                                              ->select('image_id', 'storage')
                                              ->get()
@@ -245,5 +245,15 @@ class ProductController extends Controller
     public function upload(Request $request)
     {
         return response()->json(true, Api::$_OK);
+    }
+
+
+    public function onlyName()
+    {
+        $products = Product::select('product_id', 'product_name')
+                           ->get()
+                           ->toArray();
+        $res = Api::resourceApi(Api::$_OK, $products);
+        return response()->json($res, Api::$_OK);
     }
 } // End class

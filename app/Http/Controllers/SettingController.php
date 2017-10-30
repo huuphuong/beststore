@@ -72,6 +72,17 @@ class SettingController extends Controller
 			$setting->text_1           = $request->text_1;
 			$setting->vendor_2         = $request->vendor_2;
 			$setting->text_2           = $request->text_2;
+
+			// Bottom offer
+			$setting->top_offer_content_1 = $request->top_offer_content_1;
+			$setting->top_offer_content_2 = $request->top_offer_content_2;
+			$setting->top_offer_content_3 = $request->top_offer_content_3;
+			$setting->bottom_offer_content_1 = $request->bottom_offer_content_1;
+			$setting->bottom_offer_content_2 = $request->bottom_offer_content_2;
+			$setting->bottom_offer_content_3 = $request->bottom_offer_content_3;
+			$setting->special_product_1 = $request->special_product_1;
+			$setting->special_product_2 = $request->special_product_2;
+			$setting->special_product_3 = $request->special_product_3;
 			$setting->save();
 
 			if (Cache::has('settings')) {
