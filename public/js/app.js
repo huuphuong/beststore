@@ -90041,83 +90041,104 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "panel panel-default" }, [
-    _vm._m(0),
-    _vm._v(" "),
-    _c("div", { staticClass: "panel-body" }, [
-      _c("table", { staticClass: "table table-hover" }, [
-        _vm._m(1),
-        _vm._v(" "),
+  return _c("div", { attrs: { id: "root" } }, [
+    _c(
+      "div",
+      { staticClass: "btn-group" },
+      [
         _c(
-          "tbody",
-          _vm._l(_vm.vendors, function(vendor, key) {
-            return _c("tr", [
-              _c("td", [_vm._v(_vm._s(vendor.vendor_id))]),
-              _vm._v(" "),
-              _c("td", [
-                _c("img", {
-                  staticClass: "img-responsive",
-                  attrs: { src: vendor.vendor_images }
-                })
-              ]),
-              _vm._v(" "),
-              _c("td", [
-                _vm._v(
-                  "\n\t\t\t\t\t\t" +
-                    _vm._s(vendor.vendor_name) +
-                    "\n\t\t\t\t\t\t"
-                ),
-                _c("p", [
-                  _c("strong", [
-                    _vm._v("(" + _vm._s(vendor.vendor_shortname) + ")")
-                  ])
-                ])
-              ]),
-              _vm._v(" "),
-              _c("td", [_vm._v(_vm._s(vendor.vendor_email))]),
-              _vm._v(" "),
-              _c("td", [_vm._v(_vm._s(vendor.vendor_skype))]),
-              _vm._v(" "),
-              _c("td", [_vm._v(_vm._s(vendor.vendor_phone))]),
-              _vm._v(" "),
-              _c("td", [_vm._v(_vm._s(vendor.vendor_address))]),
-              _vm._v(" "),
-              _c(
-                "td",
-                [
-                  _c(
-                    "router-link",
-                    {
-                      staticClass: "btn btn-default",
-                      attrs: {
-                        to: {
-                          name: "EditVendor",
-                          params: { id: vendor.vendor_id }
-                        }
-                      }
-                    },
-                    [_vm._v("Edit")]
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "button",
-                    {
-                      staticClass: "btn btn-danger",
-                      attrs: { type: "button" },
-                      on: {
-                        click: function($event) {
-                          _vm.removeVendor(vendor.vendor_id, key)
-                        }
-                      }
-                    },
-                    [_vm._v("Delete")]
-                  )
-                ],
-                1
-              )
-            ])
-          })
+          "router-link",
+          {
+            staticClass: "btn btn-default",
+            attrs: { to: { name: "VendorCreate" } }
+          },
+          [
+            _c("span", { staticClass: "glyphicon glyphicon-plus" }),
+            _vm._v(" Create Vendor\n\t\t")
+          ]
         )
+      ],
+      1
+    ),
+    _vm._v(" "),
+    _c("div", { staticClass: "panel panel-default m-t-20" }, [
+      _vm._m(0),
+      _vm._v(" "),
+      _c("div", { staticClass: "panel-body" }, [
+        _c("table", { staticClass: "table table-hover" }, [
+          _vm._m(1),
+          _vm._v(" "),
+          _c(
+            "tbody",
+            _vm._l(_vm.vendors, function(vendor, key) {
+              return _c("tr", [
+                _c("td", [_vm._v(_vm._s(vendor.vendor_id))]),
+                _vm._v(" "),
+                _c("td", [
+                  _c("img", {
+                    staticClass: "img-responsive",
+                    attrs: { src: vendor.vendor_images }
+                  })
+                ]),
+                _vm._v(" "),
+                _c("td", [
+                  _vm._v(
+                    "\n\t\t\t\t\t\t\t" +
+                      _vm._s(vendor.vendor_name) +
+                      "\n\t\t\t\t\t\t\t"
+                  ),
+                  _c("p", [
+                    _c("strong", [
+                      _vm._v("(" + _vm._s(vendor.vendor_shortname) + ")")
+                    ])
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("td", [_vm._v(_vm._s(vendor.vendor_email))]),
+                _vm._v(" "),
+                _c("td", [_vm._v(_vm._s(vendor.vendor_skype))]),
+                _vm._v(" "),
+                _c("td", [_vm._v(_vm._s(vendor.vendor_phone))]),
+                _vm._v(" "),
+                _c("td", [_vm._v(_vm._s(vendor.vendor_address))]),
+                _vm._v(" "),
+                _c(
+                  "td",
+                  [
+                    _c(
+                      "router-link",
+                      {
+                        staticClass: "btn btn-default",
+                        attrs: {
+                          to: {
+                            name: "EditVendor",
+                            params: { id: vendor.vendor_id }
+                          }
+                        }
+                      },
+                      [_vm._v("Edit")]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "button",
+                      {
+                        staticClass: "btn btn-danger",
+                        attrs: { type: "button" },
+                        on: {
+                          click: function($event) {
+                            _vm.removeVendor(vendor.vendor_id, key)
+                          }
+                        }
+                      },
+                      [_vm._v("Delete")]
+                    )
+                  ],
+                  1
+                )
+              ])
+            })
+          )
+        ])
       ])
     ])
   ])
