@@ -69880,6 +69880,10 @@ if (false) {(function () {
                 vm.bottom_offer_content_1 = result.bottom_offer_content_1;
                 vm.bottom_offer_content_2 = result.bottom_offer_content_2;
                 vm.bottom_offer_content_3 = result.bottom_offer_content_3;
+
+                vm.special_product_1 = result.special_product_1;
+                vm.special_product_2 = result.special_product_2;
+                vm.special_product_3 = result.special_product_3;
             }).catch(function (errors) {
                 console.log(errors);
             });

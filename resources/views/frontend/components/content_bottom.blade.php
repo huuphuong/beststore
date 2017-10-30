@@ -1,3 +1,8 @@
+@inject('setting', 'App\Models\Setting')
+@php
+	$settings = $setting->getSetting();
+@endphp
+
 <div class="content-bottom">
 	<div class="col-md-7 content-lgrid">
 		<div class="col-sm-6 content-img-left text-center">
@@ -15,11 +20,17 @@
 			</div>
 		</div>
 		<div class="col-sm-6 content-img-right">
-			<h3>Special Offers and 50%<span>Discount On</span> Mobiles</h3>
+			<h3>{{ $settings['top_offer_content_1'] }}
+				<span>{{ $settings['top_offer_content_2'] }}</span>
+				{{ $settings['top_offer_content_3'] }}
+			</h3>
 		</div>
 
 		<div class="col-sm-6 content-img-right">
-			<h3>Buy 1 get 1  free on <span> Branded</span> Watches</h3>
+			<h3>{{ $settings['bottom_offer_content_1'] }}
+				<span>{{ $settings['bottom_offer_content_2'] }}</span>
+				{{ $settings['bottom_offer_content_3'] }}
+			</h3>
 		</div>
 		<div class="col-sm-6 content-img-left text-center">
 			<div class="content-grid-effect slow-zoom vertical">
