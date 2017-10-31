@@ -4,11 +4,13 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Setting;
+use App\Helpers\AppHelper;
 use App\Api;
 use Cache;
 
 class SettingController extends Controller
 {
+	private static $path = 'thumbnail';
 
 	public function index(Request $request)
 	{
@@ -24,7 +26,8 @@ class SettingController extends Controller
 			$truncate = Setting::truncate();
 
 			$setting = new Setting();
-			$setting->logo       = !empty($request->logo) ? $request->logo : Cache::get('settings')->logo;
+			$image				 = AppHelper::base64ImgToFile(self::$path, $request->logo);
+			$setting->logo       = !empty($image) ? $image : Cache::get('settings')->logo;
 			$setting->slogan     = $request->slogan;
 			$setting->newletter  = $request->newletter;
 			$setting->categories = $request->categories;
