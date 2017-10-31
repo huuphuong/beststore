@@ -61,7 +61,11 @@ class ProductController extends Controller
             $product->product_pricesale = $product_request['product_pricesale'];
             $product->product_intro     = $product_request['product_intro'];
             $product->product_content   = $product_request['product_content'];
-            $product->product_image     = $product_request['product_image'];
+
+            $image                      = AppHelper::base64ImgToFile('products', $product_request['product_image']);
+            $product->product_image     = $image;;
+
+
             $product->product_view      = self::$_productViewStart;
             $product->product_qty       = $product_request['product_qty'];
             $product->size              = !empty ($product_request['size']) ? implode(', ', $product_request['size']) : null ;

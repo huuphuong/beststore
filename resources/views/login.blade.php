@@ -28,7 +28,7 @@
 
 
     <body class="bg-accpunt-pages">
-      
+
         <!-- HOME -->
         <section>
             <div class="container">
@@ -42,18 +42,15 @@
                                     <div class="account-logo-box">
                                         <h2 class="text-uppercase text-center">
                                             <a href="index.html" class="text-success">
-                                                <span><img src="assets/images/logo_dark.png" alt="" height="30"></span>
+                                                <span><img src="{{ Cache::get('settings')->logo }}" alt="Login Page"></span>
                                             </a>
                                         </h2>
-                                        <h5 class="text-uppercase font-bold m-b-5 m-t-50">Đăng nhập</h5>
 
                                         @if (Session::has('flash_message'))
 	                                        <p class="m-b-0 text-danger">
-	                                        	<span class="glyphicon glyphicon-exclamation-sign"></span> 
+	                                        	<span class="glyphicon glyphicon-exclamation-sign"></span>
 	                                        	{{ Session::get('flash_message') }}
 	                                        </p>
-                                        @else
-                                        	<p class="m-b-0">Đăng nhập vào tài khoản quản trị của bạn.</p>
                                         @endif
                                     </div>
 
@@ -64,13 +61,13 @@
                                             <div class="form-group m-b-20">
                                                 <div class="col-xs-12">
                                                     <label for="emailaddress">E-mail</label>
-                                                    <input class="form-control" 
-                                                    	   type="email" 
-                                                    	   name="email" 
-                                                    	   placeholder="VD: admin@gmail.com" 
-                                                    	   required="required" 
-                                                    	   tabindex="1" 
-                                                    	   autofocus="true" 
+                                                    <input class="form-control"
+                                                    	   type="email"
+                                                    	   name="email"
+                                                    	   placeholder="VD: admin@gmail.com"
+                                                    	   required="required"
+                                                    	   tabindex="1"
+                                                    	   autofocus="true"
                                                     	   value="{{ Session::has('flash_email') ? Session::get('flash_email') : '' }}"
                                                     />
                                                 </div>
