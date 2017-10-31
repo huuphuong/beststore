@@ -364,7 +364,7 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="Description">Special Product 1:</label>
+                            <label for="Description">Special Product 1(528x343 pixels):</label>
                             <select name="special_product_1" class="form-control" v-model="special_product_1" v-validate="'required'">
                                 <option value=""> -- Select -- </option>
                                 <option v-for="product in listSpecialProducts" v-bind:value="product.product_id">{{ product.product_name }}</option>
@@ -373,7 +373,7 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="Description">Special Product 2:</label>
+                            <label for="Description">Special Product 2(528x343 pixels):</label>
                             <select name="special_product_2" class="form-control" v-model="special_product_2" v-validate="'required'">
                                 <option value=""> -- Select -- </option>
                                 <option v-for="product in listSpecialProducts" v-bind:value="product.product_id">{{ product.product_name }}</option>
@@ -382,7 +382,7 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="Description">Special Product 3:</label>
+                            <label for="Description">Special Product 3(528x686 pixels):</label>
                             <select name="special_product_3" class="form-control" v-model="special_product_3" v-validate="'required'">
                                 <option value=""> -- Select -- </option>
                                 <option v-for="product in listSpecialProducts" v-bind:value="product.product_id">{{ product.product_name }}</option>

@@ -1,4 +1,6 @@
 @inject('setting', 'App\Models\Setting')
+@inject('products', 'App\Models\Product')
+@inject('helper', 'App\Helpers\AppHelper')
 @php
 	$settings = $setting->getSetting();
 @endphp
@@ -7,14 +9,25 @@
 	<div class="col-md-7 content-lgrid">
 		<div class="col-sm-6 content-img-left text-center">
 			<div class="content-grid-effect slow-zoom vertical">
-				<div class="img-box"><img src="{{asset('frontend/images/p1.jpg')}}" alt="image" class="img-responsive zoom-img"></div>
+				@php
+					$special_1 = $products::where('product_id', $settings['special_product_1'])
+										  ->select('product_id', 'product_name', 'product_image', 'product_price', 'product_pricesale')
+										  ->first()
+										  ->toArray();
+				@endphp
+				<div class="img-box"><img src="{{ $special_1['product_image'] }}" alt="image" class="img-responsive zoom-img"></div>
 				<div class="info-box">
 					<div class="info-content simpleCart_shelfItem">
-						<h4>Mobiles</h4>
+						<h4>{{ $special_1['product_name'] }}</h4>
 						<span class="separator"></span>
-						<p><span class="item_price">$500</span></p>
+						<p>
+							<span class="item_price">
+								{{ !empty($helper::number($special_1['product_pricesale'])) ? $special_1['product_pricesale'] : $special_1['product_price'] }}
+								 VNĐ
+							</span>
+						</p>
 						<span class="separator"></span>
-						<a class="item_add hvr-outline-out button2" href="#">add to cart </a>
+						<a class="item_add hvr-outline-out button2" href="#">Thêm vào giỏ</a>
 					</div>
 				</div>
 			</div>
@@ -34,14 +47,25 @@
 		</div>
 		<div class="col-sm-6 content-img-left text-center">
 			<div class="content-grid-effect slow-zoom vertical">
-				<div class="img-box"><img src="{{asset('frontend/images/p2.jpg')}}" alt="image" class="img-responsive zoom-img"></div>
+				@php
+					$special_2 = $products::where('product_id', $settings['special_product_2'])
+										  ->select('product_id', 'product_name', 'product_image', 'product_price', 'product_pricesale')
+										  ->first()
+										  ->toArray();
+				@endphp
+				<div class="img-box"><img src="{{ $special_2['product_image'] }}" alt="image" class="img-responsive zoom-img"></div>
 				<div class="info-box">
 					<div class="info-content simpleCart_shelfItem">
-						<h4>Watches</h4>
+						<h4>{{ $special_2['product_name'] }}</h4>
 						<span class="separator"></span>
-						<p><span class="item_price">$250</span></p>
+						<p>
+							<span class="item_price">
+								{{ !empty($helper::number($special_2['product_pricesale'])) ? $special_2['product_pricesale'] : $special_2['product_price'] }}
+								 VNĐ
+							</span>
+						</p>
 						<span class="separator"></span>
-						<a class="item_add hvr-outline-out button2" href="#">add to cart </a>
+						<a class="item_add hvr-outline-out button2" href="#">Thêm vào giỏ</a>
 					</div>
 				</div>
 			</div>
@@ -50,16 +74,27 @@
 	</div>
 	<div class="col-md-5 content-rgrid text-center">
 		<div class="content-grid-effect slow-zoom vertical">
-			<div class="img-box"><img src="{{asset('frontend/images/p4.jpg')}}" alt="image" class="img-responsive zoom-img"></div>
-			<div class="info-box">
-				<div class="info-content simpleCart_shelfItem">
-					<h4>Shoes</h4>
-					<span class="separator"></span>
-					<p><span class="item_price">$150</span></p>
-					<span class="separator"></span>
-					<a class="item_add hvr-outline-out button2" href="#">add to cart </a>
+				@php
+					$special_3 = $products::where('product_id', $settings['special_product_3'])
+										  ->select('product_id', 'product_name', 'product_image', 'product_price', 'product_pricesale')
+										  ->first()
+										  ->toArray();
+				@endphp
+				<div class="img-box"><img src="{{ $special_3['product_image'] }}" alt="image" class="img-responsive zoom-img"></div>
+				<div class="info-box">
+					<div class="info-content simpleCart_shelfItem">
+						<h4>{{ $special_3['product_name'] }}</h4>
+						<span class="separator"></span>
+						<p>
+							<span class="item_price">
+								{{ !empty($helper::number($special_3['product_pricesale'])) ? $special_3['product_pricesale'] : $special_2['product_price'] }}
+								 VNĐ
+							</span>
+						</p>
+						<span class="separator"></span>
+						<a class="item_add hvr-outline-out button2" href="#">Thêm vào giỏ</a>
+					</div>
 				</div>
-			</div>
 		</div>
 	</div>
 	<div class="clearfix"></div>
