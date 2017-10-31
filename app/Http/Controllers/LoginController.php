@@ -33,6 +33,11 @@ class LoginController extends Controller
     }
 
 
+    /**
+     * Đăng ký tài khoản người dùng
+     * @param  Request $request [description]
+     * @return [type]           [description]
+     */
     public function register(Request $request)
     {
         $count = User::where('email', trim($request->email))->count();
@@ -51,6 +56,21 @@ class LoginController extends Controller
             } catch (\Exception $e) {
                 $res = Api::resourceApi($e->getCode(), $e->getMessage());
             }
+        }
+
+        return response()->json($res, Api::$_OK);
+    }
+
+
+    public function signin(Request $request)
+    {
+        $email = trim($request->email);
+        $password = $request->password;
+        $remember = $request->lremember_me;
+        if (Auth::attempt(['email' => $email, 'password' => $password], $remember)) {
+            $res = Api::resourceApi(Api::$_OK, Auth::user());
+        }else {
+            $res = Api::resourceApi(Api::$_SERVERERROR, 'Email and password not match');
         }
 
         return response()->json($res, Api::$_OK);

@@ -14,6 +14,14 @@
         <li><span class="{{ $data['header_icon_info_1'] }}" aria-hidden="true"></span>{{ $data['header_text_info_1'] }}</li>
         <li><span class="{{ $data['header_icon_info_2'] }}" aria-hidden="true"></span>{{ $data['header_text_info_2'] }}</li>
         <li><span class="{{ $data['header_icon_info_3'] }}" aria-hidden="true"></span>{{ $data['header_text_info_3'] }}</li>
+
+        <li class="pull-right">
+          @if (Auth::check())
+          <span class="text-right">Xin chào, {{ Auth::user()->name }}</span>
+          @else
+          <span class="text-right">Xin chào, bạn</span>
+          @endif
+        </li>
       </ul>
     </div>
     <!-- /.center-block -->
@@ -35,7 +43,7 @@
           <input type="search" value="Tìm kiếm..." onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Search';}" required="">
         </div>
         <div class="section_room">
-          <select id="country" onchange="change_country(this.value)" class="frm-field required">
+          <select id="country" onchange="change_country(this.value)" class="frm-field required" style="-moz-appearance: none;">
             <option value="null">Tất cả</option>
             @foreach ($categories AS $category)
             <option value="#">{{ $category->cat_name }}</option>

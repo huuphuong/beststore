@@ -48,21 +48,27 @@
             </div>
 
 
-            <div class="login-right">
+            <div class="login-right" id="loginRight">
               <h3>Đăng nhập tài khoản của mình</h3>
-              <form>
+              <form method="POST" @submit.prevent="validateBeforeSubmit">
                 <div class="sign-in">
                   <h4>Email :</h4>
-                  <input type="text" value="Type here" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Type here';}" required="">
+                  <input type="text" v-model="lemail" name="lemail" v-validate="'required'" data-vv-as="Email" />
+                  <label class="label label-danger" v-show="errors.has('lemail')">
+                    <span class="glyphicon glyphicon-exclamation-sign"></span> @{{ errors.first('lemail') }}
+                  </label>
                 </div>
                 <div class="sign-in">
                   <h4>Mật khẩu :</h4>
-                  <input type="password" value="Password" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Password';}" required="">
+                  <input type="password" v-model="lpassword" name="lpassword" v-validate="'required'" data-vv-as="Mật khẩu" />
+                  <label class="label label-danger" v-show="errors.has('lpassword')">
+                    <span class="glyphicon glyphicon-exclamation-sign"></span> @{{ errors.first('lpassword') }}
+                  </label>
                   <a href="#">Quên mật khẩu?</a>
                 </div>
                 <div class="single-bottom">
-                  <input type="checkbox"  id="brand" value="">
-                  <label for="brand"><span></span>Lưu đăng nhập.</label>
+                  <input type="checkbox" name="remember_me" v-model="lremember_me" value="1">
+                  <label for="brand" @click="toogleCheck"><span></span>Lưu đăng nhập.</label>
                 </div>
                 <div class="sign-in">
                   <input type="submit" value="Đăng nhập" />

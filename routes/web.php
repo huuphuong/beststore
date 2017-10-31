@@ -34,6 +34,8 @@ Route::get('{slug}-{product_id}.html', [
 ]);
 
 Route::post('/register', 'LoginController@register');
+Route::post('/signin', 'LoginController@signin');
+
 Route::get('/login', ['as' => 'site.login', 'uses' => 'LoginController@index']);
 Route::post('/login', 'LoginController@postLogin');
 
