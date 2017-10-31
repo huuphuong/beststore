@@ -1460,7 +1460,7 @@ a.single-item{
     color: #D2D1D1;
     outline: none;
     font-size: 14px;
-    margin: 6px 0 17px 0px;
+    margin: 6px 0 0px 0px;
 }
 .login-right input[type="text"]:hover, .login-right input[type="password"]:hover, .login-bottom input[type="text"]:hover, .login-bottom input[type="password"]:hover{
     border: 1px solid #FDA30E;	
@@ -1468,7 +1468,7 @@ a.single-item{
 .login-right h4,.login-bottom h4 {
     color: #000000;
     font-size: 14px;
-    margin: 0 0 0px 0;
+    margin: 10px 0 0px 0;
 	font-family: 'Lato', sans-serif;
 }
 
@@ -5088,3 +5088,6 @@ td.invert-image a img {
 }
 }
 /*-- //responsive media queries --*/
+.m-t-6 {
+  margin-top: 7px;
+}

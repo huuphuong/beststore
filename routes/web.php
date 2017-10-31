@@ -33,23 +33,7 @@ Route::get('{slug}-{product_id}.html', [
 	'uses' => 'Frontend\ProductController@index'
 ]);
 
-Route::get('/haha', function (App\User $data) {
-
-
-	$data = Route::getRoutes();
-	$data = $data->get();
-	foreach ($data AS $k => $v)
-    {
-        $uri = $v->uri;
-        if (strstr($uri, 'api'))
-        {
-            continue;
-        }
-        else {
-            echo $uri ."<hr>";
-        }
-    }
-});
+Route::post('/register', 'LoginController@register');
 Route::get('/login', ['as' => 'site.login', 'uses' => 'LoginController@index']);
 Route::post('/login', 'LoginController@postLogin');
 

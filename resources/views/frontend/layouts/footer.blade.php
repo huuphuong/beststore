@@ -54,70 +54,14 @@
   </div>
 </div>
 <!-- //footer -->
-<!-- login -->
-<div class="modal fade" id="myModal4" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content modal-info">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-      </div>
-      <div class="modal-body modal-spa">
-        <div class="login-grids">
-          <div class="login">
-            <div class="login-bottom">
-              <h3>Sign up for free</h3>
-              <form>
-                <div class="sign-up">
-                  <h4>Email :</h4>
-                  <input type="text" value="Type here" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Type here';}" required="">
-                </div>
-                <div class="sign-up">
-                  <h4>Password :</h4>
-                  <input type="password" value="Password" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Password';}" required="">
-                </div>
-                <div class="sign-up">
-                  <h4>Re-type Password :</h4>
-                  <input type="password" value="Password" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Password';}" required="">
-                </div>
-                <div class="sign-up">
-                  <input type="submit" value="REGISTER NOW" >
-                </div>
-              </form>
-            </div>
-            <div class="login-right">
-              <h3>Sign in with your account</h3>
-              <form>
-                <div class="sign-in">
-                  <h4>Email :</h4>
-                  <input type="text" value="Type here" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Type here';}" required="">
-                </div>
-                <div class="sign-in">
-                  <h4>Password :</h4>
-                  <input type="password" value="Password" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Password';}" required="">
-                  <a href="#">Forgot password?</a>
-                </div>
-                <div class="single-bottom">
-                  <input type="checkbox"  id="brand" value="">
-                  <label for="brand"><span></span>Remember Me.</label>
-                </div>
-                <div class="sign-in">
-                  <input type="submit" value="SIGNIN" >
-                </div>
-              </form>
-            </div>
-            <div class="clearfix"></div>
-          </div>
-          <p>By logging in you agree to our <a href="#">Terms and Conditions</a> and <a href="#">Privacy Policy</a></p>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-<!-- //login -->
+
+@include('frontend.components.login_modal')
 
   <!-- Javascript -->
   <script type="application/x-javascript" src="{{asset('frontend/js/url-bar.js')}}"></script>
   <script src="https://unpkg.com/vue"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vee-validate@latest/dist/vee-validate.js"></script>
+  <script src="{{ asset('js/locale_vi.js') }}"></script>
   <script type="text/javascript" src="{{asset('frontend/js/jquery-2.1.4.min.js')}}"></script>
   <!-- cart -->
   <script src="{{asset('frontend/js/simpleCart.min.js')}}"></script>
@@ -129,5 +73,6 @@
   <script src="{{asset('frontend/js/easyResponsiveTabs.js')}}" type="text/javascript"></script>
   <script src="https://cdn.jsdelivr.net/npm/vue-resource@1.3.4"></script>
   <script src="{{asset('frontend/js/HomeComponent.js')}}" type="text/javascript"></script>
+  <script src="{{asset('frontend/js/LoginComponent.js')}}" type="text/javascript"></script>
 </body>
 </html>

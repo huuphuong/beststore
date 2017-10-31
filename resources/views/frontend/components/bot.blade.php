@@ -26,7 +26,7 @@
   <div class="container">
     <div class="col-md-3 header-left">
       <h1>
-        <a href="index.html" title="Smart Shop"><img alt="Smart Shop" src="{{ Cache::has('settings') ? Cache::get('settings')->logo : asset('frontend/images/logo3.jpg') }}"></a>
+        <a href="{{ url('/') }}" title="Smart Shop"><img alt="Smart Shop" src="{{ Cache::has('settings') ? Cache::get('settings')->logo : asset('frontend/images/logo3.jpg') }}"></a>
       </h1>
     </div>
     <div class="col-md-6 header-middle">
