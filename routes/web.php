@@ -38,6 +38,7 @@ Route::post('/signin', 'LoginController@signin');
 
 Route::get('/login', ['as' => 'site.login', 'uses' => 'LoginController@index']);
 Route::post('/login', 'LoginController@postLogin');
+Route::get('/logout', 'LoginController@signout');
 
 Route::get('{all}', function () {
 	return view('start');

@@ -6,6 +6,7 @@ use Closure;
 use Illuminate\Support\Facades\Auth;
 
 use App\Api;
+use App\User;
 
 class IsLoginMiddleWare
 {
@@ -18,10 +19,11 @@ class IsLoginMiddleWare
      */
     public function handle($request, Closure $next)
     {
-       
-        if (Auth::check()) {
+        $data = decrypt($request->header('authors'));
+        $count = User::where('id', $data->id)->count();
 
-            return $next($request);    
+        if (isset($data) && $count > 0) {
+            return $next($request);
         }else {
             $res = Api::resourceApi(Api::$_FORBIDDEN, 'You don\'t have permission');
             return response()->json($res, Api::$_OK);

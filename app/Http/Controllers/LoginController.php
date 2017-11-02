@@ -18,12 +18,12 @@ class LoginController extends Controller
     }
 
 
-    public function postLogin(Request $request) 
+    public function postLogin(Request $request)
     {
     	$email = $request->input('email');
     	$password = $request->input('password');
 
-    	
+
     	if (Auth::attempt(['email' => $email, 'password' => $password]))
     	{
     		return redirect('/admin');
@@ -77,5 +77,12 @@ class LoginController extends Controller
         }
 
         return response()->json($res, Api::$_OK);
+    }
+
+
+    public function signout(Request $request)
+    {
+        Auth::logout();
+        return redirect('/login');
     }
 } // End class

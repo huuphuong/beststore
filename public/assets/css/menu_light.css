@@ -415,8 +415,8 @@ File: Menu
   margin: 19px 15px 0 5px;
   background: #3c4655;
   box-shadow: none;
-  border-radius: 30px;
-  width: 190px;
+  border-radius: 2px;
+  width: 225px;
 }
 .app-search input::-webkit-input-placeholder {
   color: rgba(255, 255, 255, 0.7);

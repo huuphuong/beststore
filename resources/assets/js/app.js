@@ -39,12 +39,10 @@ Vue.use(VeeValidate, {'locale': 'vi'})
 axios.interceptors.request.use(function (config) {
 	NProgress.start();
 	var user = config.headers.common.authors;
-	console.log(typeof user);
-	console.log(user.length);
 	if (typeof user == 'undefined' || !user.length) {
-		// return window.location.href = '/login';
+		return window.location.href = '/login';
 	}else {
-		return config;	
+		return config;
 	}
 }, function (error) {
 	return Promise.reject(error);
@@ -52,11 +50,11 @@ axios.interceptors.request.use(function (config) {
 
 axios.interceptors.response.use(function (response) {
 	NProgress.done();
-	
+
 	if (response.data && response.data.status == 403) {
 		// return window.location.href = '/login';
 	}else {
-		return response;	
+		return response;
 	}
 }, function (error) {
     return Promise.reject(error);
