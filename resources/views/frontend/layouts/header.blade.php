@@ -9,6 +9,7 @@
   <meta name="keywords" content="" />
   <meta name="csrf-token" content="{{ csrf_token() }}">
   <!-- //for-mobile-apps -->
+  <link rel="shortcut icon" href="{{ asset('images/icon.png') }}">
   <link href="{{asset('frontend/css/bootstrap.css')}}" rel="stylesheet" type="text/css" media="all" />
   <!-- /.Font awsome -->
   <!-- style -->

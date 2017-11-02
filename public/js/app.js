@@ -45102,15 +45102,6 @@ if (false) {(function () {
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["a"] = ({
 	name: 'topbar'
@@ -45132,16 +45123,11 @@ var staticRenderFns = [function () {var _vm=this;var _h=_vm.$createElement;var _
   }, [_c('a', {
     staticClass: "logo",
     attrs: {
-      "href": "index.html"
+      "href": "/"
     }
   }, [_c('span', [_vm._v("Smart"), _c('span', [_vm._v("Shop")])]), _c('i', {
     staticClass: "mdi mdi-cart-outline"
-  })]), _vm._v(" "), _c('a', {
-    staticClass: "logo",
-    attrs: {
-      "href": "index.html"
-    }
-  }, [_c('span'), _vm._v(" "), _c('i')])]), _vm._v(" "), _c('div', {
+  })])]), _vm._v(" "), _c('div', {
     staticClass: "navbar navbar-default",
     attrs: {
       "role": "navigation"
@@ -46039,6 +46025,7 @@ if (false) {(function () {
 //
 //
 //
+//
 
 /* harmony default export */ __webpack_exports__["a"] = ({
 	name: 'footerPage'
@@ -46050,11 +46037,17 @@ if (false) {(function () {
 
 "use strict";
 var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('footer', {
-    staticClass: "footer text-right"
-  }, [_vm._v("\n\t2017 © Adminox. - Coderthemes.com\n")])
+  return _vm._m(0)
 }
-var staticRenderFns = []
+var staticRenderFns = [function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('footer', {
+    staticClass: "footer"
+  }, [_c('span', {
+    staticClass: "text-left"
+  }, [_vm._v("© 2017 - Xây dựng & phát triển bởi Cao Hữu Phương")]), _vm._v(" "), _c('span', {
+    staticClass: "pull-right"
+  }, [_vm._v("v1.0.1")])])
+}]
 render._withStripped = true
 var esExports = { render: render, staticRenderFns: staticRenderFns }
 /* harmony default export */ __webpack_exports__["a"] = (esExports);

@@ -10,7 +10,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta name="authors" content="{{ Auth::check() ? encrypt(Auth::user()) : null }}" />
     <!-- App favicon -->
-    <link rel="shortcut icon" href="{{ asset('assets/images/favicon.ico') }}">
+    <link rel="shortcut icon" href="{{ asset('images/icon.png') }}">
     <!-- App css -->
     <link href="{{ asset('assets/css/bootstrap.min.css') }}" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" href="https://unpkg.com/nprogress@0.2.0/nprogress.css">

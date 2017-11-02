@@ -3,16 +3,7 @@
   <div class="topbar">
     <!-- LOGO -->
     <div class="topbar-left">
-      <a href="index.html" class="logo"><span>Smart<span>Shop</span></span><i class="mdi mdi-cart-outline"></i></a>
-      <!-- Image logo -->
-      <a href="index.html" class="logo">
-      <span>
-      <!-- <img src="assets/images/logo.png" alt="" height="25"> -->
-      </span>
-      <i>
-      <!-- <img src="assets/images/logo_sm.png" alt="" height="28"> -->
-      </i>
-      </a>
+      <a href="/" class="logo"><span>Smart<span>Shop</span></span><i class="mdi mdi-cart-outline"></i></a>
     </div>
     <!-- Button mobile view to collapse sidebar menu -->
     <div class="navbar navbar-default" role="navigation">
