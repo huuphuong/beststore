@@ -6,65 +6,65 @@
             <div id="sidebar-menu">
                 <!-- Left Menu Start -->
                 <ul class="metisMenu nav" id="side-menu">
-                    <li class="menu-title">CRM</li><!-- /.header -->
-                    <router-link tag="li" :to="{ name: 'RoleCreate' }"><a><i class="fi-air-play"></i> Dashboard</a>
+                    <li class="menu-title">Quản lý shop</li><!-- /.header -->
+                    <router-link tag="li" :to="{ name: 'RoleCreate' }"><a><i class="fi-air-play"></i> Bảng điều khiển</a>
                     </router-link>
                     <li>
-                        <a href="javascript: void(0);"><i class="fi-share"></i> <span>Roles</span> <span
+                        <a href="javascript: void(0);"><i class="fi-share"></i> <span>Quyền hạn</span> <span
                                 class="menu-arrow"></span></a>
                         <ul class="nav-second-level nav">
-                            <router-link tag="li" :to="{ name: 'RoleCreate' }"><a>Create Role</a></router-link>
-                            <router-link tag="li" :to="{ name: 'RoleList' }"><a>List Role</a></router-link>
+                            <router-link tag="li" :to="{ name: 'RoleCreate' }"><a>Tạo quyền</a></router-link>
+                            <router-link tag="li" :to="{ name: 'RoleList' }"><a>Danh sách quyền</a></router-link>
                         </ul>
                     </li>
 
                     <li>
-                        <a href="javascript: void(0);"><i class="fi-share"></i> <span>User/Customers</span> <span
+                        <a href="javascript: void(0);"><i class="fi-share"></i> <span>Người dùng</span> <span
                                 class="menu-arrow"></span></a>
                         <ul class="nav-second-level nav">
-                            <router-link tag="li" :to="{ name: 'UserCreate' }"><a>Create User</a></router-link>
-                            <router-link tag="li" :to="{ name: 'UserList' }"><a>List User</a></router-link>
+                            <router-link tag="li" :to="{ name: 'UserCreate' }"><a>Tạo người dùng</a></router-link>
+                            <router-link tag="li" :to="{ name: 'UserList' }"><a>Danh sách người dùng</a></router-link>
                         </ul>
                     </li>
 
                     <li>
-                        <a href="javascript: void(0);"><i class="fi-share"></i> <span>Category</span> <span
+                        <a href="javascript: void(0);"><i class="fi-share"></i> <span>Danh mục</span> <span
                                 class="menu-arrow"></span></a>
                         <ul class="nav-second-level nav">
-                            <router-link tag="li" :to="{ name: 'Category' }"><a>Category Create</a></router-link>
-                            <router-link tag="li" :to="{ name: 'CategoryList' }"><a>Category List</a></router-link>
+                            <router-link tag="li" :to="{ name: 'Category' }"><a>Tao danh mục</a></router-link>
+                            <router-link tag="li" :to="{ name: 'CategoryList' }"><a>Danh sách danh mục</a></router-link>
                         </ul>
                     </li>
 
                     <li>
-                        <a href="javascript: void(0);"><i class="fi-share"></i> <span>Product</span> <span
+                        <a href="javascript: void(0);"><i class="fi-share"></i> <span>Sản phẩm</span> <span
                                 class="menu-arrow"></span></a>
                         <ul class="nav-second-level nav">
-                            <router-link tag="li" :to="{ name: 'ProductCreate' }"><a>Create Product</a></router-link>
-                            <router-link tag="li" :to="{ name: 'ProductList' }"><a>List Product</a></router-link>
-                            <router-link tag="li" :to="{ name: 'CollectionAdd' }"><a>Create Collection</a></router-link>
-                            <router-link tag="li" :to="{ name: 'ProductCollection' }"><a>Product Collection</a>
+                            <router-link tag="li" :to="{ name: 'ProductCreate' }"><a>Tạo sản phẩm</a></router-link>
+                            <router-link tag="li" :to="{ name: 'ProductList' }"><a>Danh sách sản phẩm</a></router-link>
+                            <router-link tag="li" :to="{ name: 'CollectionAdd' }"><a>Tạo bộ sưu tập</a></router-link>
+                            <router-link tag="li" :to="{ name: 'ProductCollection' }"><a>Danh sách bộ sưu tập</a>
                             </router-link>
                         </ul>
                     </li>
 
                     <li>
-                        <a href="javascript: void(0);"><i class="fi-share"></i> <span>Vendors</span> <span
+                        <a href="javascript: void(0);"><i class="fi-share"></i> <span>Nhà cung cấp</span> <span
                                 class="menu-arrow"></span></a>
                         <ul class="nav-second-level nav">
-                            <router-link tag="li" :to="{ name: 'VendorCreate' }"><a>Create Vendor</a></router-link>
-                            <router-link tag="li" :to="{ name: 'VendorList' }"><a>List Vendor</a></router-link>
+                            <router-link tag="li" :to="{ name: 'VendorCreate' }"><a>Thêm nhà cung cấp</a></router-link>
+                            <router-link tag="li" :to="{ name: 'VendorList' }"><a>Danh sách nhà cung cấp</a></router-link>
                         </ul>
                     </li>
 
                     <li>
-                        <a href="javascript: void(0);"><i class="fi-share"></i> <span>Settings</span> <span
+                        <a href="javascript: void(0);"><i class="fi-share"></i> <span>Cấu hình</span> <span
                                 class="menu-arrow"></span></a>
                         <ul class="nav-second-level nav">
-                            <router-link tag="li" :to="{ name: 'Settings' }"><a><i class="mdi mdi-settings"></i> Settings</a></router-link>
-                            <router-link tag="li" :to="{ name: 'Slideshow' }"><a><i class="mdi mdi-settings"></i> Slide show</a></router-link>
-                            <router-link tag="li" :to="{ name: 'Tutorial' }"><a><i class="mdi mdi-settings"></i> Tutorial</a></router-link>
-                            <router-link tag="li" :to="{ name: 'Navigation' }"><a><i class="mdi mdi-settings"></i> Navigation</a></router-link>
+                            <router-link tag="li" :to="{ name: 'Settings' }"><a><i class="mdi mdi-settings"></i> Cài đặt</a></router-link>
+                            <router-link tag="li" :to="{ name: 'Slideshow' }"><a><i class="mdi mdi-settings"></i> Banner slide</a></router-link>
+                            <router-link tag="li" :to="{ name: 'Tutorial' }"><a><i class="mdi mdi-settings"></i> Hướng dẫn</a></router-link>
+                            <router-link tag="li" :to="{ name: 'Navigation' }"><a><i class="mdi mdi-settings"></i> Thanh menu</a></router-link>
                         </ul>
                     </li>
 

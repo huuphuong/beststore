@@ -1,7 +1,7 @@
 <template>
   <!-- Begin page -->
   <div id="wrapper">
-   
+
 		<topbar></topbar>
 		<sidebar></sidebar>
 
@@ -9,7 +9,7 @@
       <!-- Start content -->
       <div class="content">
         <div class="container">
-          <breadcrumb></breadcrumb>
+          <br />
           <router-view></router-view>
         </div>
         <!-- container -->
@@ -31,7 +31,7 @@
 		components: { Topbar, Sidebar, Breadcrumb, FooterPage },
 
     beforeMount: function () {
-      
+
     }
 	}
 </script>

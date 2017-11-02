@@ -3,7 +3,7 @@
   <div class="topbar">
     <!-- LOGO -->
     <div class="topbar-left">
-      <a href="index.html" class="logo"><span>Smart<span>Shop</span></span><i class="mdi mdi-layers"></i></a>
+      <a href="index.html" class="logo"><span>Smart<span>Shop</span></span><i class="mdi mdi-cart-outline"></i></a>
       <!-- Image logo -->
       <a href="index.html" class="logo">
       <span>
@@ -103,24 +103,7 @@
               </li>
             </ul>
           </li>
-          <li class="dropdown hidden-xs">
-            <a href="javascript:;" data-toggle="dropdown" class="dropdown-toggle waves-effect waves-light"> Projects <b
-              class=" fa fa-angle-down"></b></a>
-            <ul role="menu" class="dropdown-menu">
-              <li>
-                <a href="javascript:;"><span> Adminox Admin </span></a>
-              </li>
-              <li>
-                <a href="javascript:;"><span> Frontend </span></a>
-              </li>
-              <li>
-                <a href="javascript:;"><span> Admin RTL </span></a>
-              </li>
-              <li>
-                <a href="javascript:;"><span> Dark Admin </span></a>
-              </li>
-            </ul>
-          </li>
+
         </ul>
         <!-- Right(Notification) -->
         <ul class="nav navbar-nav navbar-right">

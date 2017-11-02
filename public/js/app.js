@@ -44816,9 +44816,9 @@ if (false) {(function () {
 
 
 /* harmony default export */ __webpack_exports__["a"] = ({
-		components: { Topbar: __WEBPACK_IMPORTED_MODULE_0__Topbar__["a" /* default */], Sidebar: __WEBPACK_IMPORTED_MODULE_1__Sidebar__["a" /* default */], Breadcrumb: __WEBPACK_IMPORTED_MODULE_2__Breadcrumb__["a" /* default */], FooterPage: __WEBPACK_IMPORTED_MODULE_3__FooterPage__["a" /* default */] },
+	components: { Topbar: __WEBPACK_IMPORTED_MODULE_0__Topbar__["a" /* default */], Sidebar: __WEBPACK_IMPORTED_MODULE_1__Sidebar__["a" /* default */], Breadcrumb: __WEBPACK_IMPORTED_MODULE_2__Breadcrumb__["a" /* default */], FooterPage: __WEBPACK_IMPORTED_MODULE_3__FooterPage__["a" /* default */] },
 
-		beforeMount: function beforeMount() {}
+	beforeMount: function beforeMount() {}
 });
 
 /***/ }),
@@ -45111,23 +45111,6 @@ if (false) {(function () {
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["a"] = ({
 	name: 'topbar'
@@ -45152,7 +45135,7 @@ var staticRenderFns = [function () {var _vm=this;var _h=_vm.$createElement;var _
       "href": "index.html"
     }
   }, [_c('span', [_vm._v("Smart"), _c('span', [_vm._v("Shop")])]), _c('i', {
-    staticClass: "mdi mdi-layers"
+    staticClass: "mdi mdi-cart-outline"
   })]), _vm._v(" "), _c('a', {
     staticClass: "logo",
     attrs: {
@@ -45304,38 +45287,7 @@ var staticRenderFns = [function () {var _vm=this;var _h=_vm.$createElement;var _
     }
   }, [_c('i', {
     staticClass: "fi-bar-graph-2 text-muted"
-  }), _vm._v(" Charts")])])])])])])])]), _vm._v(" "), _c('li', {
-    staticClass: "dropdown hidden-xs"
-  }, [_c('a', {
-    staticClass: "dropdown-toggle waves-effect waves-light",
-    attrs: {
-      "href": "javascript:;",
-      "data-toggle": "dropdown"
-    }
-  }, [_vm._v(" Projects "), _c('b', {
-    staticClass: " fa fa-angle-down"
-  })]), _vm._v(" "), _c('ul', {
-    staticClass: "dropdown-menu",
-    attrs: {
-      "role": "menu"
-    }
-  }, [_c('li', [_c('a', {
-    attrs: {
-      "href": "javascript:;"
-    }
-  }, [_c('span', [_vm._v(" Adminox Admin ")])])]), _vm._v(" "), _c('li', [_c('a', {
-    attrs: {
-      "href": "javascript:;"
-    }
-  }, [_c('span', [_vm._v(" Frontend ")])])]), _vm._v(" "), _c('li', [_c('a', {
-    attrs: {
-      "href": "javascript:;"
-    }
-  }, [_c('span', [_vm._v(" Admin RTL ")])])]), _vm._v(" "), _c('li', [_c('a', {
-    attrs: {
-      "href": "javascript:;"
-    }
-  }, [_c('span', [_vm._v(" Dark Admin ")])])])])])]), _vm._v(" "), _c('ul', {
+  }), _vm._v(" Charts")])])])])])])])])]), _vm._v(" "), _c('ul', {
     staticClass: "nav navbar-nav navbar-right"
   }, [_c('li', {
     staticClass: "hidden-xs"
@@ -45686,7 +45638,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     }
   }, [_c('li', {
     staticClass: "menu-title"
-  }, [_vm._v("CRM")]), _vm._v(" "), _c('router-link', {
+  }, [_vm._v("Quản lý shop")]), _vm._v(" "), _c('router-link', {
     attrs: {
       "tag": "li",
       "to": {
@@ -45695,7 +45647,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     }
   }, [_c('a', [_c('i', {
     staticClass: "fi-air-play"
-  }), _vm._v(" Dashboard")])]), _vm._v(" "), _c('li', [_vm._m(0), _vm._v(" "), _c('ul', {
+  }), _vm._v(" Bảng điều khiển")])]), _vm._v(" "), _c('li', [_vm._m(0), _vm._v(" "), _c('ul', {
     staticClass: "nav-second-level nav"
   }, [_c('router-link', {
     attrs: {
@@ -45704,14 +45656,14 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
         name: 'RoleCreate'
       }
     }
-  }, [_c('a', [_vm._v("Create Role")])]), _vm._v(" "), _c('router-link', {
+  }, [_c('a', [_vm._v("Tạo quyền")])]), _vm._v(" "), _c('router-link', {
     attrs: {
       "tag": "li",
       "to": {
         name: 'RoleList'
       }
     }
-  }, [_c('a', [_vm._v("List Role")])])], 1)]), _vm._v(" "), _c('li', [_vm._m(1), _vm._v(" "), _c('ul', {
+  }, [_c('a', [_vm._v("Danh sách quyền")])])], 1)]), _vm._v(" "), _c('li', [_vm._m(1), _vm._v(" "), _c('ul', {
     staticClass: "nav-second-level nav"
   }, [_c('router-link', {
     attrs: {
@@ -45720,14 +45672,14 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
         name: 'UserCreate'
       }
     }
-  }, [_c('a', [_vm._v("Create User")])]), _vm._v(" "), _c('router-link', {
+  }, [_c('a', [_vm._v("Tạo người dùng")])]), _vm._v(" "), _c('router-link', {
     attrs: {
       "tag": "li",
       "to": {
         name: 'UserList'
       }
     }
-  }, [_c('a', [_vm._v("List User")])])], 1)]), _vm._v(" "), _c('li', [_vm._m(2), _vm._v(" "), _c('ul', {
+  }, [_c('a', [_vm._v("Danh sách người dùng")])])], 1)]), _vm._v(" "), _c('li', [_vm._m(2), _vm._v(" "), _c('ul', {
     staticClass: "nav-second-level nav"
   }, [_c('router-link', {
     attrs: {
@@ -45736,14 +45688,14 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
         name: 'Category'
       }
     }
-  }, [_c('a', [_vm._v("Category Create")])]), _vm._v(" "), _c('router-link', {
+  }, [_c('a', [_vm._v("Tao danh mục")])]), _vm._v(" "), _c('router-link', {
     attrs: {
       "tag": "li",
       "to": {
         name: 'CategoryList'
       }
     }
-  }, [_c('a', [_vm._v("Category List")])])], 1)]), _vm._v(" "), _c('li', [_vm._m(3), _vm._v(" "), _c('ul', {
+  }, [_c('a', [_vm._v("Danh sách danh mục")])])], 1)]), _vm._v(" "), _c('li', [_vm._m(3), _vm._v(" "), _c('ul', {
     staticClass: "nav-second-level nav"
   }, [_c('router-link', {
     attrs: {
@@ -45752,28 +45704,28 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
         name: 'ProductCreate'
       }
     }
-  }, [_c('a', [_vm._v("Create Product")])]), _vm._v(" "), _c('router-link', {
+  }, [_c('a', [_vm._v("Tạo sản phẩm")])]), _vm._v(" "), _c('router-link', {
     attrs: {
       "tag": "li",
       "to": {
         name: 'ProductList'
       }
     }
-  }, [_c('a', [_vm._v("List Product")])]), _vm._v(" "), _c('router-link', {
+  }, [_c('a', [_vm._v("Danh sách sản phẩm")])]), _vm._v(" "), _c('router-link', {
     attrs: {
       "tag": "li",
       "to": {
         name: 'CollectionAdd'
       }
     }
-  }, [_c('a', [_vm._v("Create Collection")])]), _vm._v(" "), _c('router-link', {
+  }, [_c('a', [_vm._v("Tạo bộ sưu tập")])]), _vm._v(" "), _c('router-link', {
     attrs: {
       "tag": "li",
       "to": {
         name: 'ProductCollection'
       }
     }
-  }, [_c('a', [_vm._v("Product Collection")])])], 1)]), _vm._v(" "), _c('li', [_vm._m(4), _vm._v(" "), _c('ul', {
+  }, [_c('a', [_vm._v("Danh sách bộ sưu tập")])])], 1)]), _vm._v(" "), _c('li', [_vm._m(4), _vm._v(" "), _c('ul', {
     staticClass: "nav-second-level nav"
   }, [_c('router-link', {
     attrs: {
@@ -45782,14 +45734,14 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
         name: 'VendorCreate'
       }
     }
-  }, [_c('a', [_vm._v("Create Vendor")])]), _vm._v(" "), _c('router-link', {
+  }, [_c('a', [_vm._v("Thêm nhà cung cấp")])]), _vm._v(" "), _c('router-link', {
     attrs: {
       "tag": "li",
       "to": {
         name: 'VendorList'
       }
     }
-  }, [_c('a', [_vm._v("List Vendor")])])], 1)]), _vm._v(" "), _c('li', [_vm._m(5), _vm._v(" "), _c('ul', {
+  }, [_c('a', [_vm._v("Danh sách nhà cung cấp")])])], 1)]), _vm._v(" "), _c('li', [_vm._m(5), _vm._v(" "), _c('ul', {
     staticClass: "nav-second-level nav"
   }, [_c('router-link', {
     attrs: {
@@ -45800,7 +45752,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     }
   }, [_c('a', [_c('i', {
     staticClass: "mdi mdi-settings"
-  }), _vm._v(" Settings")])]), _vm._v(" "), _c('router-link', {
+  }), _vm._v(" Cài đặt")])]), _vm._v(" "), _c('router-link', {
     attrs: {
       "tag": "li",
       "to": {
@@ -45809,7 +45761,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     }
   }, [_c('a', [_c('i', {
     staticClass: "mdi mdi-settings"
-  }), _vm._v(" Slide show")])]), _vm._v(" "), _c('router-link', {
+  }), _vm._v(" Banner slide")])]), _vm._v(" "), _c('router-link', {
     attrs: {
       "tag": "li",
       "to": {
@@ -45818,7 +45770,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     }
   }, [_c('a', [_c('i', {
     staticClass: "mdi mdi-settings"
-  }), _vm._v(" Tutorial")])]), _vm._v(" "), _c('router-link', {
+  }), _vm._v(" Hướng dẫn")])]), _vm._v(" "), _c('router-link', {
     attrs: {
       "tag": "li",
       "to": {
@@ -45827,7 +45779,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     }
   }, [_c('a', [_c('i', {
     staticClass: "mdi mdi-settings"
-  }), _vm._v(" Navigation")])])], 1)])], 1)]), _vm._v(" "), _c('div', {
+  }), _vm._v(" Thanh menu")])])], 1)])], 1)]), _vm._v(" "), _c('div', {
     staticClass: "clearfix"
   })])])
 }
@@ -45838,7 +45790,7 @@ var staticRenderFns = [function () {var _vm=this;var _h=_vm.$createElement;var _
     }
   }, [_c('i', {
     staticClass: "fi-share"
-  }), _vm._v(" "), _c('span', [_vm._v("Roles")]), _vm._v(" "), _c('span', {
+  }), _vm._v(" "), _c('span', [_vm._v("Quyền hạn")]), _vm._v(" "), _c('span', {
     staticClass: "menu-arrow"
   })])
 },function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -45848,7 +45800,7 @@ var staticRenderFns = [function () {var _vm=this;var _h=_vm.$createElement;var _
     }
   }, [_c('i', {
     staticClass: "fi-share"
-  }), _vm._v(" "), _c('span', [_vm._v("User/Customers")]), _vm._v(" "), _c('span', {
+  }), _vm._v(" "), _c('span', [_vm._v("Người dùng")]), _vm._v(" "), _c('span', {
     staticClass: "menu-arrow"
   })])
 },function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -45858,7 +45810,7 @@ var staticRenderFns = [function () {var _vm=this;var _h=_vm.$createElement;var _
     }
   }, [_c('i', {
     staticClass: "fi-share"
-  }), _vm._v(" "), _c('span', [_vm._v("Category")]), _vm._v(" "), _c('span', {
+  }), _vm._v(" "), _c('span', [_vm._v("Danh mục")]), _vm._v(" "), _c('span', {
     staticClass: "menu-arrow"
   })])
 },function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -45868,7 +45820,7 @@ var staticRenderFns = [function () {var _vm=this;var _h=_vm.$createElement;var _
     }
   }, [_c('i', {
     staticClass: "fi-share"
-  }), _vm._v(" "), _c('span', [_vm._v("Product")]), _vm._v(" "), _c('span', {
+  }), _vm._v(" "), _c('span', [_vm._v("Sản phẩm")]), _vm._v(" "), _c('span', {
     staticClass: "menu-arrow"
   })])
 },function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -45878,7 +45830,7 @@ var staticRenderFns = [function () {var _vm=this;var _h=_vm.$createElement;var _
     }
   }, [_c('i', {
     staticClass: "fi-share"
-  }), _vm._v(" "), _c('span', [_vm._v("Vendors")]), _vm._v(" "), _c('span', {
+  }), _vm._v(" "), _c('span', [_vm._v("Nhà cung cấp")]), _vm._v(" "), _c('span', {
     staticClass: "menu-arrow"
   })])
 },function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -45888,7 +45840,7 @@ var staticRenderFns = [function () {var _vm=this;var _h=_vm.$createElement;var _
     }
   }, [_c('i', {
     staticClass: "fi-share"
-  }), _vm._v(" "), _c('span', [_vm._v("Settings")]), _vm._v(" "), _c('span', {
+  }), _vm._v(" "), _c('span', [_vm._v("Cấu hình")]), _vm._v(" "), _c('span', {
     staticClass: "menu-arrow"
   })])
 }]
@@ -46129,7 +46081,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     staticClass: "content"
   }, [_c('div', {
     staticClass: "container"
-  }, [_c('breadcrumb'), _vm._v(" "), _c('router-view')], 1)]), _vm._v(" "), _c('footer-page')], 1)], 1)
+  }, [_c('br'), _vm._v(" "), _c('router-view')], 1)]), _vm._v(" "), _c('footer-page')], 1)], 1)
 }
 var staticRenderFns = []
 render._withStripped = true
