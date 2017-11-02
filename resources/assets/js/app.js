@@ -38,14 +38,26 @@ Vue.use(VeeValidate, {'locale': 'vi'})
  */
 axios.interceptors.request.use(function (config) {
 	NProgress.start();
-	return config;
+	var user = config.headers.common.authors;
+	console.log(typeof user);
+	console.log(user.length);
+	if (typeof user == 'undefined' || !user.length) {
+		// return window.location.href = '/login';
+	}else {
+		return config;	
+	}
 }, function (error) {
 	return Promise.reject(error);
 });
 
 axios.interceptors.response.use(function (response) {
 	NProgress.done();
-    return response;
+	
+	if (response.data && response.data.status == 403) {
+		// return window.location.href = '/login';
+	}else {
+		return response;	
+	}
 }, function (error) {
     return Promise.reject(error);
 });

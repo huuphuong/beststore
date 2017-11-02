@@ -23204,6 +23204,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9_vue_clipboard2___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_9_vue_clipboard2__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_10_vue_js_modal__ = __webpack_require__(6);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_10_vue_js_modal___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_10_vue_js_modal__);
+var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
 
 /**
  * First we will load all of this project's JavaScript dependencies which
@@ -23241,34 +23242,46 @@ __WEBPACK_IMPORTED_MODULE_0_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_7_vee_
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 __WEBPACK_IMPORTED_MODULE_4_axios___default.a.interceptors.request.use(function (config) {
-  NProgress.start();
-  return config;
+	NProgress.start();
+	var user = config.headers.common.authors;
+	console.log(typeof user === 'undefined' ? 'undefined' : _typeof(user));
+	console.log(user.length);
+	if (typeof user == 'undefined' || !user.length) {
+		// return window.location.href = '/login';
+	} else {
+		return config;
+	}
 }, function (error) {
-  return Promise.reject(error);
+	return Promise.reject(error);
 });
 
 __WEBPACK_IMPORTED_MODULE_4_axios___default.a.interceptors.response.use(function (response) {
-  NProgress.done();
-  return response;
+	NProgress.done();
+
+	if (response.data && response.data.status == 403) {
+		// return window.location.href = '/login';
+	} else {
+		return response;
+	}
 }, function (error) {
-  return Promise.reject(error);
+	return Promise.reject(error);
 });
 
 var app = new __WEBPACK_IMPORTED_MODULE_0_vue___default.a({
-  el: '#app',
-  router: __WEBPACK_IMPORTED_MODULE_3__routes__["a" /* default */],
-  render: function render(h) {
-    return h(__WEBPACK_IMPORTED_MODULE_2__components_App_vue___default.a);
-  }
+	el: '#app',
+	router: __WEBPACK_IMPORTED_MODULE_3__routes__["a" /* default */],
+	render: function render(h) {
+		return h(__WEBPACK_IMPORTED_MODULE_2__components_App_vue___default.a);
+	}
 });
 
 __WEBPACK_IMPORTED_MODULE_0_vue___default.a.nextTick(function () {
-  __webpack_require__(193);
-  __webpack_require__(195);
-  __webpack_require__(196);
-  __webpack_require__(197);
-  __webpack_require__(198);
-  __webpack_require__(199);
+	__webpack_require__(193);
+	__webpack_require__(195);
+	__webpack_require__(196);
+	__webpack_require__(197);
+	__webpack_require__(198);
+	__webpack_require__(199);
 });
 
 /***/ }),
@@ -23299,6 +23312,7 @@ try {
 window.axios = __webpack_require__(7);
 
 window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
+window.axios.defaults.headers.common['authors'] = $('meta[name="authors"]').attr('content');
 
 /**
  * Next we will register the CSRF Token as a common header with Axios so that
