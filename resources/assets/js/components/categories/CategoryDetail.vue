@@ -3,52 +3,48 @@
 		<div class="row">
 			<div class="form-group pull-right m-r-10">
 				<router-link :to="{name: 'Category'}" class="btn btn-default">
-					<span class="glyphicon glyphicon-plus"></span> Add Category
+					<span class="glyphicon glyphicon-plus"></span> Tạo danh mục
 				</router-link>
 
 				<router-link :to="{name: 'CategoryList'}" class="btn btn-default">
-					<span class="glyphicon glyphicon-th-list"></span> List Category
+					<span class="glyphicon glyphicon-th-list"></span> Danh sách danh mục
 				</router-link>
 
 				<router-link :to="{name: 'CategoryEdit', param: {id: this.$route.params.id}}" class="btn btn-default">
-					<span class="glyphicon glyphicon-pencil"></span> Edit Category
+					<span class="glyphicon glyphicon-pencil"></span> Sửa danh mục
 				</router-link>
-
-				<!-- <router-link :to="{name: 'Category'}">
-					Delete Category
-				</router-link> -->
 			</div>	
 		</div>
 
 		<div class="panel panel-default">
 			<div class="panel-heading">
-				<h3 class="panel-title">Category Detail</h3>
+				<h3 class="panel-title">Chi tiết danh mục</h3>
 			</div>
 			<div class="panel-body" v-if="category">
 				<table class="table table-hover">
 					<tbody>
 						<tr>
-							<th v-bind:class="{'border-top-none': true}">Category name:</th>
+							<th v-bind:class="{'border-top-none': true}">Tên danh mục:</th>
 							<th  v-bind:class="{'border-top-none text-success': true}">{{ category.cat_name }}</th>
 						</tr>
 
 						<tr>
-							<th>Parent category:</th>
+							<th>Danh mục cha(chi tiết):</th>
 							<th class="text-success">{{ category.parent_cat_id }}</th>
 						</tr>
 
 						<tr>
-							<th>Position:</th>
+							<th>Vị trí:</th>
 							<td>{{ category.position }}</td>
 						</tr>
 
 						<tr>
-							<th>Display:</th>
-							<td>{{ category.display == 1 ? 'Yes' : 'No' }}</td>
+							<th>Hiển thị:</th>
+							<td>{{ category.display == 1 ? 'Hiển thị' : 'Không hiển thị' }}</td>
 						</tr>
 
 						<tr>
-							<th>Description:</th>
+							<th>Nội dung:</th>
 							<td>{{ category.cat_desc }}</td>
 						</tr>
 
@@ -83,19 +79,19 @@
 						</tr>
 
 						<tr>
-							<th>Created at:</th>
+							<th>Tạo lúc:</th>
 							<td>{{ category.created_at }}</td>
 						</tr>
 
 						<tr>
-							<th>Updated at:</th>
+							<th>Cập nhật lúc:</th>
 							<td>{{ category.updated_at }}</td>
 						</tr>
 
 						<tr>
-							<th>Deleted at:</th>
+							<th>Xóa lúc:</th>
 							<td v-if="category.deleted_at">{{ category.deleted_at }}</td>
-							<td v-else>This category has not been deleted</td>
+							<td v-else>Danh mục này chưa bị xóa.</td>
 						</tr>
 					</tbody>
 				</table>

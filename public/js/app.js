@@ -68176,7 +68176,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 		};
 	},
 	mounted: function mounted() {
-		document.title = 'Category Detail';
+		document.title = 'Chi tiết danh mục';
 		this.getCategory();
 	},
 
@@ -68223,7 +68223,7 @@ var render = function() {
             },
             [
               _c("span", { staticClass: "glyphicon glyphicon-plus" }),
-              _vm._v(" Add Category\n\t\t\t")
+              _vm._v(" Tạo danh mục\n\t\t\t")
             ]
           ),
           _vm._v(" "),
@@ -68235,7 +68235,7 @@ var render = function() {
             },
             [
               _c("span", { staticClass: "glyphicon glyphicon-th-list" }),
-              _vm._v(" List Category\n\t\t\t")
+              _vm._v(" Danh sách danh mục\n\t\t\t")
             ]
           ),
           _vm._v(" "),
@@ -68252,7 +68252,7 @@ var render = function() {
             },
             [
               _c("span", { staticClass: "glyphicon glyphicon-pencil" }),
-              _vm._v(" Edit Category\n\t\t\t")
+              _vm._v(" Sửa danh mục\n\t\t\t")
             ]
           )
         ],
@@ -68269,7 +68269,7 @@ var render = function() {
               _c("tbody", [
                 _c("tr", [
                   _c("th", { class: { "border-top-none": true } }, [
-                    _vm._v("Category name:")
+                    _vm._v("Tên danh mục:")
                   ]),
                   _vm._v(" "),
                   _c(
@@ -68280,7 +68280,7 @@ var render = function() {
                 ]),
                 _vm._v(" "),
                 _c("tr", [
-                  _c("th", [_vm._v("Parent category:")]),
+                  _c("th", [_vm._v("Danh mục cha(chi tiết):")]),
                   _vm._v(" "),
                   _c("th", { staticClass: "text-success" }, [
                     _vm._v(_vm._s(_vm.category.parent_cat_id))
@@ -68288,21 +68288,27 @@ var render = function() {
                 ]),
                 _vm._v(" "),
                 _c("tr", [
-                  _c("th", [_vm._v("Position:")]),
+                  _c("th", [_vm._v("Vị trí:")]),
                   _vm._v(" "),
                   _c("td", [_vm._v(_vm._s(_vm.category.position))])
                 ]),
                 _vm._v(" "),
                 _c("tr", [
-                  _c("th", [_vm._v("Display:")]),
+                  _c("th", [_vm._v("Hiển thị:")]),
                   _vm._v(" "),
                   _c("td", [
-                    _vm._v(_vm._s(_vm.category.display == 1 ? "Yes" : "No"))
+                    _vm._v(
+                      _vm._s(
+                        _vm.category.display == 1
+                          ? "Hiển thị"
+                          : "Không hiển thị"
+                      )
+                    )
                   ])
                 ]),
                 _vm._v(" "),
                 _c("tr", [
-                  _c("th", [_vm._v("Description:")]),
+                  _c("th", [_vm._v("Nội dung:")]),
                   _vm._v(" "),
                   _c("td", [_vm._v(_vm._s(_vm.category.cat_desc))])
                 ]),
@@ -68344,23 +68350,23 @@ var render = function() {
                 ]),
                 _vm._v(" "),
                 _c("tr", [
-                  _c("th", [_vm._v("Created at:")]),
+                  _c("th", [_vm._v("Tạo lúc:")]),
                   _vm._v(" "),
                   _c("td", [_vm._v(_vm._s(_vm.category.created_at))])
                 ]),
                 _vm._v(" "),
                 _c("tr", [
-                  _c("th", [_vm._v("Updated at:")]),
+                  _c("th", [_vm._v("Cập nhật lúc:")]),
                   _vm._v(" "),
                   _c("td", [_vm._v(_vm._s(_vm.category.updated_at))])
                 ]),
                 _vm._v(" "),
                 _c("tr", [
-                  _c("th", [_vm._v("Deleted at:")]),
+                  _c("th", [_vm._v("Xóa lúc:")]),
                   _vm._v(" "),
                   _vm.category.deleted_at
                     ? _c("td", [_vm._v(_vm._s(_vm.category.deleted_at))])
-                    : _c("td", [_vm._v("This category has not been deleted")])
+                    : _c("td", [_vm._v("Danh mục này chưa bị xóa.")])
                 ])
               ])
             ])
@@ -68377,7 +68383,7 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "panel-heading" }, [
-      _c("h3", { staticClass: "panel-title" }, [_vm._v("Category Detail")])
+      _c("h3", { staticClass: "panel-title" }, [_vm._v("Chi tiết danh mục")])
     ])
   }
 ]
