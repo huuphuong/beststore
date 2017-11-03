@@ -49751,6 +49751,16 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -49792,15 +49802,66 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c("div", { attrs: { id: "root" } }, [
     _c("div", { staticClass: "row" }, [
+      _c(
+        "div",
+        { staticClass: "btn-group pull-right m-r-10" },
+        [
+          _c(
+            "router-link",
+            {
+              staticClass: "btn btn-default",
+              attrs: { to: { name: "RoleList" } }
+            },
+            [
+              _c("span", { staticClass: "glyphicon glyphicon-th-list" }),
+              _vm._v(" Danh sách quyền\n\t\t\t")
+            ]
+          ),
+          _vm._v(" "),
+          _c(
+            "router-link",
+            {
+              staticClass: "btn btn-default",
+              attrs: { to: { name: "RoleCreate" } }
+            },
+            [
+              _c("span", { staticClass: "glyphicon glyphicon-plus" }),
+              _vm._v(" Tạo quyền\n\t\t\t")
+            ]
+          ),
+          _vm._v(" "),
+          _c(
+            "router-link",
+            {
+              staticClass: "btn btn-default",
+              attrs: {
+                to: { name: "RoleEdit", params: { id: this.$route.params.id } }
+              }
+            },
+            [
+              _c("span", { staticClass: "glyphicon glyphicon-eye-open" }),
+              _vm._v(" Sửa quyền\n\t\t\t")
+            ]
+          )
+        ],
+        1
+      )
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "row m-t-20" }, [
       _c("div", { staticClass: "panel panel-default" }, [
-        _vm._m(0),
+        _c("div", { staticClass: "panel-heading" }, [
+          _c("h3", { staticClass: "panel-title" }, [
+            _vm._v("Chi tiết quyền: " + _vm._s(_vm.role.role_name))
+          ])
+        ]),
         _vm._v(" "),
         _c("div", { staticClass: "panel-body" }, [
           _vm.role
             ? _c("div", [
                 _c("table", { staticClass: "table table-hover" }, [
                   _c("tr", [
-                    _c("th", [_vm._v("RoleID")]),
+                    _c("th", [_vm._v("#ID")]),
                     _vm._v(" "),
                     _c("th", { staticClass: "text-success" }, [
                       _vm._v(_vm._s(_vm.role.id))
@@ -49808,7 +49869,7 @@ var render = function() {
                   ]),
                   _vm._v(" "),
                   _c("tr", [
-                    _c("th", [_vm._v("Role name")]),
+                    _c("th", [_vm._v("Tên quyền:")]),
                     _vm._v(" "),
                     _c("th", { staticClass: "text-success" }, [
                       _vm._v(_vm._s(_vm.role.role_name))
@@ -49816,7 +49877,7 @@ var render = function() {
                   ]),
                   _vm._v(" "),
                   _c("tr", [
-                    _c("th", [_vm._v("Role description")]),
+                    _c("th", [_vm._v("Nội dung:")]),
                     _vm._v(" "),
                     _c("th", { staticClass: "text-success" }, [
                       _vm._v(_vm._s(_vm.role.role_desc))
@@ -49824,7 +49885,7 @@ var render = function() {
                   ]),
                   _vm._v(" "),
                   _c("tr", [
-                    _c("th", [_vm._v("Updated_at")]),
+                    _c("th", [_vm._v("Cập nhật lúc:")]),
                     _vm._v(" "),
                     _c("th", { staticClass: "text-success" }, [
                       _vm._v(_vm._s(_vm.role.updated_at))
@@ -49838,16 +49899,7 @@ var render = function() {
     ])
   ])
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "panel-heading" }, [
-      _c("h3", { staticClass: "panel-title" }, [_vm._v("Role Detail")])
-    ])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
@@ -49982,106 +50034,153 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "panel panel-default" }, [
-    _vm._m(0),
+  return _c("div", { attrs: { id: "root" } }, [
+    _c("div", { staticClass: "row" }, [
+      _c(
+        "div",
+        { staticClass: "btn-group pull-right m-r-10" },
+        [
+          _c(
+            "router-link",
+            {
+              staticClass: "btn btn-default",
+              attrs: { to: { name: "RoleList" } }
+            },
+            [
+              _c("span", { staticClass: "glyphicon glyphicon-th-list" }),
+              _vm._v(" Danh sách quyền\n      ")
+            ]
+          ),
+          _vm._v(" "),
+          _c(
+            "router-link",
+            {
+              staticClass: "btn btn-default",
+              attrs: { to: { name: "RoleCreate" } }
+            },
+            [
+              _c("span", { staticClass: "glyphicon glyphicon-plus" }),
+              _vm._v(" Tạo quyền\n      ")
+            ]
+          ),
+          _vm._v(" "),
+          _c(
+            "router-link",
+            {
+              staticClass: "btn btn-default",
+              attrs: { to: { name: "RoleDetail" } }
+            },
+            [
+              _c("span", { staticClass: "glyphicon glyphicon-eye-open" }),
+              _vm._v(" Chi tiết\n      ")
+            ]
+          )
+        ],
+        1
+      )
+    ]),
     _vm._v(" "),
-    _c(
-      "form",
-      {
-        attrs: { autocomplete: "off", method: "POST" },
-        on: {
-          submit: function($event) {
-            $event.preventDefault()
-            _vm.validateBeforeSubmit($event)
+    _c("div", { staticClass: "panel panel-default m-t-20" }, [
+      _vm._m(0),
+      _vm._v(" "),
+      _c(
+        "form",
+        {
+          attrs: { autocomplete: "off", method: "POST" },
+          on: {
+            submit: function($event) {
+              $event.preventDefault()
+              _vm.validateBeforeSubmit($event)
+            }
           }
-        }
-      },
-      [
-        _c("div", { staticClass: "panel-body" }, [
-          _c("div", { staticClass: "form-group" }, [
-            _c("label", { attrs: { for: "" } }, [_vm._v("Role name:")]),
-            _vm._v(" "),
-            _c("input", {
-              directives: [
-                {
-                  name: "validate",
-                  rawName: "v-validate",
-                  value: "required",
-                  expression: "'required'"
-                },
-                {
-                  name: "model",
-                  rawName: "v-model",
-                  value: _vm.postBody.role_name,
-                  expression: "postBody.role_name"
-                }
-              ],
-              class: { "form-control": true },
-              attrs: {
-                type: "text",
-                name: "postBody.role_name",
-                "data-vv-as": "Tên nhóm người dùng"
-              },
-              domProps: { value: _vm.postBody.role_name },
-              on: {
-                input: function($event) {
-                  if ($event.target.composing) {
-                    return
-                  }
-                  _vm.postBody.role_name = $event.target.value
-                }
-              }
-            }),
-            _vm._v(" "),
-            _c(
-              "span",
-              {
+        },
+        [
+          _c("div", { staticClass: "panel-body" }, [
+            _c("div", { staticClass: "form-group" }, [
+              _c("label", { attrs: { for: "" } }, [_vm._v("Tên quyền:")]),
+              _vm._v(" "),
+              _c("input", {
                 directives: [
                   {
-                    name: "show",
-                    rawName: "v-show",
-                    value: _vm.errors.has("postBody.role_name"),
-                    expression: "errors.has('postBody.role_name')"
+                    name: "validate",
+                    rawName: "v-validate",
+                    value: "required",
+                    expression: "'required'"
+                  },
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.postBody.role_name,
+                    expression: "postBody.role_name"
                   }
                 ],
-                staticClass: "label label-danger"
-              },
-              [_vm._v(_vm._s(_vm.errors.first("postBody.role_name")))]
-            )
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "form-group" }, [
-            _c("label", { attrs: { for: "" } }, [
-              _vm._v("Description (optional):")
+                class: { "form-control": true },
+                attrs: {
+                  type: "text",
+                  name: "postBody.role_name",
+                  "data-vv-as": "Tên nhóm người dùng"
+                },
+                domProps: { value: _vm.postBody.role_name },
+                on: {
+                  input: function($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.postBody.role_name = $event.target.value
+                  }
+                }
+              }),
+              _vm._v(" "),
+              _c(
+                "span",
+                {
+                  directives: [
+                    {
+                      name: "show",
+                      rawName: "v-show",
+                      value: _vm.errors.has("postBody.role_name"),
+                      expression: "errors.has('postBody.role_name')"
+                    }
+                  ],
+                  staticClass: "label label-danger"
+                },
+                [_vm._v(_vm._s(_vm.errors.first("postBody.role_name")))]
+              )
             ]),
             _vm._v(" "),
-            _c("input", {
-              directives: [
-                {
-                  name: "model",
-                  rawName: "v-model",
-                  value: _vm.postBody.role_desc,
-                  expression: "postBody.role_desc"
-                }
-              ],
-              staticClass: "form-control",
-              attrs: { type: "text" },
-              domProps: { value: _vm.postBody.role_desc },
-              on: {
-                input: function($event) {
-                  if ($event.target.composing) {
-                    return
+            _c("div", { staticClass: "form-group" }, [
+              _c("label", { attrs: { for: "" } }, [
+                _vm._v("Ghi chú (không bắt buộc):")
+              ]),
+              _vm._v(" "),
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.postBody.role_desc,
+                    expression: "postBody.role_desc"
                   }
-                  _vm.postBody.role_desc = $event.target.value
+                ],
+                staticClass: "form-control",
+                attrs: { type: "text" },
+                domProps: { value: _vm.postBody.role_desc },
+                on: {
+                  input: function($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.postBody.role_desc = $event.target.value
+                  }
                 }
-              }
-            })
-          ])
-        ]),
-        _vm._v(" "),
-        _vm._m(1)
-      ]
-    )
+              })
+            ])
+          ]),
+          _vm._v(" "),
+          _vm._m(1)
+        ]
+      )
+    ])
   ])
 }
 var staticRenderFns = [
@@ -50090,7 +50189,7 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "panel-heading" }, [
-      _c("h3", { staticClass: "panel-title" }, [_vm._v("Create Role")])
+      _c("h3", { staticClass: "panel-title" }, [_vm._v("Sửa quyền")])
     ])
   },
   function() {
@@ -50101,13 +50200,13 @@ var staticRenderFns = [
       _c(
         "button",
         { staticClass: "btn btn-default", attrs: { type: "reset" } },
-        [_vm._v("Cancel")]
+        [_vm._v("Hủy bỏ")]
       ),
       _vm._v(" "),
       _c(
         "button",
         { staticClass: "btn btn-primary", attrs: { type: "submit" } },
-        [_vm._v("Update Role")]
+        [_vm._v("Cập nhật")]
       )
     ])
   }
