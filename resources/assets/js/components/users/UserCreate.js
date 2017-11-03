@@ -30,6 +30,7 @@ export default {
   mounted: function () {
     var vm = this;
     vm.getListRole();
+    document.title = 'Tạo người dùng';
   },
 
 

@@ -13,6 +13,7 @@ export default {
   },
 
   mounted: function () {
+      document.title = 'Sửa quyền';
       this.getRole();
   },
 

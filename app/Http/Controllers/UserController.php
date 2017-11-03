@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\User;
 use App\Api;
 use File;
+use App\Helpers\AppHelper;
 
 class UserController extends Controller
 {
@@ -58,7 +59,8 @@ class UserController extends Controller
             $user->password = bcrypt($data['user']['password']);
 
             if (!empty ($data['avatar'])) {
-                $user->avatar = $data['avatar'];
+                $image               = AppHelper::base64ImgToFile('asset_users', $data['avatar']);
+                $user->avatar        = $image;
             }
 
             $user->save();

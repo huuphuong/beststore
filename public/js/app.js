@@ -49775,6 +49775,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 	mounted: function mounted() {
 		this.getRoleDetail();
+		document.title = 'Chi tiết quyền';
 	},
 
 	methods: {
@@ -49977,6 +49978,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
   },
 
   mounted: function mounted() {
+    document.title = 'Sửa quyền';
     this.getRole();
   },
 
@@ -50308,6 +50310,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
   mounted: function mounted() {
     var vm = this;
     vm.getListRole();
+    document.title = 'Tạo người dùng';
   },
 
   methods: {
@@ -51509,181 +51512,48 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "panel panel-default" }, [
-    _vm._m(0),
+  return _c("div", { attrs: { id: "root" } }, [
+    _c("div", { staticClass: "row" }, [
+      _c(
+        "div",
+        { staticClass: "btn-group pull-right m-r-10" },
+        [
+          _c(
+            "router-link",
+            {
+              staticClass: "btn btn-default",
+              attrs: { to: { name: "UserList" } }
+            },
+            [
+              _c("span", { staticClass: "glyphicon glyphicon-th-list" }),
+              _vm._v(" Danh sách người dùng\n      ")
+            ]
+          )
+        ],
+        1
+      )
+    ]),
     _vm._v(" "),
-    _c(
-      "form",
-      {
-        attrs: { method: "POST", enctype: "multipart/form-data" },
-        on: {
-          submit: function($event) {
-            $event.preventDefault()
-            _vm.validateBeforeSubmit($event)
+    _c("div", { staticClass: "panel panel-default m-t-10" }, [
+      _vm._m(0),
+      _vm._v(" "),
+      _c(
+        "form",
+        {
+          attrs: { method: "POST", enctype: "multipart/form-data" },
+          on: {
+            submit: function($event) {
+              $event.preventDefault()
+              _vm.validateBeforeSubmit($event)
+            }
           }
-        }
-      },
-      [
-        _c("div", { staticClass: "panel-body" }, [
-          _c("div", { staticClass: "form-group" }, [
-            _c("label", { attrs: { for: "" } }, [_vm._v("Username:")]),
-            _vm._v(" "),
-            _c("input", {
-              directives: [
-                {
-                  name: "validate",
-                  rawName: "v-validate",
-                  value: "required",
-                  expression: "'required'"
-                },
-                {
-                  name: "model",
-                  rawName: "v-model",
-                  value: _vm.user.name,
-                  expression: "user.name"
-                }
-              ],
-              class: {
-                "form-control": true,
-                "is-danger": _vm.errors.has("user.name")
-              },
-              attrs: {
-                type: "text",
-                name: "user.name",
-                "data-vv-as": "Tên người dùng"
-              },
-              domProps: { value: _vm.user.name },
-              on: {
-                input: function($event) {
-                  if ($event.target.composing) {
-                    return
-                  }
-                  _vm.user.name = $event.target.value
-                }
-              }
-            }),
-            _vm._v(" "),
-            _c(
-              "span",
-              {
-                directives: [
-                  {
-                    name: "show",
-                    rawName: "v-show",
-                    value: _vm.errors.has("user.name"),
-                    expression: "errors.has('user.name')"
-                  }
-                ],
-                staticClass: "label label-danger"
-              },
-              [_vm._v(_vm._s(_vm.errors.first("user.name")))]
-            )
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "form-group" }, [
-            _c("label", { attrs: { for: "gender" } }, [_vm._v("Gender:")]),
-            _vm._v(" "),
-            _c("div", { staticClass: "container" }, [
+        },
+        [
+          _c("div", { staticClass: "panel-body" }, [
+            _c("div", { staticClass: "form-group" }, [
+              _c("label", { attrs: { for: "" } }, [_vm._v("Họ tên:")]),
+              _vm._v(" "),
               _c("input", {
-                directives: [
-                  {
-                    name: "model",
-                    rawName: "v-model",
-                    value: _vm.user.gender,
-                    expression: "user.gender"
-                  }
-                ],
-                attrs: { type: "radio", value: "Male" },
-                domProps: { checked: _vm._q(_vm.user.gender, "Male") },
-                on: {
-                  __c: function($event) {
-                    _vm.user.gender = "Male"
-                  }
-                }
-              }),
-              _vm._v("\n          Male\n        ")
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "container" }, [
-              _c("input", {
-                directives: [
-                  {
-                    name: "model",
-                    rawName: "v-model",
-                    value: _vm.user.gender,
-                    expression: "user.gender"
-                  }
-                ],
-                attrs: { type: "radio", value: "Female" },
-                domProps: { checked: _vm._q(_vm.user.gender, "Female") },
-                on: {
-                  __c: function($event) {
-                    _vm.user.gender = "Female"
-                  }
-                }
-              }),
-              _vm._v("\n          Female\n        ")
-            ])
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "form-group" }, [
-            _c("label", { attrs: { for: "" } }, [_vm._v("Phone number:")]),
-            _vm._v(" "),
-            _c("input", {
-              directives: [
-                {
-                  name: "validate",
-                  rawName: "v-validate",
-                  value: "required|numeric",
-                  expression: "'required|numeric'"
-                },
-                {
-                  name: "model",
-                  rawName: "v-model",
-                  value: _vm.user.phone,
-                  expression: "user.phone"
-                }
-              ],
-              class: { "form-control": "true" },
-              attrs: {
-                type: "text",
-                name: "user.phone",
-                "data-vv-as": "Số điện thoại"
-              },
-              domProps: { value: _vm.user.phone },
-              on: {
-                input: function($event) {
-                  if ($event.target.composing) {
-                    return
-                  }
-                  _vm.user.phone = $event.target.value
-                }
-              }
-            }),
-            _vm._v(" "),
-            _c(
-              "span",
-              {
-                directives: [
-                  {
-                    name: "show",
-                    rawName: "v-show",
-                    value: _vm.errors.has("user.phone"),
-                    expression: "errors.has('user.phone')"
-                  }
-                ],
-                staticClass: "label label-danger"
-              },
-              [_vm._v(_vm._s(_vm.errors.first("user.phone")))]
-            )
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "form-group" }, [
-            _c("label", { attrs: { for: "role" } }, [_vm._v("Role:")]),
-            _vm._v(" "),
-            _c(
-              "select",
-              {
                 directives: [
                   {
                     name: "validate",
@@ -51694,279 +51564,437 @@ var render = function() {
                   {
                     name: "model",
                     rawName: "v-model",
-                    value: _vm.user.role_id,
-                    expression: "user.role_id"
+                    value: _vm.user.name,
+                    expression: "user.name"
                   }
                 ],
-                class: { "form-control": "true" },
-                attrs: {
-                  name: "user.role_id",
-                  "data-vv-as": "Nhóm người dùng"
+                class: {
+                  "form-control": true,
+                  "is-danger": _vm.errors.has("user.name")
                 },
+                attrs: {
+                  type: "text",
+                  name: "user.name",
+                  "data-vv-as": "Tên người dùng"
+                },
+                domProps: { value: _vm.user.name },
                 on: {
-                  change: function($event) {
-                    var $$selectedVal = Array.prototype.filter
-                      .call($event.target.options, function(o) {
-                        return o.selected
-                      })
-                      .map(function(o) {
-                        var val = "_value" in o ? o._value : o.value
-                        return val
-                      })
-                    _vm.user.role_id = $event.target.multiple
-                      ? $$selectedVal
-                      : $$selectedVal[0]
+                  input: function($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.user.name = $event.target.value
                   }
                 }
-              },
-              [
-                _c("option", { attrs: { value: "" } }, [
-                  _vm._v("-- Choose User Role --")
-                ]),
-                _vm._v(" "),
-                _vm._l(_vm.listRole, function(role) {
-                  return _c("option", { domProps: { value: role.id } }, [
-                    _vm._v(_vm._s(role.role_name))
-                  ])
-                })
-              ],
-              2
-            ),
-            _vm._v(" "),
-            _c(
-              "span",
-              {
-                directives: [
-                  {
-                    name: "show",
-                    rawName: "v-show",
-                    value: _vm.errors.has("user.role_id"),
-                    expression: "errors.has('user.role_id')"
-                  }
-                ],
-                staticClass: "label label-danger"
-              },
-              [_vm._v(_vm._s(_vm.errors.first("user.role_id")))]
-            )
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "form-group" }, [
-            _c("label", { attrs: { for: "" } }, [_vm._v("Email:")]),
-            _vm._v(" "),
-            _c("input", {
-              directives: [
-                {
-                  name: "validate",
-                  rawName: "v-validate",
-                  value: "required|email",
-                  expression: "'required|email'"
-                },
-                {
-                  name: "model",
-                  rawName: "v-model",
-                  value: _vm.user.email,
-                  expression: "user.email"
-                }
-              ],
-              class: { "form-control": "true" },
-              attrs: {
-                type: "text",
-                name: "user.email",
-                "data-vv-as": "Email"
-              },
-              domProps: { value: _vm.user.email },
-              on: {
-                input: function($event) {
-                  if ($event.target.composing) {
-                    return
-                  }
-                  _vm.user.email = $event.target.value
-                }
-              }
-            }),
-            _vm._v(" "),
-            _c(
-              "span",
-              {
-                directives: [
-                  {
-                    name: "show",
-                    rawName: "v-show",
-                    value: _vm.errors.has("user.email"),
-                    expression: "errors.has('user.email')"
-                  }
-                ],
-                staticClass: "label label-danger"
-              },
-              [_vm._v(_vm._s(_vm.errors.first("user.email")))]
-            )
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "form-group" }, [
-            _c("label", { attrs: { for: "" } }, [_vm._v("Password:")]),
-            _vm._v(" "),
-            _c("input", {
-              directives: [
-                {
-                  name: "validate",
-                  rawName: "v-validate",
-                  value: "required|min:3",
-                  expression: "'required|min:3'"
-                },
-                {
-                  name: "model",
-                  rawName: "v-model",
-                  value: _vm.user.password,
-                  expression: "user.password"
-                }
-              ],
-              class: { "form-control": "true" },
-              attrs: {
-                type: "password",
-                name: "user.password",
-                "data-vv-as": "Mật khẩu"
-              },
-              domProps: { value: _vm.user.password },
-              on: {
-                input: function($event) {
-                  if ($event.target.composing) {
-                    return
-                  }
-                  _vm.user.password = $event.target.value
-                }
-              }
-            }),
-            _vm._v(" "),
-            _c(
-              "span",
-              {
-                directives: [
-                  {
-                    name: "show",
-                    rawName: "v-show",
-                    value: _vm.errors.has("user.password"),
-                    expression: "errors.has('user.password')"
-                  }
-                ],
-                staticClass: "label label-danger"
-              },
-              [_vm._v(_vm._s(_vm.errors.first("user.password")))]
-            )
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "form-group" }, [
-            _c("label", { attrs: { for: "" } }, [_vm._v("Re-password:")]),
-            _vm._v(" "),
-            _c("input", {
-              directives: [
-                {
-                  name: "validate",
-                  rawName: "v-validate",
-                  value: "required|confirmed:user.password",
-                  expression: "'required|confirmed:user.password'"
-                },
-                {
-                  name: "model",
-                  rawName: "v-model",
-                  value: _vm.repassword,
-                  expression: "repassword"
-                }
-              ],
-              class: { "form-control": "true" },
-              attrs: {
-                type: "password",
-                name: "repassword",
-                "data-vv-as": "Xác nhận mật khẩu"
-              },
-              domProps: { value: _vm.repassword },
-              on: {
-                input: function($event) {
-                  if ($event.target.composing) {
-                    return
-                  }
-                  _vm.repassword = $event.target.value
-                }
-              }
-            }),
-            _vm._v(" "),
-            _c(
-              "span",
-              {
-                directives: [
-                  {
-                    name: "show",
-                    rawName: "v-show",
-                    value: _vm.errors.has("repassword"),
-                    expression: "errors.has('repassword')"
-                  }
-                ],
-                staticClass: "label label-danger"
-              },
-              [_vm._v(_vm._s(_vm.errors.first("repassword")))]
-            )
-          ]),
-          _vm._v(" "),
-          _c(
-            "div",
-            { staticClass: "form-group" },
-            [
-              _c("label", { attrs: { for: "" } }, [
-                _vm._v("Visa card (optional):")
-              ]),
-              _vm._v(" "),
-              _c("picture-input", {
-                directives: [
-                  {
-                    name: "validate",
-                    rawName: "v-validate",
-                    value: "image",
-                    expression: "'image'"
-                  }
-                ],
-                ref: "pictureInput",
-                attrs: {
-                  width: "350",
-                  height: "350",
-                  accept: "image/jpeg,image/png",
-                  size: "10",
-                  crop: true,
-                  removable: true,
-                  buttonClass: "btn btn-default",
-                  removeButtonClass: "btn btn-warning",
-                  customStrings: {
-                    upload: "<h1>Bummer!</h1>",
-                    drag: "Please choose your image."
-                  },
-                  "data-vv-value-path": "innerValue",
-                  "data-vv-name": "customImage",
-                  "data-vv-as": "Ảnh đại diện"
-                },
-                on: { change: _vm.onChangeImage }
               }),
               _vm._v(" "),
               _c(
-                "p",
+                "span",
                 {
                   directives: [
                     {
                       name: "show",
                       rawName: "v-show",
-                      value: _vm.errors.has("customImage"),
-                      expression: "errors.has('customImage')"
+                      value: _vm.errors.has("user.name"),
+                      expression: "errors.has('user.name')"
                     }
                   ],
-                  staticClass: "label label-danger text-center"
+                  staticClass: "label label-danger"
                 },
-                [_vm._v(_vm._s(_vm.errors.first("customImage")))]
+                [_vm._v(_vm._s(_vm.errors.first("user.name")))]
               )
-            ],
-            1
-          )
-        ]),
-        _vm._v(" "),
-        _vm._m(1)
-      ]
-    )
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "form-group" }, [
+              _c("label", { attrs: { for: "gender" } }, [_vm._v("Giới tính:")]),
+              _vm._v(" "),
+              _c("div", { staticClass: "container" }, [
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.user.gender,
+                      expression: "user.gender"
+                    }
+                  ],
+                  attrs: { type: "radio", value: "Male" },
+                  domProps: { checked: _vm._q(_vm.user.gender, "Male") },
+                  on: {
+                    __c: function($event) {
+                      _vm.user.gender = "Male"
+                    }
+                  }
+                }),
+                _vm._v("\n            Nam\n          ")
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "container" }, [
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.user.gender,
+                      expression: "user.gender"
+                    }
+                  ],
+                  attrs: { type: "radio", value: "Female" },
+                  domProps: { checked: _vm._q(_vm.user.gender, "Female") },
+                  on: {
+                    __c: function($event) {
+                      _vm.user.gender = "Female"
+                    }
+                  }
+                }),
+                _vm._v("\n            Nữ\n          ")
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "form-group" }, [
+              _c("label", { attrs: { for: "" } }, [_vm._v("Số điện thoại:")]),
+              _vm._v(" "),
+              _c("input", {
+                directives: [
+                  {
+                    name: "validate",
+                    rawName: "v-validate",
+                    value: "required|numeric",
+                    expression: "'required|numeric'"
+                  },
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.user.phone,
+                    expression: "user.phone"
+                  }
+                ],
+                class: { "form-control": "true" },
+                attrs: {
+                  type: "text",
+                  name: "user.phone",
+                  "data-vv-as": "Số điện thoại"
+                },
+                domProps: { value: _vm.user.phone },
+                on: {
+                  input: function($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.user.phone = $event.target.value
+                  }
+                }
+              }),
+              _vm._v(" "),
+              _c(
+                "span",
+                {
+                  directives: [
+                    {
+                      name: "show",
+                      rawName: "v-show",
+                      value: _vm.errors.has("user.phone"),
+                      expression: "errors.has('user.phone')"
+                    }
+                  ],
+                  staticClass: "label label-danger"
+                },
+                [_vm._v(_vm._s(_vm.errors.first("user.phone")))]
+              )
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "form-group" }, [
+              _c("label", { attrs: { for: "role" } }, [_vm._v("Quyền:")]),
+              _vm._v(" "),
+              _c(
+                "select",
+                {
+                  directives: [
+                    {
+                      name: "validate",
+                      rawName: "v-validate",
+                      value: "required",
+                      expression: "'required'"
+                    },
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.user.role_id,
+                      expression: "user.role_id"
+                    }
+                  ],
+                  class: { "form-control": "true" },
+                  attrs: {
+                    name: "user.role_id",
+                    "data-vv-as": "Nhóm người dùng"
+                  },
+                  on: {
+                    change: function($event) {
+                      var $$selectedVal = Array.prototype.filter
+                        .call($event.target.options, function(o) {
+                          return o.selected
+                        })
+                        .map(function(o) {
+                          var val = "_value" in o ? o._value : o.value
+                          return val
+                        })
+                      _vm.user.role_id = $event.target.multiple
+                        ? $$selectedVal
+                        : $$selectedVal[0]
+                    }
+                  }
+                },
+                [
+                  _c("option", { attrs: { value: "" } }, [
+                    _vm._v("-- Chọn --")
+                  ]),
+                  _vm._v(" "),
+                  _vm._l(_vm.listRole, function(role) {
+                    return _c("option", { domProps: { value: role.id } }, [
+                      _vm._v(_vm._s(role.role_name))
+                    ])
+                  })
+                ],
+                2
+              ),
+              _vm._v(" "),
+              _c(
+                "span",
+                {
+                  directives: [
+                    {
+                      name: "show",
+                      rawName: "v-show",
+                      value: _vm.errors.has("user.role_id"),
+                      expression: "errors.has('user.role_id')"
+                    }
+                  ],
+                  staticClass: "label label-danger"
+                },
+                [_vm._v(_vm._s(_vm.errors.first("user.role_id")))]
+              )
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "form-group" }, [
+              _c("label", { attrs: { for: "" } }, [_vm._v("Email:")]),
+              _vm._v(" "),
+              _c("input", {
+                directives: [
+                  {
+                    name: "validate",
+                    rawName: "v-validate",
+                    value: "required|email",
+                    expression: "'required|email'"
+                  },
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.user.email,
+                    expression: "user.email"
+                  }
+                ],
+                class: { "form-control": "true" },
+                attrs: {
+                  type: "text",
+                  name: "user.email",
+                  "data-vv-as": "Email"
+                },
+                domProps: { value: _vm.user.email },
+                on: {
+                  input: function($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.user.email = $event.target.value
+                  }
+                }
+              }),
+              _vm._v(" "),
+              _c(
+                "span",
+                {
+                  directives: [
+                    {
+                      name: "show",
+                      rawName: "v-show",
+                      value: _vm.errors.has("user.email"),
+                      expression: "errors.has('user.email')"
+                    }
+                  ],
+                  staticClass: "label label-danger"
+                },
+                [_vm._v(_vm._s(_vm.errors.first("user.email")))]
+              )
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "form-group" }, [
+              _c("label", { attrs: { for: "" } }, [_vm._v("Mật khẩu:")]),
+              _vm._v(" "),
+              _c("input", {
+                directives: [
+                  {
+                    name: "validate",
+                    rawName: "v-validate",
+                    value: "required|min:3",
+                    expression: "'required|min:3'"
+                  },
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.user.password,
+                    expression: "user.password"
+                  }
+                ],
+                class: { "form-control": "true" },
+                attrs: {
+                  type: "password",
+                  name: "user.password",
+                  "data-vv-as": "Mật khẩu"
+                },
+                domProps: { value: _vm.user.password },
+                on: {
+                  input: function($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.user.password = $event.target.value
+                  }
+                }
+              }),
+              _vm._v(" "),
+              _c(
+                "span",
+                {
+                  directives: [
+                    {
+                      name: "show",
+                      rawName: "v-show",
+                      value: _vm.errors.has("user.password"),
+                      expression: "errors.has('user.password')"
+                    }
+                  ],
+                  staticClass: "label label-danger"
+                },
+                [_vm._v(_vm._s(_vm.errors.first("user.password")))]
+              )
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "form-group" }, [
+              _c("label", { attrs: { for: "" } }, [
+                _vm._v("Xác nhận mật khẩu:")
+              ]),
+              _vm._v(" "),
+              _c("input", {
+                directives: [
+                  {
+                    name: "validate",
+                    rawName: "v-validate",
+                    value: "required|confirmed:user.password",
+                    expression: "'required|confirmed:user.password'"
+                  },
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.repassword,
+                    expression: "repassword"
+                  }
+                ],
+                class: { "form-control": "true" },
+                attrs: {
+                  type: "password",
+                  name: "repassword",
+                  "data-vv-as": "Xác nhận mật khẩu"
+                },
+                domProps: { value: _vm.repassword },
+                on: {
+                  input: function($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.repassword = $event.target.value
+                  }
+                }
+              }),
+              _vm._v(" "),
+              _c(
+                "span",
+                {
+                  directives: [
+                    {
+                      name: "show",
+                      rawName: "v-show",
+                      value: _vm.errors.has("repassword"),
+                      expression: "errors.has('repassword')"
+                    }
+                  ],
+                  staticClass: "label label-danger"
+                },
+                [_vm._v(_vm._s(_vm.errors.first("repassword")))]
+              )
+            ]),
+            _vm._v(" "),
+            _c(
+              "div",
+              { staticClass: "form-group" },
+              [
+                _c("label", { attrs: { for: "" } }, [
+                  _vm._v("Ảnh đại diện (không bắt buộc):")
+                ]),
+                _vm._v(" "),
+                _c("picture-input", {
+                  directives: [
+                    {
+                      name: "validate",
+                      rawName: "v-validate",
+                      value: "image",
+                      expression: "'image'"
+                    }
+                  ],
+                  ref: "pictureInput",
+                  attrs: {
+                    width: "350",
+                    height: "350",
+                    accept: "image/jpeg,image/png",
+                    size: "10",
+                    crop: true,
+                    removable: true,
+                    buttonClass: "btn btn-default",
+                    removeButtonClass: "btn btn-warning",
+                    customStrings: {
+                      upload: "<h1>Bummer!</h1>",
+                      drag: "Chọn ảnh đại diện"
+                    },
+                    "data-vv-value-path": "innerValue",
+                    "data-vv-name": "customImage",
+                    "data-vv-as": "Ảnh đại diện"
+                  },
+                  on: { change: _vm.onChangeImage }
+                }),
+                _vm._v(" "),
+                _c(
+                  "p",
+                  {
+                    directives: [
+                      {
+                        name: "show",
+                        rawName: "v-show",
+                        value: _vm.errors.has("customImage"),
+                        expression: "errors.has('customImage')"
+                      }
+                    ],
+                    staticClass: "label label-danger text-center"
+                  },
+                  [_vm._v(_vm._s(_vm.errors.first("customImage")))]
+                )
+              ],
+              1
+            )
+          ]),
+          _vm._v(" "),
+          _vm._m(1)
+        ]
+      )
+    ])
   ])
 }
 var staticRenderFns = [
@@ -51975,7 +52003,7 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "panel-heading" }, [
-      _c("h3", { staticClass: "panel-title" }, [_vm._v("Crete User")])
+      _c("h3", { staticClass: "panel-title" }, [_vm._v("Tạo người dùng")])
     ])
   },
   function() {
@@ -51986,13 +52014,13 @@ var staticRenderFns = [
       _c(
         "button",
         { staticClass: "btn btn-default", attrs: { type: "reset" } },
-        [_vm._v("Cancel")]
+        [_vm._v("Hủy bỏ")]
       ),
       _vm._v(" "),
       _c(
         "button",
         { staticClass: "btn btn-primary", attrs: { type: "submit" } },
-        [_vm._v("Create user")]
+        [_vm._v("Tạo người dùng")]
       )
     ])
   }

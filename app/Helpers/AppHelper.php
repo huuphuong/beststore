@@ -120,6 +120,10 @@ class AppHelper
         if (!empty ($requestFile))
         {
             $imageName = uniqid() . '.jpg';
+            $folder = public_path() . '/'. $assetPath;
+            if (!is_dir($folder)) {
+                mkdir($assetPath);
+            }
             $path = public_path() . '/'. $assetPath. '/' . $imageName;
             $saveFile = file_put_contents($path, base64_decode(preg_replace('#^data:image/\w+;base64,#i', '', $requestFile)));
 

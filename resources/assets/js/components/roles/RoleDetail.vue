@@ -69,7 +69,8 @@ export default {
 
 
 	mounted: function () {
-		this.getRoleDetail()
+		this.getRoleDetail();
+		document.title = 'Chi tiết quyền';
 	},
 
 	methods: {
