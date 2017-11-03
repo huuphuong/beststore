@@ -49216,108 +49216,131 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "panel panel-default" }, [
-    _vm._m(0),
+  return _c("div", { attrs: { id: "root" } }, [
+    _c("div", { staticClass: "row" }, [
+      _c(
+        "div",
+        { staticClass: "btn-group pull-right m-r-10" },
+        [
+          _c(
+            "router-link",
+            {
+              staticClass: "btn btn-default",
+              attrs: { to: { name: "RoleList" } }
+            },
+            [
+              _c("span", { staticClass: "glyphicon glyphicon-th-list" }),
+              _vm._v(" Danh sách quyền\n      ")
+            ]
+          )
+        ],
+        1
+      )
+    ]),
     _vm._v(" "),
-    _c(
-      "form",
-      {
-        attrs: { autocomplete: "off", method: "POST" },
-        on: {
-          submit: function($event) {
-            $event.preventDefault()
-            _vm.validateBeforeSubmit($event)
+    _c("div", { staticClass: "panel panel-default m-t-10" }, [
+      _vm._m(0),
+      _vm._v(" "),
+      _c(
+        "form",
+        {
+          attrs: { autocomplete: "off", method: "POST" },
+          on: {
+            submit: function($event) {
+              $event.preventDefault()
+              _vm.validateBeforeSubmit($event)
+            }
           }
-        }
-      },
-      [
-        _c("div", { staticClass: "panel-body" }, [
-          _c("div", { staticClass: "form-group" }, [
-            _c("label", { attrs: { for: "role_name" } }, [
-              _vm._v("Tên quyền:")
-            ]),
-            _vm._v(" "),
-            _c("input", {
-              directives: [
-                {
-                  name: "validate",
-                  rawName: "v-validate",
-                  value: "required",
-                  expression: "'required'"
-                },
-                {
-                  name: "model",
-                  rawName: "v-model",
-                  value: _vm.postBody.role_name,
-                  expression: "postBody.role_name"
-                }
-              ],
-              class: { "form-control": true },
-              attrs: {
-                type: "text",
-                name: "postBody.role_name",
-                "data-vv-as": "Tên nhóm người dùng"
-              },
-              domProps: { value: _vm.postBody.role_name },
-              on: {
-                input: function($event) {
-                  if ($event.target.composing) {
-                    return
-                  }
-                  _vm.postBody.role_name = $event.target.value
-                }
-              }
-            }),
-            _vm._v(" "),
-            _c(
-              "span",
-              {
+        },
+        [
+          _c("div", { staticClass: "panel-body" }, [
+            _c("div", { staticClass: "form-group" }, [
+              _c("label", { attrs: { for: "role_name" } }, [
+                _vm._v("Tên quyền:")
+              ]),
+              _vm._v(" "),
+              _c("input", {
                 directives: [
                   {
-                    name: "show",
-                    rawName: "v-show",
-                    value: _vm.errors.has("postBody.role_name"),
-                    expression: "errors.has('postBody.role_name')"
+                    name: "validate",
+                    rawName: "v-validate",
+                    value: "required",
+                    expression: "'required'"
+                  },
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.postBody.role_name,
+                    expression: "postBody.role_name"
                   }
                 ],
-                staticClass: "label label-danger"
-              },
-              [_vm._v(_vm._s(_vm.errors.first("postBody.role_name")))]
-            )
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "form-group" }, [
-            _c("label", { attrs: { for: "role_desc" } }, [
-              _vm._v("Ghi chú (không bắt buộc):")
+                class: { "form-control": true },
+                attrs: {
+                  type: "text",
+                  name: "postBody.role_name",
+                  "data-vv-as": "Tên nhóm người dùng"
+                },
+                domProps: { value: _vm.postBody.role_name },
+                on: {
+                  input: function($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.postBody.role_name = $event.target.value
+                  }
+                }
+              }),
+              _vm._v(" "),
+              _c(
+                "span",
+                {
+                  directives: [
+                    {
+                      name: "show",
+                      rawName: "v-show",
+                      value: _vm.errors.has("postBody.role_name"),
+                      expression: "errors.has('postBody.role_name')"
+                    }
+                  ],
+                  staticClass: "label label-danger"
+                },
+                [_vm._v(_vm._s(_vm.errors.first("postBody.role_name")))]
+              )
             ]),
             _vm._v(" "),
-            _c("input", {
-              directives: [
-                {
-                  name: "model",
-                  rawName: "v-model",
-                  value: _vm.postBody.role_desc,
-                  expression: "postBody.role_desc"
-                }
-              ],
-              staticClass: "form-control",
-              attrs: { type: "text" },
-              domProps: { value: _vm.postBody.role_desc },
-              on: {
-                input: function($event) {
-                  if ($event.target.composing) {
-                    return
+            _c("div", { staticClass: "form-group" }, [
+              _c("label", { attrs: { for: "role_desc" } }, [
+                _vm._v("Ghi chú (không bắt buộc):")
+              ]),
+              _vm._v(" "),
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.postBody.role_desc,
+                    expression: "postBody.role_desc"
                   }
-                  _vm.postBody.role_desc = $event.target.value
+                ],
+                staticClass: "form-control",
+                attrs: { type: "text" },
+                domProps: { value: _vm.postBody.role_desc },
+                on: {
+                  input: function($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.postBody.role_desc = $event.target.value
+                  }
                 }
-              }
-            })
-          ])
-        ]),
-        _vm._v(" "),
-        _vm._m(1)
-      ]
-    )
+              })
+            ])
+          ]),
+          _vm._v(" "),
+          _vm._m(1)
+        ]
+      )
+    ])
   ])
 }
 var staticRenderFns = [
@@ -49422,6 +49445,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 	},
 
 	mounted: function mounted() {
+		document.title = 'Danh sách quyền';
 		this.getListRole();
 	},
 
@@ -49461,91 +49485,117 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "panel panel-default" }, [
-    _vm._m(0),
+  return _c("div", { attrs: { id: "root" } }, [
+    _c("div", { staticClass: "row" }, [
+      _c(
+        "div",
+        { staticClass: "btn-group pull-right m-r-10" },
+        [
+          _c(
+            "router-link",
+            {
+              staticClass: "btn btn-default",
+              attrs: { to: { name: "RoleCreate" } }
+            },
+            [
+              _c("span", { staticClass: "glyphicon glyphicon-plus" }),
+              _vm._v(" Tạo quyền\n      ")
+            ]
+          )
+        ],
+        1
+      )
+    ]),
     _vm._v(" "),
-    _c("div", { staticClass: "panel-body table-responsive" }, [
-      _c("table", { staticClass: "table table-hover" }, [
-        _vm._m(1),
-        _vm._v(" "),
-        _c(
-          "tbody",
-          _vm._l(_vm.listRole, function(role, key) {
-            return _c("tr", [
-              _c("td", [_vm._v(_vm._s(++key))]),
-              _vm._v(" "),
-              _c("td", [_vm._v("RL" + _vm._s(role.id))]),
-              _vm._v(" "),
-              _c("td", [_vm._v(_vm._s(role.role_name))]),
-              _vm._v(" "),
-              _c("td", [_vm._v(_vm._s(role.role_desc))]),
-              _vm._v(" "),
-              _c("td", [_vm._v(_vm._s(role.updated_at))]),
-              _vm._v(" "),
-              _c("td", [
-                _c("div", { staticClass: "dropdown" }, [
-                  _vm._m(2, true),
-                  _vm._v(" "),
-                  _c(
-                    "ul",
-                    { staticClass: "dropdown-menu dropdown-menu-right" },
-                    [
-                      _c(
-                        "router-link",
-                        {
-                          attrs: {
-                            to: { name: "RoleEdit", params: { id: role.id } },
-                            tag: "li"
-                          }
-                        },
-                        [
-                          _c("a", [
-                            _c("i", { staticClass: "mdi mdi-pencil" }),
-                            _vm._v(" Edit Role")
-                          ])
-                        ]
-                      ),
-                      _vm._v(" "),
-                      _c("li", { class: { point: true } }, [
+    _c("div", { staticClass: "panel panel-default m-t-10" }, [
+      _vm._m(0),
+      _vm._v(" "),
+      _c("div", { staticClass: "panel-body table-responsive" }, [
+        _c("table", { staticClass: "table table-hover" }, [
+          _vm._m(1),
+          _vm._v(" "),
+          _c(
+            "tbody",
+            _vm._l(_vm.listRole, function(role, key) {
+              return _c("tr", [
+                _c("td", [_vm._v(_vm._s(++key))]),
+                _vm._v(" "),
+                _c("td", [_vm._v("RL" + _vm._s(role.id))]),
+                _vm._v(" "),
+                _c("td", [_vm._v(_vm._s(role.role_name))]),
+                _vm._v(" "),
+                _c("td", [_vm._v(_vm._s(role.role_desc))]),
+                _vm._v(" "),
+                _c("td", [_vm._v(_vm._s(role.updated_at))]),
+                _vm._v(" "),
+                _c("td", [
+                  _c("div", { staticClass: "dropdown" }, [
+                    _vm._m(2, true),
+                    _vm._v(" "),
+                    _c(
+                      "ul",
+                      { staticClass: "dropdown-menu dropdown-menu-right" },
+                      [
                         _c(
-                          "a",
+                          "router-link",
                           {
-                            on: {
-                              click: function($event) {
-                                _vm.removeRole(role.id)
-                              }
+                            attrs: {
+                              to: { name: "RoleEdit", params: { id: role.id } },
+                              tag: "li"
                             }
                           },
                           [
-                            _c("i", { staticClass: "mdi mdi-window-close" }),
-                            _vm._v(" Delete Role")
+                            _c("a", [
+                              _c("i", { staticClass: "mdi mdi-pencil" }),
+                              _vm._v(" Sửa quyền")
+                            ])
+                          ]
+                        ),
+                        _vm._v(" "),
+                        _c("li", { class: { point: true } }, [
+                          _c(
+                            "a",
+                            {
+                              on: {
+                                click: function($event) {
+                                  _vm.removeRole(role.id)
+                                }
+                              }
+                            },
+                            [
+                              _c("i", { staticClass: "mdi mdi-window-close" }),
+                              _vm._v(" Xóa quyền")
+                            ]
+                          )
+                        ]),
+                        _vm._v(" "),
+                        _c(
+                          "router-link",
+                          {
+                            attrs: {
+                              to: {
+                                name: "RoleDetail",
+                                params: { id: role.id }
+                              },
+                              tag: "li"
+                            }
+                          },
+                          [
+                            _c("a", [
+                              _c("i", { staticClass: "mdi mdi-eye" }),
+                              _vm._v(" Xem chi tiết")
+                            ])
                           ]
                         )
-                      ]),
-                      _vm._v(" "),
-                      _c(
-                        "router-link",
-                        {
-                          attrs: {
-                            to: { name: "RoleDetail", params: { id: role.id } },
-                            tag: "li"
-                          }
-                        },
-                        [
-                          _c("a", [
-                            _c("i", { staticClass: "mdi mdi-eye" }),
-                            _vm._v(" View Role Detail")
-                          ])
-                        ]
-                      )
-                    ],
-                    1
-                  )
+                      ],
+                      1
+                    )
+                  ])
                 ])
               ])
-            ])
-          })
-        )
+            })
+          )
+        ])
       ])
     ])
   ])
@@ -49556,7 +49606,7 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "panel-heading" }, [
-      _c("h3", { staticClass: "panel-title" }, [_vm._v("List Role")])
+      _c("h3", { staticClass: "panel-title" }, [_vm._v("Danh sách quyền")])
     ])
   },
   function() {
@@ -49565,17 +49615,17 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("thead", [
       _c("tr", [
-        _c("th", [_vm._v("Index")]),
+        _c("th", [_vm._v("#")]),
         _vm._v(" "),
-        _c("th", [_vm._v("RoleID")]),
+        _c("th", [_vm._v("ID")]),
         _vm._v(" "),
-        _c("th", [_vm._v("Role name")]),
+        _c("th", [_vm._v("Tên quyền")]),
         _vm._v(" "),
-        _c("th", [_vm._v("Description")]),
+        _c("th", [_vm._v("Nội dung")]),
         _vm._v(" "),
-        _c("th", [_vm._v("Updated At")]),
+        _c("th", [_vm._v("Cập nhật lúc")]),
         _vm._v(" "),
-        _c("th", [_vm._v("Action")])
+        _c("th", [_vm._v("Hành động")])
       ])
     ])
   },

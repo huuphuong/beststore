@@ -10,7 +10,8 @@ export default {
 	},
 
 	mounted: function () {
-		this.getListRole()
+		document.title = 'Danh sách quyền';
+		this.getListRole();
 	},
 
 	methods: {
