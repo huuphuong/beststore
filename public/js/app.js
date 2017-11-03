@@ -53407,12 +53407,15 @@ var render = function() {
             {
               staticClass: "btn btn-default",
               attrs: {
-                to: { name: "UserEdit", params: { id: this.$route.params.id } }
+                to: {
+                  name: "UserDetail",
+                  params: { id: this.$route.params.id }
+                }
               }
             },
             [
               _c("span", { staticClass: "glyphicon glyphicon-eye-open" }),
-              _vm._v(" Sửa người dùng\n      ")
+              _vm._v(" Chi tiết\n      ")
             ]
           )
         ],

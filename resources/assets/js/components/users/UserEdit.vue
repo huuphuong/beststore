@@ -8,8 +8,8 @@
         <router-link :to="{name: 'UserCreate'}" class="btn btn-default">
           <span class="glyphicon glyphicon-plus"></span> Tạo người dùng
         </router-link>
-        <router-link :to="{name: 'UserEdit', params: {id: this.$route.params.id} }" class="btn btn-default">
-          <span class="glyphicon glyphicon-eye-open"></span> Sửa người dùng
+        <router-link :to="{name: 'UserDetail', params: {id: this.$route.params.id} }" class="btn btn-default">
+          <span class="glyphicon glyphicon-eye-open"></span> Chi tiết
         </router-link>
       </div>
     </div>
