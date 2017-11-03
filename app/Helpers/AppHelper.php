@@ -55,7 +55,7 @@ class AppHelper
             if ($value['parent_cat_id'] == $parent) {
                 $id = $value["cat_id"];
                 $name = $value["cat_name"];
-                $display = $value['display'] == 1 ? '<span class="label label-success">Display</label>' : '<span class="label label-warning">None</label>';
+                $display = $value['display'] == 1 ? '<span class="label label-success">Hiển thị</label>' : '<span class="label label-warning">Không hiển thị</label>';
 
 
                 $this->tbodyString .= "
@@ -75,9 +75,9 @@ class AppHelper
 						<td>$display</td>
 						<td>{$value['updated_at']}</td>
 						<td>
-							<a href='" . url('/categories/edit/' . $id) . "'>Edit</a> | 
-							<button class='btn btn-link p-0 m-0'> Delete</button> |
-							<a href='" . url('/categories/detail/' . $id) . "'>Detail</a>
+							<a href='" . url('/categories/edit/' . $id) . "'>Sửa</a> | 
+							<button class='btn btn-link p-0 m-0'> Xóa</button> |
+							<a href='" . url('/categories/detail/' . $id) . "'>Chi tiết</a>
 						</td>
 					</tr>
 				";

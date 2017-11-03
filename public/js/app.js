@@ -68461,7 +68461,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 		};
 	},
 	mounted: function mounted() {
-		document.title = 'Category List';
+		document.title = 'Danh sách danh mục';
 		this.getCategories();
 	},
 
@@ -68532,7 +68532,7 @@ var render = function() {
             },
             [
               _c("span", { staticClass: "glyphicon glyphicon-plus" }),
-              _vm._v(" Add Category\n\t\t\t")
+              _vm._v(" Tạo danh mục\n\t\t\t")
             ]
           )
         ],
@@ -68553,7 +68553,7 @@ var render = function() {
                   staticClass: "col-sm-8 control-label",
                   attrs: { for: "input" }
                 },
-                [_vm._v("Keyword:")]
+                [_vm._v("Từ khóa:")]
               ),
               _vm._v(" "),
               _c("div", { staticClass: "col-sm-4 pull-right" }, [
@@ -68603,7 +68603,7 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "panel-heading" }, [
-      _c("h3", { staticClass: "panel-title" }, [_vm._v("List Category")])
+      _c("h3", { staticClass: "panel-title" }, [_vm._v("Danh sách danh mục")])
     ])
   },
   function() {
@@ -68614,19 +68614,19 @@ var staticRenderFns = [
       _c("tr", [
         _c("th", [_vm._v("#ID")]),
         _vm._v(" "),
-        _c("th", [_vm._v("Category name")]),
+        _c("th", [_vm._v("Tên danh mục")]),
         _vm._v(" "),
-        _c("th", [_vm._v("Parent category")]),
+        _c("th", [_vm._v("Danh mục cha")]),
         _vm._v(" "),
-        _c("th", [_vm._v("Description")]),
+        _c("th", [_vm._v("Nội dung")]),
         _vm._v(" "),
-        _c("th", [_vm._v("Position")]),
+        _c("th", [_vm._v("Vị trí")]),
         _vm._v(" "),
-        _c("th", [_vm._v("Display")]),
+        _c("th", [_vm._v("Hiển thị?")]),
         _vm._v(" "),
-        _c("th", [_vm._v("Updated at")]),
+        _c("th", [_vm._v("Cập nhật lúc")]),
         _vm._v(" "),
-        _c("th", [_vm._v("Action")])
+        _c("th", [_vm._v("Hành động")])
       ])
     ])
   }

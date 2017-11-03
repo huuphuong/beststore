@@ -12,7 +12,7 @@ export default {
 
 
 	mounted () {
-		document.title = 'Category List';
+		document.title = 'Danh sách danh mục';
 		this.getCategories();
 	},
 
