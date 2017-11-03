@@ -52097,6 +52097,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 	},
 	mounted: function mounted() {
 		this.getUser();
+		document.title = 'Chi tiết người dùng';
 	},
 
 
@@ -52128,79 +52129,137 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "panel panel-default" }, [
-    _vm._m(0),
+  return _c("div", { staticClass: "root" }, [
+    _c("div", { staticClass: "row" }, [
+      _c(
+        "div",
+        { staticClass: "btn-group pull-right m-r-10" },
+        [
+          _c(
+            "router-link",
+            {
+              staticClass: "btn btn-default",
+              attrs: { to: { name: "UserList" } }
+            },
+            [
+              _c("span", { staticClass: "glyphicon glyphicon-th-list" }),
+              _vm._v(" Danh sách người dùng\n\t\t\t")
+            ]
+          ),
+          _vm._v(" "),
+          _c(
+            "router-link",
+            {
+              staticClass: "btn btn-default",
+              attrs: { to: { name: "UserCreate" } }
+            },
+            [
+              _c("span", { staticClass: "glyphicon glyphicon-plus" }),
+              _vm._v(" Tạo người dùng\n\t\t\t")
+            ]
+          ),
+          _vm._v(" "),
+          _c(
+            "router-link",
+            {
+              staticClass: "btn btn-default",
+              attrs: {
+                to: { name: "UserEdit", params: { id: this.$route.params.id } }
+              }
+            },
+            [
+              _c("span", { staticClass: "glyphicon glyphicon-eye-open" }),
+              _vm._v(" Sửa người dùng\n\t\t\t")
+            ]
+          )
+        ],
+        1
+      )
+    ]),
     _vm._v(" "),
-    _c("div", { staticClass: "panel-body" }, [
-      _vm._v("\n\t\t" + _vm._s(_vm.user.length) + "\n\t\t"),
-      !_vm.message
-        ? _c("div", { staticClass: "row" }, [
-            _c("div", { staticClass: "col-sm-3" }, [
-              _vm.user.avatar
-                ? _c("div", [
-                    _c("img", {
-                      staticClass: "img-responsive img-thumbnail",
-                      attrs: { src: _vm.user.avatar, title: "Ảnh đại diện" }
-                    })
-                  ])
-                : _c("div", [
-                    _c("img", {
-                      staticClass: "img-responsive img-thumbnail",
-                      attrs: {
-                        src: "http://via.placeholder.com/140x140",
-                        title: "Ảnh đại diện"
-                      }
-                    })
-                  ])
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "col-sm-9" }, [
-              _c("table", { staticClass: "table table-hover" }, [
-                _c("tr", [
-                  _c("th", [_vm._v("Username:")]),
-                  _vm._v(" "),
-                  _c("th", { staticClass: "text-success" }, [
-                    _vm._v(_vm._s(_vm.user.name))
-                  ])
+    _c("div", { staticClass: "card-box m-t-10" }, [
+      _vm._m(0),
+      _vm._v(" "),
+      _c("div", { staticClass: "tab-content" }, [
+        _c("div", { staticClass: "tab-pane", attrs: { id: "tab1" } }, [
+          !_vm.message
+            ? _c("div", { staticClass: "row" }, [
+                _c("div", { staticClass: "col-sm-3" }, [
+                  _vm.user.avatar
+                    ? _c("div", [
+                        _c("img", {
+                          staticClass: "img-responsive img-thumbnail",
+                          attrs: { src: _vm.user.avatar, title: "Ảnh đại diện" }
+                        })
+                      ])
+                    : _c("div", [
+                        _c("img", {
+                          staticClass: "img-responsive img-thumbnail",
+                          attrs: {
+                            src: "http://via.placeholder.com/140x140",
+                            title: "Ảnh đại diện"
+                          }
+                        })
+                      ])
                 ]),
                 _vm._v(" "),
-                _c("tr", [
-                  _c("th", [_vm._v("Gender:")]),
-                  _vm._v(" "),
-                  _c("th", { staticClass: "text-success" }, [
-                    _vm._v(_vm._s(_vm.user.gender))
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("tr", [
-                  _c("th", [_vm._v("Phone number:")]),
-                  _vm._v(" "),
-                  _c("th", { staticClass: "text-success" }, [
-                    _vm._v(_vm._s(_vm.user.phone))
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("tr", [
-                  _c("th", [_vm._v("Role:")]),
-                  _vm._v(" "),
-                  _c("th", { staticClass: "text-success" }, [
-                    _vm._v(_vm._s(_vm.user.role_name))
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("tr", [
-                  _c("th", [_vm._v("Email:")]),
-                  _vm._v(" "),
-                  _c("th", { staticClass: "text-success" }, [
-                    _vm._v(_vm._s(_vm.user.email))
+                _c("div", { staticClass: "col-sm-9" }, [
+                  _c("table", { staticClass: "table table-hover" }, [
+                    _c("tr", [
+                      _c("th", [_vm._v("Họ tên:")]),
+                      _vm._v(" "),
+                      _c("th", { staticClass: "text-success" }, [
+                        _vm._v(_vm._s(_vm.user.name))
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("tr", [
+                      _c("th", [_vm._v("Giới tính:")]),
+                      _vm._v(" "),
+                      _c("th", { staticClass: "text-success" }, [
+                        _vm._v(_vm._s(_vm.user.gender))
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("tr", [
+                      _c("th", [_vm._v("Số điện thoại:")]),
+                      _vm._v(" "),
+                      _c("th", { staticClass: "text-success" }, [
+                        _vm._v(_vm._s(_vm.user.phone))
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("tr", [
+                      _c("th", [_vm._v("Quyền hạn:")]),
+                      _vm._v(" "),
+                      _c("th", { staticClass: "text-success" }, [
+                        _vm._v(_vm._s(_vm.user.role_name))
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("tr", [
+                      _c("th", [_vm._v("E-mail:")]),
+                      _vm._v(" "),
+                      _c("th", { staticClass: "text-success" }, [
+                        _vm._v(_vm._s(_vm.user.email))
+                      ])
+                    ])
                   ])
                 ])
               ])
-            ])
-          ])
-        : _c("div", { staticClass: "row" }, [
-            _vm._v("\n\t\t\t" + _vm._s(_vm.message) + "\n\t\t")
-          ])
+            : _c("div", { staticClass: "row" }, [
+                _vm._v("\n\t\t\t\t\t" + _vm._s(_vm.message) + "\n\t\t\t\t")
+              ])
+        ]),
+        _vm._v(" "),
+        _vm._m(1),
+        _vm._v(" "),
+        _vm._m(2),
+        _vm._v(" "),
+        _vm._m(3),
+        _vm._v(" "),
+        _vm._m(4)
+      ])
     ])
   ])
 }
@@ -52209,8 +52268,146 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "panel-heading" }, [
-      _c("h3", { staticClass: "panel-title" }, [_vm._v("Thông tin user")])
+    return _c("ul", { staticClass: "nav nav-tabs tabs-bordered" }, [
+      _c("li", {}, [
+        _c(
+          "a",
+          {
+            attrs: {
+              href: "#tab1",
+              "data-toggle": "tab",
+              "aria-expanded": "false"
+            }
+          },
+          [
+            _c("span", { staticClass: "visible-xs" }, [
+              _c("i", { staticClass: "fa fa-home" })
+            ]),
+            _vm._v(" "),
+            _c("span", { staticClass: "hidden-xs" }, [
+              _vm._v("Thông tin cơ bản")
+            ])
+          ]
+        )
+      ]),
+      _vm._v(" "),
+      _c("li", { staticClass: "active" }, [
+        _c(
+          "a",
+          {
+            attrs: {
+              href: "#tab2",
+              "data-toggle": "tab",
+              "aria-expanded": "true"
+            }
+          },
+          [
+            _c("span", { staticClass: "visible-xs" }, [
+              _c("i", { staticClass: "fa fa-user" })
+            ]),
+            _vm._v(" "),
+            _c("span", { staticClass: "hidden-xs" }, [
+              _vm._v("Lịch sử mua hàng")
+            ])
+          ]
+        )
+      ]),
+      _vm._v(" "),
+      _c("li", {}, [
+        _c(
+          "a",
+          {
+            attrs: {
+              href: "#tab3",
+              "data-toggle": "tab",
+              "aria-expanded": "false"
+            }
+          },
+          [
+            _c("span", { staticClass: "visible-xs" }, [
+              _c("i", { staticClass: "fa fa-envelope-o" })
+            ]),
+            _vm._v(" "),
+            _c("span", { staticClass: "hidden-xs" }, [
+              _vm._v("Mặt hàng đã bán")
+            ])
+          ]
+        )
+      ]),
+      _vm._v(" "),
+      _c("li", {}, [
+        _c(
+          "a",
+          {
+            attrs: {
+              href: "#tab4",
+              "data-toggle": "tab",
+              "aria-expanded": "false"
+            }
+          },
+          [
+            _c("span", { staticClass: "visible-xs" }, [
+              _c("i", { staticClass: "fa fa-cog" })
+            ]),
+            _vm._v(" "),
+            _c("span", { staticClass: "hidden-xs" }, [_vm._v("Doanh thu")])
+          ]
+        )
+      ]),
+      _vm._v(" "),
+      _c("li", {}, [
+        _c(
+          "a",
+          {
+            attrs: {
+              href: "#tab5",
+              "data-toggle": "tab",
+              "aria-expanded": "false"
+            }
+          },
+          [
+            _c("span", { staticClass: "visible-xs" }, [
+              _c("i", { staticClass: "fa fa-cog" })
+            ]),
+            _vm._v(" "),
+            _c("span", { staticClass: "hidden-xs" }, [_vm._v("Thống kê")])
+          ]
+        )
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      { staticClass: "tab-pane active", attrs: { id: "tab2" } },
+      [_c("p", [_vm._v("Tab 2.")])]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "tab-pane", attrs: { id: "tab3" } }, [
+      _c("p", [_vm._v("Tab 3.")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "tab-pane", attrs: { id: "tab4" } }, [
+      _c("p", [_vm._v("Tab 4.")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "tab-pane", attrs: { id: "tab5" } }, [
+      _c("p", [_vm._v("Tab 5.")])
     ])
   }
 ]

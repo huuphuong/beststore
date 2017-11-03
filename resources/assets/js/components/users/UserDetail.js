@@ -11,6 +11,7 @@ export default {
 
 	mounted () {
 		this.getUser();
+		document.title = 'Chi tiết người dùng';
 	},
 
 
