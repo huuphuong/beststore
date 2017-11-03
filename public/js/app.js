@@ -52296,6 +52296,7 @@ var queryString = __webpack_require__(20);
 		};
 	},
 	mounted: function mounted() {
+		document.title = 'Danh sách người dùng';
 		this.getListUser();
 	},
 
@@ -52558,316 +52559,368 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "panel panel-default" }, [
-    _vm._m(0),
+  return _c("div", { attrs: { id: "root" } }, [
+    _c("div", { staticClass: "row" }, [
+      _c(
+        "div",
+        { staticClass: "btn-group pull-right m-r-10" },
+        [
+          _c(
+            "router-link",
+            {
+              staticClass: "btn btn-default",
+              attrs: { to: { name: "UserCreate" } }
+            },
+            [
+              _c("span", { staticClass: "glyphicon glyphicon-plus" }),
+              _vm._v(" Tạo người dùng\n      ")
+            ]
+          )
+        ],
+        1
+      )
+    ]),
     _vm._v(" "),
-    _c("div", { staticClass: "panel-body" }, [
-      _c("table", { staticClass: "table table-hover" }, [
-        _c("thead", [
-          _vm._m(1),
-          _vm._v(" "),
-          _c("tr", [
-            _c("th", [_vm._v("#")]),
+    _c("div", { staticClass: "panel panel-default m-t-10" }, [
+      _vm._m(0),
+      _vm._v(" "),
+      _c("div", { staticClass: "panel-body" }, [
+        _c("table", { staticClass: "table table-hover" }, [
+          _c("thead", [
+            _vm._m(1),
             _vm._v(" "),
-            _c("th", [
-              _c("input", {
-                directives: [
-                  {
-                    name: "model",
-                    rawName: "v-model",
-                    value: _vm.query.id,
-                    expression: "query.id"
-                  }
-                ],
-                staticClass: "form-control",
-                attrs: { type: "text" },
-                domProps: { value: _vm.query.id },
-                on: {
-                  input: function($event) {
-                    if ($event.target.composing) {
-                      return
+            _c("tr", [
+              _c("th"),
+              _vm._v(" "),
+              _c("th", [
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.query.id,
+                      expression: "query.id"
                     }
-                    _vm.query.id = $event.target.value
-                  }
-                }
-              })
-            ]),
-            _vm._v(" "),
-            _c("th", [
-              _c("input", {
-                directives: [
-                  {
-                    name: "model",
-                    rawName: "v-model",
-                    value: _vm.query.name,
-                    expression: "query.name"
-                  }
-                ],
-                staticClass: "form-control",
-                attrs: { type: "text" },
-                domProps: { value: _vm.query.name },
-                on: {
-                  input: function($event) {
-                    if ($event.target.composing) {
-                      return
-                    }
-                    _vm.query.name = $event.target.value
-                  }
-                }
-              })
-            ]),
-            _vm._v(" "),
-            _c("th", [
-              _c("input", {
-                directives: [
-                  {
-                    name: "model",
-                    rawName: "v-model",
-                    value: _vm.query.email,
-                    expression: "query.email"
-                  }
-                ],
-                staticClass: "form-control",
-                attrs: { type: "text" },
-                domProps: { value: _vm.query.email },
-                on: {
-                  input: function($event) {
-                    if ($event.target.composing) {
-                      return
-                    }
-                    _vm.query.email = $event.target.value
-                  }
-                }
-              })
-            ]),
-            _vm._v(" "),
-            _c("th", [
-              _c("input", {
-                directives: [
-                  {
-                    name: "model",
-                    rawName: "v-model",
-                    value: _vm.query.phone,
-                    expression: "query.phone"
-                  }
-                ],
-                staticClass: "form-control",
-                attrs: { type: "text" },
-                domProps: { value: _vm.query.phone },
-                on: {
-                  input: function($event) {
-                    if ($event.target.composing) {
-                      return
-                    }
-                    _vm.query.phone = $event.target.value
-                  }
-                }
-              })
-            ]),
-            _vm._v(" "),
-            _c("th", [
-              _c("input", {
-                directives: [
-                  {
-                    name: "model",
-                    rawName: "v-model",
-                    value: _vm.query.gender,
-                    expression: "query.gender"
-                  }
-                ],
-                staticClass: "form-control",
-                attrs: { type: "text" },
-                domProps: { value: _vm.query.gender },
-                on: {
-                  input: function($event) {
-                    if ($event.target.composing) {
-                      return
-                    }
-                    _vm.query.gender = $event.target.value
-                  }
-                }
-              })
-            ]),
-            _vm._v(" "),
-            _c("th", [
-              _c("input", {
-                directives: [
-                  {
-                    name: "model",
-                    rawName: "v-model",
-                    value: _vm.query.created_at,
-                    expression: "query.created_at"
-                  }
-                ],
-                staticClass: "form-control",
-                attrs: { type: "text" },
-                domProps: { value: _vm.query.created_at },
-                on: {
-                  input: function($event) {
-                    if ($event.target.composing) {
-                      return
-                    }
-                    _vm.query.created_at = $event.target.value
-                  }
-                }
-              })
-            ]),
-            _vm._v(" "),
-            _c("th", [
-              _c("input", {
-                directives: [
-                  {
-                    name: "model",
-                    rawName: "v-model",
-                    value: _vm.query.role,
-                    expression: "query.role"
-                  }
-                ],
-                staticClass: "form-control",
-                attrs: { type: "text" },
-                domProps: { value: _vm.query.role },
-                on: {
-                  input: function($event) {
-                    if ($event.target.composing) {
-                      return
-                    }
-                    _vm.query.role = $event.target.value
-                  }
-                }
-              })
-            ]),
-            _vm._v(" "),
-            _c("th", [
-              _c("div", { staticClass: "btn-group" }, [
-                _c(
-                  "button",
-                  {
-                    staticClass: "btn btn-primary",
-                    attrs: { type: "button" },
-                    on: {
-                      click: function($event) {
-                        _vm.getListUser(1, _vm.query)
+                  ],
+                  staticClass: "form-control",
+                  attrs: { type: "text" },
+                  domProps: { value: _vm.query.id },
+                  on: {
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
                       }
+                      _vm.query.id = $event.target.value
                     }
-                  },
-                  [_vm._v("Filter")]
-                ),
-                _vm._v(" "),
-                _c(
-                  "a",
-                  { staticClass: "btn btn-default", attrs: { href: "/users" } },
-                  [_vm._v("Cancel")]
-                )
-              ])
-            ])
-          ])
-        ]),
-        _vm._v(" "),
-        _c(
-          "tbody",
-          _vm._l(_vm.users, function(user, key) {
-            return _c("tr", [
-              _c("td", [_vm._v(_vm._s(_vm.indexNumber(++key)))]),
+                  }
+                })
+              ]),
               _vm._v(" "),
-              _c("td", [_vm._v("U" + _vm._s(user.id))]),
+              _c("th", [
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.query.name,
+                      expression: "query.name"
+                    }
+                  ],
+                  staticClass: "form-control",
+                  attrs: { type: "text" },
+                  domProps: { value: _vm.query.name },
+                  on: {
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.query.name = $event.target.value
+                    }
+                  }
+                })
+              ]),
               _vm._v(" "),
-              _c("td", [_vm._v(_vm._s(user.name))]),
+              _c("th", [
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.query.email,
+                      expression: "query.email"
+                    }
+                  ],
+                  staticClass: "form-control",
+                  attrs: { type: "text" },
+                  domProps: { value: _vm.query.email },
+                  on: {
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.query.email = $event.target.value
+                    }
+                  }
+                })
+              ]),
               _vm._v(" "),
-              _c("td", [_vm._v(_vm._s(user.email))]),
+              _c("th", [
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.query.phone,
+                      expression: "query.phone"
+                    }
+                  ],
+                  staticClass: "form-control",
+                  attrs: { type: "text" },
+                  domProps: { value: _vm.query.phone },
+                  on: {
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.query.phone = $event.target.value
+                    }
+                  }
+                })
+              ]),
               _vm._v(" "),
-              _c("td", [_vm._v(_vm._s(user.phone))]),
+              _c("th", [
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.query.gender,
+                      expression: "query.gender"
+                    }
+                  ],
+                  staticClass: "form-control",
+                  attrs: { type: "text" },
+                  domProps: { value: _vm.query.gender },
+                  on: {
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.query.gender = $event.target.value
+                    }
+                  }
+                })
+              ]),
               _vm._v(" "),
-              _c("td", [_vm._v(_vm._s(user.gender))]),
+              _c("th", [
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.query.created_at,
+                      expression: "query.created_at"
+                    }
+                  ],
+                  staticClass: "form-control",
+                  attrs: { type: "text" },
+                  domProps: { value: _vm.query.created_at },
+                  on: {
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.query.created_at = $event.target.value
+                    }
+                  }
+                })
+              ]),
               _vm._v(" "),
-              _c("td", [_vm._v(_vm._s(user.created_at))]),
+              _c("th", [
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.query.role,
+                      expression: "query.role"
+                    }
+                  ],
+                  staticClass: "form-control",
+                  attrs: { type: "text" },
+                  domProps: { value: _vm.query.role },
+                  on: {
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.query.role = $event.target.value
+                    }
+                  }
+                })
+              ]),
               _vm._v(" "),
-              _c("td", [_vm._v(_vm._s(user.role_id))]),
-              _vm._v(" "),
-              _c("td", [
-                _c("div", { staticClass: "dropdown" }, [
-                  _vm._m(2, true),
+              _c("th", [
+                _c("div", { staticClass: "btn-group" }, [
+                  _c(
+                    "button",
+                    {
+                      staticClass: "btn btn-primary",
+                      attrs: { type: "button" },
+                      on: {
+                        click: function($event) {
+                          _vm.getListUser(1, _vm.query)
+                        }
+                      }
+                    },
+                    [_vm._v("Lọc")]
+                  ),
                   _vm._v(" "),
                   _c(
-                    "ul",
+                    "a",
                     {
-                      staticClass: "dropdown-menu dropdown-menu-right",
-                      attrs: { "aria-labelledby": "dropdownMenu1" }
+                      staticClass: "btn btn-default",
+                      attrs: { href: "/users" }
                     },
-                    [
-                      _c(
-                        "router-link",
-                        {
-                          attrs: {
-                            to: { name: "UserEdit", params: { id: user.id } },
-                            tag: "li"
-                          }
-                        },
-                        [
-                          _c("a", [
-                            _c("span", {
-                              staticClass: "glyphicon glyphicon-pencil"
-                            }),
-                            _vm._v(" Edit User")
-                          ])
-                        ]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "router-link",
-                        {
-                          attrs: {
-                            to: { name: "UserDetail", params: { id: user.id } },
-                            tag: "li"
-                          }
-                        },
-                        [
-                          _c("a", [
-                            _c("span", {
-                              staticClass: "glyphicon glyphicon-eye-open"
-                            }),
-                            _vm._v(" View User Detail")
-                          ])
-                        ]
-                      )
-                    ],
-                    1
+                    [_vm._v("Hủy")]
                   )
                 ])
               ])
             ])
-          })
-        )
-      ])
-    ]),
-    _vm._v(" "),
-    _c("div", { staticClass: "panel-footer" }, [
-      _c("div", { staticClass: "row" }, [
-        _c("div", { staticClass: "col-sm-12" }, [
-          _c("div", { staticClass: "col-sm-3" }, [
-            _c("ul", { staticClass: "pagination" }, [
-              _c("li", [_c("strong", [_vm._v("Total: " + _vm._s(_vm.total))])])
-            ])
           ]),
           _vm._v(" "),
           _c(
-            "div",
-            { staticClass: "col-sm-6" },
-            [
-              _c("paginate", {
-                attrs: {
-                  "page-count": _vm.last_page,
-                  "click-handler": _vm.getListUser,
-                  "page-range": 3,
-                  "margin-pages": 2,
-                  "prev-text": "Trước",
-                  "next-text": "Sau",
-                  "container-class": "pagination",
-                  "page-class": "page-item"
-                }
-              })
-            ],
-            1
+            "tbody",
+            _vm._l(_vm.users, function(user, key) {
+              return _c("tr", [
+                _c("td", [
+                  user.avatar
+                    ? _c("img", {
+                        staticClass: "img-responsive img-circle",
+                        attrs: {
+                          src: user.avatar,
+                          alt: user.name,
+                          width: "75px",
+                          height: "75px"
+                        }
+                      })
+                    : _c("img", {
+                        staticClass: "img-responsive img-circle",
+                        attrs: {
+                          src:
+                            "https://jobseekers.vn/wp-content/themes/sb_theme/assets/images/default_avatar.png",
+                          alt: user.name,
+                          width: "75px",
+                          height: "75px"
+                        }
+                      })
+                ]),
+                _vm._v(" "),
+                _c("td", [_vm._v("#U" + _vm._s(user.id))]),
+                _vm._v(" "),
+                _c("td", [_vm._v(_vm._s(user.name))]),
+                _vm._v(" "),
+                _c("td", [_vm._v(_vm._s(user.email))]),
+                _vm._v(" "),
+                _c("td", [_vm._v(_vm._s(user.phone))]),
+                _vm._v(" "),
+                _c("td", [_vm._v(_vm._s(user.gender))]),
+                _vm._v(" "),
+                _c("td", [_vm._v(_vm._s(user.created_at))]),
+                _vm._v(" "),
+                _c("td", [_vm._v(_vm._s(user.role_name))]),
+                _vm._v(" "),
+                _c("td", [
+                  _c("div", { staticClass: "dropdown" }, [
+                    _vm._m(2, true),
+                    _vm._v(" "),
+                    _c(
+                      "ul",
+                      {
+                        staticClass: "dropdown-menu dropdown-menu-right",
+                        attrs: { "aria-labelledby": "dropdownMenu1" }
+                      },
+                      [
+                        _c(
+                          "router-link",
+                          {
+                            attrs: {
+                              to: { name: "UserEdit", params: { id: user.id } },
+                              tag: "li"
+                            }
+                          },
+                          [
+                            _c("a", [
+                              _c("span", {
+                                staticClass: "glyphicon glyphicon-pencil"
+                              }),
+                              _vm._v(" Sửa người dùng")
+                            ])
+                          ]
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "router-link",
+                          {
+                            attrs: {
+                              to: {
+                                name: "UserDetail",
+                                params: { id: user.id }
+                              },
+                              tag: "li"
+                            }
+                          },
+                          [
+                            _c("a", [
+                              _c("span", {
+                                staticClass: "glyphicon glyphicon-eye-open"
+                              }),
+                              _vm._v(" Chi tiết")
+                            ])
+                          ]
+                        )
+                      ],
+                      1
+                    )
+                  ])
+                ])
+              ])
+            })
           )
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "panel-footer" }, [
+        _c("div", { staticClass: "row" }, [
+          _c("div", { staticClass: "col-sm-12" }, [
+            _c("div", { staticClass: "col-sm-3" }, [
+              _c("ul", { staticClass: "pagination" }, [
+                _c("li", [
+                  _c("strong", [_vm._v("Tổng số: " + _vm._s(_vm.total))])
+                ])
+              ])
+            ]),
+            _vm._v(" "),
+            _c(
+              "div",
+              { staticClass: "col-sm-6" },
+              [
+                _c("paginate", {
+                  attrs: {
+                    "page-count": _vm.last_page,
+                    "click-handler": _vm.getListUser,
+                    "page-range": 3,
+                    "margin-pages": 2,
+                    "prev-text": "Trước",
+                    "next-text": "Sau",
+                    "container-class": "pagination",
+                    "page-class": "page-item"
+                  }
+                })
+              ],
+              1
+            )
+          ])
         ])
       ])
     ])
@@ -52879,7 +52932,7 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "panel-heading" }, [
-      _c("h3", { staticClass: "panel-title" }, [_vm._v("Danh sách user")])
+      _c("h3", { staticClass: "panel-title" }, [_vm._v("Danh sách người dùng")])
     ])
   },
   function() {
@@ -52887,23 +52940,23 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("tr", [
-      _c("th", [_vm._v("Index")]),
+      _c("th", [_vm._v("#")]),
       _vm._v(" "),
-      _c("th", [_vm._v("UserID")]),
+      _c("th", [_vm._v("ID")]),
       _vm._v(" "),
-      _c("th", [_vm._v("Username")]),
+      _c("th", [_vm._v("Họ tên")]),
       _vm._v(" "),
       _c("th", [_vm._v("E-mail")]),
       _vm._v(" "),
-      _c("th", [_vm._v("Phone")]),
+      _c("th", [_vm._v("Điện thoại")]),
       _vm._v(" "),
-      _c("th", [_vm._v("Gender")]),
+      _c("th", [_vm._v("Giới tính")]),
       _vm._v(" "),
-      _c("th", [_vm._v("Updated At")]),
+      _c("th", [_vm._v("Cập nhật lúc")]),
       _vm._v(" "),
-      _c("th", [_vm._v("Role")]),
+      _c("th", [_vm._v("Quyền hạn")]),
       _vm._v(" "),
-      _c("th", { attrs: { width: "15%" } }, [_vm._v("Action")])
+      _c("th", { attrs: { width: "15%" } }, [_vm._v("Hành động")])
     ])
   },
   function() {

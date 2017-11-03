@@ -18,6 +18,7 @@ export default {
 	},
 
 	mounted () {
+		document.title = 'Danh sách người dùng';
 		this.getListUser();
 	},
 
