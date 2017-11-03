@@ -132,4 +132,9 @@ class AppHelper
         
         return null;
     }
+
+
+    public static function removeFile($storagePath, $file) {
+        return public_path() . $storagePath . basename($file);
+    }
 } // End class

@@ -27,6 +27,7 @@ export default {
     var vm = this;
     vm.getListRole();
     vm.getUser();
+    document.title = 'Sửa người dùng';
   },
 
 

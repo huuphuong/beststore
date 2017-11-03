@@ -139,13 +139,24 @@ class UserController extends Controller
     {
         $post_data = $request->input('body');
         $user = User::findOrFail($id);
+        $currentImg = $user->avatar;
         $user->name      = $post_data['user']['name'];
         $user->email     = $post_data['user']['email'];
         $user->gender    = $post_data['user']['gender'];
         $user->hobbies   = $post_data['user']['hobbies'];
         $user->countries = $post_data['user']['countries'];
         $user->note      = $post_data['user']['note'];
-        $user->avatar    = $post_data['avatar'];
+        
+        if (!empty ($post_data['avatar']) && $currentImg != $post_data['avatar']) {
+            $fileRemove = AppHelper::removeFile('/asset_users/', $currentImg);
+            if (is_file($fileRemove)) {
+                unlink($fileRemove);    
+            }
+            
+            $image               = AppHelper::base64ImgToFile('asset_users', $post_data['avatar']);
+            $user->avatar        = $image;
+        }
+
         if (!empty ($post_data['user']['password'])) {
             $user->password = bcrypt($post_data['user']['password']);
         }
