@@ -12,10 +12,17 @@ export default {
 	mounted () {
 		this.getUser();
 		document.title = 'Chi tiết người dùng';
+		this.activeFirstTab();
 	},
 
 
 	methods: {
+
+		activeFirstTab () {
+			$('#first').click();
+		},
+
+
 		getUser () {
 			var vm = this;
 

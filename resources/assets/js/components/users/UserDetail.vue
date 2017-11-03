@@ -20,7 +20,7 @@
 		<div class="card-box m-t-10">
 			<ul class="nav nav-tabs tabs-bordered">
 				<li class="">
-					<a href="#tab1" data-toggle="tab" aria-expanded="false">
+					<a href="#tab1" data-toggle="tab" aria-expanded="false" id="first">
 						<span class="visible-xs"><i class="fa fa-home"></i></span>
 						<span class="hidden-xs">Thông tin cơ bản</span>
 					</a>
@@ -56,7 +56,7 @@
 					<div class="row" v-if="!message">
 						<div class="col-sm-3">
 							<div v-if="user.avatar">
-								<img v-bind:src="user.avatar" class="img-responsive img-thumbnail" title="Ảnh đại diện" />
+								<img v-bind:src="user.avatar" class="img-responsive img-circle" title="Ảnh đại diện" />
 							</div>
 							<div v-else>
 								<img src="http://via.placeholder.com/140x140" class="img-responsive img-thumbnail" title="Ảnh đại diện" />

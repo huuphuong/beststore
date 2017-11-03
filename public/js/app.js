@@ -52098,10 +52098,14 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 	mounted: function mounted() {
 		this.getUser();
 		document.title = 'Chi tiết người dùng';
+		this.activeFirstTab();
 	},
 
 
 	methods: {
+		activeFirstTab: function activeFirstTab() {
+			$('#first').click();
+		},
 		getUser: function getUser() {
 			var vm = this;
 
@@ -52188,7 +52192,7 @@ var render = function() {
                   _vm.user.avatar
                     ? _c("div", [
                         _c("img", {
-                          staticClass: "img-responsive img-thumbnail",
+                          staticClass: "img-responsive img-circle",
                           attrs: { src: _vm.user.avatar, title: "Ảnh đại diện" }
                         })
                       ])
@@ -52276,7 +52280,8 @@ var staticRenderFns = [
             attrs: {
               href: "#tab1",
               "data-toggle": "tab",
-              "aria-expanded": "false"
+              "aria-expanded": "false",
+              id: "first"
             }
           },
           [
