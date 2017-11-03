@@ -40,7 +40,8 @@
 
 						<tr>
 							<th>Hiển thị:</th>
-							<td>{{ category.display == 1 ? 'Hiển thị' : 'Không hiển thị' }}</td>
+							<td v-if="category.display"><span class="label label-success">Hiển thị</span></td>
+							<td v-else><span class="label label-warning">Không hiển thị</span></td>
 						</tr>
 
 						<tr>

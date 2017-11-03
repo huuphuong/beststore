@@ -68296,15 +68296,17 @@ var render = function() {
                 _c("tr", [
                   _c("th", [_vm._v("Hiển thị:")]),
                   _vm._v(" "),
-                  _c("td", [
-                    _vm._v(
-                      _vm._s(
-                        _vm.category.display == 1
-                          ? "Hiển thị"
-                          : "Không hiển thị"
-                      )
-                    )
-                  ])
+                  _vm.category.display
+                    ? _c("td", [
+                        _c("span", { staticClass: "label label-success" }, [
+                          _vm._v("Hiển thị")
+                        ])
+                      ])
+                    : _c("td", [
+                        _c("span", { staticClass: "label label-warning" }, [
+                          _vm._v("Không hiển thị")
+                        ])
+                      ])
                 ]),
                 _vm._v(" "),
                 _c("tr", [
@@ -68799,7 +68801,7 @@ var render = function() {
             },
             [
               _c("span", { staticClass: "glyphicon glyphicon-th-list" }),
-              _vm._v(" List Category\n\t\t\t")
+              _vm._v(" Danh sách danh mục\n\t\t\t")
             ]
           ),
           _vm._v(" "),
@@ -68816,7 +68818,7 @@ var render = function() {
             },
             [
               _c("span", { staticClass: "glyphicon glyphicon-eye-open" }),
-              _vm._v(" Category Detail\n\t\t\t")
+              _vm._v(" Chi tiết danh mục\n\t\t\t")
             ]
           )
         ],
@@ -68847,7 +68849,7 @@ var render = function() {
                   { staticClass: "form-group" },
                   [
                     _c("label", { attrs: { for: "" } }, [
-                      _vm._v("Parent Category")
+                      _vm._v("Danh mục cha")
                     ]),
                     _vm._v(" "),
                     _c("recusive", {
@@ -68867,7 +68869,7 @@ var render = function() {
                 _vm._v(" "),
                 _c("div", { staticClass: "form-group" }, [
                   _c("label", { attrs: { for: "" } }, [
-                    _vm._v("Category name:")
+                    _vm._v("Tên danh mục:")
                   ]),
                   _vm._v(" "),
                   _c("input", {
@@ -68920,7 +68922,7 @@ var render = function() {
                 ]),
                 _vm._v(" "),
                 _c("div", { staticClass: "form-group" }, [
-                  _c("label", { attrs: { for: "" } }, [_vm._v("Position")]),
+                  _c("label", { attrs: { for: "" } }, [_vm._v("Vị trí:")]),
                   _vm._v(" "),
                   _c("span", [_vm._v("(display position of category)")]),
                   _vm._v(" "),
@@ -68987,60 +68989,55 @@ var render = function() {
                 ]),
                 _vm._v(" "),
                 _c("div", { staticClass: "form-group" }, [
-                  _c("label", { attrs: { for: "" } }, [_vm._v("Display:")]),
+                  _c("label", { attrs: { for: "" } }, [_vm._v("Hiển thị:")]),
                   _vm._v(" "),
-                  _c("div", { staticClass: "radio" }, [
-                    _c("label", [
-                      _c("input", {
-                        directives: [
-                          {
-                            name: "model",
-                            rawName: "v-model",
-                            value: _vm.cat.display,
-                            expression: "cat.display"
-                          }
-                        ],
-                        attrs: { type: "radio", value: "1" },
-                        domProps: { checked: _vm._q(_vm.cat.display, "1") },
-                        on: {
-                          __c: function($event) {
-                            _vm.cat.display = "1"
-                          }
-                        }
-                      }),
-                      _vm._v("\n\t\t\t\t\t\t\t\t\tDisplay\n\t\t\t\t\t\t\t\t")
-                    ])
-                  ]),
+                  _c("br"),
                   _vm._v(" "),
-                  _c("div", { staticClass: "radio" }, [
-                    _c("label", [
-                      _c("input", {
-                        directives: [
-                          {
-                            name: "model",
-                            rawName: "v-model",
-                            value: _vm.cat.display,
-                            expression: "cat.display"
-                          }
-                        ],
-                        attrs: { type: "radio", value: "0" },
-                        domProps: { checked: _vm._q(_vm.cat.display, "0") },
-                        on: {
-                          __c: function($event) {
-                            _vm.cat.display = "0"
-                          }
-                        }
-                      }),
-                      _vm._v(
-                        "\n\t\t\t\t\t\t\t\t\tNone (products of this category will not be displayed either)\n\t\t\t\t\t\t\t\t"
-                      )
-                    ])
-                  ])
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.cat.display,
+                        expression: "cat.display"
+                      }
+                    ],
+                    attrs: { type: "radio", value: "1" },
+                    domProps: { checked: _vm._q(_vm.cat.display, "1") },
+                    on: {
+                      __c: function($event) {
+                        _vm.cat.display = "1"
+                      }
+                    }
+                  }),
+                  _vm._v("\n\t\t\t\t\t\t\tHiển thị "),
+                  _c("br"),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.cat.display,
+                        expression: "cat.display"
+                      }
+                    ],
+                    attrs: { type: "radio", value: "0" },
+                    domProps: { checked: _vm._q(_vm.cat.display, "0") },
+                    on: {
+                      __c: function($event) {
+                        _vm.cat.display = "0"
+                      }
+                    }
+                  }),
+                  _vm._v(
+                    "\n\t\t\t\t\t\t\tKhông hiển thị (các sản phẩm thuộc danh mục cũng không được hiển thị)\n\t\t\t\t\t\t"
+                  )
                 ]),
                 _vm._v(" "),
                 _c("div", { staticClass: "form-group" }, [
                   _c("label", { attrs: { for: "" } }, [
-                    _vm._v("Description (optional):")
+                    _vm._v("Ghi chú (không bắt buộc):")
                   ]),
                   _vm._v(" "),
                   _c("textarea", {
@@ -69078,7 +69075,7 @@ var render = function() {
                 _c("div", { staticClass: "row" }, [
                   _c("div", { staticClass: "form-group" }, [
                     _c("label", { attrs: { for: "" } }, [
-                      _vm._v("Seo Title (optional):")
+                      _vm._v("Seo Title (không bắt buộc):")
                     ]),
                     _vm._v(" "),
                     _c("input", {
@@ -69106,7 +69103,7 @@ var render = function() {
                   _vm._v(" "),
                   _c("div", { staticClass: "form-group" }, [
                     _c("label", { attrs: { for: "" } }, [
-                      _vm._v("Seo keyword (optional):")
+                      _vm._v("Seo keyword (không bắt buộc):")
                     ]),
                     _vm._v(" "),
                     _c("input", {
@@ -69134,7 +69131,7 @@ var render = function() {
                   _vm._v(" "),
                   _c("div", { staticClass: "form-group" }, [
                     _c("label", { attrs: { for: "" } }, [
-                      _vm._v("Seo description (optional):")
+                      _vm._v("Seo description (không bắt buộc):")
                     ]),
                     _vm._v(" "),
                     _c("textarea", {
@@ -69162,7 +69159,7 @@ var render = function() {
                   _vm._v(" "),
                   _c("div", { staticClass: "form-group" }, [
                     _c("label", { attrs: { for: "" } }, [
-                      _vm._v("Seo Robot (optional):")
+                      _vm._v("Seo Robot (không bắt buộc):")
                     ]),
                     _vm._v(" "),
                     _c("input", {
@@ -69190,7 +69187,7 @@ var render = function() {
                   _vm._v(" "),
                   _c("div", { staticClass: "form-group" }, [
                     _c("label", { attrs: { for: "" } }, [
-                      _vm._v("Revisit (optional):")
+                      _vm._v("Revisit (không bắt buộc):")
                     ]),
                     _vm._v(" "),
                     _c("input", {
@@ -69218,7 +69215,7 @@ var render = function() {
                   _vm._v(" "),
                   _c("div", { staticClass: "form-group" }, [
                     _c("label", { attrs: { for: "" } }, [
-                      _vm._v("Copyright (optional):")
+                      _vm._v("Copyright (không bắt buộc):")
                     ]),
                     _vm._v(" "),
                     _c("input", {
@@ -69258,7 +69255,7 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "panel-heading" }, [
-      _c("h3", { staticClass: "panel-title" }, [_vm._v("Category Information")])
+      _c("h3", { staticClass: "panel-title" }, [_vm._v("Thông tin danh mục")])
     ])
   },
   function() {
@@ -69269,13 +69266,13 @@ var staticRenderFns = [
       _c(
         "button",
         { staticClass: "btn btn-default", attrs: { type: "button" } },
-        [_vm._v("Cancel")]
+        [_vm._v("Hủy bỏ")]
       ),
       _vm._v(" "),
       _c(
         "button",
         { staticClass: "btn btn-primary", attrs: { type: "submit" } },
-        [_vm._v("Update Category")]
+        [_vm._v("Cập nhật")]
       )
     ])
   },
