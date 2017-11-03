@@ -41,7 +41,7 @@ export default {
 	},
 
 	created () {
-		document.title = 'Create product';
+		document.title = 'Tạo sản phẩm';
 	},
 
 

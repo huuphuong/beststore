@@ -54039,7 +54039,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 		};
 	},
 	created: function created() {
-		document.title = 'Create product';
+		document.title = 'Tạo sản phẩm';
 	},
 	mounted: function mounted() {
 		var vm = this;
@@ -54188,7 +54188,7 @@ var render = function() {
       [
         _c("div", { staticClass: "panel-body" }, [
           _c("div", { staticClass: "form-group" }, [
-            _c("label", { attrs: { for: "cat_id" } }, [_vm._v("Category:")]),
+            _c("label", { attrs: { for: "cat_id" } }, [_vm._v("Danh mục:")]),
             _vm._v(" "),
             _c("select", {
               directives: [
@@ -54243,7 +54243,9 @@ var render = function() {
           ]),
           _vm._v(" "),
           _c("div", { staticClass: "form-group" }, [
-            _c("label", { attrs: { for: "vendor" } }, [_vm._v("Vendor:")]),
+            _c("label", { attrs: { for: "vendor" } }, [
+              _vm._v("Nhà cung cấp:")
+            ]),
             _vm._v(" "),
             _c(
               "select",
@@ -54282,7 +54284,7 @@ var render = function() {
               },
               [
                 _c("option", { attrs: { value: "" } }, [
-                  _vm._v("Choose vendor")
+                  _vm._v(" -- Chọn nhà cung cấp -- ")
                 ]),
                 _vm._v(" "),
                 _vm._l(_vm.vendors, function(vendor) {
@@ -54315,7 +54317,7 @@ var render = function() {
           _vm._v(" "),
           _c("div", { staticClass: "form-group" }, [
             _c("label", { attrs: { for: "product_name" } }, [
-              _vm._v("Product name:")
+              _vm._v("Tên sản phẩm:")
             ]),
             _vm._v(" "),
             _c("input", {
@@ -54371,7 +54373,7 @@ var render = function() {
             "div",
             { staticClass: "form-group" },
             [
-              _c("label", { attrs: { for: "price" } }, [_vm._v("Price:")]),
+              _c("label", { attrs: { for: "price" } }, [_vm._v("Giá:")]),
               _vm._v(" "),
               _c(
                 "money",
@@ -54425,7 +54427,7 @@ var render = function() {
             { staticClass: "form-group" },
             [
               _c("label", { attrs: { for: "price_sale" } }, [
-                _vm._v("Price sale:")
+                _vm._v("Giá đã sale:")
               ]),
               _vm._v(" "),
               _c(
@@ -54452,7 +54454,7 @@ var render = function() {
           _vm._v(" "),
           _c("div", { staticClass: "form-group" }, [
             _c("label", { attrs: { for: "price_sale" } }, [
-              _vm._v("Quantity:")
+              _vm._v("Số lượng:")
             ]),
             _vm._v(" "),
             _c("input", {
@@ -54506,7 +54508,9 @@ var render = function() {
           ]),
           _vm._v(" "),
           _c("div", { staticClass: "form-group" }, [
-            _c("label", { attrs: { for: "price_sale" } }, [_vm._v("Size:")]),
+            _c("label", { attrs: { for: "price_sale" } }, [
+              _vm._v("Kích thước(size, loại, v.v...):")
+            ]),
             _vm._v(" "),
             _c(
               "div",
@@ -54552,7 +54556,7 @@ var render = function() {
                       }
                     }),
                     _vm._v(" "),
-                    _c("b", [_vm._v("All")])
+                    _c("b", [_vm._v("Tất cả")])
                   ])
                 ]),
                 _vm._v(" "),
@@ -54616,7 +54620,7 @@ var render = function() {
           _vm._v(" "),
           _c("div", { staticClass: "form-group" }, [
             _c("label", { attrs: { for: "price_sale" } }, [
-              _vm._v("\r\n\t\t\t\t\tColor "),
+              _vm._v("\r\n\t\t\t\t\tMàu sắc "),
               _vm.product.color
                 ? _c("span", [
                     _vm._v("(" + _vm._s(_vm.product.color.length) + ")")
@@ -54686,7 +54690,9 @@ var render = function() {
           ]),
           _vm._v(" "),
           _c("div", { staticClass: "form-group" }, [
-            _c("label", { attrs: { for: "intro" } }, [_vm._v("Intro:")]),
+            _c("label", { attrs: { for: "intro" } }, [
+              _vm._v("Giới thiệu nhanh:")
+            ]),
             _vm._v(" "),
             _c("textarea", {
               directives: [
@@ -54737,7 +54743,9 @@ var render = function() {
             "div",
             { staticClass: "from-group" },
             [
-              _c("label", { attrs: { for: "content" } }, [_vm._v("Content:")]),
+              _c("label", { attrs: { for: "content" } }, [
+                _vm._v("Nội dung chi tiết:")
+              ]),
               _vm._v(" "),
               _c("vue-editor", {
                 directives: [
@@ -54777,10 +54785,12 @@ var render = function() {
             1
           ),
           _vm._v(" "),
-          _c("div", { staticClass: "from-group" }, [
-            _c("label", { attrs: { for: "content" } }, [_vm._v("Is new:")]),
+          _c("div", { staticClass: "from-group m-t-20" }, [
+            _c("label", { attrs: { for: "content" } }, [
+              _vm._v("Là sản phẩm mới?:")
+            ]),
             _vm._v(" "),
-            _c("div", { staticClass: "radio" }, [
+            _c("div", { staticClass: "radio1" }, [
               _c("label", { staticClass: "radio-inline" }, [
                 _c("input", {
                   directives: [
@@ -54799,7 +54809,7 @@ var render = function() {
                     }
                   }
                 }),
-                _vm._v("\r\n\t\t\t\t\t\tNo\r\n\t\t\t\t\t")
+                _vm._v("\r\n\t\t\t\t\t\tCó\r\n\t\t\t\t\t")
               ]),
               _vm._v(" "),
               _c("label", { staticClass: "radio-inline" }, [
@@ -54820,15 +54830,19 @@ var render = function() {
                     }
                   }
                 }),
-                _vm._v("\r\n\t\t\t\t\t\tYes\r\n\t\t\t\t\t")
+                _vm._v("\r\n\t\t\t\t\t\tKhông\r\n\t\t\t\t\t")
               ])
             ])
           ]),
           _vm._v(" "),
+          _c("hr"),
+          _vm._v(" "),
           _c("div", { staticClass: "from-group" }, [
-            _c("label", { attrs: { for: "content" } }, [_vm._v("Is hot:")]),
+            _c("label", { attrs: { for: "content" } }, [
+              _vm._v("Là sản phẩm hot?:")
+            ]),
             _vm._v(" "),
-            _c("div", { staticClass: "radio" }, [
+            _c("div", { staticClass: "radio1" }, [
               _c("label", { staticClass: "radio-inline" }, [
                 _c("input", {
                   directives: [
@@ -54847,7 +54861,7 @@ var render = function() {
                     }
                   }
                 }),
-                _vm._v("\r\n\t\t\t\t\t\tNo\r\n\t\t\t\t\t")
+                _vm._v("\r\n\t\t\t\t\t\tCó\r\n\t\t\t\t\t")
               ]),
               _vm._v(" "),
               _c("label", { staticClass: "radio-inline" }, [
@@ -54868,15 +54882,19 @@ var render = function() {
                     }
                   }
                 }),
-                _vm._v("\r\n\t\t\t\t\t\tYes\r\n\t\t\t\t\t")
+                _vm._v("\r\n\t\t\t\t\t\tKhông\r\n\t\t\t\t\t")
               ])
             ])
           ]),
           _vm._v(" "),
+          _c("hr"),
+          _vm._v(" "),
           _c("div", { staticClass: "from-group" }, [
-            _c("label", { attrs: { for: "content" } }, [_vm._v("Is sale:")]),
+            _c("label", { attrs: { for: "content" } }, [
+              _vm._v("Là sản phẩm đang được sale?:")
+            ]),
             _vm._v(" "),
-            _c("div", { staticClass: "radio" }, [
+            _c("div", { staticClass: "radio1" }, [
               _c("label", { staticClass: "radio-inline" }, [
                 _c("input", {
                   directives: [
@@ -54895,7 +54913,7 @@ var render = function() {
                     }
                   }
                 }),
-                _vm._v("\r\n\t\t\t\t\t\tNo\r\n\t\t\t\t\t")
+                _vm._v("\r\n\t\t\t\t\t\tCó\r\n\t\t\t\t\t")
               ]),
               _vm._v(" "),
               _c("label", { staticClass: "radio-inline" }, [
@@ -54916,16 +54934,18 @@ var render = function() {
                     }
                   }
                 }),
-                _vm._v("\r\n\t\t\t\t\t\tYes\r\n\t\t\t\t\t")
+                _vm._v("\r\n\t\t\t\t\t\tKhông\r\n\t\t\t\t\t")
               ])
             ])
           ]),
           _vm._v(" "),
           _c(
             "div",
-            { staticClass: "from-group" },
+            { staticClass: "from-group m-t-20" },
             [
-              _c("label", { attrs: { for: "" } }, [_vm._v("Image avatar:")]),
+              _c("label", { attrs: { for: "" } }, [
+                _vm._v("Ảnh đại diện cho sản phẩm:")
+              ]),
               _vm._v(" "),
               _c("picture-input", {
                 directives: [
@@ -54948,7 +54968,7 @@ var render = function() {
                   removeButtonClass: "btn btn-warning",
                   customStrings: {
                     upload: "<h1>Bummer!</h1>",
-                    drag: "Please choose your image."
+                    drag: "Chọn ảnh đại diện (200x200)"
                   },
                   "data-vv-value-path": "innerValue",
                   "data-vv-name": "customImage",
@@ -54966,7 +54986,7 @@ var render = function() {
             [
               _c("label", { attrs: { for: "" } }, [
                 _vm._v(
-                  "Image Detail (Up to 10 image, each image no more than 1MB):"
+                  "Ảnh chi tiết sản phẩm (Tối đa 10 ảnh, mỗi ảnh không quá 1MB):"
                 )
               ]),
               _vm._v(" "),
@@ -55005,7 +55025,7 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "panel-heading" }, [
-      _c("h3", { staticClass: "panel-title" }, [_vm._v("Create Product")])
+      _c("h3", { staticClass: "panel-title" }, [_vm._v("Tạo sản phẩm")])
     ])
   },
   function() {
@@ -55016,13 +55036,13 @@ var staticRenderFns = [
       _c(
         "button",
         { staticClass: "btn btn-default", attrs: { type: "reset" } },
-        [_vm._v("Cancel")]
+        [_vm._v("Hủy bỏ")]
       ),
       _vm._v(" "),
       _c(
         "button",
         { staticClass: "btn btn-primary", attrs: { type: "submit" } },
-        [_vm._v("Add Product")]
+        [_vm._v("Tạo sản phẩm")]
       )
     ])
   }
@@ -68718,7 +68738,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 		};
 	},
 	mounted: function mounted() {
-		document.title = 'Edit category';
+		document.title = 'Sửa danh mục';
 		var vm = this;
 		vm.getPosition();
 		vm.getCategory();

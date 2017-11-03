@@ -18,7 +18,7 @@ export default {
 	},
 
 	mounted () {
-		document.title = 'Edit category';
+		document.title = 'Sửa danh mục';
 		var vm = this;
 		vm.getPosition();
 		vm.getCategory();
