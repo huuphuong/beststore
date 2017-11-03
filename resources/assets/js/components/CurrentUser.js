@@ -25,7 +25,8 @@ export default {
 				var storageUser = {
 					user_id: result.id,
 					user_name: result.name,
-					user_email: result.email
+					user_email: result.email,
+					user_role: result.role
 				};
 				sessionStorage.user = JSON.stringify(storageUser);
 			}).catch(function (errors) {

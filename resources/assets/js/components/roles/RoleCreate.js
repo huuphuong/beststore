@@ -13,7 +13,7 @@ export default {
   },
 
   mounted: function () {
-    console.log("Role create is mouted");
+    document.title = 'Tạo quyền';
   },
 
   methods: {

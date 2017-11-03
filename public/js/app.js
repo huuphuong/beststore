@@ -49170,7 +49170,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
   },
 
   mounted: function mounted() {
-    console.log("Role create is mouted");
+    document.title = 'Tạo quyền';
   },
 
   methods: {
@@ -49233,7 +49233,9 @@ var render = function() {
       [
         _c("div", { staticClass: "panel-body" }, [
           _c("div", { staticClass: "form-group" }, [
-            _c("label", { attrs: { for: "" } }, [_vm._v("Role name:")]),
+            _c("label", { attrs: { for: "role_name" } }, [
+              _vm._v("Tên quyền:")
+            ]),
             _vm._v(" "),
             _c("input", {
               directives: [
@@ -49285,8 +49287,8 @@ var render = function() {
           ]),
           _vm._v(" "),
           _c("div", { staticClass: "form-group" }, [
-            _c("label", { attrs: { for: "" } }, [
-              _vm._v("Description (optional):")
+            _c("label", { attrs: { for: "role_desc" } }, [
+              _vm._v("Ghi chú (không bắt buộc):")
             ]),
             _vm._v(" "),
             _c("input", {
@@ -49324,7 +49326,7 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "panel-heading" }, [
-      _c("h3", { staticClass: "panel-title" }, [_vm._v("Create Role")])
+      _c("h3", { staticClass: "panel-title" }, [_vm._v("Tạo quyền")])
     ])
   },
   function() {
@@ -49335,13 +49337,13 @@ var staticRenderFns = [
       _c(
         "button",
         { staticClass: "btn btn-default", attrs: { type: "reset" } },
-        [_vm._v("Cancel")]
+        [_vm._v("Hủy bỏ")]
       ),
       _vm._v(" "),
       _c(
         "button",
         { staticClass: "btn btn-primary", attrs: { type: "submit" } },
-        [_vm._v("Add Role")]
+        [_vm._v("Tạo quyền")]
       )
     ])
   }
@@ -90615,7 +90617,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 				var storageUser = {
 					user_id: result.id,
 					user_name: result.name,
-					user_email: result.email
+					user_email: result.email,
+					user_role: result.role
 				};
 				sessionStorage.user = JSON.stringify(storageUser);
 			}).catch(function (errors) {
