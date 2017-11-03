@@ -85,4 +85,11 @@ class LoginController extends Controller
         Auth::logout();
         return redirect('/login');
     }
+
+    public function authenticateUser(Request $request)
+    {
+        $user = decrypt($request->user_data);
+        $data = User::findOrFail($user->id);
+        return response()->json($data, Api::$_OK);
+    }
 } // End class

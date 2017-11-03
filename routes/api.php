@@ -44,5 +44,6 @@ Route::group(['prefix' => 'v1', 'middleware' => array('isLoginMiddleware')], fun
     Route::put('navigations/restore', 'NavigationController@restore');
     Route::post('navigations/position', 'NavigationController@updatePosition');
     Route::resource('navigations', 'NavigationController');
+    Route::post('authUser', 'LoginController@authenticateUser');
 });
 

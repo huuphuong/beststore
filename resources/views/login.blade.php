@@ -10,7 +10,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
         <!-- App favicon -->
-        <link rel="shortcut icon" href="assets/images/favicon.ico">
+        <link rel="shortcut icon" href="{{ asset('images/icon.png') }}">
 
         <!-- App css -->
         <link href="../plugins/bootstrap-select/css/bootstrap-select.min.css" rel="stylesheet" />
