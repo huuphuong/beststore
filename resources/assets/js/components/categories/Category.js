@@ -27,7 +27,7 @@ export default {
 	},
 
 	mounted () {
-		document.title = 'Add category';
+		document.title = 'Tạo danh mục';
 		var vm = this;
 		vm.getPosition();
 	},

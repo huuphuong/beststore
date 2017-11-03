@@ -6,7 +6,7 @@ use App\Models\Category;
 
 class AppHelper
 {
-    public $optionStr = "<option value=''>Choose category</option>";
+    public $optionStr = "<option value=''> -- Chọn danh mục -- </option>";
     public $tbodyString = '';
 
     /**
