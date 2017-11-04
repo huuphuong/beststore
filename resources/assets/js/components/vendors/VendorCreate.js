@@ -1,10 +1,11 @@
 import Common from '../../Common';
 import PictureInput from 'vue-picture-input';
+import Action from '../shared/Action.vue';
 
 export default {
 	name: 'VendorCreate',
 
-	components: { PictureInput },
+	components: { PictureInput, Action },
 
 	data () {
 		return {
@@ -21,7 +22,7 @@ export default {
 	},
 
 	mounted () {
-		document.title = 'Create vendor';
+		document.title = 'Thêm nhà cung cấp';
 	},
 
 
@@ -32,7 +33,7 @@ export default {
             vm.vendor.vendor_images = vm.$refs.pictureInput.image;
           }
         },
-        
+
 
         validateBeforeSubmit() {
         	var vm = this;

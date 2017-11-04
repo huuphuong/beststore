@@ -75717,13 +75717,15 @@ if (false) {(function () {
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Common__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_vue_picture_input__ = __webpack_require__(3);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__shared_Action_vue__ = __webpack_require__(212);
+
 
 
 
 /* harmony default export */ __webpack_exports__["a"] = ({
   name: 'VendorCreate',
 
-  components: { PictureInput: __WEBPACK_IMPORTED_MODULE_1_vue_picture_input__["a" /* default */] },
+  components: { PictureInput: __WEBPACK_IMPORTED_MODULE_1_vue_picture_input__["a" /* default */], Action: __WEBPACK_IMPORTED_MODULE_2__shared_Action_vue__["a" /* default */] },
 
   data: function data() {
     return {
@@ -75739,7 +75741,7 @@ if (false) {(function () {
     };
   },
   mounted: function mounted() {
-    document.title = 'Create vendor';
+    document.title = 'Thêm nhà cung cấp';
   },
 
 
@@ -75783,7 +75785,21 @@ if (false) {(function () {
 "use strict";
 var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('div', {
-    staticClass: "panel panel-default"
+    attrs: {
+      "id": "root"
+    }
+  }, [_c('div', {
+    staticClass: "row"
+  }, [_c('div', {
+    staticClass: "btn-group pull-right m-r-10"
+  }, [_c('action', {
+    attrs: {
+      "actionText": 'Danh sách',
+      "actionIcon": 'glyphicon glyphicon-th-list',
+      "actionRoute": 'VendorList'
+    }
+  })], 1)]), _vm._v(" "), _c('div', {
+    staticClass: "panel panel-default m-t-20"
   }, [_vm._m(0), _vm._v(" "), _c('div', {
     staticClass: "panel-body"
   }, [_c('form', {
@@ -75803,7 +75819,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     attrs: {
       "for": ""
     }
-  }, [_vm._v("Vendor name:")]), _vm._v(" "), _c('input', {
+  }, [_vm._v("Tên nhà cung cấp:")]), _vm._v(" "), _c('input', {
     directives: [{
       name: "model",
       rawName: "v-model",
@@ -75818,7 +75834,8 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     staticClass: "form-control",
     attrs: {
       "type": "text",
-      "name": "name"
+      "name": "name",
+      "data-vv-as": "Tên nhà cung cấp"
     },
     domProps: {
       "value": (_vm.vendor.vendor_name)
@@ -75843,7 +75860,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     attrs: {
       "for": ""
     }
-  }, [_vm._v("Vendor shortname(optional):")]), _vm._v(" "), _c('input', {
+  }, [_vm._v("Tên viết tắt(Không bắt buộc):")]), _vm._v(" "), _c('input', {
     directives: [{
       name: "model",
       rawName: "v-model",
@@ -75885,7 +75902,8 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     staticClass: "form-control",
     attrs: {
       "type": "text",
-      "name": "email"
+      "name": "email",
+      "data-vv-as": "Email"
     },
     domProps: {
       "value": (_vm.vendor.vendor_email)
@@ -75910,7 +75928,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     attrs: {
       "for": ""
     }
-  }, [_vm._v("Skype(optional):")]), _vm._v(" "), _c('input', {
+  }, [_vm._v("Skype(Không bắt buộc):")]), _vm._v(" "), _c('input', {
     directives: [{
       name: "model",
       rawName: "v-model",
@@ -75937,7 +75955,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     attrs: {
       "for": ""
     }
-  }, [_vm._v("Phone:")]), _vm._v(" "), _c('input', {
+  }, [_vm._v("Số điện thoại:")]), _vm._v(" "), _c('input', {
     directives: [{
       name: "model",
       rawName: "v-model",
@@ -75952,7 +75970,8 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     staticClass: "form-control",
     attrs: {
       "type": "text",
-      "name": "phone"
+      "name": "phone",
+      "data-vv-as": "Số điện thoại"
     },
     domProps: {
       "value": (_vm.vendor.vendor_phone)
@@ -75977,7 +75996,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     attrs: {
       "for": ""
     }
-  }, [_vm._v("Address:")]), _vm._v(" "), _c('textarea', {
+  }, [_vm._v("Địa chỉ cơ quan:")]), _vm._v(" "), _c('textarea', {
     directives: [{
       name: "model",
       rawName: "v-model",
@@ -75992,7 +76011,8 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     staticClass: "form-control",
     attrs: {
       "name": "address",
-      "rows": "3"
+      "rows": "3",
+      "data-vv-as": "Địa chỉ cơ quan"
     },
     domProps: {
       "value": (_vm.vendor.vendor_address)
@@ -76017,7 +76037,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     attrs: {
       "for": ""
     }
-  }, [_vm._v("Logo branch:")]), _vm._v(" "), _c('picture-input', {
+  }, [_vm._v("Logo nhận diện thương hiệu:")]), _vm._v(" "), _c('picture-input', {
     ref: "pictureInput",
     attrs: {
       "width": "200",
@@ -76041,19 +76061,19 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     attrs: {
       "type": "reset"
     }
-  }, [_vm._v("Cancel")]), _vm._v(" "), _c('button', {
+  }, [_vm._v("Hủy")]), _vm._v(" "), _c('button', {
     staticClass: "btn btn-primary",
     attrs: {
       "type": "submit"
     }
-  }, [_vm._v("Add Vendor")])])])])
+  }, [_vm._v("Tạo")])])])])])
 }
 var staticRenderFns = [function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('div', {
     staticClass: "panel-heading"
   }, [_c('h3', {
     staticClass: "panel-title"
-  }, [_vm._v("Create Vendor")])])
+  }, [_vm._v("Thêm nhà cung cấp")])])
 }]
 render._withStripped = true
 var esExports = { render: render, staticRenderFns: staticRenderFns }
