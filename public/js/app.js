@@ -55372,14 +55372,13 @@ var queryString = __webpack_require__(20);
 			var vm = this;
 			var q = {
 				product_name: vm.query.product_name,
-				cat_id: _typeof(vm.query.cat_id) == 'object' ? vm.query.cat_id.target.value : null,
-				vendor_id: _typeof(vm.query.vendor_id) == 'object' ? vm.query.vendor_id.target.value : null,
-				is_hot: _typeof(vm.query.is_hot) == 'object' ? vm.query.is_hot.target.value : null,
-				is_new: _typeof(vm.query.is_new) == 'object' ? vm.query.is_new.target.value : null,
-				is_sale: _typeof(vm.query.is_sale) == 'object' ? vm.query.is_sale.target.value : null
+				cat_id: vm.query.cat_id,
+				vendor_id: vm.query.vendor_id.toString().length ? vm.query.vendor_id.target.value : null,
+				is_hot: vm.query.is_hot.toString().length ? vm.query.is_hot.target.value : null,
+				is_new: vm.query.is_new.toString().length ? vm.query.is_new.target.value : null,
+				is_sale: vm.query.is_sale.toString().length ? vm.query.is_sale.target.value : null
 			};
 
-			console.log(q);
 			return queryString.stringify(q);
 		},
 		parseMoney: function parseMoney(price) {
@@ -65648,8 +65647,8 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
   }, [_vm._v("Tìm kiếm")])])])])])]), _vm._v(" "), _c('div', {
     staticClass: "table-responsive"
   }, [_c('table', {
-    staticClass: "table table-hover"
-  }, [_vm._m(1), _vm._v(" "), _c('tbody', _vm._l((_vm.products), function(product, index) {
+    staticClass: "table table-hover table-colored table-success"
+  }, [_vm._m(1), _vm._v(" "), _c('tbody', [_vm._l((_vm.products), function(product, index) {
     return _c('tr', [_c('td', [_c('input', {
       directives: [{
         name: "model",
@@ -65682,7 +65681,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
           }
         }
       }
-    })]), _vm._v(" "), _c('td', [_vm._v("#" + _vm._s(product.product_id))]), _vm._v(" "), _c('td', [_vm._v(_vm._s(product.cat_name))]), _vm._v(" "), _c('td', [_c('img', {
+    })]), _vm._v(" "), _c('td', [_vm._v("#" + _vm._s(product.product_id))]), _vm._v(" "), _c('td', [_vm._v(_vm._s(product.cat_name))]), _vm._v(" "), _c('td', [(product.product_image) ? _c('div', [_c('img', {
       staticClass: "img-resposive img-circle",
       attrs: {
         "src": product.product_image,
@@ -65690,7 +65689,14 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
         "width": "45px",
         "height": "45px"
       }
-    })]), _vm._v(" "), _c('td', [_vm._v(_vm._s(product.product_name))]), _vm._v(" "), _c('td', [(_vm.parseMoney(product.product_pricesale) > 0) ? _c('div', [_c('s', [_vm._v(_vm._s(product.product_price))]), _vm._v(" "), _c('p', {
+    })]) : _c('div', [_c('img', {
+      staticClass: "img-resposive img-circle",
+      attrs: {
+        "src": "https://www.necanews.org/global_graphics/default-store-350x350.jpg",
+        "width": "45px",
+        "height": "45px"
+      }
+    })])]), _vm._v(" "), _c('td', [_vm._v(_vm._s(product.product_name))]), _vm._v(" "), _c('td', [(_vm.parseMoney(product.product_pricesale) > 0) ? _c('div', [_c('s', [_vm._v(_vm._s(product.product_price))]), _vm._v(" "), _c('p', {
       staticClass: "text-danger"
     }, [_vm._v(_vm._s(product.product_pricesale))])]) : _c('div', [_vm._v("\n\t\t\t\t\t\t\t\t\t" + _vm._s(product.product_price) + "\n\t\t\t\t\t\t\t\t")])]), _vm._v(" "), _c('td', [(product.is_sale == 1) ? _c('span', {
       staticClass: "label label-success"
@@ -65740,7 +65746,11 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     }, [_c('span', {
       staticClass: "glyphicon glyphicon-eye-open"
     }), _vm._v(" Chi tiết")])], 1)])
-  }))])])]), _vm._v(" "), _c('div', {
+  }), _vm._v(" "), (_vm.products.length == 0) ? _c('tr', [_c('td', {
+    attrs: {
+      "colspan": "12"
+    }
+  }, [_vm._v("Không có dữ liệu")])]) : _vm._e()], 2)])])]), _vm._v(" "), (_vm.products.length) ? _c('div', {
     staticClass: "panel-footer"
   }, [_c('center', [_c('paginate', {
     attrs: {
@@ -65753,7 +65763,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
       "container-class": 'pagination',
       "page-class": 'page-item'
     }
-  })], 1)], 1)])])
+  })], 1)], 1) : _vm._e()])])
 }
 var staticRenderFns = [function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('div', {

@@ -116,14 +116,14 @@ export default {
 			var vm = this;
 			var q = {
 				product_name: vm.query.product_name,
-				cat_id: typeof vm.query.cat_id == 'object' ? vm.query.cat_id.target.value : null,
-				vendor_id: typeof vm.query.vendor_id == 'object' ? vm.query.vendor_id.target.value : null,
-				is_hot: typeof vm.query.is_hot == 'object' ? vm.query.is_hot.target.value : null,
-				is_new: typeof vm.query.is_new == 'object' ? vm.query.is_new.target.value : null,
-				is_sale: typeof vm.query.is_sale == 'object' ? vm.query.is_sale.target.value : null
+				cat_id: vm.query.cat_id,
+				vendor_id: vm.query.vendor_id.toString().length ? vm.query.vendor_id.target.value : null,
+				is_hot: vm.query.is_hot.toString().length ? vm.query.is_hot.target.value : null,
+				is_new: vm.query.is_new.toString().length ? vm.query.is_new.target.value : null,
+				is_sale: vm.query.is_sale.toString().length ? vm.query.is_sale.target.value : null
 			}
 
-			console.log(q);
+
 			return queryString.stringify(q);
 		},
 

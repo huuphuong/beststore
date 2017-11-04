@@ -115,7 +115,7 @@
 				</div>
 
 				<div class="table-responsive">
-					<table class="table table-hover">
+					<table class="table table-hover table-colored table-success">
 						<thead>
 							<tr>
 								<th>
@@ -142,7 +142,13 @@
 								<td>#{{ product.product_id }}</td>
 								<td>{{ product.cat_name }}</td>
 								<td>
-									<img v-bind:src="product.product_image" v-bind:alt="product.product_name" class="img-resposive img-circle" width="45px" height="45px">
+									<div v-if="product.product_image">
+										<img v-bind:src="product.product_image" v-bind:alt="product.product_name" class="img-resposive img-circle" width="45px" height="45px">
+									</div>
+
+									<div v-else>
+										<img src="https://www.necanews.org/global_graphics/default-store-350x350.jpg" class="img-resposive img-circle" width="45px" height="45px">
+									</div>
 								</td>
 								<td>{{ product.product_name }}</td>
 								<td>
@@ -178,12 +184,16 @@
 									<router-link :to="{name: 'ProductDetail', params: {id: product.product_id} }"><span class="glyphicon glyphicon-eye-open"></span> Chi tiết</router-link>
 								</td>
 							</tr>
+
+							<tr v-if="products.length == 0">
+								<td colspan="12">Không có dữ liệu</td>
+							</tr>
 						</tbody>
 					</table>
 				</div>
 			</div>
 
-			<div class="panel-footer">
+			<div class="panel-footer" v-if="products.length">
 				<center>
 					 <paginate
 					  :page-count="last_page"
