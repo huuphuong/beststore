@@ -18,7 +18,7 @@ use Illuminate\Http\Request;
 // });
 
 
-Route::group(['prefix' => 'v1', 'middleware' => array('isLoginMiddleware')], function() {
+Route::group(['prefix' => 'v1'], function() {
 	Route::resource('components', 'ComponentController');
 	Route::get('/categories/positions', 'CategoryController@countPosition');
 	Route::get('/categories/list', 'CategoryController@getList');

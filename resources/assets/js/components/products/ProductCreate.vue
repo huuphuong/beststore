@@ -14,7 +14,7 @@
 
 			<div class="form-group">
 				<label for="vendor">Nhà cung cấp:</label>
-				<select class="form-control" v-model="product.vendor_id" name="vendor_id" v-validate="'required'" data-vv-as="Nhà cung cấp"> 
+				<select class="form-control" v-model="product.vendor_id" name="vendor_id" v-validate="'required'" data-vv-as="Nhà cung cấp">
 					<option value=""> -- Chọn nhà cung cấp -- </option>
 					<option v-for="vendor in vendors" v-bind:value="vendor.vendor_id">{{ vendor.vendor_name }}</option>
 				</select>
@@ -86,7 +86,7 @@
 				<textarea v-model="product.product_intro" class="form-control" name="intro" v-validate="'required'" data-vv-as="Giới thiệu"></textarea>
 				<span class="label label-danger" v-show="errors.has('intro')">{{ errors.first('intro') }}</span>
 			</div>
-			
+
 
 
 			<div class="from-group">
@@ -94,8 +94,8 @@
 				<vue-editor v-model="product.product_content" name="content" v-validate="'required'" data-vv-as="Nội dung sản phẩm"></vue-editor>
 				<span class="label label-danger" v-show="errors.has('content')">{{ errors.first('content') }}</span>
 			</div>
-			
-			
+
+
 			<div class="from-group m-t-20">
 				<label for="content">Là sản phẩm mới?:</label>
 				<div class="radio1">

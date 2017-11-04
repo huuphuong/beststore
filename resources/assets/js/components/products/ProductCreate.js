@@ -24,7 +24,7 @@ export default {
 				color: [],
 				vendor_id: ''
 			},
-			uploadUrl: '/api/v1/products/upload',
+			uploadUrl: '/products/upload',
 			sizes: [], // Cho danh sách size vào đây
 			colors: [],
 			color_id: '',
@@ -62,7 +62,7 @@ export default {
 	        }
 	      });
 	    },
-    
+
 		onChangeImage () {
 	      var vm = this;
 	      if (vm.$refs.pictureInput.image) {
@@ -115,7 +115,7 @@ export default {
 		},
 
 
-		
+
 		getVendors () {
 			var vm = this;
 			var url = '/api/v1/vendors';

@@ -17,6 +17,7 @@ Route::group(['prefix' => 'admin'], function() {
     });
 });
 
+Route::post('/products/upload', 'ProductController@upload');
 
 Route::get('/', [
 	'as' => 'index',

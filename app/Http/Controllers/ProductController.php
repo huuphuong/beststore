@@ -84,7 +84,8 @@ class ProductController extends Controller
                 try {
                     $product_image = new ProductImage();
                     $product_image->product_id = $product->product_id;
-                    $product_image->storage = $detail_request[$i]['dataURL'];
+                    $detail = AppHelper::base64ImgToFile('asset_product_detail', $detail_request[$i]['dataURL']);
+                    $product_image->storage = $detail;
                     $product_image->save();
                 }catch (\Exception $e) {
                     $message = 'Product has been created. But product\'s image can not crated. Please try again later!';
