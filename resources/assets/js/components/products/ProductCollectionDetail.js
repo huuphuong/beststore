@@ -1,11 +1,11 @@
-
 import Common from '../../Common';
 import draggable from 'vuedraggable'
+import Action from '../shared/Action.vue';
 
 export default {
 	name: 'ProductCollectionDetail',
 
-	components: { draggable },
+	components: { draggable, Action },
 
 	data () {
 		return {
@@ -17,7 +17,7 @@ export default {
 
 
 	mounted () {
-		document.title = 'Product Collection Detail';
+		document.title = 'Thông tin chi tiết bộ sưu tập';
 		var vm = this;
 		vm.getGroup();
 		vm.getProductNumber();

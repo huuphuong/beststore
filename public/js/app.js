@@ -67601,6 +67601,7 @@ if (false) {(function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Common__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_vuedraggable__ = __webpack_require__(23);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_vuedraggable___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_vuedraggable__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__shared_Action_vue__ = __webpack_require__(212);
 
 
 
@@ -67608,7 +67609,7 @@ if (false) {(function () {
 /* harmony default export */ __webpack_exports__["a"] = ({
 	name: 'ProductCollectionDetail',
 
-	components: { draggable: __WEBPACK_IMPORTED_MODULE_1_vuedraggable___default.a },
+	components: { draggable: __WEBPACK_IMPORTED_MODULE_1_vuedraggable___default.a, Action: __WEBPACK_IMPORTED_MODULE_2__shared_Action_vue__["a" /* default */] },
 
 	data: function data() {
 		return {
@@ -67618,7 +67619,7 @@ if (false) {(function () {
 		};
 	},
 	mounted: function mounted() {
-		document.title = 'Product Collection Detail';
+		document.title = 'Thông tin chi tiết bộ sưu tập';
 		var vm = this;
 		vm.getGroup();
 		vm.getProductNumber();
@@ -69203,26 +69204,49 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
       "id": "root"
     }
   }, [_c('div', {
-    staticClass: "panel panel-default"
+    staticClass: "row"
+  }, [_c('div', {
+    staticClass: "btn-group pull-right m-r-10"
+  }, [_c('action', {
+    attrs: {
+      "actionText": 'Danh sách',
+      "actionIcon": 'glyphicon glyphicon-th-list',
+      "actionRoute": 'ProductCollection'
+    }
+  }), _vm._v(" "), _c('action', {
+    attrs: {
+      "actionText": 'Tạo',
+      "actionIcon": 'glyphicon glyphicon-plus',
+      "actionRoute": 'CollectionAdd'
+    }
+  }), _vm._v(" "), _c('action', {
+    attrs: {
+      "actionText": 'Sửa',
+      "actionIcon": 'glyphicon glyphicon-eye-open',
+      "actionRoute": 'CollectionEdit',
+      "actionsParams": this.$route.params.id
+    }
+  })], 1)]), _vm._v(" "), _c('div', {
+    staticClass: "panel panel-default m-t-20"
   }, [_vm._m(0), _vm._v(" "), (_vm.group) ? _c('div', {
     staticClass: "panel-body"
   }, [_c('div', {
     staticClass: "col-sm-6"
-  }, [_c('legend', [_vm._v("Collection information")]), _vm._v(" "), _c('table', {
+  }, [_c('legend', [_vm._v("Thông tin bộ sưu tập")]), _vm._v(" "), _c('table', {
     staticClass: "table table-hover"
   }, [_c('tr', [_c('th', {
     staticClass: "text-success"
-  }, [_vm._v("CollectionID: ")]), _vm._v(" "), _c('th', [_vm._v(_vm._s(_vm.group.pg_id))])]), _vm._v(" "), _c('tr', [_c('th', {
+  }, [_vm._v("Mã bộ sưu tập: ")]), _vm._v(" "), _c('th', [_vm._v(_vm._s(_vm.group.pg_id))])]), _vm._v(" "), _c('tr', [_c('th', {
     staticClass: "text-success"
-  }, [_vm._v("Collection name: ")]), _vm._v(" "), _c('th', [_vm._v(_vm._s(_vm.group.pg_name))])]), _vm._v(" "), _c('tr', [_c('th', {
+  }, [_vm._v("Tên bộ sưu tập: ")]), _vm._v(" "), _c('th', [_vm._v(_vm._s(_vm.group.pg_name))])]), _vm._v(" "), _c('tr', [_c('th', {
     staticClass: "text-success"
-  }, [_vm._v("Description: ")]), _vm._v(" "), _c('th', [_vm._v(_vm._s(_vm.group.pg_desc))])]), _vm._v(" "), _c('tr', [_c('th', {
+  }, [_vm._v("Ghi chú: ")]), _vm._v(" "), _c('th', [_vm._v(_vm._s(_vm.group.pg_desc))])]), _vm._v(" "), _c('tr', [_c('th', {
     staticClass: "text-success"
-  }, [_vm._v("Created at: ")]), _vm._v(" "), _c('th', [_vm._v(_vm._s(_vm.group.created_at))])]), _vm._v(" "), _c('tr', [_c('th', {
+  }, [_vm._v("Tạo lúc: ")]), _vm._v(" "), _c('th', [_vm._v(_vm._s(_vm.group.created_at))])]), _vm._v(" "), _c('tr', [_c('th', {
     staticClass: "text-success"
-  }, [_vm._v("Updated at: ")]), _vm._v(" "), _c('th', [_vm._v(_vm._s(_vm.group.updated_at))])]), _vm._v(" "), _c('tr', [_c('th', {
+  }, [_vm._v("Cập nhật lúc: ")]), _vm._v(" "), _c('th', [_vm._v(_vm._s(_vm.group.updated_at))])]), _vm._v(" "), _c('tr', [_c('th', {
     staticClass: "text-success"
-  }, [_vm._v("Deleted at: ")]), _vm._v(" "), _c('th', [_vm._v(_vm._s(_vm.group.deleted_at))])])]), _vm._v(" "), _c('hr', {
+  }, [_vm._v("Xóa lúc: ")]), _vm._v(" "), _c('th', [_vm._v(_vm._s(_vm.group.deleted_at))])])]), _vm._v(" "), _c('hr', {
     staticClass: "row"
   }), _vm._v(" "), _c('button', {
     staticClass: "btn btn-primary",
@@ -69232,9 +69256,9 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     on: {
       "click": _vm.updatePosition
     }
-  }, [_vm._v("Update position")])]), _vm._v(" "), _c('div', {
+  }, [_vm._v("Cập nhật vị trí")])]), _vm._v(" "), _c('div', {
     staticClass: "col-sm-6"
-  }, [_c('legend', [_vm._v("Number of product")]), _vm._v(" "), _c('draggable', {
+  }, [_c('legend', [_vm._v("Kéo thả để thay đổi vị trí sắp xếp")]), _vm._v(" "), _c('draggable', {
     model: {
       value: (_vm.product_number),
       callback: function($$v) {
@@ -69266,14 +69290,14 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     })])])
   }))], 1)], 1)]) : _c('div', {
     staticClass: "panel-body"
-  }, [_vm._v("\n\t\t\tNo data\n\t\t")])])])
+  }, [_vm._v("\n\t\t\tKhông có dữ liệu\n\t\t")])])])
 }
 var staticRenderFns = [function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('div', {
     staticClass: "panel-heading"
   }, [_c('h3', {
     staticClass: "panel-title"
-  }, [_vm._v("Collection Detail")])])
+  }, [_vm._v("Chi tiết bộ sưu tập")])])
 }]
 render._withStripped = true
 var esExports = { render: render, staticRenderFns: staticRenderFns }

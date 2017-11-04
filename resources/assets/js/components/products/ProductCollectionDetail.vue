@@ -1,52 +1,60 @@
 <template>
 	<div id="root">
-		<div class="panel panel-default">
+		<div class="row">
+			<div class="btn-group pull-right m-r-10">
+				<action :actionText="'Danh sách'" :actionIcon="'glyphicon glyphicon-th-list'" :actionRoute="'ProductCollection'"></action>
+				<action :actionText="'Tạo'" :actionIcon="'glyphicon glyphicon-plus'" :actionRoute="'CollectionAdd'"></action>
+				<action :actionText="'Sửa'" :actionIcon="'glyphicon glyphicon-eye-open'" :actionRoute="'CollectionEdit'" :actionsParams="this.$route.params.id"></action>
+			</div>
+		</div><!-- /.row -->
+
+		<div class="panel panel-default m-t-20">
 			<div class="panel-heading">
-				<h3 class="panel-title">Collection Detail</h3>
+				<h3 class="panel-title">Chi tiết bộ sưu tập</h3>
 			</div>
 			<div class="panel-body" v-if="group">
 				<div class="col-sm-6">
-					<legend>Collection information</legend>
+					<legend>Thông tin bộ sưu tập</legend>
 					<table class="table table-hover">
 						<tr>
-							<th class="text-success">CollectionID: </th>
+							<th class="text-success">Mã bộ sưu tập: </th>
 							<th>{{ group.pg_id }}</th>
 						</tr>
 
 						<tr>
-							<th class="text-success">Collection name: </th>
+							<th class="text-success">Tên bộ sưu tập: </th>
 							<th>{{ group.pg_name }}</th>
 						</tr>
 
 						<tr>
-							<th class="text-success">Description: </th>
+							<th class="text-success">Ghi chú: </th>
 							<th>{{ group.pg_desc }}</th>
 						</tr>
 
 						<tr>
-							<th class="text-success">Created at: </th>
+							<th class="text-success">Tạo lúc: </th>
 							<th>{{ group.created_at }}</th>
 						</tr>
 
 						<tr>
-							<th class="text-success">Updated at: </th>
+							<th class="text-success">Cập nhật lúc: </th>
 							<th>{{ group.updated_at }}</th>
 						</tr>
 
 						<tr>
-							<th class="text-success">Deleted at: </th>
+							<th class="text-success">Xóa lúc: </th>
 							<th>{{ group.deleted_at }}</th>
 						</tr>
 					</table>
 
 					<hr class="row">
 
-					<button type="button" class="btn btn-primary" @click="updatePosition">Update position</button>
+					<button type="button" class="btn btn-primary" @click="updatePosition">Cập nhật vị trí</button>
 				</div><!-- /.col-sm-6 -->
 
 				<div class="col-sm-6">
-					<legend>Number of product</legend>
-					
+					<legend>Kéo thả để thay đổi vị trí sắp xếp</legend>
+
 					<!-- /.Model chính bằng product_number vì 2 way binding -->
 					<draggable v-model="product_number">
 						<transition-group>
@@ -59,17 +67,17 @@
 							</div>
 						</transition-group>
 					</draggable>
-					
+
 				</div>
 			</div>
-			
+
 			<!-- /.No data -->
 			<div class="panel-body" v-else>
-				No data
+				Không có dữ liệu
 			</div>
 			<!-- /.End no data -->
 		</div>
-		
+
 	</div>
 </template>
 
