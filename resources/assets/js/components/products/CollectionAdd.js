@@ -23,7 +23,7 @@ export default {
 
 
 	mounted () {
-		document.title = 'Add Collection';
+		document.title = 'Tạo bộ sưu tập';
 	},
 
 

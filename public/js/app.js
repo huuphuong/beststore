@@ -69363,7 +69363,7 @@ if (false) {(function () {
 		};
 	},
 	mounted: function mounted() {
-		document.title = 'Add Collection';
+		document.title = 'Tạo bộ sưu tập';
 	},
 
 
@@ -69409,7 +69409,9 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
       "id": "root"
     }
   }, [_c('div', {
-    staticClass: "btn-group"
+    staticClass: "row"
+  }, [_c('div', {
+    staticClass: "btn-group pull-right m-r-10"
   }, [_c('router-link', {
     staticClass: "btn btn-default",
     attrs: {
@@ -69419,7 +69421,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     }
   }, [_c('span', {
     staticClass: "glyphicon glyphicon-th-list"
-  }), _vm._v("\n\t\t\t\tList Collection\n\t\t\t")])], 1), _vm._v(" "), _c('div', {
+  }), _vm._v("\n\t\t\t\t\tDanh sách\n\t\t\t\t")])], 1)]), _vm._v(" "), _c('div', {
     staticClass: "panel panel-default m-t-20"
   }, [_vm._m(0), _vm._v(" "), _c('div', {
     staticClass: "panel-body"
@@ -69441,7 +69443,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     attrs: {
       "for": ""
     }
-  }, [_vm._v("Collectio name:")]), _vm._v(" "), _c('input', {
+  }, [_vm._v("Tên bộ sưu tập:")]), _vm._v(" "), _c('input', {
     directives: [{
       name: "model",
       rawName: "v-model",
@@ -69456,7 +69458,8 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     staticClass: "form-control",
     attrs: {
       "type": "text",
-      "name": "name"
+      "name": "name",
+      "data-vv-as": "Tên bộ sưu tập"
     },
     domProps: {
       "value": (_vm.collection.pg_name)
@@ -69481,7 +69484,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     attrs: {
       "for": ""
     }
-  }, [_vm._v("Discount:")]), _vm._v(" "), _c('div', {
+  }, [_vm._v("Giảm giá(%):")]), _vm._v(" "), _c('div', {
     staticClass: "input-group"
   }, [_c('div', {
     staticClass: "input-group-addon"
@@ -69528,7 +69531,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     attrs: {
       "for": ""
     }
-  }, [_vm._v("Shop name:")]), _vm._v(" "), _c('input', {
+  }, [_vm._v("Tên shop(không bắt buộc):")]), _vm._v(" "), _c('input', {
     directives: [{
       name: "model",
       rawName: "v-model",
@@ -69555,7 +69558,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     attrs: {
       "for": "display"
     }
-  }, [_vm._v("Display:")]), _vm._v(" "), _c('br'), _vm._v(" "), _c('input', {
+  }, [_vm._v("Hiển thị?:")]), _vm._v(" "), _c('br'), _vm._v(" "), _c('input', {
     directives: [{
       name: "model",
       rawName: "v-model",
@@ -69575,7 +69578,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
         _vm.collection.display = "1"
       }
     }
-  }), _vm._v("\n\t\t\t\t\t\tDisplay\n\n\t\t\t\t\t\t"), _c('br'), _vm._v(" "), _c('input', {
+  }), _vm._v("\n\t\t\t\t\t\tHiển thị\n\n\t\t\t\t\t\t"), _c('br'), _vm._v(" "), _c('input', {
     directives: [{
       name: "model",
       rawName: "v-model",
@@ -69595,13 +69598,13 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
         _vm.collection.display = "0"
       }
     }
-  }), _vm._v("\n\t\t\t\t\t\tNone\n\n\t\t\t\t\t")]), _vm._v(" "), _c('div', {
+  }), _vm._v("\n\t\t\t\t\t\tKhông hiển thị\n\n\t\t\t\t\t")]), _vm._v(" "), _c('div', {
     staticClass: "form-group"
   }, [_c('label', {
     attrs: {
       "for": ""
     }
-  }, [_vm._v("Description:")]), _vm._v(" "), _c('input', {
+  }, [_vm._v("Nội dung ghi chú(không bắt buộc):")]), _vm._v(" "), _c('input', {
     directives: [{
       name: "model",
       rawName: "v-model",
@@ -69628,7 +69631,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     attrs: {
       "for": ""
     }
-  }, [_vm._v("Background:")]), _vm._v(" "), _c('picture-input', {
+  }, [_vm._v("Hình nền:")]), _vm._v(" "), _c('picture-input', {
     ref: "pictureInput",
     attrs: {
       "width": "250",
@@ -69652,19 +69655,19 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     attrs: {
       "type": "reset"
     }
-  }, [_vm._v("Cancel")]), _vm._v(" "), _c('button', {
+  }, [_vm._v("Hủy")]), _vm._v(" "), _c('button', {
     staticClass: "btn btn-lg btn-primary",
     attrs: {
       "type": "submit"
     }
-  }, [_vm._v("Add Collection")])])])])])
+  }, [_vm._v("Tạo")])])])])])
 }
 var staticRenderFns = [function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('div', {
     staticClass: "panel-heading"
   }, [_c('h3', {
     staticClass: "panel-title"
-  }, [_vm._v("Add Collection")])])
+  }, [_vm._v("Tạo bộ sưu tập")])])
 }]
 render._withStripped = true
 var esExports = { render: render, staticRenderFns: staticRenderFns }

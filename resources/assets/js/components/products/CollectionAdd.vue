@@ -1,26 +1,28 @@
 <template>
 	<div id="root">
-		<div class="btn-group">
-			<router-link :to="{name: 'ProductCollection'}" class="btn btn-default">
-				<span class="glyphicon glyphicon-th-list"></span>
-				List Collection
-			</router-link>
-		</div>
+		<div class="row">
+			<div class="btn-group pull-right m-r-10">
+				<router-link :to="{name: 'ProductCollection'}" class="btn btn-default">
+					<span class="glyphicon glyphicon-th-list"></span>
+					Danh sách
+				</router-link>
+			</div>
+		</div><!-- /.row -->
 
 		<div class="panel panel-default m-t-20">
 			<div class="panel-heading">
-				<h3 class="panel-title">Add Collection</h3>
+				<h3 class="panel-title">Tạo bộ sưu tập</h3>
 			</div>
 			<div class="panel-body">
 				<form action="" method="POST" enctype="multipart/form-data" @submit.prevent="validateBeforeSubmit">
 					<div class="form-group">
-						<label for="">Collectio name:</label>
-						<input type="text" class="form-control" name="name" v-model="collection.pg_name" v-validate="'required'">
+						<label for="">Tên bộ sưu tập:</label>
+						<input type="text" class="form-control" name="name" v-model="collection.pg_name" v-validate="'required'" data-vv-as="Tên bộ sưu tập">
 						<span class="label label-danger" v-show="errors.has('name')">{{ errors.first('name') }}</span>
 					</div>
 
 					<div class="form-group">
-						<label for="">Discount:</label>
+						<label for="">Giảm giá(%):</label>
 						<div class="input-group">
 							<div class="input-group-addon">-</div>
 							<input type="number" class="form-control" name="discount" maxlength="2" v-model="collection.pg_discount" v-validate="'required'">
@@ -30,31 +32,31 @@
 					</div>
 
 					<div class="form-group">
-						<label for="">Shop name:</label>
+						<label for="">Tên shop(không bắt buộc):</label>
 						<input type="text" class="form-control" name="shop_name" v-model="collection.pg_shopname">
 					</div>
 
 
 					<div class="form-group">
-						<label for="display">Display:</label>
+						<label for="display">Hiển thị?:</label>
 						<br>
 
 						<input type="radio" name="display" value="1" v-model="collection.display">
-						Display
+						Hiển thị
 
 						<br>
 						<input type="radio" name="display" value="0" v-model="collection.display">
-						None
+						Không hiển thị
 
 					</div>
 
 					<div class="form-group">
-						<label for="">Description:</label>
+						<label for="">Nội dung ghi chú(không bắt buộc):</label>
 						<input type="text" class="form-control" name="description" v-model="collection.pg_desc">
 					</div>
 
 					<div class="form-group">
-						<label for="">Background:</label>
+						<label for="">Hình nền:</label>
 						<picture-input
 						ref="pictureInput"
 						@change="onChangeImage"
@@ -74,8 +76,8 @@
 					</picture-input>
 				</div> <hr>
 
-				<button type="reset" class="btn btn-lg btn-default">Cancel</button>
-				<button type="submit" class="btn btn-lg btn-primary">Add Collection</button>
+				<button type="reset" class="btn btn-lg btn-default">Hủy</button>
+				<button type="submit" class="btn btn-lg btn-primary">Tạo</button>
 			</form>
 		</div>
 	</div>
