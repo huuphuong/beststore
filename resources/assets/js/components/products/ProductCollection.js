@@ -1,7 +1,10 @@
 import Common from '../../Common';
+import Action from '../shared/Action.vue'
 
 export default {
 	name: 'ProductCollection',
+
+	components: { Action },
 
 	data () {
 		return {
@@ -13,6 +16,7 @@ export default {
 	mounted () {
 		var vm = this;
 		vm.getProductGroup();
+		document.title = 'Danh sách bộ sưu tập';
 	},
 
 
