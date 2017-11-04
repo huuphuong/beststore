@@ -25,7 +25,7 @@
 						<label for="">Giảm giá(%):</label>
 						<div class="input-group">
 							<div class="input-group-addon">-</div>
-							<input type="number" class="form-control" name="discount" maxlength="2" v-model="collection.pg_discount" v-validate="'required'">
+							<input type="number" class="form-control" name="discount" maxlength="2" v-model="collection.pg_discount" v-validate="'required'" data-vv-as="Phần trăm giảm giá">
 							<div class="input-group-addon">%</div>
 						</div>
 						<span class="label label-danger" v-show="errors.has('discount')">{{ errors.first('discount') }}</span>

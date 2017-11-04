@@ -1,10 +1,11 @@
 import Common from '../../Common';
 import PictureInput from 'vue-picture-input';
+import Action from '../shared/Action.vue';
 
 export default {
 	name: 'CollectionAdd',
 
-	components: { PictureInput },
+	components: { PictureInput, Action },
 
 	data () {
 		return {
@@ -23,7 +24,7 @@ export default {
 
 
 	mounted () {
-		document.title = 'Add Collection';
+		document.title = 'Sửa bộ sưu tập';
 		this.getProductGroup();
 	},
 
