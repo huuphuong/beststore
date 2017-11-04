@@ -19,6 +19,7 @@ export default {
 	mounted () {
 		var vm = this;
 		vm.getProduct();
+		document.title = 'Chi tiết sản phẩm';
 	},
 
 	methods: {

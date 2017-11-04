@@ -53999,6 +53999,7 @@ if (false) {(function () {
 	mounted: function mounted() {
 		var vm = this;
 		vm.getProduct();
+		document.title = 'Chi tiết sản phẩm';
 	},
 
 
