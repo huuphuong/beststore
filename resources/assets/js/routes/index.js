@@ -63,7 +63,7 @@ export default new VueRouter({
 		{ path: '/products/create', name: 'ProductCreate', component: ProductCreate },
 		{ path: '/products/detail/:id', name: 'ProductDetail', component: ProductDetail },
 		{ path: '/products/edit/:id', name: 'ProductEdit', component: ProductEdit },
-		{ path: '/products', name: 'ProductList', component: ProductList },
+		{ path: '/products/list', name: 'ProductList', component: ProductList },
 
 		{ path: '/categories', name: 'Category', component: Category },
 		{ path: '/categories/detail/:id', name: 'CategoryDetail', component: CategoryDetail },

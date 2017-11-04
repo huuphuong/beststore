@@ -46280,7 +46280,7 @@ __WEBPACK_IMPORTED_MODULE_0_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_1_vue_
 
 /* harmony default export */ __webpack_exports__["a"] = (new __WEBPACK_IMPORTED_MODULE_1_vue_router__["a" /* default */]({
 
-		routes: [{ path: '/roles/create', name: 'RoleCreate', component: __WEBPACK_IMPORTED_MODULE_3__components_roles_RoleCreate_vue__["a" /* default */] }, { path: '/roles', name: 'RoleList', component: __WEBPACK_IMPORTED_MODULE_4__components_roles_RoleList_vue__["a" /* default */] }, { path: '/roles/detail/:id', name: 'RoleDetail', component: __WEBPACK_IMPORTED_MODULE_5__components_roles_RoleDetail_vue__["a" /* default */] }, { path: '/roles/edit/:id', name: 'RoleEdit', component: __WEBPACK_IMPORTED_MODULE_6__components_roles_RoleEdit_vue__["a" /* default */] }, { path: '/users/create', name: 'UserCreate', component: __WEBPACK_IMPORTED_MODULE_7__components_users_UserCreate_vue__["a" /* default */] }, { path: '/users/detail/:id', name: 'UserDetail', component: __WEBPACK_IMPORTED_MODULE_8__components_users_UserDetail_vue__["a" /* default */] }, { path: '/users', name: 'UserList', component: __WEBPACK_IMPORTED_MODULE_9__components_users_UserList_vue__["a" /* default */] }, { path: '/users/edit/:id', name: 'UserEdit', component: __WEBPACK_IMPORTED_MODULE_10__components_users_UserEdit_vue__["a" /* default */] }, { path: '/products/create', name: 'ProductCreate', component: __WEBPACK_IMPORTED_MODULE_11__components_products_ProductCreate_vue__["a" /* default */] }, { path: '/products/detail/:id', name: 'ProductDetail', component: __WEBPACK_IMPORTED_MODULE_12__components_products_ProductDetail_vue__["a" /* default */] }, { path: '/products/edit/:id', name: 'ProductEdit', component: __WEBPACK_IMPORTED_MODULE_13__components_products_ProductEdit_vue__["a" /* default */] }, { path: '/products', name: 'ProductList', component: __WEBPACK_IMPORTED_MODULE_14__components_products_ProductList_vue__["a" /* default */] }, { path: '/categories', name: 'Category', component: __WEBPACK_IMPORTED_MODULE_15__components_categories_Category_vue__["a" /* default */] }, { path: '/categories/detail/:id', name: 'CategoryDetail', component: __WEBPACK_IMPORTED_MODULE_16__components_categories_CategoryDetail_vue__["a" /* default */] }, { path: '/categories/list', name: 'CategoryList', component: __WEBPACK_IMPORTED_MODULE_17__components_categories_CategoryList_vue__["a" /* default */] }, { path: '/categories/edit/:id', name: 'CategoryEdit', component: __WEBPACK_IMPORTED_MODULE_18__components_categories_CategoryEdit_vue__["a" /* default */] }, { path: '/productcollections', name: 'ProductCollection', component: __WEBPACK_IMPORTED_MODULE_19__components_products_ProductCollection_vue__["a" /* default */] }, { path: '/productcollections/:id', name: 'ProductCollectionDetail', component: __WEBPACK_IMPORTED_MODULE_20__components_products_ProductCollectionDetail_vue__["a" /* default */] }, { path: '/collections', name: 'CollectionAdd', component: __WEBPACK_IMPORTED_MODULE_21__components_products_CollectionAdd_vue__["a" /* default */] }, { path: '/collections/:id', name: 'CollectionEdit', component: __WEBPACK_IMPORTED_MODULE_22__components_products_CollectionEdit_vue__["a" /* default */] }, { path: '/settings', name: 'Settings', component: __WEBPACK_IMPORTED_MODULE_23__components_settings_Setting_vue__["a" /* default */] }, { path: '/slideshows', name: 'Slideshow', component: __WEBPACK_IMPORTED_MODULE_24__components_settings_Slideshow_vue__["a" /* default */] }, { path: '/tutorials', name: 'Tutorial', component: __WEBPACK_IMPORTED_MODULE_25__components_settings_Tutorial_vue__["a" /* default */] }, { path: '/navigations', name: 'Navigation', component: __WEBPACK_IMPORTED_MODULE_26__components_settings_Navigation_vue__["a" /* default */] }, { path: '/navigations/:id', name: 'NavigationEdit', component: __WEBPACK_IMPORTED_MODULE_27__components_settings_NavigationEdit_vue__["a" /* default */] }, { path: '/vendors/create', name: 'VendorCreate', component: __WEBPACK_IMPORTED_MODULE_28__components_vendors_VendorCreate_vue__["a" /* default */] }, { path: '/vendors', name: 'VendorList', component: __WEBPACK_IMPORTED_MODULE_29__components_vendors_VendorList_vue__["a" /* default */] }],
+		routes: [{ path: '/roles/create', name: 'RoleCreate', component: __WEBPACK_IMPORTED_MODULE_3__components_roles_RoleCreate_vue__["a" /* default */] }, { path: '/roles', name: 'RoleList', component: __WEBPACK_IMPORTED_MODULE_4__components_roles_RoleList_vue__["a" /* default */] }, { path: '/roles/detail/:id', name: 'RoleDetail', component: __WEBPACK_IMPORTED_MODULE_5__components_roles_RoleDetail_vue__["a" /* default */] }, { path: '/roles/edit/:id', name: 'RoleEdit', component: __WEBPACK_IMPORTED_MODULE_6__components_roles_RoleEdit_vue__["a" /* default */] }, { path: '/users/create', name: 'UserCreate', component: __WEBPACK_IMPORTED_MODULE_7__components_users_UserCreate_vue__["a" /* default */] }, { path: '/users/detail/:id', name: 'UserDetail', component: __WEBPACK_IMPORTED_MODULE_8__components_users_UserDetail_vue__["a" /* default */] }, { path: '/users', name: 'UserList', component: __WEBPACK_IMPORTED_MODULE_9__components_users_UserList_vue__["a" /* default */] }, { path: '/users/edit/:id', name: 'UserEdit', component: __WEBPACK_IMPORTED_MODULE_10__components_users_UserEdit_vue__["a" /* default */] }, { path: '/products/create', name: 'ProductCreate', component: __WEBPACK_IMPORTED_MODULE_11__components_products_ProductCreate_vue__["a" /* default */] }, { path: '/products/detail/:id', name: 'ProductDetail', component: __WEBPACK_IMPORTED_MODULE_12__components_products_ProductDetail_vue__["a" /* default */] }, { path: '/products/edit/:id', name: 'ProductEdit', component: __WEBPACK_IMPORTED_MODULE_13__components_products_ProductEdit_vue__["a" /* default */] }, { path: '/products/list', name: 'ProductList', component: __WEBPACK_IMPORTED_MODULE_14__components_products_ProductList_vue__["a" /* default */] }, { path: '/categories', name: 'Category', component: __WEBPACK_IMPORTED_MODULE_15__components_categories_Category_vue__["a" /* default */] }, { path: '/categories/detail/:id', name: 'CategoryDetail', component: __WEBPACK_IMPORTED_MODULE_16__components_categories_CategoryDetail_vue__["a" /* default */] }, { path: '/categories/list', name: 'CategoryList', component: __WEBPACK_IMPORTED_MODULE_17__components_categories_CategoryList_vue__["a" /* default */] }, { path: '/categories/edit/:id', name: 'CategoryEdit', component: __WEBPACK_IMPORTED_MODULE_18__components_categories_CategoryEdit_vue__["a" /* default */] }, { path: '/productcollections', name: 'ProductCollection', component: __WEBPACK_IMPORTED_MODULE_19__components_products_ProductCollection_vue__["a" /* default */] }, { path: '/productcollections/:id', name: 'ProductCollectionDetail', component: __WEBPACK_IMPORTED_MODULE_20__components_products_ProductCollectionDetail_vue__["a" /* default */] }, { path: '/collections', name: 'CollectionAdd', component: __WEBPACK_IMPORTED_MODULE_21__components_products_CollectionAdd_vue__["a" /* default */] }, { path: '/collections/:id', name: 'CollectionEdit', component: __WEBPACK_IMPORTED_MODULE_22__components_products_CollectionEdit_vue__["a" /* default */] }, { path: '/settings', name: 'Settings', component: __WEBPACK_IMPORTED_MODULE_23__components_settings_Setting_vue__["a" /* default */] }, { path: '/slideshows', name: 'Slideshow', component: __WEBPACK_IMPORTED_MODULE_24__components_settings_Slideshow_vue__["a" /* default */] }, { path: '/tutorials', name: 'Tutorial', component: __WEBPACK_IMPORTED_MODULE_25__components_settings_Tutorial_vue__["a" /* default */] }, { path: '/navigations', name: 'Navigation', component: __WEBPACK_IMPORTED_MODULE_26__components_settings_Navigation_vue__["a" /* default */] }, { path: '/navigations/:id', name: 'NavigationEdit', component: __WEBPACK_IMPORTED_MODULE_27__components_settings_NavigationEdit_vue__["a" /* default */] }, { path: '/vendors/create', name: 'VendorCreate', component: __WEBPACK_IMPORTED_MODULE_28__components_vendors_VendorCreate_vue__["a" /* default */] }, { path: '/vendors', name: 'VendorList', component: __WEBPACK_IMPORTED_MODULE_29__components_vendors_VendorList_vue__["a" /* default */] }],
 		mode: 'history'
 }));
 
@@ -55302,7 +55302,7 @@ var queryString = __webpack_require__(20);
 		};
 	},
 	created: function created() {
-		document.title = 'Product List';
+		document.title = 'Danh sách sản phẩm';
 	},
 
 
@@ -65397,7 +65397,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     staticClass: "btn btn-default"
   }, [_c('span', {
     staticClass: "glyphicon glyphicon-plus"
-  }), _vm._v(" Add Product\n\t\t\t\t")])]), _vm._v(" "), _c('button', {
+  }), _vm._v(" Tạo sản phẩm\n\t\t\t\t")])]), _vm._v(" "), _c('button', {
     staticClass: "btn btn-default m-l-10 m-r-10",
     attrs: {
       "type": "button"
@@ -65409,7 +65409,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     }
   }, [_c('span', {
     staticClass: "glyphicon glyphicon-plus"
-  }), _vm._v("\n\t\t\t\t Add product group\n\t\t\t")]), _vm._v(" "), _c('modal', {
+  }), _vm._v("\n\t\t\t\tThêm sản phẩm vào Bộ sưu tập\n\t\t\t")]), _vm._v(" "), _c('modal', {
     attrs: {
       "show": _vm.modalOpen,
       "effect": "fade",
@@ -65426,7 +65426,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     slot: "modal-header"
   }, [_c('h4', {
     staticClass: "modal-title"
-  }, [_vm._v("\n\t\t\t\t\t\tProduct Collection\n\t\t\t\t\t")])]), _vm._v(" "), _c('div', {
+  }, [_vm._v("\n\t\t\t\t\t\tThêm sản phẩm vào bộ sưu tập\n\t\t\t\t\t")])]), _vm._v(" "), _c('div', {
     staticClass: "modal-body",
     slot: "modal-body"
   }, [(_vm.group_data) ? _c('ul', {
@@ -65456,7 +65456,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
         _vm.choose_group = ""
       }
     }
-  }), _vm._v("\n\t\t\t\t\t\t\t\tChọn\n\t\t\t\t\t\t\t")])]), _vm._v(" "), _vm._l((_vm.group_data), function(group) {
+  }), _vm._v("\n\t\t\t\t\t\t\t\tChọn bộ sưu tập\n\t\t\t\t\t\t\t")])]), _vm._v(" "), _vm._l((_vm.group_data), function(group) {
     return _c('li', [_c('div', {
       staticClass: "radio"
     }, [_c('input', {
@@ -65493,7 +65493,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
         _vm.modalOpen = false
       }
     }
-  }, [_vm._v("Exit")]), _vm._v(" "), _c('button', {
+  }, [_vm._v("Thoát")]), _vm._v(" "), _c('button', {
     staticClass: "btn btn-success",
     attrs: {
       "type": "button"
@@ -65501,7 +65501,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     on: {
       "click": _vm.addProductToGroup
     }
-  }, [_vm._v("Add to group")])])])], 1)]), _vm._v(" "), _c('div', {
+  }, [_vm._v("Thêm")])])])], 1)]), _vm._v(" "), _c('div', {
     staticClass: "panel panel-default"
   }, [_vm._m(0), _vm._v(" "), _c('div', {
     staticClass: "panel-body"
@@ -65523,7 +65523,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     attrs: {
       "for": "name"
     }
-  }, [_vm._v("Product name:")]), _vm._v(" "), _c('input', {
+  }, [_vm._v("Tên sản phẩm:")]), _vm._v(" "), _c('input', {
     directives: [{
       name: "model",
       rawName: "v-model",
@@ -65549,7 +65549,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     attrs: {
       "for": "name"
     }
-  }, [_vm._v("Is sale:")]), _vm._v(" "), _c('v-conditional', {
+  }, [_vm._v("Sản phẩm sale:")]), _vm._v(" "), _c('v-conditional', {
     model: {
       value: (_vm.query.is_sale),
       callback: function($$v) {
@@ -65565,7 +65565,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     attrs: {
       "for": "name"
     }
-  }, [_vm._v("Category:")]), _vm._v(" "), _c('recusive', {
+  }, [_vm._v("Danh mục:")]), _vm._v(" "), _c('recusive', {
     model: {
       value: (_vm.query.cat_id),
       callback: function($$v) {
@@ -65579,7 +65579,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     attrs: {
       "for": "name"
     }
-  }, [_vm._v("Is new:")]), _vm._v(" "), _c('v-conditional', {
+  }, [_vm._v("Sản phẩm mới:")]), _vm._v(" "), _c('v-conditional', {
     model: {
       value: (_vm.query.is_new),
       callback: function($$v) {
@@ -65595,7 +65595,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     attrs: {
       "for": "name"
     }
-  }, [_vm._v("Vendor:")]), _vm._v(" "), _c('select-option', {
+  }, [_vm._v("Nhà cung cấp:")]), _vm._v(" "), _c('select-option', {
     attrs: {
       "first": 'All vendor',
       "listData": _vm.vendors
@@ -65613,7 +65613,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     attrs: {
       "for": "name"
     }
-  }, [_vm._v("Is hot:")]), _vm._v(" "), _c('v-conditional', {
+  }, [_vm._v("Sản phẩm hot:")]), _vm._v(" "), _c('v-conditional', {
     model: {
       value: (_vm.query.is_hot),
       callback: function($$v) {
@@ -65627,7 +65627,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     staticClass: "form-group"
   }, [_c('h2', {
     staticClass: "text-center"
-  }, [_vm._v("Quantity: " + _vm._s(_vm.total))])]), _vm._v(" "), _c('div', {
+  }, [_vm._v("Tổng số: " + _vm._s(_vm.total))])]), _vm._v(" "), _c('div', {
     staticClass: "form-group "
   }, [_c('button', {
     staticClass: "btn btn-default btn-block",
@@ -65637,7 +65637,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     on: {
       "click": _vm.clearPage
     }
-  }, [_vm._v("Cancel")]), _vm._v(" "), _c('button', {
+  }, [_vm._v("Hủy bỏ")]), _vm._v(" "), _c('button', {
     staticClass: "btn btn-primary btn-block",
     attrs: {
       "type": "button"
@@ -65645,7 +65645,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     on: {
       "click": _vm.getProducts
     }
-  }, [_vm._v("Filter")])])])])])]), _vm._v(" "), _c('div', {
+  }, [_vm._v("Tìm kiếm")])])])])])]), _vm._v(" "), _c('div', {
     staticClass: "table-responsive"
   }, [_c('table', {
     staticClass: "table table-hover"
@@ -65694,21 +65694,21 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
       staticClass: "text-danger"
     }, [_vm._v(_vm._s(product.product_pricesale))])]) : _c('div', [_vm._v("\n\t\t\t\t\t\t\t\t\t" + _vm._s(product.product_price) + "\n\t\t\t\t\t\t\t\t")])]), _vm._v(" "), _c('td', [(product.is_sale == 1) ? _c('span', {
       staticClass: "label label-success"
-    }, [_vm._v("Yes")]) : _c('span', {
+    }, [_vm._v("Có")]) : _c('span', {
       staticClass: "label label-warning"
-    }, [_vm._v("No")])]), _vm._v(" "), _c('td', [(product.is_new == 1) ? _c('span', {
+    }, [_vm._v("Không")])]), _vm._v(" "), _c('td', [(product.is_new == 1) ? _c('span', {
       staticClass: "label label-success"
-    }, [_vm._v("Yes")]) : _c('span', {
+    }, [_vm._v("Có")]) : _c('span', {
       staticClass: "label label-warning"
-    }, [_vm._v("No")])]), _vm._v(" "), _c('td', [(product.is_hot == 1) ? _c('span', {
+    }, [_vm._v("Không")])]), _vm._v(" "), _c('td', [(product.is_hot == 1) ? _c('span', {
       staticClass: "label label-success"
-    }, [_vm._v("Yes")]) : _c('span', {
+    }, [_vm._v("Có")]) : _c('span', {
       staticClass: "label label-warning"
-    }, [_vm._v("No")])]), _vm._v(" "), _c('td', [(product.display == 1) ? _c('span', {
+    }, [_vm._v("Không")])]), _vm._v(" "), _c('td', [(product.display == 1) ? _c('span', {
       staticClass: "label label-success"
-    }, [_vm._v("Display")]) : _c('span', {
+    }, [_vm._v("Hiển thị")]) : _c('span', {
       staticClass: "label label-warning"
-    }, [_vm._v("None")])]), _vm._v(" "), _c('td', [_vm._v(_vm._s(product.vendor_name))]), _vm._v(" "), _c('td', [_c('router-link', {
+    }, [_vm._v("Không hiển thị")])]), _vm._v(" "), _c('td', [_vm._v(_vm._s(product.vendor_name))]), _vm._v(" "), _c('td', [_c('router-link', {
       attrs: {
         "to": {
           name: 'ProductEdit',
@@ -65719,7 +65719,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
       }
     }, [_c('span', {
       staticClass: "glyphicon glyphicon-pencil"
-    }), _vm._v(" "), _c('a', [_vm._v("Edit")])]), _vm._v(" |\n\t\t\t\t\t\t\t\t"), _c('button', {
+    }), _vm._v(" "), _c('a', [_vm._v("Sửa")])]), _vm._v(" |\n\t\t\t\t\t\t\t\t"), _c('button', {
       staticClass: "btn btn-link m-0 p-0",
       on: {
         "click": function($event) {
@@ -65728,7 +65728,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
       }
     }, [_c('span', {
       staticClass: "glyphicon glyphicon-trash"
-    }), _vm._v(" Delete")]), _vm._v(" |\n\t\t\t\t\t\t\t\t"), _c('router-link', {
+    }), _vm._v(" Xóa")]), _vm._v(" |\n\t\t\t\t\t\t\t\t"), _c('router-link', {
       attrs: {
         "to": {
           name: 'ProductDetail',
@@ -65739,7 +65739,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
       }
     }, [_c('span', {
       staticClass: "glyphicon glyphicon-eye-open"
-    }), _vm._v(" Detail")])], 1)])
+    }), _vm._v(" Chi tiết")])], 1)])
   }))])])]), _vm._v(" "), _c('div', {
     staticClass: "panel-footer"
   }, [_c('center', [_c('paginate', {
@@ -65760,13 +65760,13 @@ var staticRenderFns = [function () {var _vm=this;var _h=_vm.$createElement;var _
     staticClass: "panel-heading"
   }, [_c('h3', {
     staticClass: "panel-title"
-  }, [_vm._v("Product List")])])
+  }, [_vm._v("Danh sách sản phẩm")])])
 },function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('thead', [_c('tr', [_c('th', [_c('input', {
     attrs: {
       "type": "checkbox"
     }
-  })]), _vm._v(" "), _c('th', [_vm._v("ID")]), _vm._v(" "), _c('th', [_vm._v("Category")]), _vm._v(" "), _c('th', [_vm._v("Image")]), _vm._v(" "), _c('th', [_vm._v("Product name")]), _vm._v(" "), _c('th', [_vm._v("Price")]), _vm._v(" "), _c('th', [_vm._v("Is sale")]), _vm._v(" "), _c('th', [_vm._v("Is new")]), _vm._v(" "), _c('th', [_vm._v("Is hot")]), _vm._v(" "), _c('th', [_vm._v("Display")]), _vm._v(" "), _c('th', [_vm._v("Vendor")]), _vm._v(" "), _c('th', [_vm._v("Action")])])])
+  })]), _vm._v(" "), _c('th', [_vm._v("ID")]), _vm._v(" "), _c('th', [_vm._v("Danh mục")]), _vm._v(" "), _c('th', [_vm._v("Ảnh đại diện")]), _vm._v(" "), _c('th', [_vm._v("Tên sản phẩm")]), _vm._v(" "), _c('th', [_vm._v("Giá")]), _vm._v(" "), _c('th', [_vm._v("SP sale?")]), _vm._v(" "), _c('th', [_vm._v("SP mới?")]), _vm._v(" "), _c('th', [_vm._v("SP hot?")]), _vm._v(" "), _c('th', [_vm._v("Hiển thị?")]), _vm._v(" "), _c('th', [_vm._v("Nhà cung cấp")]), _vm._v(" "), _c('th', [_vm._v("Hành động")])])])
 }]
 render._withStripped = true
 var esExports = { render: render, staticRenderFns: staticRenderFns }

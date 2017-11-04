@@ -4,19 +4,19 @@
 			<div class="btn-group pull-right m-r-10 m-b-10">
 				<router-link :to="{name: 'ProductCreate'}">
 					<a class="btn btn-default">
-						<span class="glyphicon glyphicon-plus"></span> Add Product
+						<span class="glyphicon glyphicon-plus"></span> Tạo sản phẩm
 					</a>
 				</router-link>
-				
+
 				<button type="button" class="btn btn-default m-l-10 m-r-10" @click="modalOpen = true">
 					<span class="glyphicon glyphicon-plus"></span>
-					 Add product group
+					Thêm sản phẩm vào Bộ sưu tập
 				</button>
-				
+
 				<modal :show.sync="modalOpen" effect="fade" width="400" :backdrop="false">
 					<div slot="modal-header" class="modal-header">
 						<h4 class="modal-title">
-							Product Collection
+							Thêm sản phẩm vào bộ sưu tập
 						</h4>
 					</div>
 
@@ -25,7 +25,7 @@
 							<li>
 								<div class="radio">
 									<input type="radio" name="product_group_id" v-model="choose_group" value="" />
-									Chọn
+									Chọn bộ sưu tập
 								</div>
 							</li>
 
@@ -39,8 +39,8 @@
 					</div>
 
 					<div slot="modal-footer" class="modal-footer">
-						<button type="button" class="btn btn-default" @click="modalOpen = false">Exit</button>
-						<button type="button" class="btn btn-success" @click="addProductToGroup">Add to group</button>
+						<button type="button" class="btn btn-default" @click="modalOpen = false">Thoát</button>
+						<button type="button" class="btn btn-success" @click="addProductToGroup">Thêm</button>
 					</div>
 				</modal>
 
@@ -49,7 +49,7 @@
 
 		<div class="panel panel-default">
 			<div class="panel-heading">
-				<h3 class="panel-title">Product List</h3>
+				<h3 class="panel-title">Danh sách sản phẩm</h3>
 			</div>
 			<div class="panel-body">
 				<div class="row m-b-20">
@@ -57,29 +57,29 @@
 						<form action="" method="POST" autocomplete="off">
 							<div class="col-sm-3">
 								<div class="form-group">
-									<label for="name">Product name:</label>
+									<label for="name">Tên sản phẩm:</label>
 									<input type="text" class="form-control" v-model="query.product_name">
 									<!-- {{ query.product_name }} -->
 								</div>
-								
+
 								<div class="form-group">
-									<label for="name">Is sale:</label>
+									<label for="name">Sản phẩm sale:</label>
 									<v-conditional v-model="query.is_sale"></v-conditional>
 									<!-- {{ query.is_sale }} -->
 								</div>
-							
+
 							</div>
 
 							<div class="col-sm-3">
 								<div class="form-group">
-									<label for="name">Category:</label>
+									<label for="name">Danh mục:</label>
 									<recusive v-model="query.cat_id"></recusive>
 									<!-- {{ query.cat_id }} -->
 								</div>
 
 
 								<div class="form-group">
-									<label for="name">Is new:</label>
+									<label for="name">Sản phẩm mới:</label>
 									<v-conditional v-model="query.is_new"></v-conditional>
 									<!-- {{ query.is_new }} -->
 								</div>
@@ -87,13 +87,13 @@
 
 							<div class="col-sm-3">
 								<div class="form-group">
-									<label for="name">Vendor:</label>
+									<label for="name">Nhà cung cấp:</label>
 									<select-option :first="'All vendor'" :listData="vendors" v-model="query.vendor_id"></select-option>
 									<!-- {{ query.vendor_id }} -->
 								</div>
 
 								<div class="form-group">
-									<label for="name">Is hot:</label>
+									<label for="name">Sản phẩm hot:</label>
 									<v-conditional v-model="query.is_hot"></v-conditional>
 									<!-- {{ query.is_hot }} -->
 								</div>
@@ -101,12 +101,12 @@
 
 							<div class="col-sm-3">
 								<div class="form-group">
-									<h2 class="text-center">Quantity: {{ total }}</h2>
+									<h2 class="text-center">Tổng số: {{ total }}</h2>
 								</div>
 
 								<div class="form-group ">
-									<button type="button" class="btn btn-default btn-block" @click="clearPage">Cancel</button>
-									<button type="button" class="btn btn-primary btn-block" @click="getProducts">Filter</button>
+									<button type="button" class="btn btn-default btn-block" @click="clearPage">Hủy bỏ</button>
+									<button type="button" class="btn btn-primary btn-block" @click="getProducts">Tìm kiếm</button>
 								</div>
 							</div>
 
@@ -122,16 +122,16 @@
 									<input type="checkbox">
 								</th>
 								<th>ID</th>
-								<th>Category</th>
-								<th>Image</th>
-								<th>Product name</th>
-								<th>Price</th>
-								<th>Is sale</th>
-								<th>Is new</th>
-								<th>Is hot</th>
-								<th>Display</th>
-								<th>Vendor</th>
-								<th>Action</th>
+								<th>Danh mục</th>
+								<th>Ảnh đại diện</th>
+								<th>Tên sản phẩm</th>
+								<th>Giá</th>
+								<th>SP sale?</th>
+								<th>SP mới?</th>
+								<th>SP hot?</th>
+								<th>Hiển thị?</th>
+								<th>Nhà cung cấp</th>
+								<th>Hành động</th>
 							</tr>
 						</thead>
 						<tbody>
@@ -156,26 +156,26 @@
 									</div>
 								</td>
 								<td>
-									<span class="label label-success" v-if="product.is_sale == 1">Yes</span>
-									<span class="label label-warning" v-else>No</span>
+									<span class="label label-success" v-if="product.is_sale == 1">Có</span>
+									<span class="label label-warning" v-else>Không</span>
 								</td>
 								<td>
-									<span class="label label-success" v-if="product.is_new == 1">Yes</span>
-									<span class="label label-warning" v-else>No</span>
+									<span class="label label-success" v-if="product.is_new == 1">Có</span>
+									<span class="label label-warning" v-else>Không</span>
 								</td>
 								<td>
-									<span class="label label-success" v-if="product.is_hot == 1">Yes</span>
-									<span class="label label-warning" v-else>No</span>
+									<span class="label label-success" v-if="product.is_hot == 1">Có</span>
+									<span class="label label-warning" v-else>Không</span>
 								</td>
 								<td>
-									<span class="label label-success" v-if="product.display == 1">Display</span>
-									<span class="label label-warning" v-else>None</span>
+									<span class="label label-success" v-if="product.display == 1">Hiển thị</span>
+									<span class="label label-warning" v-else>Không hiển thị</span>
 								</td>
 								<td>{{ product.vendor_name }}</td>
 								<td>
-									<router-link :to="{ name: 'ProductEdit', params:{id: product.product_id} }"><span class="glyphicon glyphicon-pencil"></span> <a>Edit</a></router-link> |
-									<button class="btn btn-link m-0 p-0" @click="deleteProduct(product.product_id, index)"><span class="glyphicon glyphicon-trash"></span> Delete</button> |
-									<router-link :to="{name: 'ProductDetail', params: {id: product.product_id} }"><span class="glyphicon glyphicon-eye-open"></span> Detail</router-link>
+									<router-link :to="{ name: 'ProductEdit', params:{id: product.product_id} }"><span class="glyphicon glyphicon-pencil"></span> <a>Sửa</a></router-link> |
+									<button class="btn btn-link m-0 p-0" @click="deleteProduct(product.product_id, index)"><span class="glyphicon glyphicon-trash"></span> Xóa</button> |
+									<router-link :to="{name: 'ProductDetail', params: {id: product.product_id} }"><span class="glyphicon glyphicon-eye-open"></span> Chi tiết</router-link>
 								</td>
 							</tr>
 						</tbody>

@@ -40,7 +40,7 @@ export default {
 	},
 
 	created () {
-		document.title = 'Product List';
+		document.title = 'Danh sách sản phẩm';
 	},
 
 	mounted: function () {
@@ -150,14 +150,14 @@ export default {
 		addProductToGroup () {
 			var vm = this;
 			var url = baseUrl + 'product-collections';
-			
+
 			axios.post(url, {
 				product_id: vm.checkproduct,
 				pg_id: vm.choose_group,
 			}).then(function (response) {
 				var result = response.data;
 				Common.setToast(result.message, result.status);
-				
+
 				vm.getProductGroup();
 			}).catch(function (errors) {
 				console.log('errors');
