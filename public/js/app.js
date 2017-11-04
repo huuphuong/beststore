@@ -45725,6 +45725,10 @@ if (false) {(function () {
 //
 //
 //
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["a"] = ({
     name: 'sidebar'
@@ -45761,9 +45765,13 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
         name: 'RoleCreate'
       }
     }
-  }, [_c('a', [_c('i', {
+  }, [_c('a', {
+    attrs: {
+      "title": "Bảng điều khiển"
+    }
+  }, [_c('i', {
     staticClass: "fi-air-play"
-  }), _vm._v(" Bảng điều khiển")])]), _vm._v(" "), _c('li', [_vm._m(0), _vm._v(" "), _c('ul', {
+  }), _vm._v(" "), _c('span', [_vm._v("Bảng điều khiển")])])]), _vm._v(" "), _c('li', [_vm._m(0), _vm._v(" "), _c('ul', {
     staticClass: "nav-second-level nav"
   }, [_c('router-link', {
     attrs: {
@@ -45894,6 +45902,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
 var staticRenderFns = [function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('a', {
     attrs: {
+      "title": "Quyền hạn",
       "href": "javascript: void(0);"
     }
   }, [_c('i', {
@@ -45904,6 +45913,7 @@ var staticRenderFns = [function () {var _vm=this;var _h=_vm.$createElement;var _
 },function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('a', {
     attrs: {
+      "title": "Người dùng",
       "href": "javascript: void(0);"
     }
   }, [_c('i', {
@@ -45914,6 +45924,7 @@ var staticRenderFns = [function () {var _vm=this;var _h=_vm.$createElement;var _
 },function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('a', {
     attrs: {
+      "title": "Danh mục",
       "href": "javascript: void(0);"
     }
   }, [_c('i', {
@@ -45924,6 +45935,7 @@ var staticRenderFns = [function () {var _vm=this;var _h=_vm.$createElement;var _
 },function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('a', {
     attrs: {
+      "title": "Sản phẩm",
       "href": "javascript: void(0);"
     }
   }, [_c('i', {
@@ -45934,6 +45946,7 @@ var staticRenderFns = [function () {var _vm=this;var _h=_vm.$createElement;var _
 },function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('a', {
     attrs: {
+      "title": "Nhà cung cấp",
       "href": "javascript: void(0);"
     }
   }, [_c('i', {
@@ -45944,6 +45957,7 @@ var staticRenderFns = [function () {var _vm=this;var _h=_vm.$createElement;var _
 },function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('a', {
     attrs: {
+      "title": "Cấu hình",
       "href": "javascript: void(0);"
     }
   }, [_c('i', {
@@ -45954,6 +45968,7 @@ var staticRenderFns = [function () {var _vm=this;var _h=_vm.$createElement;var _
 },function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('li', [_c('a', {
     attrs: {
+      "title": "Thoát",
       "href": "/logout"
     }
   }, [_c('i', {

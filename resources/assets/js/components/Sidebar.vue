@@ -7,10 +7,14 @@
                 <!-- Left Menu Start -->
                 <ul class="metisMenu nav" id="side-menu">
                     <li class="menu-title">Quản lý shop</li><!-- /.header -->
-                    <router-link tag="li" :to="{ name: 'RoleCreate' }"><a><i class="fi-air-play"></i> Bảng điều khiển</a>
+                    <router-link tag="li" :to="{ name: 'RoleCreate' }">
+                        <a title="Bảng điều khiển">
+                            <i class="fi-air-play"></i>
+                            <span>Bảng điều khiển</span>
+                        </a>
                     </router-link>
                     <li>
-                        <a href="javascript: void(0);"><i class="mdi mdi-key-variant"></i>
+                        <a title="Quyền hạn" href="javascript: void(0);"><i class="mdi mdi-key-variant"></i>
                             <span>Quyền hạn</span>
                             <span class="menu-arrow"></span>
                         </a>
@@ -22,7 +26,7 @@
                     </li>
 
                     <li>
-                        <a href="javascript: void(0);"><i class="mdi mdi-account-location"></i>
+                        <a title="Người dùng" href="javascript: void(0);"><i class="mdi mdi-account-location"></i>
                             <span>Người dùng</span>
                             <span class="menu-arrow"></span>
                         </a>
@@ -34,7 +38,7 @@
                     </li>
 
                     <li>
-                        <a href="javascript: void(0);"><i class=" mdi mdi-file-tree"></i>
+                        <a title="Danh mục" href="javascript: void(0);"><i class=" mdi mdi-file-tree"></i>
                             <span>Danh mục</span>
                             <span class="menu-arrow"></span>
                         </a>
@@ -46,7 +50,7 @@
                     </li>
 
                     <li>
-                        <a href="javascript: void(0);"><i class="mdi mdi-cube"></i>
+                        <a title="Sản phẩm" href="javascript: void(0);"><i class="mdi mdi-cube"></i>
                             <span>Sản phẩm</span>
                             <span class="menu-arrow"></span>
                         </a>
@@ -61,7 +65,7 @@
                     </li>
 
                     <li>
-                        <a href="javascript: void(0);"><i class="mdi mdi-account-card-details"></i>
+                        <a title="Nhà cung cấp" href="javascript: void(0);"><i class="mdi mdi-account-card-details"></i>
                             <span>Nhà cung cấp</span>
                             <span class="menu-arrow"></span>
                         </a>
@@ -72,7 +76,7 @@
                     </li>
 
                     <li>
-                        <a href="javascript: void(0);"><i class="mdi mdi-settings"></i>
+                        <a title="Cấu hình" href="javascript: void(0);"><i class="mdi mdi-settings"></i>
                             <span>Cấu hình</span>
                             <span class="menu-arrow"></span>
                         </a>
@@ -85,7 +89,7 @@
                     </li>
 
                      <li>
-                        <a href="/logout">
+                        <a title="Thoát" href="/logout">
                             <i class="mdi mdi-logout"></i>
                             <span>Thoát</span>
                         </a>
