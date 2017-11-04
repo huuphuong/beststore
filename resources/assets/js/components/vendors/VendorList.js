@@ -10,7 +10,7 @@ export default {
 	},
 
 	mounted () {
-		document.title = 'List Vendor';
+		document.title = 'Danh sách nhà cung cấp';
 		this.getVendors();
 	},
 

@@ -76150,7 +76150,7 @@ if (false) {(function () {
 		};
 	},
 	mounted: function mounted() {
-		document.title = 'List Vendor';
+		document.title = 'Danh sách nhà cung cấp';
 		this.getVendors();
 	},
 
@@ -76201,7 +76201,9 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
       "id": "root"
     }
   }, [_c('div', {
-    staticClass: "btn-group"
+    staticClass: "row"
+  }, [_c('div', {
+    staticClass: "btn-group pull-right m-r-10"
   }, [_c('router-link', {
     staticClass: "btn btn-default",
     attrs: {
@@ -76211,7 +76213,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     }
   }, [_c('span', {
     staticClass: "glyphicon glyphicon-plus"
-  }), _vm._v(" Create Vendor\n\t\t")])], 1), _vm._v(" "), _c('div', {
+  }), _vm._v(" Tạo nhà cung cấp\n\t\t\t")])], 1)]), _vm._v(" "), _c('div', {
     staticClass: "panel panel-default m-t-20"
   }, [_vm._m(0), _vm._v(" "), _c('div', {
     staticClass: "panel-body"
@@ -76233,7 +76235,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
           }
         }
       }
-    }, [_vm._v("Edit")]), _vm._v(" "), _c('button', {
+    }, [_vm._v("Sửa")]), _vm._v(" "), _c('button', {
       staticClass: "btn btn-danger",
       attrs: {
         "type": "button"
@@ -76243,7 +76245,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
           _vm.removeVendor(vendor.vendor_id, key)
         }
       }
-    }, [_vm._v("Delete")])], 1)])
+    }, [_vm._v("Xóa")])], 1)])
   }))])])])])
 }
 var staticRenderFns = [function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -76251,9 +76253,9 @@ var staticRenderFns = [function () {var _vm=this;var _h=_vm.$createElement;var _
     staticClass: "panel-heading"
   }, [_c('h3', {
     staticClass: "panel-title"
-  }, [_vm._v("List Vendor")])])
+  }, [_vm._v("Danh sách nhà cung cấp")])])
 },function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('thead', [_c('tr', [_c('th', [_vm._v("#VendorID")]), _vm._v(" "), _c('th', [_vm._v("Logo branch")]), _vm._v(" "), _c('th', [_vm._v("Vendor name")]), _vm._v(" "), _c('th', [_vm._v("Email")]), _vm._v(" "), _c('th', [_vm._v("Skype")]), _vm._v(" "), _c('th', [_vm._v("Phone")]), _vm._v(" "), _c('th', [_vm._v("Address")]), _vm._v(" "), _c('th', [_vm._v("Action")])])])
+  return _c('thead', [_c('tr', [_c('th', [_vm._v("#ID")]), _vm._v(" "), _c('th', [_vm._v("Logo")]), _vm._v(" "), _c('th', [_vm._v("Nhà cung cấp")]), _vm._v(" "), _c('th', [_vm._v("Email")]), _vm._v(" "), _c('th', [_vm._v("Skype")]), _vm._v(" "), _c('th', [_vm._v("Điện thoại")]), _vm._v(" "), _c('th', [_vm._v("Địa chỉ")]), _vm._v(" "), _c('th', [_vm._v("Hành động")])])])
 }]
 render._withStripped = true
 var esExports = { render: render, staticRenderFns: staticRenderFns }
