@@ -84,6 +84,12 @@
                         </ul>
                     </li>
 
+                     <li>
+                        <a href="/logout">
+                            <i class="mdi mdi-logout"></i>
+                            <span>Thoát</span>
+                        </a>
+                    </li>
                 </ul>
             </div>
             <!-- Sidebar -->

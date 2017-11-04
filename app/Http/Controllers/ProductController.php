@@ -182,7 +182,12 @@ class ProductController extends Controller
             $product->product_pricesale = $product_request['product_pricesale'];
             $product->product_intro     = $product_request['product_intro'];
             $product->product_content   = $product_request['product_content'];
-            $product->product_image     = $product_request['product_image'];
+
+            if (!empty ($product_request['product_image'])) {
+                $img = AppHelper::base64ImgToFile('products', $product_request['product_image']);
+                $product->product_image     = $img;
+            }
+
             $product->product_qty       = $product_request['product_qty'];
             $product->size              = !empty ($product_request['size']) ? implode(', ', $product_request['size']) : null ;
             $product->color             = !empty ($product_request['color']) ? implode(',', $product_request['color']) : null;
@@ -200,7 +205,8 @@ class ProductController extends Controller
                 try {
                     $product_image = new ProductImage();
                     $product_image->product_id = $product->product_id;
-                    $product_image->storage = $detail_request[$i]['dataURL'];
+                    $detail = AppHelper::base64ImgToFile('asset_product_detail', $detail_request[$i]['dataURL']);
+                    $product_image->storage = $detail;
                     $product_image->save();
                 }catch (\Exception $e) {
                     $message = 'Product has been updated. But product\'s image can not crated. Please try again later!';
