@@ -41,7 +41,7 @@
 							<td>{{ vendor.vendor_phone }}</td>
 							<td>{{ vendor.vendor_address}}</td>
 							<td>
-								<router-link :to="{name: 'EditVendor', params: {id: vendor.vendor_id} }" class="btn btn-default">Sửa</router-link>
+								<router-link :to="{name: 'VendorEdit', params: {id: vendor.vendor_id} }" class="btn btn-default">Sửa</router-link>
 								<button type="button" class="btn btn-danger" @click="removeVendor(vendor.vendor_id, key)">Xóa</button>
 							</td>
 						</tr>

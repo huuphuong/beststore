@@ -85,7 +85,13 @@ class VendorController extends Controller
 	 */
 	public function edit($id)
 	{
-		//
+		try {
+			$vendor = Vendor::findOrFail($id);
+			$res = Api::resourceApi(Api::$_OK, $vendor);
+		} catch (\Exception $e) {
+			$res = Api::resourceApi($e->getCode(), $e->getMessage());
+		}
+		return response()->json($res, Api::$_OK);
 	}
 
 	/**
@@ -97,7 +103,30 @@ class VendorController extends Controller
 	 */
 	public function update(Request $request, $id)
 	{
-		//
+		try {
+			$vendor = Vendor::findOrFail($id);
+			$currentImg = $vendor->vendor_images;
+
+			$vendor->vendor_name		= $request->vendor_name;
+			$vendor->vendor_shortname	= $request->vendor_shortname;
+			$vendor->vendor_email		= $request->vendor_email;
+			$vendor->vendor_skype		= $request->vendor_skype;
+			$vendor->vendor_phone		= $request->vendor_phone;
+			$vendor->vendor_address		= $request->vendor_address;
+
+			if ($request->vendor_images != $currentImg) {
+				unlink(AppHelper::removeFile('/'.self::$path.'/', $currentImg));
+				$image						= AppHelper::base64ImgToFile(self::$path, $request->vendor_images);
+				$vendor->vendor_images		= $image;
+			}
+
+			$vendor->save();
+
+			$res = Api::resourceApi(Api::$_CREATED, 'Cập nhật thông tin nhà cung cấp thành công');
+		} catch (\Exception $e) {
+			$res = Api::resourceApi($e->getCode(), $e->getMessage());
+		}
+		return response()->json($res, Api::$_OK);
 	}
 
 	/**
@@ -110,11 +139,11 @@ class VendorController extends Controller
 	{
 		try {
 			$vendor = Vendor::findOrFail($id)->delete();
-			$res = Api::resourceApi(Api::$_CREATED, 'Delete vendor has been success');	
+			$res = Api::resourceApi(Api::$_CREATED, 'Delete vendor has been success');
 		} catch (\Exception $e) {
 			$res = Api::resourceApi($e->getCode(), $e->getMessage());
 		}
-		
+
 		return response()->json($res, Api::$_OK);
 	}
 
