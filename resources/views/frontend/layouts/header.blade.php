@@ -15,7 +15,6 @@
   <!-- style -->
   <link href="{{asset('frontend/css/style.css')}}" rel="stylesheet" type="text/css" media="all" />
   <link href="{{asset('frontend/css/customize.css')}}" rel="stylesheet" type="text/css" media="all" />
-  <link rel="shortcut icon" href="http://example.com/myicon.ico" />
   <base href="{{ URL::to('/') }}" />
 </head>
 <body>

@@ -394,7 +394,7 @@
 
 
                 <div class="panel-footer">
-                    <button type="submit" class="btn btn-primary btn-lg fix-button">Update Settings</button>
+                    <button type="submit" class="btn btn-primary btn-lg fix-button">Cập nhật cấu hình</button>
                 </div>
             </form>
             <!-- /.form-group -->

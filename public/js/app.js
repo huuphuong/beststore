@@ -70376,7 +70376,7 @@ if (false) {(function () {
         };
     },
     created: function created() {
-        document.title = 'Setting';
+        document.title = 'Cấu hình';
     },
     mounted: function mounted() {
         var vm = this;
@@ -72284,7 +72284,7 @@ var staticRenderFns = [function () {var _vm=this;var _h=_vm.$createElement;var _
     attrs: {
       "type": "submit"
     }
-  }, [_vm._v("Update Settings")])])
+  }, [_vm._v("Cập nhật cấu hình")])])
 }]
 render._withStripped = true
 var esExports = { render: render, staticRenderFns: staticRenderFns }

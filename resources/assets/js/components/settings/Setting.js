@@ -67,7 +67,7 @@ export default {
     },
 
     created () {
-        document.title = 'Setting';
+        document.title = 'Cấu hình';
     },
 
     mounted () {
