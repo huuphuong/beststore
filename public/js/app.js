@@ -45703,6 +45703,22 @@ if (false) {(function () {
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["a"] = ({
     name: 'sidebar'
@@ -45782,7 +45798,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
         name: 'Category'
       }
     }
-  }, [_c('a', [_vm._v("Tao danh mục")])]), _vm._v(" "), _c('router-link', {
+  }, [_c('a', [_vm._v("Tạo danh mục")])]), _vm._v(" "), _c('router-link', {
     attrs: {
       "tag": "li",
       "to": {
@@ -45844,36 +45860,28 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
         name: 'Settings'
       }
     }
-  }, [_c('a', [_c('i', {
-    staticClass: "mdi mdi-settings"
-  }), _vm._v(" Cài đặt")])]), _vm._v(" "), _c('router-link', {
+  }, [_c('a', [_vm._v("Cài đặt")])]), _vm._v(" "), _c('router-link', {
     attrs: {
       "tag": "li",
       "to": {
         name: 'Slideshow'
       }
     }
-  }, [_c('a', [_c('i', {
-    staticClass: "mdi mdi-settings"
-  }), _vm._v(" Banner slide")])]), _vm._v(" "), _c('router-link', {
+  }, [_c('a', [_vm._v("Banner slide")])]), _vm._v(" "), _c('router-link', {
     attrs: {
       "tag": "li",
       "to": {
         name: 'Tutorial'
       }
     }
-  }, [_c('a', [_c('i', {
-    staticClass: "mdi mdi-settings"
-  }), _vm._v(" Hướng dẫn")])]), _vm._v(" "), _c('router-link', {
+  }, [_c('a', [_vm._v("Hướng dẫn")])]), _vm._v(" "), _c('router-link', {
     attrs: {
       "tag": "li",
       "to": {
         name: 'Navigation'
       }
     }
-  }, [_c('a', [_c('i', {
-    staticClass: "mdi mdi-settings"
-  }), _vm._v(" Thanh menu")])])], 1)])], 1)]), _vm._v(" "), _c('div', {
+  }, [_c('a', [_vm._v("Thanh menu")])])], 1)])], 1)]), _vm._v(" "), _c('div', {
     staticClass: "clearfix"
   })])])
 }
@@ -45883,7 +45891,7 @@ var staticRenderFns = [function () {var _vm=this;var _h=_vm.$createElement;var _
       "href": "javascript: void(0);"
     }
   }, [_c('i', {
-    staticClass: "fi-share"
+    staticClass: "mdi mdi-key-variant"
   }), _vm._v(" "), _c('span', [_vm._v("Quyền hạn")]), _vm._v(" "), _c('span', {
     staticClass: "menu-arrow"
   })])
@@ -45893,7 +45901,7 @@ var staticRenderFns = [function () {var _vm=this;var _h=_vm.$createElement;var _
       "href": "javascript: void(0);"
     }
   }, [_c('i', {
-    staticClass: "fi-share"
+    staticClass: "mdi mdi-account-location"
   }), _vm._v(" "), _c('span', [_vm._v("Người dùng")]), _vm._v(" "), _c('span', {
     staticClass: "menu-arrow"
   })])
@@ -45903,7 +45911,7 @@ var staticRenderFns = [function () {var _vm=this;var _h=_vm.$createElement;var _
       "href": "javascript: void(0);"
     }
   }, [_c('i', {
-    staticClass: "fi-share"
+    staticClass: " mdi mdi-file-tree"
   }), _vm._v(" "), _c('span', [_vm._v("Danh mục")]), _vm._v(" "), _c('span', {
     staticClass: "menu-arrow"
   })])
@@ -45913,7 +45921,7 @@ var staticRenderFns = [function () {var _vm=this;var _h=_vm.$createElement;var _
       "href": "javascript: void(0);"
     }
   }, [_c('i', {
-    staticClass: "fi-share"
+    staticClass: "mdi mdi-cube"
   }), _vm._v(" "), _c('span', [_vm._v("Sản phẩm")]), _vm._v(" "), _c('span', {
     staticClass: "menu-arrow"
   })])
@@ -45923,7 +45931,7 @@ var staticRenderFns = [function () {var _vm=this;var _h=_vm.$createElement;var _
       "href": "javascript: void(0);"
     }
   }, [_c('i', {
-    staticClass: "fi-share"
+    staticClass: "mdi mdi-account-card-details"
   }), _vm._v(" "), _c('span', [_vm._v("Nhà cung cấp")]), _vm._v(" "), _c('span', {
     staticClass: "menu-arrow"
   })])
@@ -45933,7 +45941,7 @@ var staticRenderFns = [function () {var _vm=this;var _h=_vm.$createElement;var _
       "href": "javascript: void(0);"
     }
   }, [_c('i', {
-    staticClass: "fi-share"
+    staticClass: "mdi mdi-settings"
   }), _vm._v(" "), _c('span', [_vm._v("Cấu hình")]), _vm._v(" "), _c('span', {
     staticClass: "menu-arrow"
   })])
