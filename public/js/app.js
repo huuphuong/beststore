@@ -54049,7 +54049,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     staticClass: "btn btn-default"
   }, [_c('span', {
     staticClass: "glyphicon glyphicon-plus"
-  }), _vm._v(" Add Product \n\n\t\t\t\t")])]), _vm._v(" "), _c('router-link', {
+  }), _vm._v(" Tạo sản phẩm\n\n\t\t\t\t")])]), _vm._v(" "), _c('router-link', {
     attrs: {
       "to": {
         name: 'ProductList'
@@ -54059,7 +54059,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     staticClass: "btn btn-default"
   }, [_c('span', {
     staticClass: "glyphicon glyphicon-th-list"
-  }), _vm._v(" List Product")])]), _vm._v(" "), _c('router-link', {
+  }), _vm._v(" Danh sách sản phẩm")])]), _vm._v(" "), _c('router-link', {
     attrs: {
       "to": {
         name: 'ProductEdit'
@@ -54069,7 +54069,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     staticClass: "btn btn-default"
   }, [_c('span', {
     staticClass: "glyphicon glyphicon-pencil"
-  }), _vm._v(" Edit Product")])])], 1)]), _vm._v(" "), (_vm.product) ? _c('div', {
+  }), _vm._v(" Sửa sản phẩm")])])], 1)]), _vm._v(" "), (_vm.product) ? _c('div', {
     staticClass: "panel panel-default"
   }, [_c('div', {
     staticClass: "panel-heading"
@@ -54090,23 +54090,23 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     staticClass: "table table-hover"
   }, [_c('tr', [_c('th', {
     staticClass: "text-success"
-  }, [_vm._v("Product ID: ")]), _vm._v(" "), _c('th', [_vm._v(_vm._s(_vm.product.product_id))])]), _vm._v(" "), _c('tr', [_c('th', {
+  }, [_vm._v("Mã sản phẩm: ")]), _vm._v(" "), _c('th', [_vm._v(_vm._s(_vm.product.product_id))])]), _vm._v(" "), _c('tr', [_c('th', {
     staticClass: "text-success"
-  }, [_vm._v("Category: ")]), _vm._v(" "), _c('th', [_vm._v(_vm._s(_vm.product.cat_name))])]), _vm._v(" "), _c('tr', [_c('th', {
+  }, [_vm._v("Danh mục: ")]), _vm._v(" "), _c('th', [_vm._v(_vm._s(_vm.product.cat_name))])]), _vm._v(" "), _c('tr', [_c('th', {
     staticClass: "text-success"
-  }, [_vm._v("Product name: ")]), _vm._v(" "), _c('th', [_vm._v(_vm._s(_vm.product.product_name))])]), _vm._v(" "), _c('tr', [_c('th', {
+  }, [_vm._v("Tên sản phẩm: ")]), _vm._v(" "), _c('th', [_vm._v(_vm._s(_vm.product.product_name))])]), _vm._v(" "), _c('tr', [_c('th', {
     staticClass: "text-success"
-  }, [_vm._v("Price: ")]), _vm._v(" "), _c('th', [_vm._v(_vm._s(_vm.product.product_price))])]), _vm._v(" "), _c('tr', [_c('th', {
+  }, [_vm._v("Giá: ")]), _vm._v(" "), _c('th', [_vm._v(_vm._s(_vm.product.product_price))])]), _vm._v(" "), _c('tr', [_c('th', {
     staticClass: "text-success"
-  }, [_vm._v("Price Sale: ")]), _vm._v(" "), _c('th', [_vm._v(_vm._s(_vm.product.product_pricesale))])]), _vm._v(" "), _c('tr', [_c('th', {
+  }, [_vm._v("Giá đã sale: ")]), _vm._v(" "), _c('th', [_vm._v(_vm._s(_vm.product.product_pricesale))])]), _vm._v(" "), _c('tr', [_c('th', {
     staticClass: "text-success"
-  }, [_vm._v("View: ")]), _vm._v(" "), _c('th', [_vm._v(_vm._s(_vm.product.product_view))])]), _vm._v(" "), _c('tr', [_c('th', {
+  }, [_vm._v("Số lượt xem: ")]), _vm._v(" "), _c('th', [_vm._v(_vm._s(_vm.product.product_view))])]), _vm._v(" "), _c('tr', [_c('th', {
     staticClass: "text-success"
-  }, [_vm._v("Quantity: ")]), _vm._v(" "), _c('th', [_vm._v(_vm._s(_vm.product.product_qty))])]), _vm._v(" "), _c('tr', [_c('th', {
+  }, [_vm._v("Số lượng sản phẩm: ")]), _vm._v(" "), _c('th', [_vm._v(_vm._s(_vm.product.product_qty))])]), _vm._v(" "), _c('tr', [_c('th', {
     staticClass: "text-success"
-  }, [_vm._v("Size: ")]), _vm._v(" "), _c('th', [_vm._v(_vm._s(_vm.product.size))])]), _vm._v(" "), _c('tr', [_c('th', {
+  }, [_vm._v("Kích thước: ")]), _vm._v(" "), _c('th', [_vm._v(_vm._s(_vm.product.size))])]), _vm._v(" "), _c('tr', [_c('th', {
     staticClass: "text-success"
-  }, [_vm._v("Color: ")]), _vm._v(" "), _c('th', [_c('ul', {
+  }, [_vm._v("Màu sắc: ")]), _vm._v(" "), _c('th', [_c('ul', {
     staticClass: "list-unstyled list-inline"
   }, _vm._l((_vm.product.color), function(color, index) {
     return _c('li', [_c('span', {
@@ -54117,27 +54117,27 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     })])
   }))])]), _vm._v(" "), _c('tr', [_c('th', {
     staticClass: "text-success"
-  }, [_vm._v("Is new:")]), _vm._v(" "), _c('th', [_vm._v(_vm._s(_vm.product.is_new == 1 ? 'Yes' : 'No'))])]), _vm._v(" "), _c('tr', [_c('th', {
+  }, [_vm._v("Sản phẩm mới?:")]), _vm._v(" "), _c('th', [_vm._v(_vm._s(_vm.product.is_new == 1 ? 'Có' : 'Không'))])]), _vm._v(" "), _c('tr', [_c('th', {
     staticClass: "text-success"
-  }, [_vm._v("Is hot:")]), _vm._v(" "), _c('th', [_vm._v(_vm._s(_vm.product.is_hot == 1 ? 'Yes' : 'No'))])]), _vm._v(" "), _c('tr', [_c('th', {
+  }, [_vm._v("Sản phẩm hot:")]), _vm._v(" "), _c('th', [_vm._v(_vm._s(_vm.product.is_hot == 1 ? 'Có' : 'Không'))])]), _vm._v(" "), _c('tr', [_c('th', {
     staticClass: "text-success"
-  }, [_vm._v("Is sale:")]), _vm._v(" "), _c('th', [_vm._v(_vm._s(_vm.product.is_sale == 1 ? 'Yes' : 'No'))])]), _vm._v(" "), _c('tr', [_c('th', {
+  }, [_vm._v("Sản phẩm sale?:")]), _vm._v(" "), _c('th', [_vm._v(_vm._s(_vm.product.is_sale == 1 ? 'Có' : 'Không'))])]), _vm._v(" "), _c('tr', [_c('th', {
     staticClass: "text-success"
-  }, [_vm._v("Display:")]), _vm._v(" "), _c('th', [(_vm.product.display == 1) ? _c('span', {
+  }, [_vm._v("Hiển thị:")]), _vm._v(" "), _c('th', [(_vm.product.display == 1) ? _c('span', {
     staticClass: "label label-success"
-  }, [_vm._v("Display")]) : _c('span', {
+  }, [_vm._v("Hiển thị")]) : _c('span', {
     staticClass: "label label-warning"
-  }, [_vm._v("None")])])]), _vm._v(" "), _c('tr', [_c('th', {
+  }, [_vm._v("Không hiển thị")])])]), _vm._v(" "), _c('tr', [_c('th', {
     staticClass: "text-success"
-  }, [_vm._v("Vendor:")]), _vm._v(" "), _c('th', [_vm._v(_vm._s(_vm.product.vendor_name))])]), _vm._v(" "), _c('tr', [_c('th', {
+  }, [_vm._v("Nhà cung cấp:")]), _vm._v(" "), _c('th', [_vm._v(_vm._s(_vm.product.vendor_name))])]), _vm._v(" "), _c('tr', [_c('th', {
     staticClass: "text-success"
-  }, [_vm._v("Created at: ")]), _vm._v(" "), _c('th', [_vm._v(_vm._s(_vm.product.created_at))])]), _vm._v(" "), _c('tr', [_c('th', {
+  }, [_vm._v("Tạo lúc: ")]), _vm._v(" "), _c('th', [_vm._v(_vm._s(_vm.product.created_at))])]), _vm._v(" "), _c('tr', [_c('th', {
     staticClass: "text-success"
-  }, [_vm._v("Updated at: ")]), _vm._v(" "), _c('th', [_vm._v(_vm._s(_vm.product.updated_at))])]), _vm._v(" "), _c('tr', [_c('th', {
+  }, [_vm._v("Cập nhật lúc: ")]), _vm._v(" "), _c('th', [_vm._v(_vm._s(_vm.product.updated_at))])]), _vm._v(" "), _c('tr', [_c('th', {
     staticClass: "text-success"
-  }, [_vm._v("Deleted at: ")]), _vm._v(" "), _c('th', [_vm._v(_vm._s(_vm.product.deleted_at != null ? _vm.product.deleted_at : 'Sản phẩm này chưa bị xóa.'))])])])])]), _vm._v(" "), (_vm.product.image_list) ? _c('div', {
+  }, [_vm._v("Xóa lúc: ")]), _vm._v(" "), _c('th', [_vm._v(_vm._s(_vm.product.deleted_at != null ? _vm.product.deleted_at : 'Sản phẩm này chưa bị xóa.'))])])])])]), _vm._v(" "), (_vm.product.image_list) ? _c('div', {
     staticClass: "panel-body"
-  }, [_c('legend', [_vm._v("Image detail (for zoom product)")]), _vm._v(" "), _vm._l((_vm.product.image_list), function(image) {
+  }, [_c('legend', [_vm._v("Ảnh chi tiết của sản phẩm")]), _vm._v(" "), _vm._l((_vm.product.image_list), function(image) {
     return _c('div', {
       staticClass: "col-sm-2"
     }, [_c('img', {
@@ -54150,14 +54150,14 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
     staticClass: "panel panel-default"
   }, [_vm._m(0), _vm._v(" "), _c('div', {
     staticClass: "panel-body"
-  }, [_vm._v("\n\t\t\tNo data\n\t\t")])])])
+  }, [_vm._v("\n\t\t\tKhông có dữ liệu\n\t\t")])])])
 }
 var staticRenderFns = [function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('div', {
     staticClass: "panel-heading"
   }, [_c('h3', {
     staticClass: "panel-title"
-  }, [_vm._v("Product Detail")])])
+  }, [_vm._v("Chi tiết sản phẩm")])])
 }]
 render._withStripped = true
 var esExports = { render: render, staticRenderFns: staticRenderFns }
