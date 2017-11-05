@@ -1,7 +1,7 @@
 @inject('setting', 'App\Models\Setting')
 
 @php
-    $data = $setting->getSetting();
+$data = $setting->getSetting();
 @endphp
 <!-- footer -->
 <div class="footer">
@@ -27,9 +27,9 @@
           <h4>{{ $data['categories'] }}</h4>
           <ul>
             @forelse (json_decode($data['categories_item'], true) AS $slug => $page)
-              <li><a href="{!! $slug !!}">{{ $page }}</a></li>
+            <li><a href="{!! $slug !!}">{{ $page }}</a></li>
             @empty
-              <!-- No page item -->
+            <!-- No page item -->
             @endforelse
           </ul>
         </div>
@@ -57,22 +57,23 @@
 
 @include('frontend.components.login_modal')
 
-  <!-- Javascript -->
-  <script type="application/x-javascript" src="{{asset('frontend/js/url-bar.js')}}"></script>
-  <script src="https://unpkg.com/vue"></script>
-  <script src="https://cdn.jsdelivr.net/npm/vee-validate@latest/dist/vee-validate.js"></script>
-  <script src="{{ asset('js/locale_vi.js') }}"></script>
-  <script type="text/javascript" src="{{asset('frontend/js/jquery-2.1.4.min.js')}}"></script>
-  <!-- cart -->
-  <script src="{{asset('frontend/js/simpleCart.min.js')}}"></script>
-  <!-- for bootstrap working -->
-  <script type="text/javascript" src="{{asset('frontend/js/bootstrap-3.1.1.min.js')}}"></script>
-  <script src="{{asset('frontend/js/jquery.easing.min.js')}}"></script>
-  <!-- <script type="text/javascript" src="{{asset('frontend/js/pignose.layerslider.js')}}"></script> -->
-  <script src="{{asset('frontend/js/app.jquery.js')}}"></script>
-  <script src="{{asset('frontend/js/easyResponsiveTabs.js')}}" type="text/javascript"></script>
-  <script src="https://cdn.jsdelivr.net/npm/vue-resource@1.3.4"></script>
-  <script src="{{asset('frontend/js/HomeComponent.js')}}" type="text/javascript"></script>
-  <script src="{{asset('frontend/js/LoginComponent.js')}}" type="text/javascript"></script>
+</div><!--/#wrapper  -->
+
+<!-- Javascript -->
+<script type="application/x-javascript" src="{{asset('frontend/js/url-bar.js')}}"></script>
+<script src="https://unpkg.com/vue"></script>
+<script src="https://cdn.jsdelivr.net/npm/vee-validate@latest/dist/vee-validate.js"></script>
+<script src="{{ asset('js/locale_vi.js') }}"></script>
+<script type="text/javascript" src="{{asset('frontend/js/jquery-2.1.4.min.js')}}"></script>
+<!-- for bootstrap working -->
+<script type="text/javascript" src="{{asset('frontend/js/bootstrap-3.1.1.min.js')}}"></script>
+<script src="{{asset('frontend/js/jquery.easing.min.js')}}"></script>
+<script src="{{ asset('bower_components/jquerytoast/jquery.toast.js') }}"></script>
+<script src="{{asset('frontend/js/app.jquery.js')}}"></script>
+<script src="{{asset('frontend/js/easyResponsiveTabs.js')}}" type="text/javascript"></script>
+<script src="https://cdn.jsdelivr.net/npm/vue-resource@1.3.4"></script>
+<script src="{{asset('frontend/js/HomeComponent.js')}}" type="text/javascript"></script>
+<script src="{{asset('frontend/js/LoginComponent.js')}}" type="text/javascript"></script>
+<script src="{{asset('frontend/js/CartComponent.js')}}?v={{time()}}" type="text/javascript"></script>
 </body>
 </html>

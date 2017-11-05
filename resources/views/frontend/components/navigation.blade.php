@@ -89,11 +89,25 @@
           <h3>
             <div class="total">
               <i class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></i>
-              <span class="simpleCart_total"></span> (<span id="simpleCart_quantity" class="simpleCart_quantity"></span> items)
+              <span class="simpleCart_total">
+                @if (\Cart::total() > 0)
+                {{ substr(\Cart::total(), 0, strrpos(\Cart::total(), '.')) }}
+                @endif
+              </span>
+
+              @if (\Cart::count() > 0)
+                <span id="simpleCart_quantity" class="simpleCart_quantity">
+                  ( {{ \Cart::count() }} sp )
+                </span>
+
+              @else
+               <span id="simpleCart_quantity" class="simpleCart_quantity">Chưa có sản phẩm</span>
+              @endif
+
             </div>
           </h3>
         </a>
-        <p><a href="javascript:;" class="simpleCart_empty">Hủy giỏ hàng</a></p>
+        <p><a href="javascript:void(0);" class="simpleCart_empty" @click="removeCart">Hủy giỏ hàng</a></p>
       </div>
     </div>
     <div class="clearfix"></div>

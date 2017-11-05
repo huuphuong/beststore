@@ -12,7 +12,7 @@
 						<a href="{{ route('site.product.detail', [$product['product_slug'], $product['product_id']]) }}" class="link-product-add-cart">Chi tiết</a>
 					</div>
 				</div>
-				
+
 				@if (!empty ($product->product_pricesale))
 					<span class="product-new-top is-sale">
 						@php
@@ -32,7 +32,7 @@
 
 
 			<div class="item-info-product ">
-				<h4><a href="single.html">{{$product['product_name']}}</a></h4>
+				<h4><a href="{{$product['product_slug']}}">{{$product['product_name']}}</a></h4>
 				<div class="info-product-price">
 					@if (!empty ($product['product_pricesale']))
 						<span class="item_price">{{$product['product_pricesale']}}</span>
@@ -41,7 +41,7 @@
 						<span class="item_price">{{$product['product_price']}}</span>
 					@endif
 				</div>
-				<a href="#" class="btn btn-success btn-radius"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Mua hàng</a>
+				<a href="javascript:void(0)" class="btn btn-success btn-radius" @click="addToCart({{ json_encode($product) }})"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Mua hàng</a>
 				<a href="#" class="btn btn-default btn-radius"><i class="fa fa-share-alt" aria-hidden="true"></i> Chia sẻ</a>
 			</div>
 		</div>

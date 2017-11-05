@@ -41,6 +41,16 @@ Route::get('/login', ['as' => 'site.login', 'uses' => 'LoginController@index']);
 Route::post('/login', 'LoginController@postLogin');
 Route::get('/logout', 'LoginController@signout');
 
+Route::post('/addtocart', [
+	'as' => 'cart.add',
+	'uses' => 'Frontend\CartController@addToCart'
+]);
+
+Route::delete('/removecart', [
+	'as' => 'cart.remove',
+	'uses' => 'Frontend\CartController@destroyCart'
+]);
+
 Route::get('{all}', function () {
 	return view('start');
 })->where(['all' => '.*']);

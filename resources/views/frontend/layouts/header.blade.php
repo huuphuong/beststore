@@ -2,17 +2,15 @@
 <html>
 <head>
   <meta charset="UTF-8"/>
-  <title>@yield('title', 'Smart Shop | Home Page')</title>
-  <!-- for-mobile-apps -->
+  <title>@yield('title', 'Smart Shop - Cửa hàng phân phối các sản phẩm thời trang chính hãng')</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <meta name="keywords" content="" />
   <meta name="csrf-token" content="{{ csrf_token() }}">
-  <!-- //for-mobile-apps -->
   <link rel="shortcut icon" href="{{ asset('images/icon.png') }}">
   <link href="{{asset('frontend/css/bootstrap.css')}}" rel="stylesheet" type="text/css" media="all" />
-  <!-- /.Font awsome -->
-  <!-- style -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="{{ asset('bower_components/jquerytoast/jquery.toast.css') }}" />
   <link href="{{asset('frontend/css/style.css')}}" rel="stylesheet" type="text/css" media="all" />
   <link href="{{asset('frontend/css/customize.css')}}" rel="stylesheet" type="text/css" media="all" />
   <base href="{{ URL::to('/') }}" />
@@ -28,6 +26,7 @@
   }(document, 'script', 'facebook-jssdk'));
 </script>
 
-@include('frontend.components.bot')
+<div id="wrapper">
+  @include('frontend.components.bot')
 
-@include('frontend.components.navigation')
+  @include('frontend.components.navigation')
