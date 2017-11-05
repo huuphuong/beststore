@@ -27,7 +27,7 @@
 							</span>
 						</p>
 						<span class="separator"></span>
-						<a class="item_add hvr-outline-out button2" href="#">Thêm vào giỏ</a>
+						<a class="item_add hvr-outline-out button2" href="javascript:void(0);" @click="addToCart({{ json_encode($special_1) }})">Thêm vào giỏ</a>
 					</div>
 				</div>
 			</div>
@@ -65,7 +65,7 @@
 							</span>
 						</p>
 						<span class="separator"></span>
-						<a class="item_add hvr-outline-out button2" href="#">Thêm vào giỏ</a>
+						<a class="item_add hvr-outline-out button2" href="javascript:void(0);" @click="addToCart({{ json_encode($special_2) }})">Thêm vào giỏ</a>
 					</div>
 				</div>
 			</div>
@@ -87,12 +87,12 @@
 						<span class="separator"></span>
 						<p>
 							<span class="item_price">
-								{{ !empty($helper::number($special_3['product_pricesale'])) ? $special_3['product_pricesale'] : $special_2['product_price'] }}
+								{{ !empty($helper::number($special_3['product_pricesale'])) ? $special_3['product_pricesale'] : $special_3['product_price'] }}
 								 VNĐ
 							</span>
 						</p>
 						<span class="separator"></span>
-						<a class="item_add hvr-outline-out button2" href="#">Thêm vào giỏ</a>
+						<a class="item_add hvr-outline-out button2" href="javascript:void(0);" @click="addToCart({{ json_encode($special_3) }})">Thêm vào giỏ</a>
 					</div>
 				</div>
 		</div>

@@ -115,7 +115,7 @@ class VendorController extends Controller
 			$vendor->vendor_address		= $request->vendor_address;
 
 			if ($request->vendor_images != $currentImg) {
-				unlink(AppHelper::removeFile('/'.self::$path.'/', $currentImg));
+				@unlink(AppHelper::removeFile('/'.self::$path.'/', $currentImg));
 				$image						= AppHelper::base64ImgToFile(self::$path, $request->vendor_images);
 				$vendor->vendor_images		= $image;
 			}
