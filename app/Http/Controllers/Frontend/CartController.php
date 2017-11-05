@@ -39,7 +39,12 @@ class CartController extends Controller
     public function addToCart(Request $request)
     {
         try {
-            $finalPrice = !empty($request->price_sale) ? $request->price_sale : $request->price;
+            if ( !empty(AppHelper::number($request->price_sale)) ) {
+                $finalPrice = $request->price_sale;
+            }else {
+                $finalPrice = $request->price;
+            }
+
             $cart = Cart::add(
                 [
                     'id'    => $request->id,
@@ -51,7 +56,7 @@ class CartController extends Controller
 
             $cart_data = array(
                 'cart' => $cart,
-                'priceSum' => substr(Cart::total(), 0, strrpos(Cart::total(), '.')),
+                'priceSum' => substr(Cart::subtotal(), 0, strrpos(Cart::subtotal(), '.')),
                 'productCount' => Cart::count()
             );
             $res = Api::resourceApi(Api::$_OK, $cart_data);

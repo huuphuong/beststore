@@ -34,7 +34,7 @@
 			<div class="item-info-product ">
 				<h4><a href="{{$product['product_slug']}}">{{$product['product_name']}}</a></h4>
 				<div class="info-product-price">
-					@if (!empty ($product['product_pricesale']))
+					@if (!empty ($AppHelper::number($product['product_pricesale'])))
 						<span class="item_price">{{$product['product_pricesale']}}</span>
 						<del>{{$product['product_price']}}</del>
 					@else

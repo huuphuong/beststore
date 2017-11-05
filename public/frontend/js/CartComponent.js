@@ -8,7 +8,6 @@ var vm = new Vue({
 
 	methods: {
 		addToCart: function (product) {
-			console.log(product);
 			var tokenString = $('meta[name="csrf-token"]').attr('content');
 			var url = '/addtocart';
 			var quantity = $('input[name="quantity"]').val();
@@ -26,9 +25,10 @@ var vm = new Vue({
 					$('.simpleCart_total').text(result.data.priceSum);
 					$('.simpleCart_quantity').text('( ' +result.data.productCount+ ' sp )');
 					var message = `Đã thêm sản phẩm "${result.data.cart.name}" vào giỏ hàng.`;
-					return showToast(message);
+					return showToast(message, 'Thành công', 'success');
 				}
 			}).catch(function (errors) {
+				return showToast(message, 'Thất bại', 'error');
 				console.log(errors);
 			});
 		},

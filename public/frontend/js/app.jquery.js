@@ -22,12 +22,12 @@ $(document).ready(function () {
 });
 
 
-function showToast (myText, myHeading='Thông báo')
+function showToast (myText, myHeading='Thông báo', myType='success')
 {
 	return $.toast({
 	    text: myText, // Text that is to be shown in the toast
 	    heading: myHeading, // Optional heading to be shown on the toast
-	    icon: 'success', // Type of toast icon
+	    icon: myType, // Type of toast icon
 	    showHideTransition: 'slide', // fade, slide or plain
 	    allowToastClose: true, // Boolean value true or false
 	    hideAfter: 5000, // false to make it sticky or number representing the miliseconds as time after which toast needs to be hidden

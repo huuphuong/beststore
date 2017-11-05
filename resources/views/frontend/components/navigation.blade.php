@@ -90,8 +90,8 @@
             <div class="total">
               <i class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></i>
               <span class="simpleCart_total">
-                @if (\Cart::total() > 0)
-                {{ substr(\Cart::total(), 0, strrpos(\Cart::total(), '.')) }}
+                @if (\Cart::subtotal() > 0)
+                {{ substr(\Cart::subtotal(), 0, strrpos(\Cart::subtotal(), '.')) }}
                 @endif
               </span>
 
