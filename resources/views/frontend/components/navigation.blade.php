@@ -47,7 +47,7 @@
                           <ul class="multi-column-dropdown">
                             @for ($i=0, $count = count($child_data); $i<$count; $i++)
                                 @if ($i <= 6)
-                                <li><a href="{{ $child_data[$i]->url }}">{{ $child_data[$i]->text_link }}</a></li>
+                                <li><a href="{{ route('site.category', $child_data[$i]->url) }}">{{ $child_data[$i]->text_link }}</a></li>
                                     @php
                                       unset($child_data[$i]);
                                     @endphp

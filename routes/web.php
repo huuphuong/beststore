@@ -51,6 +51,11 @@ Route::delete('/removecart', [
 	'uses' => 'Frontend\CartController@destroyCart'
 ]);
 
+Route::get('{category}', [
+	'as' => 'site.category',
+	'uses' => 'Frontend\CategoryController@categories'
+]);
+
 Route::get('{all}', function () {
 	return view('start');
 })->where(['all' => '.*']);
