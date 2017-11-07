@@ -14,6 +14,7 @@ export default {
 			position: [],
 			cat: {
 				parent_cat_id: '',
+				cat_name: '',
 				display: 1,
 				position: 1,
 				cat_desc: '',
@@ -62,8 +63,10 @@ export default {
 		onSubmit () {
 			var vm = this;
 			var url = baseUrl + 'categories';
+			var dropzone = vm.$refs.myDropzone.dropzone.files;
 			axios.post(url, {
-				category: vm.cat
+				category: vm.cat,
+				files: dropzone
 			}).then(function (response) {
 				var result = response.data;
 				if (result.status == Common.statusCode._CREATED) {

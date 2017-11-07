@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Category;
+use App\Models\CategoryImage;
 use App\Api;
 use App\Helpers\AppHelper;
 
@@ -66,20 +67,29 @@ class CategoryController extends Controller
         try {
             $post_data = $request->all()['category'];
             $category = new Category();
-            $category->cat_name      = $post_data['cat_name'];
-            $category->cat_slug      = str_slug($post_data['cat_name']);
-            $category->cat_desc      = $post_data['cat_desc'];
-            $category->display       = $post_data['display'];
-            $category->position      = $post_data['position'];
-            $category->parent_cat_id = $post_data['parent_cat_id'];
-            $category->seo_title     = $post_data['seo_title'];
-            $category->seo_keyword   = $post_data['seo_keyword'];
-            $category->seo_desc      = $post_data['seo_desc'];
-            $category->seo_robot     = $post_data['seo_robot'];
-            $category->seo_revisit   = $post_data['seo_revisit'];
-            $category->seo_copyright = $post_data['seo_copyright'];
+            $category->cat_name       = $post_data['cat_name'];
+            $category->cat_slug       = str_slug($post_data['cat_name']);
+            $category->cat_desc       = $post_data['cat_desc'];
+            $category->display        = $post_data['display'];
+            $category->position       = $post_data['position'];
+            $category->parent_cat_id  = $post_data['parent_cat_id'];
+            $category->seo_title      = $post_data['seo_title'];
+            $category->seo_keyword    = $post_data['seo_keyword'];
+            $category->seo_desc       = $post_data['seo_desc'];
+            $category->seo_robot      = $post_data['seo_robot'];
+            $category->seo_revisit    = $post_data['seo_revisit'];
+            $category->seo_copyright  = $post_data['seo_copyright'];
+            $category->title_slider   = $post_data['title_slider'];
+            $category->content_slider = $post_data['content_slider'];
             $category->save();
 
+            $images = $request->all()['files'];
+            foreach ($images AS $img) {
+                CategoryImage::create([
+                  'cat_id' => $category->cat_id,
+                  'storage' => AppHelper::base64ImgToFile('asset_category', $img['dataURL'])
+                ]);
+            }
             $res = Api::resourceApi(Api::$_CREATED, $category);
         } catch (Exception $e) {
             $message = 'Can not create new category';
