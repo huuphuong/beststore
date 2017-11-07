@@ -13,7 +13,7 @@
 						<li class="resp-tab-item" aria-controls="tab_item-{{$k}}" role="tab"><span>{{$pg->pg_name}}</span></li>
 						@endforeach
 					</ul>
-					<div class="resp-tabs-container">
+					<div class="resp-tabs-container" id="wrapper">
 						@include('frontend.components.product_easy_block', ['products' => $data[1]])
 						@include('frontend.components.product_easy_block', ['products' => $data[2]])
 						@include('frontend.components.product_easy_block', ['products' => $data[3]])

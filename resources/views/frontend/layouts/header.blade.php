@@ -26,7 +26,6 @@
   }(document, 'script', 'facebook-jssdk'));
 </script>
 
-<div id="wrapper">
   @include('frontend.components.bot')
 
   @include('frontend.components.navigation')

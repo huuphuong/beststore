@@ -57,8 +57,6 @@ $data = $setting->getSetting();
 
 @include('frontend.components.login_modal')
 
-</div><!--/#wrapper  -->
-
 <!-- Javascript -->
 <script type="application/x-javascript" src="{{asset('frontend/js/url-bar.js')}}"></script>
 <script src="https://unpkg.com/vue"></script>
