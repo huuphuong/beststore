@@ -1,15 +1,16 @@
 import VModal from 'vue-js-modal'
 import Recusive from '../shared/Recusive.vue'
 import Common from '../../Common'
+import Dropzone from 'vue2-dropzone';
 
 export default {
 	name: 'category',
 
-	components: { VModal, Recusive },
+	components: { VModal, Recusive, Dropzone },
 
 	data () {
 		return {
-
+			uploadUrl: '/products/upload',
 			position: [],
 			cat: {
 				parent_cat_id: '',
@@ -21,7 +22,10 @@ export default {
 				seo_desc: '',
 				seo_robot: '',
 				seo_revisit: '',
-				seo_copyright: ''
+				seo_copyright: '',
+				title_slider: '',
+				content_slider: '',
+				images_slider: ''
 			}
 		}
 	},

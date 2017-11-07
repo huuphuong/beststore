@@ -51,7 +51,7 @@ Route::delete('/removecart', [
 	'uses' => 'Frontend\CartController@destroyCart'
 ]);
 
-Route::get('{category}', [
+Route::get('{category}.htm', [
 	'as' => 'site.category',
 	'uses' => 'Frontend\CategoryController@categories'
 ]);

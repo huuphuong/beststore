@@ -52,12 +52,42 @@
 								<label for="">Ghi chú (không bắt buộc):</label>
 								<textarea class="form-control" v-model="cat.cat_desc"></textarea>
 							</div>
-
+							
 						</div><!-- /.panel-body -->
+					</div>
+					
+					<!-- Slider -->
+					<div class="panel panel-default">
+						<div class="panel-heading">
+							<h3 class="panel-title">Slider</h3>
+						</div>
+						<div class="panel-body">
+							<div class="form-group">
+								<label for="">Tiêu đề giới thiệu:</label>
+								<input type="text" name="title_slider" class="form-control" v-model="cat.title_slider" v-validate="'required'" data-vv-as="Tiêu đề giới thiệu">
+								<span class="label label-danger" v-show="errors.has('title_slider')">{{ errors.first('title_slider') }}</span>
+							</div>
 
-						<div class="panel-footer">
-							<button type="button" class="btn btn-default">Hủy bỏ</button>
-							<button type="submit" class="btn btn-primary">Tạo danh mục</button>
+							<div class="form-group">
+								<label for="">Nội dung giới thiệu:</label>
+								<textarea name="content_slider" class="form-control" v-validate="'required'" data-vv-as="Nội dung giới thiệu" v-model="cat.content_slider"></textarea>
+								<span class="label label-danger" v-show="errors.has('content_slider')">{{ errors.first('content_slider') }}</span>
+							</div>
+
+							<div class="form-group">
+								<label for="">Hình ảnh slide(750x365 pixels, tối đa 10 hình ảnh, mỗi hình ảnh không quá 1MB):</label>
+								<dropzone id="myVueDropzone"
+									v-bind:url="uploadUrl"
+									:maxFileSizeInMB="1"
+									:showRemoveLink="true"
+									:duplicateCheck="true"
+									:acceptedFileTypes="'image/*'"
+									:maxNumberOfFiles="10"
+									ref="myDropzone"
+									v-model="cat.images_slider"
+								>
+								</dropzone>
+							</div>
 						</div>
 					</div>
 				</div><!-- /.col-sm-7 -->
@@ -100,6 +130,11 @@
 								</div>
 							</div>
 						</div>
+					</div>
+
+					<div>
+						<button type="button" class="btn btn-default">Hủy bỏ</button>
+						<button type="submit" class="btn btn-primary">Tạo danh mục</button>
 					</div>
 				</div>
 			</div><!-- /.row -->
