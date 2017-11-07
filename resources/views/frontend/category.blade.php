@@ -10,7 +10,7 @@
 	</div>
 </div>
 
-<div class="men-wear">
+<div class="men-wear" id="category-wrapper">
 	<div class="container">
 		<div class="col-md-4 products-left">
 			<div class="filter-price">

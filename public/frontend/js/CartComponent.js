@@ -1,5 +1,5 @@
 var vm = new Vue({
-	el: '#wrapper',
+	el: '#wrapper, #category-wrapper',
 
 	data: {
 		statusOK: 200,
