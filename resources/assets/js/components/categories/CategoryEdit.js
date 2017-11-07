@@ -1,18 +1,24 @@
 import VModal from 'vue-js-modal'
 import Recusive from '../shared/Recusive.vue'
 import Common from '../../Common'
+import Dropzone from 'vue2-dropzone';
 
 export default {
 	name: 'category',
 
-	components: { VModal, Recusive },
+	components: { VModal, Recusive, Dropzone },
 
 	data () {
 		return {
-			
+			uploadUrl: '/products/upload',
 			position: [],
 			cat: {
 				parent_cat_id: ''
+			},
+
+			close: {
+				right: '-3px',
+				top: '-20px'
 			}
 		}
 	},
@@ -66,8 +72,10 @@ export default {
 			var vm = this;
 			let id = vm.$route.params.id;
 			var url = baseUrl + 'categories/' + id;
+			var dropzone = vm.$refs.myDropzone.dropzone.files;
 			axios.put(url, {
-				category: vm.cat
+				category: vm.cat,
+				files: dropzone,
 			}).then(function (response) {
 				var result = response.data;
 				if (result.status == Common.statusCode._CREATED) {
@@ -79,6 +87,25 @@ export default {
 			}).catch(function (errors) {
 				console.log(errors);
 			});
+		},
+
+
+		removeImage (imageId, key) {
+			var confirmDelete = confirm('Bạn muốn xóa slider này?');
+
+			if (confirmDelete) {
+				var vm = this;
+				var url = baseUrl + 'categories_images/' + imageId;
+				axios.delete(url).then(function (response) {
+					var result = response.data;
+					if (result.status == Common.statusCode._CREATED)
+					{
+						vm.cat.images.splice(key, 1);
+					}
+				}).catch (function (errors) {
+					console.log(errors);
+				});
+			}
 		}
 	}, // End method
 } // End class

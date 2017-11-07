@@ -156,6 +156,8 @@ class CategoryController extends Controller
     public function edit($id)
     {
         $category = Category::findOrFail($id);
+        $category->images = CategoryImage::where('cat_id', $id)
+                                         ->get();
         $res = Api::resourceApi(Api::$_OK, $category);
         return response()->json($res, Api::$_OK);
     }
@@ -184,8 +186,18 @@ class CategoryController extends Controller
             $category->seo_robot     = $post_data['seo_robot'];
             $category->seo_revisit   = $post_data['seo_revisit'];
             $category->seo_copyright = $post_data['seo_copyright'];
+            $category->title_slider   = $post_data['title_slider'];
+            $category->content_slider = $post_data['content_slider'];
             $category->save();
 
+            $images = $request->all()['files'];
+            foreach ($images AS $img) {
+                CategoryImage::create([
+                  'cat_id' => $id,
+                  'storage' => AppHelper::base64ImgToFile('asset_category', $img['dataURL'])
+                ]);
+            }
+            
             $res = Api::resourceApi(Api::$_CREATED, $category);
         } catch (Exception $e) {
             $message = 'Can not updatecategory';

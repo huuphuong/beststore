@@ -23,6 +23,7 @@ Route::group(['prefix' => 'v1'], function() {
 	Route::get('/categories/positions', 'CategoryController@countPosition');
 	Route::get('/categories/list', 'CategoryController@getList');
 	Route::resource('categories', 'CategoryController');
+    Route::resource('categories_images', 'CategoryImageController');
 	Route::resource('colors', 'ColorController');
 	Route::resource('sizes', 'SizeController');
 	Route::resource('roles', 'RoleController');
