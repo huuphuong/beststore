@@ -95,6 +95,28 @@
 							<td v-else>Danh mục này chưa bị xóa.</td>
 						</tr>
 					</tbody>
+
+					<h3 class="m-t-20">Slider</h3>
+					<tbody>
+						<tr>
+							<th>Tiêu đề slide:</th>
+							<td>{{ category.title_slider }}</td>
+						</tr>
+
+						<tr>
+							<th>Nội dung slide:</th>
+							<td>{{ category.content_slider }}</td>
+						</tr>
+
+						<tr>
+							<th>Hình ảnh slide:</th>
+							<td></td>
+						</tr>
+						
+						<div v-for="image in category.images" class="col-sm-4 m-t-20">
+							<img v-bind:src="image.storage" class="img-responsive" width="50%" height="50%">
+						</div>
+					</tbody>
 				</table>
 			</div>
 

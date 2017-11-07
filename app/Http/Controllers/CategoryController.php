@@ -134,6 +134,10 @@ class CategoryController extends Controller
             {
               $category->parent_cat_id = '';
             }
+
+            $category->images = CategoryImage::where('cat_id', $id)
+                                             ->select('storage')
+                                             ->get();
             $res = Api::resourceApi(Api::$_OK, $category);
         } catch (\Exception $e) {
             $message = 'No data';
